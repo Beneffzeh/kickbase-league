@@ -4,161 +4,202 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Kickbase League</title>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-body{
 
-background:#111;
-
-color:white;
-
+body {
+    background: #0b0b0f;
+    color: white;
 }
 
-header{
 
-background:#18c55b;
+/* Kopfbereich */
 
-padding:35px;
+header {
 
-text-align:center;
+    background: linear-gradient(
+        135deg,
+        #111,
+        #18c55b
+    );
 
-}
-
-header h1{
-
-font-size:38px;
-
-}
-
-header p{
-
-margin-top:10px;
+    padding: 50px 20px;
+    text-align: center;
 
 }
 
-nav{
 
-background:#1c1c1c;
+header h1 {
 
-display:flex;
-
-overflow:auto;
+    font-size: 42px;
+    letter-spacing: 2px;
 
 }
 
-nav a{
 
-color:white;
+header p {
 
-text-decoration:none;
-
-padding:18px;
-
-white-space:nowrap;
+    margin-top: 15px;
+    font-size: 18px;
 
 }
 
-nav a:hover{
 
-background:#18c55b;
+/* Navigation */
 
-}
+nav {
 
-.hero{
-
-padding:40px;
-
-text-align:center;
+    background: #151515;
+    display: flex;
+    overflow-x: auto;
 
 }
 
-.hero h2{
 
-font-size:32px;
+nav a {
 
-margin-bottom:20px;
-
-}
-
-.hero p{
-
-font-size:18px;
-
-color:#ddd;
+    color: white;
+    text-decoration: none;
+    padding: 18px;
+    white-space: nowrap;
 
 }
 
-.karten{
 
-display:grid;
+nav a:hover {
 
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:20px;
-
-padding:30px;
+    background: #18c55b;
 
 }
 
-.karte{
 
-background:#1d1d1d;
+/* Hauptbereich */
 
-border-radius:15px;
+.hero {
 
-padding:25px;
-
-text-align:center;
-
-transition:.3s;
+    padding: 40px 20px;
+    text-align: center;
 
 }
 
-.karte:hover{
 
-transform:translateY(-5px);
+.hero h2 {
 
-background:#18c55b;
+    font-size: 32px;
+    margin-bottom: 15px;
+
+}
+
+
+.hero p {
+
+    color: #cccccc;
 
 }
 
-footer{
 
-text-align:center;
+/* Karten */
 
-padding:30px;
+.container {
 
-margin-top:30px;
-
-background:#1c1c1c;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    padding:25px;
 
 }
+
+
+.card {
+
+    background:#181818;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    border:1px solid #333;
+
+}
+
+
+.card h2 {
+
+    font-size:40px;
+
+}
+
+
+.card h3 {
+
+    margin:15px 0;
+
+}
+
+
+.card:hover {
+
+    transform:translateY(-5px);
+    border-color:#18c55b;
+
+}
+
+
+/* Saison */
+
+.saison {
+
+    margin:20px;
+    padding:25px;
+    background:#151515;
+    border-radius:20px;
+
+}
+
+
+footer {
+
+    margin-top:40px;
+    padding:25px;
+    text-align:center;
+    background:#151515;
+
+}
+
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <header>
 
-<h1>⚽ Kickbase League</h1>
+<h1>⚽ KICKBASE LEAGUE</h1>
 
-<p>Die Fantasy-Liga mit Meisterschaft, Aufstieg und Pokal</p>
+<p>
+Die Fantasy-Liga mit Meisterschaft,
+Aufstieg und Pokal
+</p>
+
+<p>
+Saison 2026/27
+</p>
 
 </header>
+
+
 
 <nav>
 
@@ -182,63 +223,110 @@ background:#1c1c1c;
 
 </nav>
 
+
+
 <section class="hero">
 
-<h2>Willkommen!</h2>
+<h2>Willkommen in der Kickbase League</h2>
 
-<p>Willkommen auf der offiziellen Website unserer Kickbase League.</p>
+<p>
+Die Heimat unserer Fantasy-Fußballliga.
+</p>
 
 </section>
 
-<section class="karten">
 
-<div class="karte">
+
+<section class="container">
+
+
+<div class="card">
 
 <h2>🏆</h2>
 
 <h3>Champions League</h3>
 
-<p>Die höchste Spielklasse.</p>
+<p>
+Die höchste Spielklasse unserer Liga.
+</p>
 
 </div>
 
-<div class="karte">
+
+
+<div class="card">
 
 <h2>🥈</h2>
 
 <h3>Kreisliga</h3>
 
-<p>Hier kämpfen die Manager um den Aufstieg.</p>
+<p>
+Die zweite Liga mit Aufstiegskampf.
+</p>
 
 </div>
 
-<div class="karte">
+
+
+<div class="card">
 
 <h2>🏅</h2>
 
 <h3>Kickbase-Pokal</h3>
 
-<p>Der Pokalwettbewerb aller Manager.</p>
+<p>
+Der große Pokalwettbewerb.
+</p>
 
 </div>
 
-<div class="karte">
 
-<h2>⭐</h2>
+
+<div class="card">
+
+<h2>👑</h2>
 
 <h3>Hall of Fame</h3>
 
-<p>Alle Meister und Rekorde.</p>
+<p>
+Alle Meister und Legenden.
+</p>
 
 </div>
 
+
 </section>
+
+
+
+<section class="saison">
+
+<h2>Aktuelle Saison</h2>
+
+<br>
+
+<p>
+🏆 Champions League Meister: folgt
+</p>
+
+<p>
+🥈 Kreisliga Meister: folgt
+</p>
+
+<p>
+🏅 Pokalsieger: folgt
+</p>
+
+</section>
+
+
 
 <footer>
 
-© 2027 Kickbase League
+© Kickbase League
 
 </footer>
+
 
 </body>
 
