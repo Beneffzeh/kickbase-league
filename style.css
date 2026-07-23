@@ -1,0 +1,207 @@
+/* Grunddesign */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body {
+
+    background: #080b12;
+    color: white;
+
+}
+
+
+/* Kopfbereich */
+
+header {
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.65),
+        rgba(0,0,0,0.65)
+    ),
+    linear-gradient(
+        135deg,
+        #0b0b0b,
+        #18c55b
+    );
+
+    padding: 60px 20px;
+    text-align: center;
+
+}
+
+
+header h1 {
+
+    font-size: 42px;
+    letter-spacing: 3px;
+
+}
+
+
+header p {
+
+    margin-top: 15px;
+    color: #e5e5e5;
+    font-size: 18px;
+
+}
+
+
+/* Navigation */
+
+nav {
+
+    background: #11151c;
+    display: flex;
+    overflow-x: auto;
+    border-bottom: 2px solid #18c55b;
+
+}
+
+
+nav a {
+
+    color:white;
+    text-decoration:none;
+    padding:18px 20px;
+    white-space:nowrap;
+
+}
+
+
+nav a:hover {
+
+    background:#18c55b;
+    color:#000;
+
+}
+
+
+/* Willkommen Bereich */
+
+.hero {
+
+    padding:50px 20px;
+    text-align:center;
+
+}
+
+
+.hero h2 {
+
+    font-size:32px;
+    margin-bottom:15px;
+
+}
+
+
+.hero p {
+
+    color:#bbbbbb;
+
+}
+
+
+/* Karten */
+
+.container {
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px;
+    padding:30px;
+
+}
+
+
+.card {
+
+    background:#151922;
+    border-radius:20px;
+    padding:30px;
+
+    text-align:center;
+
+    border:1px solid #252b36;
+
+    transition:0.3s;
+
+}
+
+
+.card:hover {
+
+    transform:translateY(-8px);
+
+    border-color:#18c55b;
+
+}
+
+
+.card h2 {
+
+    font-size:45px;
+
+}
+
+
+.card h3 {
+
+    margin:15px 0;
+
+}
+
+
+.card p {
+
+    color:#bbbbbb;
+
+}
+
+
+/* Saisonbox */
+
+.saison {
+
+    margin:30px;
+
+    padding:30px;
+
+    background:#151922;
+
+    border-radius:20px;
+
+    border-left:5px solid #18c55b;
+
+}
+
+
+.saison h2 {
+
+    margin-bottom:20px;
+
+}
+
+
+/* Fußzeile */
+
+footer {
+
+    margin-top:40px;
+
+    padding:30px;
+
+    text-align:center;
+
+    background:#11151c;
+
+    color:#aaa;
+
+}
