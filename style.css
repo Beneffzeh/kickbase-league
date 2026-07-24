@@ -899,3 +899,159 @@ main {
     }
 
 }
+
+/* ================================= */
+/* Hall of Fame */
+/* ================================= */
+
+.hof-header {
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.72),
+            rgba(0, 0, 0, 0.9)
+        ),
+        linear-gradient(
+            135deg,
+            #241a05,
+            #050505,
+            #3a2a08
+        );
+}
+
+.hof-crown {
+    margin-bottom: 12px;
+    font-size: 65px;
+    filter: drop-shadow(
+        0 0 14px rgba(240, 196, 78, 0.55)
+    );
+}
+
+.hof-title {
+    color: #f0c44e;
+    text-shadow:
+        0 0 15px rgba(240, 196, 78, 0.42);
+}
+
+.hof-main {
+    width: 100%;
+}
+
+.hof-intro {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 55px 25px 35px;
+    text-align: center;
+}
+
+.hof-label {
+    margin-bottom: 10px;
+    color: #f0c44e;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.hof-intro h2 {
+    margin-bottom: 15px;
+    color: #ffffff;
+    font-size: 32px;
+}
+
+.hof-intro p:last-child {
+    color: #bfc3ca;
+    line-height: 1.7;
+}
+
+.hof-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    max-width: 1100px;
+    margin: 0 auto 30px;
+    padding: 0 25px;
+}
+
+.hof-card {
+    padding: 28px;
+    background:
+        linear-gradient(
+            145deg,
+            #191919,
+            #101116
+        );
+    border: 1px solid #493c1b;
+    border-radius: 20px;
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.24);
+}
+
+.hof-card h2 {
+    margin-bottom: 22px;
+    color: #f0c44e;
+    font-size: 23px;
+}
+
+.hof-icon {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 42px;
+}
+
+.hof-table th {
+    background: #5c4716;
+    color: #ffe9a3;
+}
+
+.hof-table td {
+    color: #eeeeee;
+}
+
+.hof-record {
+    padding: 22px;
+    text-align: center;
+    background: #101218;
+    border: 1px solid #302b1c;
+    border-radius: 15px;
+}
+
+.hof-record strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.hof-record p {
+    color: #b9bec5;
+}
+
+.hof-note {
+    max-width: 1050px;
+    margin: 35px auto 60px;
+    padding: 28px;
+    background: #151922;
+    border-left: 5px solid #f0c44e;
+    border-radius: 18px;
+}
+
+.hof-note h2 {
+    margin-bottom: 12px;
+    color: #f0c44e;
+}
+
+.hof-note p {
+    color: #c1c6cd;
+    line-height: 1.7;
+}
+
+@media (max-width: 750px) {
+
+    .hof-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hof-intro h2 {
+        font-size: 27px;
+    }
+
+}
