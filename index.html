@@ -55,8 +55,6 @@
             <span>Kickbase League</span>
         </a>
 
-        <!-- Desktop-Navigation -->
-
         <div class="desktop-navigation">
 
             <a
@@ -66,38 +64,21 @@
                 Startseite
             </a>
 
-            <details class="navigation-dropdown">
+            <a href="/kickbase-league/qualifikationsligen.html">
+                Qualifikation
+            </a>
 
-                <summary>
-                    Wettbewerbe
-                    <span class="dropdown-arrow">⌄</span>
-                </summary>
+            <a href="/kickbase-league/champions-league.html">
+                Champions League
+            </a>
 
-                <div class="dropdown-menu">
+            <a href="/kickbase-league/kreisliga.html">
+                Kreisliga
+            </a>
 
-                    <a href="/kickbase-league/qualifikationsligen.html">
-                        <span>🔴</span>
-                        Qualifikationsligen
-                    </a>
-
-                    <a href="/kickbase-league/champions-league.html">
-                        <span>🏆</span>
-                        Champions League
-                    </a>
-
-                    <a href="/kickbase-league/kreisliga.html">
-                        <span>🥈</span>
-                        Kreisliga
-                    </a>
-
-                    <a href="/kickbase-league/kickbase-pokal.html">
-                        <span>🏅</span>
-                        Kickbase-Pokal
-                    </a>
-
-                </div>
-
-            </details>
+            <a href="/kickbase-league/kickbase-pokal.html">
+                Pokal
+            </a>
 
             <a href="/kickbase-league/manager.html">
                 Manager
@@ -117,201 +98,201 @@
 
         </div>
 
-        <!-- Mobile Navigation -->
+        <button
+            class="mobile-menu-button"
+            id="mobile-menu-button"
+            type="button"
+            aria-label="Navigation öffnen"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-        <div class="mobile-navigation fullscreen-menu">
+    </div>
 
-            <input
-                type="checkbox"
-                id="mobile-menu-toggle"
-                class="mobile-menu-toggle"
-            >
+    <div
+        class="mobile-menu-overlay"
+        id="mobile-menu-overlay"
+    ></div>
 
-            <label
-                for="mobile-menu-toggle"
-                class="mobile-menu-button"
-                aria-label="Navigation öffnen"
-            >
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
+    <aside
+        class="mobile-side-menu"
+        id="mobile-side-menu"
+        aria-hidden="true"
+    >
 
-            <div class="fullscreen-navigation">
+        <div class="mobile-side-menu-header">
 
-                <div class="fullscreen-navigation-header">
+            <div class="mobile-side-brand">
 
-                    <div class="fullscreen-brand">
+                <img
+                    src="/kickbase-league/kickbase-league-logo.png"
+                    alt="Kickbase League"
+                >
 
-                        <img
-                            src="/kickbase-league/kickbase-league-logo.png"
-                            alt="Kickbase League"
-                        >
-
-                        <div>
-                            <strong>Kickbase League</strong>
-                            <p>Saison 2026/27</p>
-                        </div>
-
-                    </div>
-
-                    <label
-                        for="mobile-menu-toggle"
-                        class="fullscreen-close"
-                        aria-label="Navigation schließen"
-                    >
-                        ✕
-                    </label>
-
-                </div>
-
-                <div class="fullscreen-menu-content">
-
-                    <p class="fullscreen-menu-label">
-                        HAUPTMENÜ
-                    </p>
-
-                    <a
-                        href="/kickbase-league/index.html"
-                        class="fullscreen-link active-fullscreen-link"
-                    >
-                        <span class="fullscreen-link-icon">🏠</span>
-
-                        <div>
-                            <strong>Startseite</strong>
-                            <small>Zur Liga-Zentrale</small>
-                        </div>
-
-                        <span class="fullscreen-arrow">→</span>
-                    </a>
-
-                    <p class="fullscreen-menu-label">
-                        WETTBEWERBE
-                    </p>
-
-                    <a
-                        href="/kickbase-league/qualifikationsligen.html"
-                        class="fullscreen-link"
-                    >
-                        <span class="fullscreen-link-icon">🔴</span>
-
-                        <div>
-                            <strong>Qualifikationsligen</strong>
-                            <small>Gruppe A und Gruppe B</small>
-                        </div>
-
-                        <span class="fullscreen-arrow">→</span>
-                    </a>
-
-                    <a
-                        href="/kickbase-league/champions-league.html"
-                        class="fullscreen-link"
-                    >
-                        <span class="fullscreen-link-icon">🏆</span>
-
-                        <div>
-                            <strong>Champions League</strong>
-                            <small>Die höchste Spielklasse</small>
-                        </div>
-
-                        <span class="fullscreen-arrow">→</span>
-                    </a>
-
-                    <a
-                        href="/kickbase-league/kreisliga.html"
-                        class="fullscreen-link"
-                    >
-                        <span class="fullscreen-link-icon">🥈</span>
-
-                        <div>
-                            <strong>Kreisliga</strong>
-                            <small>Der Kampf um den Aufstieg</small>
-                        </div>
-
-                        <span class="fullscreen-arrow">→</span>
-                    </a>
-
-                    <a
-                        href="/kickbase-league/kickbase-pokal.html"
-                        class="fullscreen-link"
-                    >
-                        <span class="fullscreen-link-icon">🏅</span>
-
-                        <div>
-                            <strong>Kickbase-Pokal</strong>
-                            <small>Der Pokalwettbewerb</small>
-                        </div>
-
-                        <span class="fullscreen-arrow">→</span>
-                    </a>
-
-                    <p class="fullscreen-menu-label">
-                        LIGABEREICH
-                    </p>
-
-                    <a
-                        href="/kickbase-league/manager.html"
-                        class="fullscreen-link"
-                    >
-                        <span class="fullscreen-link-icon">👤</span>
-
-                        <div>
-                            <strong>Manager</strong>
-                            <small>Alle Teilnehmer</small>
-                        </div>
-
-                        <span class="fullscreen-arrow">→</span>
-                    </a>
-
-                    <a
-                        href="/kickbase-league/hall-of-fame.html"
-                        class="fullscreen-link"
-                    >
-                        <span class="fullscreen-link-icon">👑</span>
-
-                        <div>
-                            <strong>Hall of Fame</strong>
-                            <small>Meister und Legenden</small>
-                        </div>
-
-                        <span class="fullscreen-arrow">→</span>
-                    </a>
-
-                    <a
-                        href="/kickbase-league/statistiken.html"
-                        class="fullscreen-link"
-                    >
-                        <span class="fullscreen-link-icon">📊</span>
-
-                        <div>
-                            <strong>Statistiken</strong>
-                            <small>Rekorde und Zahlen</small>
-                        </div>
-
-                        <span class="fullscreen-arrow">→</span>
-                    </a>
-
-                    <a
-                        href="/kickbase-league/regelwerk.html"
-                        class="fullscreen-link"
-                    >
-                        <span class="fullscreen-link-icon">📜</span>
-
-                        <div>
-                            <strong>Regelwerk</strong>
-                            <small>Alle Ligaregeln</small>
-                        </div>
-
-                        <span class="fullscreen-arrow">→</span>
-                    </a>
-
+                <div>
+                    <strong>Kickbase League</strong>
+                    <p>Saison 2026/27</p>
                 </div>
 
             </div>
 
+            <button
+                class="mobile-menu-close"
+                id="mobile-menu-close"
+                type="button"
+                aria-label="Navigation schließen"
+            >
+                ✕
+            </button>
+
         </div>
 
-    </div>
+        <div class="mobile-side-menu-content">
+
+            <p class="mobile-menu-label">
+                HAUPTMENÜ
+            </p>
+
+            <a
+                href="/kickbase-league/index.html"
+                class="mobile-menu-link active-mobile-menu-link"
+            >
+                <span class="mobile-menu-icon">🏠</span>
+
+                <div>
+                    <strong>Startseite</strong>
+                    <small>Zur Liga-Zentrale</small>
+                </div>
+
+                <span>→</span>
+            </a>
+
+            <p class="mobile-menu-label">
+                WETTBEWERBE
+            </p>
+
+            <a
+                href="/kickbase-league/qualifikationsligen.html"
+                class="mobile-menu-link"
+            >
+                <span class="mobile-menu-icon">🔴</span>
+
+                <div>
+                    <strong>Qualifikationsligen</strong>
+                    <small>Gruppe A und Gruppe B</small>
+                </div>
+
+                <span>→</span>
+            </a>
+
+            <a
+                href="/kickbase-league/champions-league.html"
+                class="mobile-menu-link"
+            >
+                <span class="mobile-menu-icon">🏆</span>
+
+                <div>
+                    <strong>Champions League</strong>
+                    <small>Die höchste Spielklasse</small>
+                </div>
+
+                <span>→</span>
+            </a>
+
+            <a
+                href="/kickbase-league/kreisliga.html"
+                class="mobile-menu-link"
+            >
+                <span class="mobile-menu-icon">🥈</span>
+
+                <div>
+                    <strong>Kreisliga</strong>
+                    <small>Der Kampf um den Aufstieg</small>
+                </div>
+
+                <span>→</span>
+            </a>
+
+            <a
+                href="/kickbase-league/kickbase-pokal.html"
+                class="mobile-menu-link"
+            >
+                <span class="mobile-menu-icon">🏅</span>
+
+                <div>
+                    <strong>Kickbase-Pokal</strong>
+                    <small>Der Pokalwettbewerb</small>
+                </div>
+
+                <span>→</span>
+            </a>
+
+            <p class="mobile-menu-label">
+                LIGABEREICH
+            </p>
+
+            <a
+                href="/kickbase-league/manager.html"
+                class="mobile-menu-link"
+            >
+                <span class="mobile-menu-icon">👤</span>
+
+                <div>
+                    <strong>Manager</strong>
+                    <small>Alle Teilnehmer</small>
+                </div>
+
+                <span>→</span>
+            </a>
+
+            <a
+                href="/kickbase-league/hall-of-fame.html"
+                class="mobile-menu-link"
+            >
+                <span class="mobile-menu-icon">👑</span>
+
+                <div>
+                    <strong>Hall of Fame</strong>
+                    <small>Meister und Legenden</small>
+                </div>
+
+                <span>→</span>
+            </a>
+
+            <a
+                href="/kickbase-league/statistiken.html"
+                class="mobile-menu-link"
+            >
+                <span class="mobile-menu-icon">📊</span>
+
+                <div>
+                    <strong>Statistiken</strong>
+                    <small>Rekorde und Zahlen</small>
+                </div>
+
+                <span>→</span>
+            </a>
+
+            <a
+                href="/kickbase-league/regelwerk.html"
+                class="mobile-menu-link"
+            >
+                <span class="mobile-menu-icon">📜</span>
+
+                <div>
+                    <strong>Regelwerk</strong>
+                    <small>Alle Ligaregeln</small>
+                </div>
+
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </aside>
 
 </nav>
 
@@ -569,7 +550,7 @@
     © 2026 Kickbase League
 
 </footer>
-
+<script src="/kickbase-league/script.js"></script>
 </body>
 
 </html>
