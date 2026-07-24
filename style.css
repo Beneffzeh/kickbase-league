@@ -459,3 +459,57 @@ section{
 .kreisliga-table tr:hover {
     background: #343a43;
 }
+
+/* ================================= */
+/* Kickbase-Pokal Design */
+/* ================================= */
+
+.pokal-header {
+    background:
+        linear-gradient(
+            rgba(0, 35, 18, 0.78),
+            rgba(0, 0, 0, 0.86)
+        ),
+        linear-gradient(
+            135deg,
+            #06180f,
+            #0f4d2b,
+            #171717
+        );
+}
+
+.pokal-title {
+    color: #e6bd4f;
+    text-shadow:
+        0 0 12px rgba(230, 189, 79, 0.45),
+        0 0 24px rgba(24, 197, 91, 0.22);
+}
+
+.pokal-logo {
+    display: block;
+    width: 180px;
+    max-width: 60%;
+    height: auto;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    box-shadow:
+        0 0 18px rgba(230, 189, 79, 0.45),
+        0 0 34px rgba(24, 197, 91, 0.32);
+}
+
+.pokal-box {
+    border-left: 5px solid #e6bd4f;
+}
+
+.pokal-table th {
+    background: #0f4d2b;
+    color: #f4d87a;
+}
+
+.pokal-table tr:nth-child(even) {
+    background: #17241d;
+}
+
+.pokal-table tr:hover {
+    background: #22382a;
+}
