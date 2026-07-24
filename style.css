@@ -205,3 +205,114 @@ footer {
     color:#aaa;
 
 }
+/* ========================================= */
+/* Phase 4 - Erweiterungen */
+/* ========================================= */
+
+/* Tabellen */
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+
+}
+
+th{
+
+    background:#18c55b;
+    color:#000;
+    padding:14px;
+
+}
+
+td{
+
+    padding:14px;
+    text-align:center;
+    border-bottom:1px solid #2b3240;
+
+}
+
+tr:nth-child(even){
+
+    background:#1b202b;
+
+}
+
+tr:hover{
+
+    background:#252d3b;
+
+}
+
+
+/* Listen */
+
+ul{
+
+    margin-top:15px;
+    margin-left:25px;
+
+}
+
+li{
+
+    margin-bottom:10px;
+
+}
+
+
+/* Links */
+
+a{
+
+    color:#18c55b;
+
+}
+
+
+/* Bilder */
+
+img{
+
+    max-width:100%;
+    border-radius:15px;
+
+}
+
+
+/* Kleine Infobox */
+
+.info-box{
+
+    background:#11151c;
+
+    border:1px solid #18c55b;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    margin-top:20px;
+
+}
+
+
+/* Überschriften */
+
+section h2{
+
+    color:#18c55b;
+
+}
+
+
+/* Abstand zwischen Abschnitten */
+
+section{
+
+    margin-bottom:35px;
+
+}
