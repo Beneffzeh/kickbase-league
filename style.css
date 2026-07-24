@@ -618,3 +618,284 @@ section{
 .quali-table tr:hover {
     background: #3a1d1d;
 }
+/* ================================= */
+/* Startseite als Liga-Portal */
+/* ================================= */
+
+main {
+    width: 100%;
+}
+
+.portal-intro {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 55px 25px 30px;
+    text-align: center;
+}
+
+.portal-label {
+    margin-bottom: 12px;
+    color: #d9b85f;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.portal-intro h2 {
+    margin-bottom: 16px;
+    color: #ffffff;
+    font-size: 34px;
+}
+
+.portal-intro p:last-child {
+    color: #bfc3ca;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.league-facts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 1050px;
+    margin: 0 auto 55px;
+    padding: 0 25px;
+}
+
+.fact-card {
+    padding: 22px 14px;
+    text-align: center;
+    background: #151922;
+    border: 1px solid #2b313d;
+    border-radius: 16px;
+}
+
+.fact-card span {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 28px;
+}
+
+.fact-card strong {
+    display: block;
+    color: #f0cb67;
+    font-size: 24px;
+}
+
+.fact-card p {
+    margin-top: 5px;
+    color: #aeb4bd;
+    font-size: 14px;
+}
+
+.portal-section {
+    max-width: 1150px;
+    margin: 0 auto 60px;
+    padding: 0 25px;
+}
+
+.section-heading {
+    margin-bottom: 24px;
+}
+
+.section-heading p {
+    margin-bottom: 8px;
+    color: #18c55b;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.section-heading h2 {
+    color: #ffffff;
+    font-size: 29px;
+}
+
+.portal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.portal-card {
+    position: relative;
+    display: block;
+    min-height: 230px;
+    padding: 30px;
+    overflow: hidden;
+    color: #ffffff;
+    text-decoration: none;
+    background: #151922;
+    border: 1px solid #2b313d;
+    border-radius: 20px;
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.portal-card:hover {
+    color: #ffffff;
+    transform: translateY(-6px);
+}
+
+.portal-icon {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 42px;
+}
+
+.portal-card h3 {
+    margin-bottom: 12px;
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.portal-card p {
+    max-width: 430px;
+    color: #c0c5cd;
+    line-height: 1.6;
+}
+
+.portal-button {
+    display: inline-block;
+    margin-top: 25px;
+    font-weight: bold;
+}
+
+.champions-portal-card {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 25, 80, 0.96),
+            rgba(8, 12, 25, 0.98)
+        );
+    border-color: #ae8b35;
+}
+
+.champions-portal-card .portal-button {
+    color: #f0cb67;
+}
+
+.champions-portal-card:hover {
+    box-shadow: 0 15px 40px rgba(18, 70, 170, 0.28);
+}
+
+.kreisliga-portal-card {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(25, 25, 25, 0.98),
+            rgba(25, 61, 30, 0.96)
+        );
+    border-color: #7f8982;
+}
+
+.kreisliga-portal-card .portal-button {
+    color: #8fce75;
+}
+
+.kreisliga-portal-card:hover {
+    box-shadow: 0 15px 40px rgba(50, 130, 60, 0.22);
+}
+
+.pokal-portal-card {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(5, 57, 31, 0.98),
+            rgba(18, 18, 18, 0.98)
+        );
+    border-color: #cfa844;
+}
+
+.pokal-portal-card .portal-button {
+    color: #e8c45d;
+}
+
+.pokal-portal-card:hover {
+    box-shadow: 0 15px 40px rgba(210, 170, 60, 0.23);
+}
+
+.quali-portal-card {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(145, 0, 0, 0.98),
+            rgba(30, 10, 10, 0.98)
+        );
+    border-color: #d95b5b;
+}
+
+.quali-portal-card .portal-button {
+    color: #ffffff;
+}
+
+.quali-portal-card:hover {
+    box-shadow: 0 15px 40px rgba(190, 25, 25, 0.24);
+}
+
+.secondary-card {
+    min-height: 210px;
+}
+
+.secondary-card:hover {
+    border-color: #18c55b;
+    box-shadow: 0 15px 40px rgba(24, 197, 91, 0.12);
+}
+
+.secondary-card .portal-button {
+    color: #18c55b;
+}
+
+.season-note {
+    max-width: 1100px;
+    margin: 0 auto 60px;
+    padding: 30px;
+    background: #151922;
+    border-left: 5px solid #d9b85f;
+    border-radius: 18px;
+}
+
+.season-note h2 {
+    margin-bottom: 18px;
+    color: #d9b85f;
+}
+
+.season-note p {
+    margin-top: 12px;
+    color: #c2c7ce;
+    line-height: 1.7;
+}
+
+@media (max-width: 750px) {
+
+    .league-facts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .portal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portal-card {
+        min-height: auto;
+    }
+
+    .portal-intro h2 {
+        font-size: 28px;
+    }
+
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+}
+
+@media (max-width: 390px) {
+
+    .league-facts {
+        grid-template-columns: 1fr;
+    }
+
+}
