@@ -316,3 +316,21 @@ section{
     margin-bottom:35px;
 
 }
+
+/* ========================================= */
+/* Tabellenfarben */
+/* ========================================= */
+
+.meister {
+
+    background:#1f5f2d !important;
+    font-weight:bold;
+
+}
+
+.abstieg {
+
+    background:#5c1f1f !important;
+    font-weight:bold;
+
+}
