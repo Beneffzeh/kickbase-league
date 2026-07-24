@@ -391,3 +391,17 @@ section{
     background:#5c1f1f !important;
 
 }
+
+/* Champions-League-Logo */
+
+.cl-logo {
+    display: block;
+    width: 180px;
+    max-width: 60%;
+    height: auto;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    box-shadow:
+        0 0 18px rgba(255, 215, 80, 0.45),
+        0 0 35px rgba(20, 90, 190, 0.45);
+}
