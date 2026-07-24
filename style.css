@@ -513,3 +513,56 @@ section{
 .pokal-table tr:hover {
     background: #22382a;
 }
+
+/* ================================= */
+/* Kickbase League */
+/* ================================= */
+
+.league-header{
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.75),
+        rgba(0,0,0,.85)
+    ),
+    linear-gradient(
+        135deg,
+        #0b0b0b,
+        #0f1720,
+        #2c2c2c
+    );
+
+}
+
+
+.league-logo{
+
+    display:block;
+
+    width:220px;
+
+    max-width:65%;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+    border-radius:50%;
+
+    box-shadow:
+    0 0 20px rgba(255,215,0,.45),
+    0 0 40px rgba(255,255,255,.12);
+
+}
+
+
+.league-title{
+
+    color:#f5d46b;
+
+    letter-spacing:4px;
+
+    text-shadow:
+    0 0 15px rgba(245,212,107,.45);
+
+}
