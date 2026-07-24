@@ -334,3 +334,60 @@ section{
     font-weight:bold;
 
 }
+
+/* ================================= */
+/* Champions League Design */
+/* ================================= */
+
+.cl-header {
+
+    background:
+    linear-gradient(
+        rgba(0,0,30,0.75),
+        rgba(0,0,0,0.75)
+    ),
+    linear-gradient(
+        135deg,
+        #020024,
+        #001f5c,
+        #18c55b
+    );
+
+}
+
+
+.cl-title {
+
+    color:#f5c542;
+    text-shadow:0 0 15px rgba(245,197,66,0.5);
+
+}
+
+
+.cl-box {
+
+    border-left:5px solid #f5c542;
+
+}
+
+
+.cl-table th {
+
+    background:#001f5c;
+    color:#f5c542;
+
+}
+
+
+.cl-table .meister {
+
+    background:#4d3b00 !important;
+
+}
+
+
+.cl-table .abstieg {
+
+    background:#5c1f1f !important;
+
+}
