@@ -8,6 +8,17 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
+    function openMenu() {
+        menuButton.classList.add("is-open");
+        sideMenu.classList.add("is-open");
+        overlay.classList.add("is-open");
+
+        menuButton.setAttribute("aria-expanded", "true");
+        sideMenu.setAttribute("aria-hidden", "false");
+
+        document.body.classList.add("mobile-menu-open");
+    }
+
     function closeMenu() {
         menuButton.classList.remove("is-open");
         sideMenu.classList.remove("is-open");
@@ -19,9 +30,31 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.remove("mobile-menu-open");
     }
 
-    menuButton.addEventListener("click", closeMenu);
+    function toggleMenu() {
+        const isOpen = sideMenu.classList.contains("is-open");
+
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    }
+
+    menuButton.addEventListener("click", toggleMenu);
     closeButton.addEventListener("click", closeMenu);
     overlay.addEventListener("click", closeMenu);
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            closeMenu();
+        }
+    });
+
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 980) {
+            closeMenu();
+        }
+    });
 
     closeMenu();
 });
