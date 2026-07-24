@@ -405,3 +405,57 @@ section{
         0 0 18px rgba(255, 215, 80, 0.45),
         0 0 35px rgba(20, 90, 190, 0.45);
 }
+
+/* ================================= */
+/* Kreisliga Design */
+/* ================================= */
+
+.kreisliga-header {
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.72),
+            rgba(0, 0, 0, 0.82)
+        ),
+        linear-gradient(
+            135deg,
+            #050505,
+            #252525,
+            #2f6f2f
+        );
+}
+
+.kreisliga-title {
+    color: #e6e6e6;
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.18),
+        0 0 18px rgba(24, 197, 91, 0.25);
+}
+
+.kreisliga-logo {
+    display: block;
+    width: 180px;
+    max-width: 60%;
+    height: auto;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    box-shadow:
+        0 0 18px rgba(255, 255, 255, 0.22),
+        0 0 32px rgba(24, 197, 91, 0.35);
+}
+
+.kreisliga-box {
+    border-left: 5px solid #bfc3c7;
+}
+
+.kreisliga-table th {
+    background: #30343a;
+    color: #ffffff;
+}
+
+.kreisliga-table .meister {
+    background: #24552c !important;
+}
+
+.kreisliga-table tr:hover {
+    background: #343a43;
+}
