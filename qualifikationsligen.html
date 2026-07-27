@@ -1,84 +1,800 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qualifikationsligen | Kickbase League</title>
-    <link rel="stylesheet" href="style.css">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Qualifikationsligen | Kickbase League
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/kickbase-league/style.css"
+    >
+
+    <style>
+
+        /* ================================= */
+        /* Qualifikationstabellen */
+        /* ================================= */
+
+        .quali-tables-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 25px 60px;
+        }
+
+        .quali-group {
+            margin-bottom: 45px;
+            padding: 28px;
+            background: #151922;
+            border: 1px solid #2b313d;
+            border-radius: 20px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+        }
+
+        .quali-group-a {
+            border-top: 4px solid #18c55b;
+        }
+
+        .quali-group-b {
+            border-top: 4px solid #3d8cff;
+        }
+
+        .quali-group-heading {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .quali-group-symbol {
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            font-size: 22px;
+            background: #222834;
+            border-radius: 14px;
+        }
+
+        .quali-group-heading p {
+            margin-bottom: 4px;
+            color: #8f98a7;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .quali-group-heading h2 {
+            color: #ffffff;
+            font-size: 24px;
+        }
+
+        .quali-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: 14px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .qualification-table {
+            width: 100%;
+            min-width: 470px;
+            margin: 0;
+            overflow: hidden;
+            border-collapse: collapse;
+            background: #10141b;
+        }
+
+        .qualification-table th {
+            padding: 15px 16px;
+            color: #ffffff;
+            font-size: 13px;
+            text-align: left;
+            background: #222936;
+            border-bottom: 1px solid #343c49;
+        }
+
+        .qualification-table th:first-child,
+        .qualification-table td:first-child {
+            width: 80px;
+            text-align: center;
+        }
+
+        .qualification-table th:last-child,
+        .qualification-table td:last-child {
+            width: 130px;
+            text-align: right;
+        }
+
+        .qualification-table td {
+            padding: 16px;
+            color: #ffffff;
+            font-size: 15px;
+            border-bottom: 1px solid #2a303b;
+        }
+
+        .qualification-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .qualification-table .manager-name {
+            font-weight: 700;
+        }
+
+        .qualification-table .manager-points {
+            color: #f0cb67;
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .qualification-table .position {
+            display: inline-grid;
+            place-items: center;
+            width: 34px;
+            height: 34px;
+            font-weight: 800;
+            border-radius: 10px;
+        }
+
+        /* Plätze 1 bis 4: Champions League */
+
+        .qualification-table .champions-place {
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(24, 197, 91, 0.18),
+                    rgba(24, 197, 91, 0.05)
+                );
+        }
+
+        .qualification-table .champions-place:hover {
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(24, 197, 91, 0.28),
+                    rgba(24, 197, 91, 0.1)
+                );
+        }
+
+        .champions-place .position {
+            color: #06150b;
+            background: #18c55b;
+        }
+
+        /* Plätze 5 bis 8: Kreisliga */
+
+        .qualification-table .kreisliga-place {
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(190, 50, 50, 0.18),
+                    rgba(190, 50, 50, 0.05)
+                );
+        }
+
+        .qualification-table .kreisliga-place:hover {
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(190, 50, 50, 0.28),
+                    rgba(190, 50, 50, 0.1)
+                );
+        }
+
+        .kreisliga-place .position {
+            color: #ffffff;
+            background: #9e3434;
+        }
+
+        /* Legende */
+
+        .quali-legend {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            max-width: 1050px;
+            margin: 0 auto 60px;
+            padding: 0 25px;
+        }
+
+        .legend-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 20px;
+            background: #151922;
+            border: 1px solid #2b313d;
+            border-radius: 16px;
+        }
+
+        .legend-color {
+            display: block;
+            flex-shrink: 0;
+            width: 18px;
+            height: 45px;
+            border-radius: 6px;
+        }
+
+        .legend-green {
+            background: #18c55b;
+        }
+
+        .legend-red {
+            background: #9e3434;
+        }
+
+        .legend-card strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #ffffff;
+        }
+
+        .legend-card p {
+            color: #aeb5bf;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 650px) {
+
+            .quali-tables-section {
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .quali-group {
+                padding: 20px 14px;
+                border-radius: 17px;
+            }
+
+            .quali-group-heading h2 {
+                font-size: 20px;
+            }
+
+            .quali-legend {
+                grid-template-columns: 1fr;
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-<header class="quali-header">
+    <header class="quali-header">
 
-<img
-src="/kickbase-league/qualifikationsligen-logo.png"
-alt="Logo der Qualifikationsligen"
-class="quali-logo"
->
+        <img
+            src="/kickbase-league/qualifikationsligen-logo.png"
+            alt="Logo der Qualifikationsligen"
+            class="quali-logo"
+        >
 
-<h1 class="quali-title">Qualifikationsligen</h1>
+        <h1 class="quali-title">
+            Qualifikationsligen
+        </h1>
 
-<p>Saison 2026/27</p>
+        <p>Saison 2026/27</p>
 
-<p>Der Weg in die Champions League beginnt hier.</p>
+        <p>
+            Der Weg in die Champions League beginnt hier.
+        </p>
 
-</header>
+    </header>
 
-<nav>
-    <a href="/kickbase-league/index.html">Startseite</a>
-    <a href="qualifikationsligen.html">Qualifikationsligen</a>
-    <a href="#">Champions League</a>
-    <a href="#">Kreisliga</a>
-    <a href="#">Kickbase-Pokal</a>
-    <a href="#">Manager</a>
-    <a href="#">Hall of Fame</a>
-    <a href="#">Statistiken</a>
-    <a href="#">Regelwerk</a>
-</nav>
+    <nav>
 
-<section class="hero">
-    <h2>Qualifikationsphase</h2>
-    <p>
-        In zwei Gruppen kämpfen 16 Manager über 14 Spieltage
-        um den Einzug in die Champions League.
-    </p>
-</section>
+        <a href="/kickbase-league/index.html">
+            Startseite
+        </a>
 
-<section class="saison quali-box">
-    <h2>📋 Qualifikationsregeln</h2>
+        <a href="/kickbase-league/qualifikationsligen.html">
+            Qualifikationsligen
+        </a>
 
-    <p>• 16 Manager werden in zwei Gruppen mit je 8 Managern ausgelost.</p>
-    <br>
+        <a href="/kickbase-league/champions-league.html">
+            Champions League
+        </a>
 
-    <p>• Die Qualifikation umfasst 14 Spieltage.</p>
-    <br>
+        <a href="/kickbase-league/kreisliga.html">
+            Kreisliga
+        </a>
 
-    <p>• Die Plätze 1 bis 4 jeder Gruppe erreichen die Champions League.</p>
-    <br>
+        <a href="/kickbase-league/kickbase-pokal.html">
+            Kickbase-Pokal
+        </a>
 
-    <p>• Die Plätze 5 bis 8 spielen anschließend in der Kreisliga.</p>
-</section>
+        <a href="/kickbase-league/manager.html">
+            Manager
+        </a>
 
-<section class="container">
+        <a href="/kickbase-league/hall-of-fame.html">
+            Hall of Fame
+        </a>
 
-    <div class="card">
-        <h2>🟢</h2>
-        <h3>Qualifikationsliga A</h3>
-        <p>Gruppenauslosung folgt.</p>
-    </div>
+        <a href="/kickbase-league/statistiken.html">
+            Statistiken
+        </a>
 
-    <div class="card">
-        <h2>🔵</h2>
-        <h3>Qualifikationsliga B</h3>
-        <p>Gruppenauslosung folgt.</p>
-    </div>
+        <a href="/kickbase-league/regelwerk.html">
+            Regelwerk
+        </a>
 
-</section>
+    </nav>
 
-<footer>
-    © Kickbase League
-</footer>
+    <main>
+
+        <section class="hero">
+
+            <h2>Qualifikationsphase</h2>
+
+            <p>
+                In zwei Gruppen kämpfen 16 Manager über 14 Spieltage
+                um den Einzug in die Champions League.
+            </p>
+
+        </section>
+
+        <section class="saison quali-box">
+
+            <h2>📋 Qualifikationsregeln</h2>
+
+            <p>
+                • Die 16 Manager wurden in zwei Gruppen mit jeweils
+                acht Managern ausgelost.
+            </p>
+
+            <br>
+
+            <p>
+                • Die Qualifikation umfasst insgesamt 14 Spieltage.
+            </p>
+
+            <br>
+
+            <p>
+                • Die Plätze 1 bis 4 jeder Gruppe erreichen die
+                Champions League.
+            </p>
+
+            <br>
+
+            <p>
+                • Die Plätze 5 bis 8 spielen anschließend in der
+                Kreisliga.
+            </p>
+
+        </section>
+
+        <section class="quali-tables-section">
+
+            <!-- ================================= -->
+            <!-- QUALIFIKATIONSLIGA A -->
+            <!-- ================================= -->
+
+            <div class="quali-group quali-group-a">
+
+                <div class="quali-group-heading">
+
+                    <span class="quali-group-symbol">
+                        🟢
+                    </span>
+
+                    <div>
+
+                        <p>GRUPPE A</p>
+
+                        <h2>
+                            Qualifikationsliga A
+                        </h2>
+
+                    </div>
+
+                </div>
+
+                <div class="quali-table-wrapper">
+
+                    <table class="qualification-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Platz</th>
+                                <th>Manager</th>
+                                <th>Punkte</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <!--
+                                Jede Woche nur die Zahl in der letzten
+                                Spalte ändern und die Zeilen bei Bedarf
+                                in die richtige Reihenfolge verschieben.
+                            -->
+
+                            <tr class="champions-place">
+
+                                <td>
+                                    <span class="position">1</span>
+                                </td>
+
+                                <td class="manager-name">
+                                    Tim
+                                </td>
+
+                                <td class="manager-points">
+                                    0
+                                </td>
+
+                            </tr>
+
+                            <tr class="champions-place">
+
+                                <td>
+                                    <span class="position">2</span>
+                                </td>
+
+                                <td class="manager-name">
+                                    Tobsen
+                                </td>
+
+                                <td class="manager-points">
+                                    0
+                                </td>
+
+                            </tr>
+
+                            <tr class="champions-place">
+
+                                <td>
+                                    <span class="position">3</span>
+                                </td>
+
+                                <td class="manager-name">
+                                    Enrico
+                                </td>
+
+                                <td class="manager-points">
+                                    0
+                                </td>
+
+                            </tr>
+
+                            <tr class="champions-place">
+
+                                <td>
+                                    <span class="position">4</span>
+                                </td>
+
+                                <td class="manager-name">
+                                    Bruno
+                                </td>
+
+                                <td class="manager-points">
+                                    0
+                                </td>
+
+                            </tr>
+
+                            <tr class="kreisliga-place">
+
+                                <td>
+                                    <span class="position">5</span>
+                                </td>
+
+                                <td class="manager-name">
+                                    Nils
+                                </td>
+
+                                <td class="manager-points">
+                                    0
+                                </td>
+
+                            </tr>
+
+                            <tr class="kreisliga-place">
+
+                                <td>
+                                    <span class="position">6</span>
+                                </td>
+
+                                <td class="manager-name">
+                                    Sauer
+                                </td>
+
+                                <td class="manager-points">
+                                    0
+                                </td>
+
+                            </tr>
+
+                            <tr class="kreisliga-place">
+
+                                <td>
+                                    <span class="position">7</span>
+                                </td>
+
+                                <td class="manager-name">
+                                    Marcel
+                                </td>
+
+                                <td class="manager-points">
+                                    0
+                                </td>
+
+                            </tr>
+
+                            <tr class="kreisliga-place">
+
+                                <td>
+                                    <span class="position">8</span>
+                                </td>
+
+                                <td class="manager-name">
+                                    Reichi
+                                </td>
+
+                                <td class="manager-points">
+                                    0
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <!-- ================================= -->
+            <!-- QUALIFIKATIONSLIGA B -->
+            <!-- ================================= -->
+
+            <div class="quali-group quali-group-b">
+
+                <div class="quali-group-heading">
+
+                    <span class="quali-group-symbol">
+                        🔵
+                    </span>
+
+                    <div>
+
+                        <p>GRUPPE B</p>
+
+                        <h2>
+                            Qualifikationsliga B
+                        </h2>
+
+                    </div>
+
+                </div>
+
+                <div class="quali-table-wrapper">
+
+                    <table class="qualification-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Platz</th>
+                                <th>Manager</th>
+                                <th>Punkte</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <!--
+                                Jede Woche nur die Zahl in der letzten
+                                Spalte ändern und die Zeilen bei Bedarf
+                                in die richtige Reihenfolge verschieben.
+                            -->
+
+                            <tr class="champions-place">
+
+                                <td>
+                                    <span class="position">1</span>
+                                </td>
+
+                                <td class="manager-name">
+                                    Schwartzer
+                                </td>
+
+                                <td class="manager-points">
+                                    0
+                                </td>
+
+                            </tr>
+
+                            <tr class="champions-place">
+
+                                <td>
+                                    <span class="position">2</span>
+                                </td>
+
+                                <td class="manager-name">
+                                    Janis
+                                </td>
+
+                                <td class="manager-points">
+                                    0
+                                </td>
+
+                            </tr>
+
+                            <tr class="champions-place">
+
+                                <td>
+                                    <span class="position">3</span>
+                                </td>
+
+                                <td class="manager-name">
+                                    Heiko
+                                </td>
+
+                                <td class="manager-points">
+                                    0
+                                </td>
+
+                            </tr>
+
+                            <tr class="champions-place">
+
+                                <td>
+                                    <span class="position">4</span>
+                                </td>
+
+                                <td class="manager-name">
+                                    Marco
+                                </td>
+
+                                <td class="manager-points">
+                                    0
+                                </td>
+
+                            </tr>
+
+                            <tr class="kreisliga-place">
+
+                                <td>
+                                    <span class="position">5</span>
+                                </td>
+
+                                <td class="manager-name">
+                                    Malik
+                                </td>
+
+                                <td class="manager-points">
+                                    0
+                                </td>
+
+                            </tr>
+
+                            <tr class="kreisliga-place">
+
+                                <td>
+                                    <span class="position">6</span>
+                                </td>
+
+                                <td class="manager-name">
+                                    Nikolaj
+                                </td>
+
+                                <td class="manager-points">
+                                    0
+                                </td>
+
+                            </tr>
+
+                            <tr class="kreisliga-place">
+
+                                <td>
+                                    <span class="position">7</span>
+                                </td>
+
+                                <td class="manager-name">
+                                    Ben
+                                </td>
+
+                                <td class="manager-points">
+                                    0
+                                </td>
+
+                            </tr>
+
+                            <tr class="kreisliga-place">
+
+                                <td>
+                                    <span class="position">8</span>
+                                </td>
+
+                                <td class="manager-name">
+                                    Philipp
+                                </td>
+
+                                <td class="manager-points">
+                                    0
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="quali-legend">
+
+            <div class="legend-card">
+
+                <span class="legend-color legend-green"></span>
+
+                <div>
+
+                    <strong>
+                        Champions League
+                    </strong>
+
+                    <p>
+                        Die Plätze 1 bis 4 jeder Gruppe
+                        qualifizieren sich.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="legend-card">
+
+                <span class="legend-color legend-red"></span>
+
+                <div>
+
+                    <strong>
+                        Kreisliga
+                    </strong>
+
+                    <p>
+                        Die Plätze 5 bis 8 jeder Gruppe
+                        spielen in der Kreisliga.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        © 2026 Kickbase League
+    </footer>
 
 </body>
+
 </html>
