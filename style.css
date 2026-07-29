@@ -2171,3 +2171,252 @@ body.mobile-menu-open {
     }
 
 }
+
+/* =========================================
+   TURNIERBAUM – VERBESSERTE DARSTELLUNG
+========================================= */
+
+.turnierbaum-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 10px 5px 24px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.turnierbaum {
+    display: flex;
+    align-items: stretch;
+    gap: 24px;
+    width: max-content;
+    min-width: 100%;
+}
+
+.turnier-runde {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 230px;
+}
+
+.turnier-rundenkopf {
+    min-height: 72px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.turnier-rundenkopf h3 {
+    margin: 0 0 5px;
+    color: #ffffff;
+}
+
+.turnier-rundenkopf p {
+    margin: 0;
+    color: #ffcf54;
+    font-size: 14px;
+}
+
+.turnier-spiele {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 18px;
+}
+
+.turnierbaum .pokal-match {
+    box-sizing: border-box;
+    width: 230px;
+    overflow: hidden;
+    background: #111722;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+}
+
+.turnierbaum .pokal-match-heading {
+    display: block;
+    padding: 9px 12px;
+    color: #ffcf54;
+    background: rgba(255, 184, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.turnierbaum .pokal-team {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 44px;
+    padding: 9px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.turnierbaum .pokal-team span {
+    display: block;
+    padding-right: 10px;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+.turnierbaum .pokal-team strong {
+    flex-shrink: 0;
+    min-width: 22px;
+    color: #ffcf54;
+    text-align: center;
+}
+
+.turnierbaum .pokal-match-footer {
+    padding: 8px 12px;
+    color: #aeb4c0;
+    background: rgba(255, 255, 255, 0.025);
+    font-size: 12px;
+    text-align: center;
+}
+
+.turnier-pfeil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding-top: 65px;
+    color: #ffb800;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.final-match {
+    border-color: rgba(255, 184, 0, 0.55) !important;
+    background: rgba(255, 184, 0, 0.04) !important;
+}
+
+
+/* =========================================
+   TURNIERBAUM – HANDY
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    .turnierbaum-hinweis {
+        display: none;
+    }
+
+    .turnierbaum-scroll {
+        overflow: visible;
+        padding: 5px 0 10px;
+    }
+
+    .turnierbaum {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .turnier-runde {
+        width: 100%;
+        margin: 0;
+    }
+
+    .turnier-rundenkopf {
+        min-height: 0;
+        margin: 0 0 15px;
+        padding: 14px;
+        background: rgba(255, 184, 0, 0.08);
+        border: 1px solid rgba(255, 184, 0, 0.22);
+        border-radius: 12px;
+        text-align: left;
+    }
+
+    .turnier-rundenkopf h3 {
+        margin: 0 0 3px;
+        font-size: 22px;
+    }
+
+    .turnier-rundenkopf p {
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .turnier-spiele {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .turnierbaum .pokal-match {
+        width: 100%;
+        margin: 0;
+        border-radius: 12px;
+    }
+
+    .turnierbaum .pokal-match-heading {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .turnierbaum .pokal-team {
+        min-height: 48px;
+        padding: 10px 13px;
+    }
+
+    .turnierbaum .pokal-team span {
+        font-size: 16px;
+    }
+
+    .turnierbaum .pokal-team strong {
+        font-size: 16px;
+    }
+
+    .turnierbaum .pokal-match-footer {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+    .turnier-pfeil {
+        width: 100%;
+        height: auto;
+        padding: 13px 0;
+        font-size: 0;
+    }
+
+    .turnier-pfeil::after {
+        content: "↓";
+        display: block;
+        color: #ffb800;
+        font-size: 30px;
+        line-height: 1;
+        text-align: center;
+    }
+
+    .finale-runde .turnier-rundenkopf {
+        background: rgba(255, 184, 0, 0.14);
+        border-color: rgba(255, 184, 0, 0.45);
+    }
+
+    .finale-runde .pokal-match {
+        border: 2px solid rgba(255, 184, 0, 0.6);
+    }
+
+}
+
+
+/* =========================================
+   SEHR KLEINE HANDYS
+========================================= */
+
+@media screen and (max-width: 420px) {
+
+    .turnier-rundenkopf h3 {
+        font-size: 20px;
+    }
+
+    .turnierbaum .pokal-team span {
+        font-size: 15px;
+    }
+
+}
