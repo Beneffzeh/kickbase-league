@@ -1900,3 +1900,274 @@ body.mobile-menu-open {
     }
 
 }
+
+/* =========================================
+   KICKBASE-POKAL
+========================================= */
+
+.pokal-info-box {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.pokal-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 25px;
+}
+
+.pokal-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+}
+
+.pokal-info-item > span {
+    font-size: 28px;
+}
+
+.pokal-info-item strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.pokal-info-item p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.pokal-regel-hinweis {
+    margin-top: 24px;
+    padding: 20px;
+    background: rgba(255, 184, 0, 0.08);
+    border: 1px solid rgba(255, 184, 0, 0.25);
+    border-left: 4px solid #ffb800;
+    border-radius: 12px;
+}
+
+.pokal-regel-hinweis h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #ffcf54;
+}
+
+.pokal-regel-hinweis p {
+    margin-top: 10px;
+    line-height: 1.65;
+}
+
+.pokal-termine {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.pokal-termin {
+    padding: 16px 10px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 12px;
+}
+
+.pokal-termin strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #ffffff;
+}
+
+.pokal-termin span {
+    font-size: 14px;
+    color: #b8bdc9;
+}
+
+.pokal-final-termin {
+    border-color: rgba(255, 184, 0, 0.4);
+    background: rgba(255, 184, 0, 0.08);
+}
+
+.pokal-rundenbeschreibung {
+    margin-bottom: 22px;
+    line-height: 1.6;
+}
+
+.vorrunden-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.pokal-match {
+    width: 220px;
+    overflow: hidden;
+    background: #111722;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+}
+
+.vorrunden-grid .pokal-match {
+    width: 100%;
+}
+
+.pokal-match-heading {
+    padding: 9px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    color: #ffcf54;
+    background: rgba(255, 184, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pokal-team {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 45px;
+    padding: 9px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.pokal-team span {
+    padding-right: 10px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.pokal-team strong {
+    min-width: 24px;
+    text-align: center;
+    color: #ffcf54;
+}
+
+.pokal-match-footer {
+    padding: 8px 12px;
+    font-size: 12px;
+    text-align: center;
+    color: #aeb4c0;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.turnierbaum-hinweis {
+    margin-bottom: 18px;
+    color: #b8bdc9;
+}
+
+.turnierbaum-scroll {
+    width: 100%;
+    overflow-x: auto;
+    padding: 8px 4px 22px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.turnierbaum {
+    display: flex;
+    align-items: stretch;
+    gap: 25px;
+    width: max-content;
+    min-width: 100%;
+}
+
+.turnier-runde {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+}
+
+.turnier-rundenkopf {
+    min-height: 75px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.turnier-rundenkopf h3 {
+    margin: 0 0 5px;
+    color: #ffffff;
+}
+
+.turnier-rundenkopf p {
+    margin: 0;
+    font-size: 14px;
+    color: #ffcf54;
+}
+
+.turnier-spiele {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 18px;
+}
+
+.turnier-pfeil {
+    display: flex;
+    align-items: center;
+    padding-top: 70px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffb800;
+}
+
+.final-match {
+    border-color: rgba(255, 184, 0, 0.55);
+    box-shadow: 0 0 20px rgba(255, 184, 0, 0.08);
+}
+
+.pokal-abkuerzungen {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 15px;
+    color: #b8bdc9;
+}
+
+.pokal-abkuerzungen p {
+    margin: 0;
+}
+
+.pokal-legende {
+    margin-top: 20px;
+}
+
+.pokal-legende p {
+    margin: 7px 0;
+}
+
+/* =========================================
+   POKAL – MOBILE ANSICHT
+========================================= */
+
+@media (max-width: 768px) {
+
+    .pokal-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pokal-termine {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pokal-final-termin {
+        grid-column: 1 / -1;
+    }
+
+    .vorrunden-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .turnierbaum {
+        gap: 18px;
+    }
+
+    .turnier-pfeil {
+        padding-top: 65px;
+        font-size: 26px;
+    }
+
+}
