@@ -8683,3 +8683,1598 @@ hr {
     }
 
 }
+/* =========================================================
+   KICKBASE-POKAL – PREMIUM DESIGN
+   ========================================================= */
+
+.pokal-page {
+    --pokal-red: #d71920;
+    --pokal-red-light: #ff4b50;
+    --pokal-red-dark: #7f0d12;
+    --pokal-silver: #c9d0d8;
+    --pokal-silver-light: #f1f4f7;
+    --pokal-gold: #efc75e;
+    --pokal-green: #18c55b;
+    --pokal-bg: #07090d;
+    --pokal-card: rgba(15, 18, 24, 0.92);
+    --pokal-border: rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.pokal-header {
+    position: relative;
+    overflow: hidden;
+    min-height: 580px;
+    padding: 92px 24px 82px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at 50% 8%,
+            rgba(215, 25, 32, 0.2),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 18% 85%,
+            rgba(255, 255, 255, 0.06),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #050609 0%,
+            #0c0f14 48%,
+            #06070a 100%
+        );
+    border-bottom: 1px solid rgba(215, 25, 32, 0.2);
+}
+
+.pokal-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        );
+    background-size: 44px 44px;
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.9),
+        transparent 92%
+    );
+    pointer-events: none;
+}
+
+.pokal-header::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -240px;
+    width: 620px;
+    height: 620px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: rgba(215, 25, 32, 0.08);
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.pokal-header-stripe {
+    position: absolute;
+    top: -80px;
+    width: 12px;
+    height: 760px;
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(215, 25, 32, 0.9) 22%,
+            rgba(255, 255, 255, 0.82) 50%,
+            rgba(215, 25, 32, 0.9) 78%,
+            transparent
+        );
+    opacity: 0.28;
+    transform: rotate(22deg);
+    box-shadow:
+        22px 0 0 rgba(255, 255, 255, 0.08),
+        -22px 0 0 rgba(215, 25, 32, 0.08);
+    pointer-events: none;
+}
+
+.pokal-header-stripe-left {
+    left: 10%;
+}
+
+.pokal-header-stripe-right {
+    right: 10%;
+    transform: rotate(-22deg);
+}
+
+.pokal-header-background-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 470px;
+    height: 470px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.025);
+    pointer-events: none;
+}
+
+.pokal-header-background-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 0.7;
+}
+
+.pokal-header-content {
+    position: relative;
+    z-index: 3;
+    width: min(100%, 920px);
+    margin: 0 auto;
+}
+
+.pokal-season-badge {
+    width: fit-content;
+    margin: 0 auto 26px;
+    padding: 9px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ff8a8e;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: rgba(215, 25, 32, 0.09);
+    border: 1px solid rgba(255, 75, 80, 0.22);
+    border-radius: 999px;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 0 30px rgba(215, 25, 32, 0.08);
+}
+
+.pokal-season-badge svg {
+    width: 16px;
+    height: 16px;
+}
+
+.pokal-logo {
+    width: min(245px, 64vw);
+    height: auto;
+    margin: 0 auto 24px;
+    display: block;
+    filter:
+        drop-shadow(0 22px 36px rgba(0, 0, 0, 0.48))
+        drop-shadow(0 0 25px rgba(215, 25, 32, 0.14));
+    animation: pokal-logo-float 5s ease-in-out infinite;
+}
+
+@keyframes pokal-logo-float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.pokal-eyebrow {
+    margin: 0 0 12px;
+    color: #ff696e;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.24em;
+}
+
+.pokal-title {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(3rem, 9vw, 6.2rem);
+    font-weight: 900;
+    line-height: 0.96;
+    letter-spacing: -0.06em;
+    text-shadow: 0 15px 42px rgba(0, 0, 0, 0.45);
+}
+
+.pokal-header-description {
+    max-width: 700px;
+    margin: 22px auto 0;
+    color: #bfc5cd;
+    font-size: clamp(1rem, 2.4vw, 1.2rem);
+    line-height: 1.7;
+}
+
+.pokal-header-highlights {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.pokal-header-highlights span {
+    padding: 11px 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #e7eaee;
+    font-size: 0.82rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 999px;
+    backdrop-filter: blur(12px);
+}
+
+.pokal-header-highlights svg {
+    width: 17px;
+    height: 17px;
+    color: #ff696e;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.pokal-main {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 72px 0 100px;
+}
+
+
+/* =========================================================
+   INTRODUCTION
+   ========================================================= */
+
+.pokal-introduction {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 28px;
+    padding: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 36px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(215, 25, 32, 0.11),
+            rgba(15, 18, 24, 0.93) 50%,
+            rgba(255, 255, 255, 0.025)
+        );
+    border: 1px solid rgba(255, 75, 80, 0.17);
+    border-radius: 26px;
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}
+
+.pokal-introduction::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 40px;
+    width: 125px;
+    height: 3px;
+    background:
+        linear-gradient(
+            90deg,
+            var(--pokal-red),
+            #ffffff
+        );
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 22px rgba(215, 25, 32, 0.45);
+}
+
+.pokal-introduction-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+}
+
+.pokal-section-label {
+    margin: 0 0 10px;
+    color: #ff666b;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+}
+
+.pokal-introduction h2,
+.pokal-winner-content h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+}
+
+.pokal-introduction-content > p:last-child,
+.pokal-winner-content > p {
+    margin: 18px 0 0;
+    color: #aeb5bf;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.pokal-introduction-icon {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 auto;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff666b;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(215, 25, 32, 0.16),
+            rgba(255, 255, 255, 0.025)
+        );
+    border: 1px solid rgba(255, 75, 80, 0.2);
+    border-radius: 28px;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 18px 40px rgba(0, 0, 0, 0.3);
+}
+
+.pokal-introduction-icon svg {
+    width: 42px;
+    height: 42px;
+    stroke-width: 1.8;
+}
+
+
+/* =========================================================
+   FACT CARDS
+   ========================================================= */
+
+.pokal-facts-grid {
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.pokal-fact-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 230px;
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background:
+        linear-gradient(
+            150deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(11, 14, 19, 0.95)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 22px;
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.pokal-fact-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 75, 80, 0.2);
+    box-shadow:
+        0 26px 60px rgba(0, 0, 0, 0.28),
+        0 0 30px rgba(215, 25, 32, 0.05);
+}
+
+.pokal-fact-card::after {
+    content: "";
+    position: absolute;
+    right: -45px;
+    bottom: -65px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: rgba(215, 25, 32, 0.065);
+    filter: blur(10px);
+}
+
+.pokal-fact-card-highlight {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(239, 199, 94, 0.1),
+            rgba(18, 16, 10, 0.95)
+        );
+    border-color: rgba(239, 199, 94, 0.18);
+}
+
+.pokal-fact-card-highlight::after {
+    background: rgba(239, 199, 94, 0.08);
+}
+
+.pokal-fact-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff666b;
+    background: rgba(215, 25, 32, 0.09);
+    border: 1px solid rgba(255, 75, 80, 0.16);
+    border-radius: 15px;
+}
+
+.pokal-fact-card-highlight .pokal-fact-icon {
+    color: #f4d370;
+    background: rgba(239, 199, 94, 0.09);
+    border-color: rgba(239, 199, 94, 0.18);
+}
+
+.pokal-fact-icon svg {
+    width: 23px;
+    height: 23px;
+}
+
+.pokal-fact-card span {
+    display: block;
+    margin-bottom: 8px;
+    color: #747b85;
+    font-size: 0.66rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+}
+
+.pokal-fact-card strong {
+    display: block;
+    color: #ffffff;
+    font-size: 1.24rem;
+    font-weight: 850;
+    line-height: 1.2;
+}
+
+.pokal-fact-card p {
+    position: relative;
+    z-index: 2;
+    margin: 12px 0 0;
+    color: #939aa4;
+    font-size: 0.88rem;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.pokal-section-heading {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.pokal-section-heading h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(1.65rem, 4vw, 2.25rem);
+    font-weight: 900;
+    letter-spacing: -0.035em;
+}
+
+.pokal-section-heading .heading-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pokal-section-heading .heading-with-icon svg {
+    width: 28px;
+    height: 28px;
+    color: #ff666b;
+}
+
+
+/* =========================================================
+   POKAL MODE
+   ========================================================= */
+
+.pokal-mode-section {
+    margin-bottom: 62px;
+}
+
+.pokal-mode-content {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.pokal-mode-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 220px;
+    padding: 26px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(11, 14, 19, 0.96)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 21px;
+}
+
+.pokal-mode-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 25px;
+    width: 70px;
+    height: 2px;
+    background: var(--pokal-red);
+    box-shadow: 0 0 15px rgba(215, 25, 32, 0.5);
+}
+
+.pokal-mode-number {
+    display: block;
+    margin-bottom: 28px;
+    color: rgba(255, 75, 80, 0.85);
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: -0.06em;
+}
+
+.pokal-mode-card strong {
+    color: #ffffff;
+    font-size: 1.08rem;
+    font-weight: 850;
+}
+
+.pokal-mode-card p {
+    margin: 12px 0 0;
+    color: #9097a1;
+    font-size: 0.87rem;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SCHEDULE
+   ========================================================= */
+
+.pokal-schedule-section {
+    margin-bottom: 64px;
+}
+
+.pokal-schedule {
+    padding: 28px;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.035),
+            rgba(10, 13, 18, 0.96)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 24px;
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.23),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.pokal-schedule-item {
+    min-width: 145px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.pokal-schedule-step {
+    flex: 0 0 auto;
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff777c;
+    font-size: 0.72rem;
+    font-weight: 900;
+    background: rgba(215, 25, 32, 0.09);
+    border: 1px solid rgba(255, 75, 80, 0.17);
+    border-radius: 50%;
+}
+
+.pokal-schedule-step svg {
+    width: 19px;
+    height: 19px;
+}
+
+.pokal-schedule-item strong {
+    display: block;
+    color: #ffffff;
+    font-size: 0.86rem;
+    font-weight: 800;
+}
+
+.pokal-schedule-item p {
+    margin: 4px 0 0;
+    color: #7f8791;
+    font-size: 0.74rem;
+}
+
+.pokal-schedule-line {
+    flex: 1;
+    height: 1px;
+    margin: 0 15px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(215, 25, 32, 0.35),
+            rgba(255, 255, 255, 0.08)
+        );
+}
+
+.pokal-schedule-final .pokal-schedule-step {
+    color: #f5d77c;
+    background: rgba(239, 199, 94, 0.1);
+    border-color: rgba(239, 199, 94, 0.2);
+    box-shadow: 0 0 24px rgba(239, 199, 94, 0.08);
+}
+
+.pokal-schedule-final strong {
+    color: #f4d372;
+}
+
+
+/* =========================================================
+   PRELIMINARY ROUND
+   ========================================================= */
+
+.pokal-preliminary-section {
+    margin-bottom: 64px;
+}
+
+.pokal-round-status {
+    padding: 10px 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #f0bd5b;
+    font-size: 0.73rem;
+    font-weight: 800;
+    background: rgba(239, 199, 94, 0.08);
+    border: 1px solid rgba(239, 199, 94, 0.16);
+    border-radius: 999px;
+}
+
+.pokal-round-status svg {
+    width: 15px;
+    height: 15px;
+}
+
+.pokal-round-description {
+    max-width: 760px;
+    margin: -6px 0 24px;
+    color: #9299a3;
+    font-size: 0.94rem;
+    line-height: 1.7;
+}
+
+.pokal-preliminary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+
+/* =========================================================
+   MATCH CARDS
+   ========================================================= */
+
+.pokal-match {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(9, 12, 17, 0.97)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 17px;
+    box-shadow:
+        0 14px 35px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.pokal-match::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background:
+        linear-gradient(
+            to bottom,
+            var(--pokal-red),
+            rgba(215, 25, 32, 0.1)
+        );
+}
+
+.pokal-match-heading {
+    min-height: 45px;
+    padding: 12px 16px 11px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.04em;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(215, 25, 32, 0.11),
+            rgba(255, 255, 255, 0.025)
+        );
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pokal-match-heading small {
+    color: #777f89;
+    font-size: 0.65rem;
+    font-weight: 700;
+}
+
+.pokal-team {
+    min-height: 49px;
+    padding: 12px 16px 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    color: #dce1e7;
+    font-size: 0.82rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pokal-team:last-of-type {
+    border-bottom: 0;
+}
+
+.pokal-team span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.pokal-team strong {
+    flex: 0 0 auto;
+    min-width: 28px;
+    color: #ffffff;
+    font-size: 0.88rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+.pokal-match-footer {
+    padding: 11px 16px 11px 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #868e98;
+    font-size: 0.68rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.018);
+}
+
+.pokal-match-footer svg {
+    width: 14px;
+    height: 14px;
+    color: #ff666b;
+}
+
+
+/* =========================================================
+   BRACKET
+   ========================================================= */
+
+.pokal-bracket-section {
+    margin-bottom: 66px;
+}
+
+.pokal-bracket-hint {
+    margin: -8px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #747c86;
+    font-size: 0.75rem;
+}
+
+.pokal-bracket-hint svg {
+    width: 16px;
+    height: 16px;
+}
+
+.turnierbaum-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 22px;
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(215, 25, 32, 0.045),
+            transparent 58%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.025),
+            rgba(7, 9, 13, 0.98)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 26px;
+    box-shadow:
+        0 28px 80px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    scrollbar-width: thin;
+}
+
+.turnierbaum {
+    min-width: 1440px;
+    display: grid;
+    grid-template-columns:
+        270px
+        55px
+        270px
+        55px
+        270px
+        55px
+        285px;
+    align-items: stretch;
+    gap: 0;
+}
+
+.turnier-runde {
+    display: flex;
+    flex-direction: column;
+}
+
+.turnier-rundenkopf {
+    min-height: 72px;
+    margin-bottom: 18px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(12, 15, 20, 0.96)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+}
+
+.turnier-runden-number {
+    flex: 0 0 auto;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff6e73;
+    font-size: 0.7rem;
+    font-weight: 900;
+    background: rgba(215, 25, 32, 0.09);
+    border: 1px solid rgba(255, 75, 80, 0.16);
+    border-radius: 50%;
+}
+
+.turnier-runden-number svg {
+    width: 17px;
+    height: 17px;
+}
+
+.turnier-rundenkopf h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 0.94rem;
+    font-weight: 850;
+}
+
+.turnier-rundenkopf p {
+    margin: 4px 0 0;
+    color: #777f89;
+    font-size: 0.7rem;
+}
+
+.turnier-spiele {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.achtelfinale-runde .turnier-spiele {
+    gap: 12px;
+}
+
+.viertelfinale-runde .turnier-spiele {
+    padding: 52px 0;
+    gap: 74px;
+}
+
+.halbfinale-runde .turnier-spiele {
+    padding: 155px 0;
+    gap: 240px;
+}
+
+.finale-runde .turnier-spiele {
+    justify-content: center;
+}
+
+.turnier-pfeil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 75, 80, 0.62);
+}
+
+.turnier-pfeil svg {
+    width: 24px;
+    height: 24px;
+}
+
+.final-match {
+    border-color: rgba(239, 199, 94, 0.2);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.28),
+        0 0 34px rgba(239, 199, 94, 0.06);
+}
+
+.final-match::before {
+    background:
+        linear-gradient(
+            to bottom,
+            #efc75e,
+            rgba(239, 199, 94, 0.14)
+        );
+}
+
+.final-match .pokal-match-heading {
+    color: #f5d77c;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(239, 199, 94, 0.12),
+            rgba(255, 255, 255, 0.02)
+        );
+}
+
+.final-match .pokal-match-footer {
+    color: #e5c665;
+}
+
+.final-match .pokal-match-footer svg {
+    color: #f4d370;
+}
+
+.finale-runde .turnier-rundenkopf {
+    border-color: rgba(239, 199, 94, 0.18);
+}
+
+.finale-runde .turnier-runden-number {
+    color: #f4d370;
+    background: rgba(239, 199, 94, 0.09);
+    border-color: rgba(239, 199, 94, 0.18);
+}
+
+.pokal-abbreviations {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pokal-abbreviations span {
+    padding: 9px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #858d97;
+    font-size: 0.72rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.065);
+    border-radius: 999px;
+}
+
+.pokal-abbreviations strong {
+    color: #ff666b;
+}
+
+
+/* =========================================================
+   STATUS TABLE
+   ========================================================= */
+
+.pokal-status-section {
+    margin-bottom: 66px;
+}
+
+.pokal-status-wrapper {
+    overflow-x: auto;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.035),
+            rgba(9, 12, 17, 0.96)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 23px;
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.pokal-status-table {
+    width: 100%;
+    min-width: 660px;
+    border-collapse: collapse;
+}
+
+.pokal-status-table th,
+.pokal-status-table td {
+    padding: 18px 20px;
+    text-align: left;
+}
+
+.pokal-status-table thead {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(215, 25, 32, 0.1),
+            rgba(255, 255, 255, 0.02)
+        );
+}
+
+.pokal-status-table th {
+    color: #858e99;
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.pokal-status-table tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.pokal-status-table tbody tr:last-child {
+    border-bottom: 0;
+}
+
+.pokal-status-table td {
+    color: #b8bec6;
+    font-size: 0.87rem;
+}
+
+.pokal-status-table td strong {
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.pokal-status {
+    min-width: 155px;
+    padding: 8px 11px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.pokal-status svg {
+    width: 14px;
+    height: 14px;
+}
+
+.pokal-status-pending {
+    color: #f0bf5c;
+    background: rgba(239, 199, 94, 0.08);
+    border: 1px solid rgba(239, 199, 94, 0.16);
+}
+
+.pokal-status-locked {
+    color: #9da5af;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+.pokal-status-complete {
+    color: #64df92;
+    background: rgba(24, 197, 91, 0.08);
+    border: 1px solid rgba(24, 197, 91, 0.17);
+}
+
+.pokal-status-legend {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pokal-status-legend span {
+    padding: 9px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #7f8791;
+    font-size: 0.72rem;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 999px;
+}
+
+.pokal-status-legend svg {
+    width: 14px;
+    height: 14px;
+}
+
+
+/* =========================================================
+   WINNER SECTION
+   ========================================================= */
+
+.pokal-winner-section {
+    position: relative;
+    overflow: hidden;
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    align-items: center;
+    gap: 52px;
+    background:
+        radial-gradient(
+            circle at 12% 50%,
+            rgba(239, 199, 94, 0.13),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(18, 19, 20, 0.98),
+            rgba(8, 10, 13, 0.98)
+        );
+    border: 1px solid rgba(239, 199, 94, 0.16);
+    border-radius: 28px;
+    box-shadow:
+        0 28px 80px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.pokal-winner-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 46px;
+    width: 140px;
+    height: 3px;
+    background:
+        linear-gradient(
+            90deg,
+            #efc75e,
+            #fff0b3
+        );
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 22px rgba(239, 199, 94, 0.4);
+}
+
+.pokal-winner-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.pokal-trophy-circle {
+    width: 170px;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f4d370;
+    background:
+        radial-gradient(
+            circle,
+            rgba(239, 199, 94, 0.18),
+            rgba(239, 199, 94, 0.045) 62%,
+            transparent 72%
+        );
+    border: 1px solid rgba(239, 199, 94, 0.2);
+    border-radius: 50%;
+    box-shadow:
+        inset 0 0 36px rgba(239, 199, 94, 0.06),
+        0 0 60px rgba(239, 199, 94, 0.08);
+}
+
+.pokal-trophy-circle svg {
+    width: 70px;
+    height: 70px;
+    stroke-width: 1.45;
+}
+
+.pokal-prize-box {
+    margin-top: 28px;
+    padding: 18px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 18px;
+}
+
+.pokal-prize-box div {
+    padding: 16px 18px;
+    background: rgba(255, 255, 255, 0.025);
+    border-radius: 13px;
+}
+
+.pokal-prize-box span {
+    display: block;
+    margin-bottom: 7px;
+    color: #736c58;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+}
+
+.pokal-prize-box strong {
+    color: #f4d370;
+    font-size: 1.15rem;
+    font-weight: 900;
+}
+
+.pokal-current-winner {
+    margin-top: 15px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(215, 25, 32, 0.07),
+            rgba(255, 255, 255, 0.02)
+        );
+    border: 1px solid rgba(255, 75, 80, 0.11);
+    border-radius: 15px;
+}
+
+.pokal-current-winner span {
+    color: #7f868f;
+    font-size: 0.66rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+}
+
+.pokal-current-winner strong {
+    color: #ffffff;
+    font-size: 0.92rem;
+    font-weight: 850;
+}
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+   ========================================================= */
+
+.pokal-page .desktop-navigation .active-navigation-link {
+    color: #ffffff;
+    background: rgba(215, 25, 32, 0.11);
+    border-color: rgba(255, 75, 80, 0.18);
+}
+
+.pokal-page .desktop-navigation .active-navigation-link::after {
+    background: var(--pokal-red);
+    box-shadow: 0 0 14px rgba(215, 25, 32, 0.55);
+}
+
+.pokal-page .active-mobile-menu-link {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(215, 25, 32, 0.14),
+            rgba(215, 25, 32, 0.045)
+        );
+    border-color: rgba(255, 75, 80, 0.18);
+}
+
+.pokal-page .active-mobile-menu-link .mobile-menu-icon {
+    color: #ff666b;
+    background: rgba(215, 25, 32, 0.1);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .pokal-facts-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pokal-mode-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pokal-schedule {
+        overflow-x: auto;
+    }
+
+    .pokal-schedule-item {
+        flex: 0 0 150px;
+    }
+
+    .pokal-schedule-line {
+        flex: 0 0 45px;
+    }
+
+    .pokal-winner-section {
+        grid-template-columns: 190px minmax(0, 1fr);
+        gap: 36px;
+    }
+
+    .pokal-trophy-circle {
+        width: 150px;
+        height: 150px;
+    }
+
+}
+
+
+@media (max-width: 760px) {
+
+    .pokal-header {
+        min-height: auto;
+        padding: 72px 20px 62px;
+    }
+
+    .pokal-logo {
+        width: min(200px, 60vw);
+    }
+
+    .pokal-header-background-icon {
+        width: 330px;
+        height: 330px;
+    }
+
+    .pokal-header-stripe {
+        opacity: 0.15;
+    }
+
+    .pokal-header-description {
+        max-width: 520px;
+        font-size: 0.98rem;
+    }
+
+    .pokal-header-highlights {
+        gap: 8px;
+    }
+
+    .pokal-header-highlights span {
+        padding: 9px 12px;
+        font-size: 0.72rem;
+    }
+
+    .pokal-main {
+        width: min(100% - 24px, 1180px);
+        padding: 44px 0 76px;
+    }
+
+    .pokal-introduction {
+        padding: 30px 24px;
+        display: block;
+    }
+
+    .pokal-introduction-icon {
+        width: 72px;
+        height: 72px;
+        margin-top: 26px;
+        border-radius: 21px;
+    }
+
+    .pokal-introduction-icon svg {
+        width: 31px;
+        height: 31px;
+    }
+
+    .pokal-facts-grid {
+        grid-template-columns: 1fr;
+        margin-bottom: 48px;
+    }
+
+    .pokal-fact-card {
+        min-height: auto;
+        padding: 23px;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .pokal-fact-icon {
+        flex: 0 0 auto;
+    }
+
+    .pokal-mode-content {
+        grid-template-columns: 1fr;
+    }
+
+    .pokal-mode-card {
+        min-height: auto;
+    }
+
+    .pokal-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .pokal-preliminary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .turnierbaum-scroll {
+        padding: 16px;
+        border-radius: 20px;
+    }
+
+    .pokal-winner-section {
+        padding: 34px 24px;
+        grid-template-columns: 1fr;
+        gap: 26px;
+        text-align: center;
+    }
+
+    .pokal-winner-section::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .pokal-trophy-circle {
+        width: 130px;
+        height: 130px;
+    }
+
+    .pokal-trophy-circle svg {
+        width: 54px;
+        height: 54px;
+    }
+
+    .pokal-prize-box {
+        text-align: left;
+    }
+
+    .pokal-current-winner {
+        text-align: left;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .pokal-header {
+        padding-top: 58px;
+    }
+
+    .pokal-title {
+        font-size: clamp(2.8rem, 15vw, 4.3rem);
+    }
+
+    .pokal-season-badge {
+        margin-bottom: 20px;
+        padding: 8px 12px;
+        font-size: 0.65rem;
+    }
+
+    .pokal-header-highlights span {
+        width: calc(50% - 5px);
+        justify-content: center;
+    }
+
+    .pokal-header-highlights span:last-child {
+        width: 100%;
+    }
+
+    .pokal-introduction {
+        padding: 28px 21px;
+        border-radius: 21px;
+    }
+
+    .pokal-fact-card {
+        padding: 21px;
+        gap: 17px;
+    }
+
+    .pokal-fact-card strong {
+        font-size: 1.08rem;
+    }
+
+    .pokal-schedule {
+        padding: 22px 18px;
+    }
+
+    .pokal-match-heading,
+    .pokal-team,
+    .pokal-match-footer {
+        padding-left: 15px;
+        padding-right: 13px;
+    }
+
+    .pokal-winner-section {
+        border-radius: 22px;
+    }
+
+    .pokal-prize-box {
+        grid-template-columns: 1fr;
+    }
+
+    .pokal-current-winner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 7px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pokal-logo {
+        animation: none;
+    }
+
+    .pokal-fact-card {
+        transition: none;
+    }
+
+}

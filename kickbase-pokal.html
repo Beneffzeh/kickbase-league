@@ -10,7 +10,28 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <meta
+        name="description"
+        content="Der Kickbase-Pokal ist der K.-o.-Wettbewerb der Kickbase League."
+    >
+
     <title>Kickbase-Pokal | Kickbase League</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
 
     <link
         rel="stylesheet"
@@ -19,25 +40,91 @@
 
 </head>
 
-<body>
+
+<body class="pokal-page">
+
 
 <header class="pokal-header">
 
-    <img
-        src="/kickbase-league/kickbase-pokal-logo.png?v=2"
-        alt="Logo des Kickbase-Pokals"
-        class="pokal-logo"
-    >
+    <div class="pokal-header-background-icon">
 
-    <h1 class="pokal-title">
-        Kickbase-Pokal
-    </h1>
+        <i data-lucide="trophy"></i>
 
-    <p>
-        Der Pokalwettbewerb der Kickbase League.
-    </p>
+    </div>
+
+
+    <div class="pokal-header-stripe pokal-header-stripe-left"></div>
+
+    <div class="pokal-header-stripe pokal-header-stripe-right"></div>
+
+
+    <div class="pokal-header-content">
+
+        <div class="pokal-season-badge">
+
+            <i data-lucide="calendar-days"></i>
+
+            <span>Saison 2026/27</span>
+
+        </div>
+
+
+        <img
+            src="/kickbase-league/kickbase-pokal-logo.png?v=2"
+            alt="Logo des Kickbase-Pokals"
+            class="pokal-logo"
+        >
+
+
+        <p class="pokal-eyebrow">
+            DER K.-O.-WETTBEWERB
+        </p>
+
+
+        <h1 class="pokal-title">
+            Kickbase-Pokal
+        </h1>
+
+
+        <p class="pokal-header-description">
+            Ein Spieltag. Ein direktes Duell. Nur ein Manager zieht weiter.
+        </p>
+
+
+        <div class="pokal-header-highlights">
+
+            <span>
+
+                <i data-lucide="users"></i>
+
+                18 Manager
+
+            </span>
+
+
+            <span>
+
+                <i data-lucide="swords"></i>
+
+                K.-o.-System
+
+            </span>
+
+
+            <span>
+
+                <i data-lucide="trophy"></i>
+
+                1 Pokalsieger
+
+            </span>
+
+        </div>
+
+    </div>
 
 </header>
+
 
 <nav class="main-navigation">
 
@@ -47,56 +134,60 @@
             href="/kickbase-league/index.html"
             class="navigation-brand"
         >
+
             <img
                 src="/kickbase-league/kickbase-league-logo.png"
                 alt="Kickbase League"
             >
 
             <span>Kickbase League</span>
+
         </a>
+
 
         <div class="desktop-navigation">
 
-    <a href="/kickbase-league/index.html">
-        Startseite
-    </a>
+            <a href="/kickbase-league/index.html">
+                Startseite
+            </a>
 
-    <a href="/kickbase-league/qualifikationsligen.html">
-        Qualifikation
-    </a>
+            <a href="/kickbase-league/qualifikationsligen.html">
+                Qualifikation
+            </a>
 
-    <a href="/kickbase-league/champions-league.html">
-        Champions League
-    </a>
+            <a href="/kickbase-league/champions-league.html">
+                Champions League
+            </a>
 
-    <a href="/kickbase-league/kreisliga.html">
-        Kreisliga
-    </a>
+            <a href="/kickbase-league/kreisliga.html">
+                Kreisliga
+            </a>
 
-    <a
-        href="/kickbase-league/kickbase-pokal.html"
-        class="active-navigation-link"
-    >
-        Pokal
-    </a>
+            <a
+                href="/kickbase-league/kickbase-pokal.html"
+                class="active-navigation-link"
+            >
+                Pokal
+            </a>
 
-    <a href="/kickbase-league/manager.html">
-        Manager
-    </a>
+            <a href="/kickbase-league/manager.html">
+                Manager
+            </a>
 
-    <a href="/kickbase-league/hall-of-fame.html">
-        Hall of Fame
-    </a>
+            <a href="/kickbase-league/hall-of-fame.html">
+                Hall of Fame
+            </a>
 
-    <a href="/kickbase-league/statistiken.html">
-        Statistiken
-    </a>
+            <a href="/kickbase-league/statistiken.html">
+                Statistiken
+            </a>
 
-    <a href="/kickbase-league/regelwerk.html">
-        Regelwerk
-    </a>
+            <a href="/kickbase-league/regelwerk.html">
+                Regelwerk
+            </a>
 
-</div>
+        </div>
+
 
         <button
             class="mobile-menu-button"
@@ -105,17 +196,21 @@
             aria-label="Navigation öffnen"
             aria-expanded="false"
         >
+
             <span></span>
             <span></span>
             <span></span>
+
         </button>
 
     </div>
+
 
     <div
         class="mobile-menu-overlay"
         id="mobile-menu-overlay"
     ></div>
+
 
     <aside
         class="mobile-side-menu"
@@ -133,11 +228,15 @@
                 >
 
                 <div>
+
                     <strong>Kickbase League</strong>
+
                     <p>Saison 2026/27</p>
+
                 </div>
 
             </div>
+
 
             <button
                 class="mobile-menu-close"
@@ -145,10 +244,13 @@
                 type="button"
                 aria-label="Navigation schließen"
             >
-                ✕
+
+                <i data-lucide="x"></i>
+
             </button>
 
         </div>
+
 
         <div class="mobile-side-menu-content">
 
@@ -156,138 +258,230 @@
                 HAUPTMENÜ
             </p>
 
+
             <a
                 href="/kickbase-league/index.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🏠</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="house"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Startseite</strong>
+
                     <small>Zur Liga-Zentrale</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <p class="mobile-menu-label">
                 WETTBEWERBE
             </p>
 
+
             <a
                 href="/kickbase-league/qualifikationsligen.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🔴</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="circle-dot"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Qualifikationsligen</strong>
+
                     <small>Gruppe A und Gruppe B</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <a
                 href="/kickbase-league/champions-league.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🏆</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="trophy"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Champions League</strong>
+
                     <small>Die höchste Spielklasse</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <a
                 href="/kickbase-league/kreisliga.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🥈</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="shield"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Kreisliga</strong>
+
                     <small>Der Kampf um den Aufstieg</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <a
                 href="/kickbase-league/kickbase-pokal.html"
                 class="mobile-menu-link active-mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🏅</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="award"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Kickbase-Pokal</strong>
-                    <small>Der Pokalwettbewerb</small>
+
+                    <small>Der K.-o.-Wettbewerb</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <p class="mobile-menu-label">
                 LIGABEREICH
             </p>
 
+
             <a
                 href="/kickbase-league/manager.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">👤</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="users"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Manager</strong>
+
                     <small>Alle 18 Teilnehmer</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <a
                 href="/kickbase-league/hall-of-fame.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">👑</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="crown"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Hall of Fame</strong>
+
                     <small>Meister und Legenden</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <a
                 href="/kickbase-league/statistiken.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">📊</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="chart-no-axes-column"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Statistiken</strong>
+
                     <small>Rekorde und Zahlen</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <a
                 href="/kickbase-league/regelwerk.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">📜</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="scroll-text"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Regelwerk</strong>
+
                     <small>Alle Ligaregeln</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
 
         </div>
@@ -296,227 +490,569 @@
 
 </nav>
 
-<main>
 
-    <section class="hero">
+<main class="pokal-main">
 
-        <h2>
-            Der Kampf um den Pokal
-        </h2>
 
-        <p>
-            18 Manager kämpfen im direkten Duell um einen der
-            wichtigsten Titel der Kickbase League.
-        </p>
+    <section class="pokal-introduction">
+
+        <div class="pokal-introduction-content">
+
+            <p class="pokal-section-label">
+                ALLES ODER NICHTS
+            </p>
+
+            <h2>
+                Der Kampf um den Pokal
+            </h2>
+
+            <p>
+                Im Kickbase-Pokal entscheidet jeder festgelegte Spieltag
+                über Weiterkommen oder Ausscheiden. Die höhere
+                Kickbase-Punktzahl gewinnt das direkte Duell.
+            </p>
+
+        </div>
+
+
+        <div class="pokal-introduction-icon">
+
+            <i data-lucide="swords"></i>
+
+        </div>
 
     </section>
 
-    <section class="saison pokal-box pokal-info-box">
 
-        <h2>
-            ℹ️ Pokalmodus
-        </h2>
+    <section class="pokal-facts-grid">
 
-        <div class="pokal-info-grid">
+        <article class="pokal-fact-card">
 
-            <div class="pokal-info-item">
-                <span>👥</span>
+            <div class="pokal-fact-icon">
 
-                <div>
-                    <strong>18 Manager</strong>
-                    <p>Alle Manager nehmen am Pokal teil.</p>
-                </div>
+                <i data-lucide="users"></i>
+
             </div>
 
-            <div class="pokal-info-item">
-                <span>🎟️</span>
+            <div>
 
-                <div>
-                    <strong>14 Freilose</strong>
-                    <p>
-                        14 Manager ziehen direkt in das Achtelfinale ein.
-                    </p>
-                </div>
+                <span>TEILNEHMER</span>
+
+                <strong>18 Manager</strong>
+
+                <p>
+                    Alle Manager der Kickbase League nehmen am Pokal teil.
+                </p>
+
             </div>
 
-            <div class="pokal-info-item">
-                <span>⚔️</span>
+        </article>
+
+
+        <article class="pokal-fact-card">
+
+            <div class="pokal-fact-icon">
+
+                <i data-lucide="ticket"></i>
+
+            </div>
+
+            <div>
+
+                <span>FREILOSE</span>
+
+                <strong>14 Manager</strong>
+
+                <p>
+                    Vier Manager müssen bereits in der Vorrunde antreten.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="pokal-fact-card">
+
+            <div class="pokal-fact-icon">
+
+                <i data-lucide="swords"></i>
+
+            </div>
+
+            <div>
+
+                <span>SPIELMODUS</span>
+
+                <strong>Direkte Duelle</strong>
+
+                <p>
+                    Die höhere Punktzahl des jeweiligen Spieltags gewinnt.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="pokal-fact-card pokal-fact-card-highlight">
+
+            <div class="pokal-fact-icon">
+
+                <i data-lucide="trophy"></i>
+
+            </div>
+
+            <div>
+
+                <span>TITEL</span>
+
+                <strong>Ein Pokalsieger</strong>
+
+                <p>
+                    Der Gewinner des Finales erhält Preisgeld und Wanderpokal.
+                </p>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <section class="pokal-mode-section">
+
+        <div class="pokal-section-heading">
+
+            <div>
+
+                <p class="pokal-section-label">
+                    WETTBEWERBSFORMAT
+                </p>
+
+                <h2 class="heading-with-icon">
+
+                    <i data-lucide="info"></i>
+
+                    Pokalmodus
+
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="pokal-mode-content">
+
+            <article class="pokal-mode-card">
+
+                <span class="pokal-mode-number">
+                    01
+                </span>
 
                 <div>
-                    <strong>4 Manager in der Vorrunde</strong>
+
+                    <strong>Vorrunde</strong>
+
                     <p>
                         Vier ausgeloste Manager bestreiten zwei Duelle.
+                        Die beiden Sieger erreichen das Achtelfinale.
                     </p>
-                </div>
-            </div>
 
-            <div class="pokal-info-item">
-                <span>🏆</span>
+                </div>
+
+            </article>
+
+
+            <article class="pokal-mode-card">
+
+                <span class="pokal-mode-number">
+                    02
+                </span>
 
                 <div>
-                    <strong>Ein Pokalsieger</strong>
+
+                    <strong>Hauptrunde</strong>
+
                     <p>
-                        Der Sieger des Finales gewinnt den Kickbase-Pokal.
+                        Die beiden Vorrundensieger bilden gemeinsam mit
+                        14 Freilos-Managern das Achtelfinale.
                     </p>
+
                 </div>
-            </div>
 
-        </div>
+            </article>
 
-        <div class="pokal-regel-hinweis">
 
-            <h3>
-                So funktioniert die Vorrunde
-            </h3>
+            <article class="pokal-mode-card">
 
-            <p>
-                Da insgesamt 18 Manager am Wettbewerb teilnehmen,
-                müssen vier ausgeloste Manager bereits in der Vorrunde
-                gegeneinander antreten.
-            </p>
+                <span class="pokal-mode-number">
+                    03
+                </span>
 
-            <p>
-                Die beiden Sieger der Vorrundenspiele erreichen das
-                Achtelfinale. Gemeinsam mit den 14 Managern, die ein
-                Freilos erhalten haben, bilden sie das reguläre
-                Teilnehmerfeld von 16 Managern.
-            </p>
+                <div>
 
-            <p>
-                In jeder Runde zählt die Kickbase-Punktzahl des jeweils
-                festgelegten Bundesliga-Spieltags. Der Manager mit der
-                höheren Punktzahl gewinnt das direkte Duell und zieht
-                in die nächste Runde ein.
-            </p>
+                    <strong>Entscheidung</strong>
 
-        </div>
+                    <p>
+                        Die Kickbase-Punkte des festgelegten
+                        Bundesliga-Spieltags entscheiden jedes Duell.
+                    </p>
 
-    </section>
+                </div>
 
-    <section class="saison pokal-box">
+            </article>
 
-        <h2>
-            📅 Pokaltermine
-        </h2>
 
-        <div class="pokal-termine">
+            <article class="pokal-mode-card">
 
-            <div class="pokal-termin">
-                <strong>Vorrunde</strong>
-                <span>4. Spieltag</span>
-            </div>
+                <span class="pokal-mode-number">
+                    04
+                </span>
 
-            <div class="pokal-termin">
-                <strong>Achtelfinale</strong>
-                <span>8. Spieltag</span>
-            </div>
+                <div>
 
-            <div class="pokal-termin">
-                <strong>Viertelfinale</strong>
-                <span>18. Spieltag</span>
-            </div>
+                    <strong>Weiterkommen</strong>
 
-            <div class="pokal-termin">
-                <strong>Halbfinale</strong>
-                <span>26. Spieltag</span>
-            </div>
+                    <p>
+                        Der Manager mit der höheren Punktzahl erreicht
+                        die nächste Pokalrunde.
+                    </p>
 
-            <div class="pokal-termin pokal-final-termin">
-                <strong>Finale</strong>
-                <span>34. Spieltag</span>
-            </div>
+                </div>
+
+            </article>
 
         </div>
 
     </section>
 
-    <section class="saison pokal-box">
 
-        <h2>
-            ⚔️ Vorrunde
-        </h2>
+    <section class="pokal-schedule-section">
 
-        <p class="pokal-rundenbeschreibung">
-            Die Vorrunde findet am 4. Bundesliga-Spieltag statt.
-            Vier ausgeloste Manager spielen um zwei Plätze im Achtelfinale.
+        <div class="pokal-section-heading">
+
+            <div>
+
+                <p class="pokal-section-label">
+                    SAISON 2026/27
+                </p>
+
+                <h2 class="heading-with-icon">
+
+                    <i data-lucide="calendar-days"></i>
+
+                    Pokaltermine
+
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="pokal-schedule">
+
+            <article class="pokal-schedule-item">
+
+                <span class="pokal-schedule-step">
+                    01
+                </span>
+
+                <div>
+
+                    <strong>Vorrunde</strong>
+
+                    <p>4. Spieltag</p>
+
+                </div>
+
+            </article>
+
+
+            <span class="pokal-schedule-line"></span>
+
+
+            <article class="pokal-schedule-item">
+
+                <span class="pokal-schedule-step">
+                    02
+                </span>
+
+                <div>
+
+                    <strong>Achtelfinale</strong>
+
+                    <p>8. Spieltag</p>
+
+                </div>
+
+            </article>
+
+
+            <span class="pokal-schedule-line"></span>
+
+
+            <article class="pokal-schedule-item">
+
+                <span class="pokal-schedule-step">
+                    03
+                </span>
+
+                <div>
+
+                    <strong>Viertelfinale</strong>
+
+                    <p>18. Spieltag</p>
+
+                </div>
+
+            </article>
+
+
+            <span class="pokal-schedule-line"></span>
+
+
+            <article class="pokal-schedule-item">
+
+                <span class="pokal-schedule-step">
+                    04
+                </span>
+
+                <div>
+
+                    <strong>Halbfinale</strong>
+
+                    <p>26. Spieltag</p>
+
+                </div>
+
+            </article>
+
+
+            <span class="pokal-schedule-line"></span>
+
+
+            <article class="pokal-schedule-item pokal-schedule-final">
+
+                <span class="pokal-schedule-step">
+
+                    <i data-lucide="trophy"></i>
+
+                </span>
+
+                <div>
+
+                    <strong>Finale</strong>
+
+                    <p>34. Spieltag</p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <section class="pokal-preliminary-section">
+
+        <div class="pokal-section-heading">
+
+            <div>
+
+                <p class="pokal-section-label">
+                    4. BUNDESLIGA-SPIELTAG
+                </p>
+
+                <h2 class="heading-with-icon">
+
+                    <i data-lucide="swords"></i>
+
+                    Vorrunde
+
+                </h2>
+
+            </div>
+
+
+            <span class="pokal-round-status">
+
+                <i data-lucide="clock-3"></i>
+
+                Auslosung folgt
+
+            </span>
+
+        </div>
+
+
+        <p class="pokal-round-description">
+            Vier ausgeloste Manager kämpfen in zwei direkten Duellen
+            um die letzten beiden Plätze im Achtelfinale.
         </p>
 
-        <div class="vorrunden-grid">
 
-            <div class="pokal-match">
+        <div class="pokal-preliminary-grid">
 
-                <div class="pokal-match-heading">
-                    Vorrundenspiel 1
-                </div>
-
-                <div class="pokal-team">
-                    <span>Manager 1</span>
-                    <strong>-</strong>
-                </div>
-
-                <div class="pokal-team">
-                    <span>Manager 2</span>
-                    <strong>-</strong>
-                </div>
-
-                <div class="pokal-match-footer">
-                    Sieger → Achtelfinale 1
-                </div>
-
-            </div>
-
-            <div class="pokal-match">
+            <article class="pokal-match">
 
                 <div class="pokal-match-heading">
-                    Vorrundenspiel 2
+
+                    <span>Vorrundenspiel 1</span>
+
+                    <small>4. Spieltag</small>
+
                 </div>
 
-                <div class="pokal-team">
-                    <span>Manager 3</span>
-                    <strong>-</strong>
-                </div>
 
                 <div class="pokal-team">
-                    <span>Manager 4</span>
+
+                    <span class="pokal-team-name">
+                        Manager 1
+                    </span>
+
                     <strong>-</strong>
+
                 </div>
+
+
+                <div class="pokal-team">
+
+                    <span class="pokal-team-name">
+                        Manager 2
+                    </span>
+
+                    <strong>-</strong>
+
+                </div>
+
 
                 <div class="pokal-match-footer">
-                    Sieger → Achtelfinale 8
+
+                    <i data-lucide="arrow-right"></i>
+
+                    Sieger erreicht Achtelfinale 1
+
                 </div>
 
-            </div>
+            </article>
+
+
+            <article class="pokal-match">
+
+                <div class="pokal-match-heading">
+
+                    <span>Vorrundenspiel 2</span>
+
+                    <small>4. Spieltag</small>
+
+                </div>
+
+
+                <div class="pokal-team">
+
+                    <span class="pokal-team-name">
+                        Manager 3
+                    </span>
+
+                    <strong>-</strong>
+
+                </div>
+
+
+                <div class="pokal-team">
+
+                    <span class="pokal-team-name">
+                        Manager 4
+                    </span>
+
+                    <strong>-</strong>
+
+                </div>
+
+
+                <div class="pokal-match-footer">
+
+                    <i data-lucide="arrow-right"></i>
+
+                    Sieger erreicht Achtelfinale 8
+
+                </div>
+
+            </article>
 
         </div>
 
     </section>
 
-    <section class="saison pokal-box">
 
-        <h2>
-            🏆 Turnierbaum
-        </h2>
+    <section class="pokal-bracket-section">
 
-        <p class="turnierbaum-hinweis">
-            Auf dem Handy kannst du den Turnierbaum nach links und rechts verschieben.
-        </p>
+        <div class="pokal-section-heading">
+
+            <div>
+
+                <p class="pokal-section-label">
+                    DER WEG INS FINALE
+                </p>
+
+                <h2 class="heading-with-icon">
+
+                    <i data-lucide="git-branch"></i>
+
+                    Turnierbaum
+
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="pokal-bracket-hint">
+
+            <i data-lucide="move-horizontal"></i>
+
+            <span>
+                Auf dem Handy den Turnierbaum nach links und rechts wischen
+            </span>
+
+        </div>
+
 
         <div class="turnierbaum-scroll">
 
             <div class="turnierbaum">
+
 
                 <!-- ACHTELFINALE -->
 
                 <div class="turnier-runde achtelfinale-runde">
 
                     <div class="turnier-rundenkopf">
-                        <h3>Achtelfinale</h3>
-                        <p>8. Spieltag</p>
+
+                        <span class="turnier-runden-number">
+                            01
+                        </span>
+
+                        <div>
+
+                            <h3>Achtelfinale</h3>
+
+                            <p>8. Spieltag</p>
+
+                        </div>
+
                     </div>
+
 
                     <div class="turnier-spiele">
 
-                        <div class="pokal-match">
+                        <article class="pokal-match">
+
                             <div class="pokal-match-heading">
                                 Achtelfinale 1
                             </div>
@@ -530,9 +1066,12 @@
                                 <span>Manager</span>
                                 <strong>-</strong>
                             </div>
-                        </div>
 
-                        <div class="pokal-match">
+                        </article>
+
+
+                        <article class="pokal-match">
+
                             <div class="pokal-match-heading">
                                 Achtelfinale 2
                             </div>
@@ -546,9 +1085,12 @@
                                 <span>Manager</span>
                                 <strong>-</strong>
                             </div>
-                        </div>
 
-                        <div class="pokal-match">
+                        </article>
+
+
+                        <article class="pokal-match">
+
                             <div class="pokal-match-heading">
                                 Achtelfinale 3
                             </div>
@@ -562,9 +1104,12 @@
                                 <span>Manager</span>
                                 <strong>-</strong>
                             </div>
-                        </div>
 
-                        <div class="pokal-match">
+                        </article>
+
+
+                        <article class="pokal-match">
+
                             <div class="pokal-match-heading">
                                 Achtelfinale 4
                             </div>
@@ -578,9 +1123,12 @@
                                 <span>Manager</span>
                                 <strong>-</strong>
                             </div>
-                        </div>
 
-                        <div class="pokal-match">
+                        </article>
+
+
+                        <article class="pokal-match">
+
                             <div class="pokal-match-heading">
                                 Achtelfinale 5
                             </div>
@@ -594,9 +1142,12 @@
                                 <span>Manager</span>
                                 <strong>-</strong>
                             </div>
-                        </div>
 
-                        <div class="pokal-match">
+                        </article>
+
+
+                        <article class="pokal-match">
+
                             <div class="pokal-match-heading">
                                 Achtelfinale 6
                             </div>
@@ -610,9 +1161,12 @@
                                 <span>Manager</span>
                                 <strong>-</strong>
                             </div>
-                        </div>
 
-                        <div class="pokal-match">
+                        </article>
+
+
+                        <article class="pokal-match">
+
                             <div class="pokal-match-heading">
                                 Achtelfinale 7
                             </div>
@@ -626,9 +1180,12 @@
                                 <span>Manager</span>
                                 <strong>-</strong>
                             </div>
-                        </div>
 
-                        <div class="pokal-match">
+                        </article>
+
+
+                        <article class="pokal-match">
+
                             <div class="pokal-match-heading">
                                 Achtelfinale 8
                             </div>
@@ -642,28 +1199,46 @@
                                 <span>Sieger Vorrunde 2</span>
                                 <strong>-</strong>
                             </div>
-                        </div>
+
+                        </article>
 
                     </div>
 
                 </div>
 
-                <!-- VIERTELFINALE -->
 
                 <div class="turnier-pfeil">
-                    →
+
+                    <i data-lucide="chevron-right"></i>
+
                 </div>
+
+
+                <!-- VIERTELFINALE -->
 
                 <div class="turnier-runde viertelfinale-runde">
 
                     <div class="turnier-rundenkopf">
-                        <h3>Viertelfinale</h3>
-                        <p>18. Spieltag</p>
+
+                        <span class="turnier-runden-number">
+                            02
+                        </span>
+
+                        <div>
+
+                            <h3>Viertelfinale</h3>
+
+                            <p>18. Spieltag</p>
+
+                        </div>
+
                     </div>
+
 
                     <div class="turnier-spiele">
 
-                        <div class="pokal-match">
+                        <article class="pokal-match">
+
                             <div class="pokal-match-heading">
                                 Viertelfinale 1
                             </div>
@@ -677,9 +1252,12 @@
                                 <span>Sieger AF 2</span>
                                 <strong>-</strong>
                             </div>
-                        </div>
 
-                        <div class="pokal-match">
+                        </article>
+
+
+                        <article class="pokal-match">
+
                             <div class="pokal-match-heading">
                                 Viertelfinale 2
                             </div>
@@ -693,9 +1271,12 @@
                                 <span>Sieger AF 4</span>
                                 <strong>-</strong>
                             </div>
-                        </div>
 
-                        <div class="pokal-match">
+                        </article>
+
+
+                        <article class="pokal-match">
+
                             <div class="pokal-match-heading">
                                 Viertelfinale 3
                             </div>
@@ -709,9 +1290,12 @@
                                 <span>Sieger AF 6</span>
                                 <strong>-</strong>
                             </div>
-                        </div>
 
-                        <div class="pokal-match">
+                        </article>
+
+
+                        <article class="pokal-match">
+
                             <div class="pokal-match-heading">
                                 Viertelfinale 4
                             </div>
@@ -725,28 +1309,46 @@
                                 <span>Sieger AF 8</span>
                                 <strong>-</strong>
                             </div>
-                        </div>
+
+                        </article>
 
                     </div>
 
                 </div>
 
-                <!-- HALBFINALE -->
 
                 <div class="turnier-pfeil">
-                    →
+
+                    <i data-lucide="chevron-right"></i>
+
                 </div>
+
+
+                <!-- HALBFINALE -->
 
                 <div class="turnier-runde halbfinale-runde">
 
                     <div class="turnier-rundenkopf">
-                        <h3>Halbfinale</h3>
-                        <p>26. Spieltag</p>
+
+                        <span class="turnier-runden-number">
+                            03
+                        </span>
+
+                        <div>
+
+                            <h3>Halbfinale</h3>
+
+                            <p>26. Spieltag</p>
+
+                        </div>
+
                     </div>
+
 
                     <div class="turnier-spiele">
 
-                        <div class="pokal-match">
+                        <article class="pokal-match">
+
                             <div class="pokal-match-heading">
                                 Halbfinale 1
                             </div>
@@ -760,9 +1362,12 @@
                                 <span>Sieger VF 2</span>
                                 <strong>-</strong>
                             </div>
-                        </div>
 
-                        <div class="pokal-match">
+                        </article>
+
+
+                        <article class="pokal-match">
+
                             <div class="pokal-match-heading">
                                 Halbfinale 2
                             </div>
@@ -776,48 +1381,84 @@
                                 <span>Sieger VF 4</span>
                                 <strong>-</strong>
                             </div>
-                        </div>
+
+                        </article>
 
                     </div>
 
                 </div>
 
-                <!-- FINALE -->
 
                 <div class="turnier-pfeil">
-                    →
+
+                    <i data-lucide="chevron-right"></i>
+
                 </div>
+
+
+                <!-- FINALE -->
 
                 <div class="turnier-runde finale-runde">
 
                     <div class="turnier-rundenkopf">
-                        <h3>Finale</h3>
-                        <p>34. Spieltag</p>
+
+                        <span class="turnier-runden-number">
+
+                            <i data-lucide="trophy"></i>
+
+                        </span>
+
+                        <div>
+
+                            <h3>Finale</h3>
+
+                            <p>34. Spieltag</p>
+
+                        </div>
+
                     </div>
+
 
                     <div class="turnier-spiele">
 
-                        <div class="pokal-match final-match">
+                        <article class="pokal-match final-match">
 
                             <div class="pokal-match-heading">
-                                Pokalfinale
+
+                                <span>Pokalfinale</span>
+
+                                <small>34. Spieltag</small>
+
                             </div>
 
+
                             <div class="pokal-team">
+
                                 <span>Sieger HF 1</span>
+
                                 <strong>-</strong>
+
                             </div>
 
+
                             <div class="pokal-team">
+
                                 <span>Sieger HF 2</span>
+
                                 <strong>-</strong>
+
                             </div>
+
 
                             <div class="pokal-match-footer">
-                                🏆 Sieger wird Pokalsieger
+
+                                <i data-lucide="trophy"></i>
+
+                                Sieger wird Kickbase-Pokalsieger
+
                             </div>
 
-                        </div>
+                        </article>
 
                     </div>
 
@@ -827,141 +1468,323 @@
 
         </div>
 
-        <div class="pokal-abkuerzungen">
 
-            <p>
-                <strong>AF</strong> = Achtelfinale
-            </p>
+        <div class="pokal-abbreviations">
 
-            <p>
-                <strong>VF</strong> = Viertelfinale
-            </p>
+            <span>
+                <strong>AF</strong>
+                Achtelfinale
+            </span>
 
-            <p>
-                <strong>HF</strong> = Halbfinale
-            </p>
+            <span>
+                <strong>VF</strong>
+                Viertelfinale
+            </span>
 
-        </div>
-
-    </section>
-
-    <section class="saison pokal-box">
-
-        <h2>
-            📅 Turnierstatus
-        </h2>
-
-        <table class="pokal-table">
-
-            <thead>
-
-                <tr>
-                    <th>Runde</th>
-                    <th>Spieltag</th>
-                    <th>Status</th>
-                </tr>
-
-            </thead>
-
-            <tbody>
-
-                <tr>
-                    <td>Vorrunde</td>
-                    <td>4. Spieltag</td>
-                    <td>⏳ Auslosung folgt</td>
-                </tr>
-
-                <tr>
-                    <td>Achtelfinale</td>
-                    <td>8. Spieltag</td>
-                    <td>🔒 Noch nicht begonnen</td>
-                </tr>
-
-                <tr>
-                    <td>Viertelfinale</td>
-                    <td>18. Spieltag</td>
-                    <td>🔒 Noch nicht begonnen</td>
-                </tr>
-
-                <tr>
-                    <td>Halbfinale</td>
-                    <td>26. Spieltag</td>
-                    <td>🔒 Noch nicht begonnen</td>
-                </tr>
-
-                <tr>
-                    <td>Finale</td>
-                    <td>34. Spieltag</td>
-                    <td>🔒 Noch nicht begonnen</td>
-                </tr>
-
-            </tbody>
-
-        </table>
-
-        <div class="pokal-legende">
-
-            <p>
-                <strong>Legende:</strong>
-            </p>
-
-            <p>
-                ⏳ = Auslosung oder Runde steht noch aus
-            </p>
-
-            <p>
-                🔒 = Runde hat noch nicht begonnen
-            </p>
-
-            <p>
-                ✅ = Runde ist abgeschlossen
-            </p>
+            <span>
+                <strong>HF</strong>
+                Halbfinale
+            </span>
 
         </div>
 
     </section>
 
-    <section class="saison pokal-box">
 
-        <h2>
-            🏆 Pokalsieger
-        </h2>
+    <section class="pokal-status-section">
 
-        <table>
+        <div class="pokal-section-heading">
 
-            <thead>
+            <div>
 
-                <tr>
-                    <th>Saison</th>
-                    <th>Sieger</th>
-                </tr>
+                <p class="pokal-section-label">
+                    TURNIERFORTSCHRITT
+                </p>
 
-            </thead>
+                <h2 class="heading-with-icon">
 
-            <tbody>
+                    <i data-lucide="list-checks"></i>
 
-                <tr>
-                    <td>2026/27</td>
-                    <td>folgt</td>
-                </tr>
+                    Turnierstatus
 
-            </tbody>
+                </h2>
 
-        </table>
+            </div>
+
+        </div>
+
+
+        <div class="pokal-status-wrapper">
+
+            <table class="pokal-status-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Runde</th>
+
+                        <th>Spieltag</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+
+                            <strong>Vorrunde</strong>
+
+                        </td>
+
+                        <td>4. Spieltag</td>
+
+                        <td>
+
+                            <span class="pokal-status pokal-status-pending">
+
+                                <i data-lucide="clock-3"></i>
+
+                                Auslosung folgt
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+
+                            <strong>Achtelfinale</strong>
+
+                        </td>
+
+                        <td>8. Spieltag</td>
+
+                        <td>
+
+                            <span class="pokal-status pokal-status-locked">
+
+                                <i data-lucide="lock"></i>
+
+                                Noch nicht begonnen
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+
+                            <strong>Viertelfinale</strong>
+
+                        </td>
+
+                        <td>18. Spieltag</td>
+
+                        <td>
+
+                            <span class="pokal-status pokal-status-locked">
+
+                                <i data-lucide="lock"></i>
+
+                                Noch nicht begonnen
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+
+                            <strong>Halbfinale</strong>
+
+                        </td>
+
+                        <td>26. Spieltag</td>
+
+                        <td>
+
+                            <span class="pokal-status pokal-status-locked">
+
+                                <i data-lucide="lock"></i>
+
+                                Noch nicht begonnen
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+
+                            <strong>Finale</strong>
+
+                        </td>
+
+                        <td>34. Spieltag</td>
+
+                        <td>
+
+                            <span class="pokal-status pokal-status-locked">
+
+                                <i data-lucide="lock"></i>
+
+                                Noch nicht begonnen
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <div class="pokal-status-legend">
+
+            <span>
+
+                <i data-lucide="clock-3"></i>
+
+                Auslosung oder Runde steht noch aus
+
+            </span>
+
+
+            <span>
+
+                <i data-lucide="lock"></i>
+
+                Runde hat noch nicht begonnen
+
+            </span>
+
+
+            <span>
+
+                <i data-lucide="circle-check"></i>
+
+                Runde ist abgeschlossen
+
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <section class="pokal-winner-section">
+
+        <div class="pokal-winner-visual">
+
+            <div class="pokal-trophy-circle">
+
+                <i data-lucide="trophy"></i>
+
+            </div>
+
+        </div>
+
+
+        <div class="pokal-winner-content">
+
+            <p class="pokal-section-label">
+                DER TITEL
+            </p>
+
+            <h2>
+                Kickbase-Pokalsieger
+            </h2>
+
+            <p>
+                Der Sieger des Pokalfinales gewinnt den Kickbase-Pokal
+                und trägt sich als erster Pokalsieger in die Geschichte
+                der Kickbase League ein.
+            </p>
+
+
+            <div class="pokal-prize-box">
+
+                <div>
+
+                    <span>PREISGELD</span>
+
+                    <strong>60 €</strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>TROPHÄE</span>
+
+                    <strong>Wanderpokal</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="pokal-current-winner">
+
+                <span>SAISON 2026/27</span>
+
+                <strong>Noch offen</strong>
+
+            </div>
+
+        </div>
 
     </section>
 
 </main>
 
+
 <footer>
 
-    © 2026 Kickbase League
+    © Kickbase League
 
 </footer>
 
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
 <script src="/kickbase-league/script.js"></script>
 
-<script src="animations.js"></script>
+<script src="/kickbase-league/animations.js"></script>
+
+<script>
+
+    lucide.createIcons();
+
+</script>
+
 </body>
 
 </html>
