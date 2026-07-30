@@ -4505,3 +4505,147 @@ einstellungen deaktiviert hat.
     }
 
 }
+/* =========================================
+   PREMIUM-ABSCHNITTSÜBERSCHRIFTEN
+========================================= */
+
+.portal-section {
+    position: relative;
+    margin-top: 72px;
+}
+
+.section-heading {
+    position: relative;
+    margin-bottom: 28px;
+    padding-left: 20px;
+}
+
+.section-heading::before {
+    content: "";
+    position: absolute;
+
+    top: 2px;
+    bottom: 2px;
+    left: 0;
+
+    width: 4px;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+        180deg,
+        #4be487,
+        #18c55b
+    );
+
+    box-shadow: 0 0 18px rgba(24, 197, 91, 0.3);
+}
+
+.section-heading p {
+    margin: 0 0 7px;
+
+    color: #43db7e;
+
+    font-size: 0.72rem;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: 0.18em;
+}
+
+.section-heading h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.045em;
+}
+
+.section-heading h2.heading-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.section-heading h2.heading-with-icon svg {
+    width: 29px;
+    height: 29px;
+
+    flex-shrink: 0;
+
+    color: #39dc7b;
+    stroke-width: 2;
+}
+
+.section-heading::after {
+    content: "";
+    position: absolute;
+
+    left: 20px;
+    bottom: -15px;
+
+    width: min(520px, 75%);
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.14),
+        transparent
+    );
+}
+
+
+/* Abstand beim ersten Abschnitt nach den Faktenkarten */
+
+.league-facts + .portal-section {
+    margin-top: 64px;
+}
+
+
+/* Smartphone */
+
+@media (max-width: 600px) {
+
+    .portal-section {
+        margin-top: 55px;
+    }
+
+    .section-heading {
+        margin-bottom: 25px;
+        padding-left: 16px;
+    }
+
+    .section-heading::before {
+        width: 3px;
+    }
+
+    .section-heading p {
+        margin-bottom: 6px;
+
+        font-size: 0.64rem;
+        letter-spacing: 0.15em;
+    }
+
+    .section-heading h2 {
+        font-size: 1.75rem;
+    }
+
+    .section-heading h2.heading-with-icon {
+        gap: 9px;
+    }
+
+    .section-heading h2.heading-with-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .section-heading::after {
+        left: 16px;
+        bottom: -13px;
+
+        width: 82%;
+    }
+
+}
