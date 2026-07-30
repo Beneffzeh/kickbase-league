@@ -56,7 +56,7 @@ header p {
 
 /* Navigation */
 
-nav:not(.main-navigation) {
+nav:not(.main-navigation) 
     background: #11151c;
     display: flex;
     overflow-x: auto;
@@ -66,7 +66,7 @@ nav:not(.main-navigation) {
 }
 
 
-nav:not(.main-navigation) a {
+nav:not(.main-navigation) a 
     color: white;
     text-decoration: none;
     padding: 18px 20px;
@@ -75,7 +75,7 @@ nav:not(.main-navigation) a {
 }
 
 
-nav:not(.main-navigation) a:hover {
+nav:not(.main-navigation) a:hover 
     background: #18c55b;
     color: #000;
 }
@@ -2417,6 +2417,664 @@ body.mobile-menu-open {
 
     .turnierbaum .pokal-team span {
         font-size: 15px;
+    }
+
+}
+/* =========================================
+   MODERNE ANIMATIONEN
+========================================= */
+
+/* Sanftes Scrollen */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* =========================================
+   EINBLENDEN BEIM SCROLLEN
+========================================= */
+
+/*
+Die Elemente bleiben sichtbar, falls JavaScript
+nicht geladen werden kann.
+*/
+
+.reveal-element {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*
+Erst wenn JavaScript aktiv ist, werden die
+Elemente zunächst versteckt.
+*/
+
+.js-enabled .reveal-element {
+    opacity: 0;
+    transform: translateY(28px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.js-enabled .reveal-element.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Kleine zeitliche Unterschiede bei Karten */
+
+.reveal-delay-1 {
+    transition-delay: 0.08s !important;
+}
+
+.reveal-delay-2 {
+    transition-delay: 0.16s !important;
+}
+
+.reveal-delay-3 {
+    transition-delay: 0.24s !important;
+}
+
+.reveal-delay-4 {
+    transition-delay: 0.32s !important;
+}
+
+
+/* =========================================
+   MODERNE KARTEN-EFFEKTE
+========================================= */
+
+.card,
+.portal-card,
+.fact-card,
+.hof-card,
+.hof-record,
+.stats-card,
+.stats-block,
+.info-box,
+.saison,
+.season-note,
+.hof-note,
+.stats-note,
+.pokal-info-item,
+.pokal-termin,
+.pokal-match {
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+/* Hover nur auf Geräten mit Maus */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .card:hover,
+    .fact-card:hover,
+    .hof-card:hover,
+    .hof-record:hover,
+    .stats-card:hover,
+    .pokal-info-item:hover,
+    .pokal-termin:hover {
+
+        transform: translateY(-6px);
+        border-color: rgba(24, 197, 91, 0.65);
+
+        box-shadow:
+            0 16px 38px rgba(0, 0, 0, 0.3),
+            0 0 22px rgba(24, 197, 91, 0.08);
+    }
+
+}
+
+
+/* Kurzer Antipp-Effekt auf dem Handy */
+
+.card:active,
+.portal-card:active,
+.fact-card:active,
+.hof-card:active,
+.hof-record:active,
+.stats-card:active,
+.pokal-info-item:active,
+.pokal-termin:active,
+.mobile-menu-link:active,
+.fullscreen-link:active {
+
+    transform: scale(0.98);
+}
+
+
+/* =========================================
+   BUTTONS UND LINKS
+========================================= */
+
+.portal-button,
+.desktop-navigation > a,
+.dropdown-menu a,
+.mobile-menu-link,
+.fullscreen-link,
+.navigation-brand,
+.mobile-menu-button,
+.mobile-menu-close {
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    .portal-button:hover {
+        transform: translateX(5px);
+        text-shadow: 0 0 12px currentColor;
+    }
+
+    .mobile-menu-button:hover,
+    .mobile-menu-close:hover {
+        border-color: rgba(24, 197, 91, 0.7);
+
+        box-shadow:
+            0 0 18px rgba(24, 197, 91, 0.14);
+    }
+
+}
+
+
+/* =========================================
+   LOGO- UND POKALANIMATION
+========================================= */
+
+.cl-logo,
+.kreisliga-logo,
+.pokal-logo,
+.quali-logo,
+.league-logo,
+.hof-crown,
+.stats-symbol {
+
+    animation: gentle-float 5s ease-in-out infinite;
+}
+
+
+@keyframes gentle-float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+
+}
+
+
+/* Unterschiedliche Startzeit, damit nicht alles
+   gleichzeitig schwebt */
+
+.kreisliga-logo {
+    animation-delay: -1s;
+}
+
+.pokal-logo {
+    animation-delay: -2s;
+}
+
+.quali-logo {
+    animation-delay: -3s;
+}
+
+.hof-crown {
+    animation-delay: -1.5s;
+}
+
+.stats-symbol {
+    animation-delay: -2.5s;
+}
+
+
+/* =========================================
+   ÜBERSCHRIFTEN UND GLOW
+========================================= */
+
+.portal-intro h2,
+.section-heading h2,
+.hof-intro h2,
+.stats-intro h2 {
+
+    text-shadow:
+        0 0 20px rgba(255, 255, 255, 0.04);
+}
+
+
+section h2,
+.stats-block h2,
+.hof-card h2,
+.season-note h2 {
+
+    transition:
+        text-shadow 0.3s ease,
+        color 0.3s ease;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    section:hover > h2,
+    .stats-block:hover h2,
+    .hof-card:hover h2,
+    .season-note:hover h2 {
+
+        text-shadow:
+            0 0 16px rgba(24, 197, 91, 0.22);
+    }
+
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.main-navigation {
+
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.main-navigation:hover {
+
+    box-shadow:
+        0 10px 32px rgba(0, 0, 0, 0.38),
+        0 1px 0 rgba(24, 197, 91, 0.12);
+}
+
+
+.active-navigation-link {
+
+    box-shadow:
+        inset 0 0 0 1px rgba(240, 203, 103, 0.16),
+        0 0 15px rgba(240, 203, 103, 0.06);
+}
+
+
+/* Animation des mobilen Seitenmenüs */
+
+.mobile-side-menu {
+
+    transition:
+        transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0.36s ease;
+}
+
+
+.mobile-menu-overlay {
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+
+/* Mobile Menüpunkte erscheinen nacheinander */
+
+.mobile-side-menu.is-open .mobile-menu-link {
+
+    animation: mobile-link-enter 0.42s ease both;
+}
+
+
+.mobile-side-menu.is-open .mobile-menu-link:nth-of-type(1) {
+    animation-delay: 0.04s;
+}
+
+.mobile-side-menu.is-open .mobile-menu-link:nth-of-type(2) {
+    animation-delay: 0.08s;
+}
+
+.mobile-side-menu.is-open .mobile-menu-link:nth-of-type(3) {
+    animation-delay: 0.12s;
+}
+
+.mobile-side-menu.is-open .mobile-menu-link:nth-of-type(4) {
+    animation-delay: 0.16s;
+}
+
+.mobile-side-menu.is-open .mobile-menu-link:nth-of-type(5) {
+    animation-delay: 0.2s;
+}
+
+.mobile-side-menu.is-open .mobile-menu-link:nth-of-type(6) {
+    animation-delay: 0.24s;
+}
+
+.mobile-side-menu.is-open .mobile-menu-link:nth-of-type(7) {
+    animation-delay: 0.28s;
+}
+
+.mobile-side-menu.is-open .mobile-menu-link:nth-of-type(8) {
+    animation-delay: 0.32s;
+}
+
+
+@keyframes mobile-link-enter {
+
+    from {
+        opacity: 0;
+        transform: translateX(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+/* =========================================
+   TABELLEN
+========================================= */
+
+tbody tr {
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    tbody tr:hover {
+
+        transform: scale(1.005);
+
+        box-shadow:
+            0 5px 15px rgba(0, 0, 0, 0.16);
+    }
+
+}
+
+
+/* =========================================
+   BARRIEREFREIHEIT UND LEISTUNG
+========================================= */
+
+/*
+Falls jemand Animationen in den Geräte-
+einstellungen deaktiviert hat.
+*/
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .js-enabled .reveal-element {
+
+        opacity: 1;
+        transform: none;
+    }
+
+}
+
+
+/* Auf kleinen Handys etwas weniger Bewegung */
+
+@media (max-width: 600px) {
+
+    .cl-logo,
+    .kreisliga-logo,
+    .pokal-logo,
+    .quali-logo,
+    .league-logo,
+    .hof-crown,
+    .stats-symbol {
+
+        animation-duration: 6s;
+    }
+
+    .js-enabled .reveal-element {
+
+        transform: translateY(18px);
+    }
+
+}
+
+/* =========================================
+   SAISONKALENDER
+========================================= */
+
+.season-calendar-section {
+    max-width: 1100px;
+}
+
+.season-calendar-intro {
+    margin: -10px 0 30px;
+    color: #b9bfc8;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.season-timeline {
+    position: relative;
+    display: grid;
+    gap: 18px;
+}
+
+/* Durchgehende Linie */
+
+.season-timeline::before {
+    position: absolute;
+    top: 38px;
+    bottom: 38px;
+    left: 31px;
+    width: 2px;
+    content: "";
+    background:
+        linear-gradient(
+            180deg,
+            #18c55b,
+            #d9b85f
+        );
+    opacity: 0.7;
+}
+
+.season-timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 18px;
+    align-items: stretch;
+}
+
+.season-timeline-marker {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    padding-top: 22px;
+}
+
+.season-timeline-marker span {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    font-size: 24px;
+    background:
+        linear-gradient(
+            145deg,
+            #202631,
+            #11151c
+        );
+    border: 2px solid #18c55b;
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 6px #080b12,
+        0 0 22px rgba(24, 197, 91, 0.2);
+}
+
+.season-timeline-content {
+    padding: 23px 25px;
+    background:
+        linear-gradient(
+            145deg,
+            #171c25,
+            #11151c
+        );
+    border: 1px solid #2b323e;
+    border-radius: 18px;
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.season-timeline-content time {
+    display: inline-block;
+    margin-bottom: 9px;
+    color: #d9b85f;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.season-timeline-content h3 {
+    margin-bottom: 9px;
+    color: #ffffff;
+    font-size: 21px;
+}
+
+.season-timeline-content p {
+    margin: 0;
+    color: #b9bfc8;
+    line-height: 1.65;
+}
+
+/* Abschluss besonders hervorheben */
+
+.season-timeline-final .season-timeline-marker span {
+    border-color: #d9b85f;
+    box-shadow:
+        0 0 0 6px #080b12,
+        0 0 24px rgba(217, 184, 95, 0.25);
+}
+
+.season-timeline-final .season-timeline-content {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(74, 57, 17, 0.48),
+            #11151c
+        );
+    border-color: rgba(217, 184, 95, 0.48);
+}
+
+.season-timeline-final .season-timeline-content h3 {
+    color: #f0cb67;
+}
+
+/* Effekt am PC */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .season-timeline-content:hover {
+        transform: translateX(6px);
+        border-color: rgba(24, 197, 91, 0.6);
+        box-shadow:
+            0 14px 35px rgba(0, 0, 0, 0.26),
+            0 0 20px rgba(24, 197, 91, 0.07);
+    }
+
+    .season-timeline-final .season-timeline-content:hover {
+        border-color: rgba(217, 184, 95, 0.7);
+        box-shadow:
+            0 14px 35px rgba(0, 0, 0, 0.26),
+            0 0 22px rgba(217, 184, 95, 0.09);
+    }
+
+}
+
+/* =========================================
+   SAISONKALENDER – HANDY
+========================================= */
+
+@media (max-width: 600px) {
+
+    .season-calendar-intro {
+        margin-bottom: 24px;
+        font-size: 15px;
+    }
+
+    .season-timeline::before {
+        left: 24px;
+    }
+
+    .season-timeline-item {
+        grid-template-columns: 49px 1fr;
+        gap: 12px;
+    }
+
+    .season-timeline-marker {
+        padding-top: 20px;
+    }
+
+    .season-timeline-marker span {
+        width: 42px;
+        height: 42px;
+        font-size: 20px;
+        box-shadow:
+            0 0 0 5px #080b12,
+            0 0 17px rgba(24, 197, 91, 0.18);
+    }
+
+    .season-timeline-content {
+        padding: 20px 17px;
+        border-radius: 15px;
+    }
+
+    .season-timeline-content time {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .season-timeline-content h3 {
+        font-size: 19px;
+    }
+
+    .season-timeline-content p {
+        font-size: 14px;
+        line-height: 1.6;
     }
 
 }
