@@ -6002,3 +6002,1450 @@ hr {
     }
 
 }
+/* =========================================
+   CHAMPIONS-LEAGUE-SEITE
+========================================= */
+
+.champions-league-page {
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(221, 180, 76, 0.07),
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            #080a0f 0%,
+            #07090e 100%
+        );
+}
+
+
+/* =========================================
+   CHAMPIONS-LEAGUE-HEADER
+========================================= */
+
+.cl-header {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    min-height: 525px;
+    padding: 72px 24px 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    border-bottom: 1px solid rgba(226, 190, 91, 0.15);
+
+    background:
+        radial-gradient(
+            circle at 50% 22%,
+            rgba(224, 184, 77, 0.19),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 15% 30%,
+            rgba(24, 197, 91, 0.06),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #11110f,
+            #080a0f 60%,
+            #0c0d10
+        );
+
+    box-shadow:
+        inset 0 -1px 0 rgba(255, 255, 255, 0.025),
+        0 28px 70px rgba(0, 0, 0, 0.35);
+}
+
+.cl-header::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+
+    inset: 0;
+
+    opacity: 0.23;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 48px 48px;
+
+    mask-image: linear-gradient(
+        180deg,
+        black,
+        transparent 88%
+    );
+
+    -webkit-mask-image: linear-gradient(
+        180deg,
+        black,
+        transparent 88%
+    );
+}
+
+.cl-header::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    left: 50%;
+    bottom: -180px;
+
+    width: 720px;
+    height: 320px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: rgba(221, 180, 76, 0.12);
+    filter: blur(75px);
+
+    pointer-events: none;
+}
+
+.cl-header-background-icon {
+    position: absolute;
+    z-index: -1;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -48%);
+
+    opacity: 0.025;
+}
+
+.cl-header-background-icon svg {
+    width: 580px;
+    height: 580px;
+
+    color: #f1ce70;
+    stroke-width: 0.75;
+}
+
+.cl-header-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(820px, 100%);
+}
+
+.cl-season-badge {
+    width: fit-content;
+
+    margin: 0 auto 20px;
+    padding: 9px 14px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #eed27c;
+
+    font-size: 0.7rem;
+    font-weight: 850;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    border: 1px solid rgba(232, 197, 97, 0.28);
+    border-radius: 999px;
+
+    background: rgba(232, 197, 97, 0.07);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cl-season-badge svg {
+    width: 15px;
+    height: 15px;
+
+    stroke-width: 2;
+}
+
+.cl-logo {
+    width: clamp(105px, 14vw, 155px);
+    height: auto;
+
+    margin: 0 auto 20px;
+
+    display: block;
+
+    filter:
+        drop-shadow(0 18px 30px rgba(0, 0, 0, 0.42))
+        drop-shadow(0 0 24px rgba(224, 184, 77, 0.14));
+
+    animation: cl-logo-float 5s ease-in-out infinite;
+}
+
+.cl-eyebrow {
+    margin: 0 0 11px;
+
+    color: #d6b75d;
+
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.22em;
+}
+
+.cl-title {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(2.75rem, 7vw, 5rem);
+    font-weight: 950;
+    line-height: 0.98;
+    letter-spacing: -0.065em;
+
+    text-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.38),
+        0 0 30px rgba(224, 184, 77, 0.08);
+}
+
+.cl-header-description {
+    margin: 20px auto 0;
+
+    color: #a5abb4;
+
+    font-size: clamp(0.95rem, 2vw, 1.08rem);
+    font-weight: 550;
+    line-height: 1.6;
+}
+
+.cl-header-highlights {
+    margin-top: 28px;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cl-header-highlights span {
+    min-height: 39px;
+    padding: 9px 13px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #dfe3e8;
+
+    font-size: 0.72rem;
+    font-weight: 750;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.cl-header-highlights svg {
+    width: 16px;
+    height: 16px;
+
+    color: #e3c467;
+    stroke-width: 2;
+}
+
+@keyframes cl-logo-float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+
+}
+
+
+/* =========================================
+   HAUPTINHALT
+========================================= */
+
+.cl-main {
+    width: min(1180px, calc(100% - 40px));
+
+    margin: 0 auto;
+    padding: 66px 0 0;
+}
+
+
+/* =========================================
+   EINLEITUNG
+========================================= */
+
+.cl-introduction {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 250px;
+    padding: 38px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 210px;
+    align-items: center;
+    gap: 40px;
+
+    border: 1px solid rgba(232, 197, 97, 0.14);
+    border-radius: 27px;
+
+    background:
+        radial-gradient(
+            circle at 88% 22%,
+            rgba(224, 184, 77, 0.12),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(25, 25, 22, 0.97),
+            rgba(10, 12, 17, 0.99)
+        );
+
+    box-shadow:
+        0 28px 65px rgba(0, 0, 0, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.cl-introduction::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(232, 197, 97, 0.9),
+        transparent
+    );
+}
+
+.cl-introduction-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 720px;
+}
+
+.cl-section-label {
+    margin: 0 0 10px;
+
+    color: #d7b95f;
+
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+}
+
+.cl-introduction h2,
+.cl-title-content h2 {
+    margin: 0 0 16px;
+
+    color: #ffffff;
+
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 920;
+    line-height: 1.06;
+    letter-spacing: -0.055em;
+}
+
+.cl-introduction-content > p:last-child,
+.cl-title-content > p {
+    margin: 0;
+
+    color: #a2abb6;
+
+    font-size: 0.96rem;
+    line-height: 1.75;
+}
+
+.cl-introduction-trophy {
+    width: 170px;
+    height: 170px;
+
+    display: grid;
+    place-items: center;
+
+    justify-self: end;
+
+    border: 1px solid rgba(232, 197, 97, 0.18);
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(232, 197, 97, 0.15),
+            rgba(232, 197, 97, 0.025) 68%
+        );
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.cl-introduction-trophy svg {
+    width: 76px;
+    height: 76px;
+
+    color: #e8c763;
+    stroke-width: 1.5;
+
+    filter: drop-shadow(0 0 18px rgba(232, 199, 99, 0.18));
+}
+
+
+/* =========================================
+   FAKTENKARTEN
+========================================= */
+
+.cl-facts-grid {
+    margin-top: 24px;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.cl-fact-card {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 165px;
+    padding: 24px;
+
+    display: grid;
+    grid-template-columns: 54px 1fr;
+    align-items: flex-start;
+    gap: 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 23, 29, 0.97),
+            rgba(10, 12, 17, 0.99)
+        );
+
+    box-shadow:
+        0 20px 42px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.cl-fact-card::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 18px;
+    right: 18px;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(232, 197, 97, 0.48),
+        transparent
+    );
+}
+
+.cl-fact-icon {
+    width: 54px;
+    height: 54px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(232, 197, 97, 0.15);
+    border-radius: 15px;
+
+    background: rgba(232, 197, 97, 0.07);
+}
+
+.cl-fact-icon svg {
+    width: 25px;
+    height: 25px;
+
+    color: #dec05f;
+    stroke-width: 1.9;
+}
+
+.cl-fact-card span {
+    display: block;
+    margin: 2px 0 7px;
+
+    color: #707b89;
+
+    font-size: 0.62rem;
+    font-weight: 850;
+    letter-spacing: 0.15em;
+}
+
+.cl-fact-card strong {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 1.12rem;
+    font-weight: 850;
+    letter-spacing: -0.025em;
+}
+
+.cl-fact-card p {
+    margin: 8px 0 0;
+
+    color: #929ca8;
+
+    font-size: 0.82rem;
+    line-height: 1.55;
+}
+
+.cl-fact-card-gold {
+    border-color: rgba(232, 197, 97, 0.15);
+
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(232, 197, 97, 0.09),
+            transparent 38%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(29, 27, 20, 0.97),
+            rgba(10, 12, 17, 0.99)
+        );
+}
+
+.cl-fact-card-danger {
+    border-color: rgba(225, 79, 79, 0.13);
+
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(225, 79, 79, 0.075),
+            transparent 38%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(25, 20, 22, 0.97),
+            rgba(10, 12, 17, 0.99)
+        );
+}
+
+.cl-fact-card-danger .cl-fact-icon {
+    border-color: rgba(229, 84, 84, 0.18);
+    background: rgba(229, 84, 84, 0.07);
+}
+
+.cl-fact-card-danger .cl-fact-icon svg {
+    color: #e56b6b;
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+    .cl-fact-card:hover {
+        transform: translateY(-5px);
+
+        border-color: rgba(232, 197, 97, 0.22);
+
+        box-shadow:
+            0 28px 55px rgba(0, 0, 0, 0.3),
+            0 0 25px rgba(232, 197, 97, 0.04);
+    }
+
+    .cl-fact-card-danger:hover {
+        border-color: rgba(225, 79, 79, 0.24);
+    }
+
+}
+
+
+/* =========================================
+   TABELLE
+========================================= */
+
+.cl-table-section,
+.cl-legend-section {
+    margin-top: 66px;
+}
+
+.cl-section-heading {
+    margin-bottom: 24px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.cl-section-heading h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(1.85rem, 4vw, 2.55rem);
+    font-weight: 920;
+    letter-spacing: -0.05em;
+}
+
+.cl-section-heading .heading-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cl-section-heading .heading-with-icon svg {
+    width: 29px;
+    height: 29px;
+
+    color: #dec061;
+    stroke-width: 1.8;
+}
+
+.cl-table-update {
+    padding: 9px 13px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #8994a2;
+
+    font-size: 0.7rem;
+    font-weight: 750;
+
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.cl-table-update svg {
+    width: 15px;
+    height: 15px;
+
+    color: #d4b759;
+}
+
+.cl-table-wrapper {
+    overflow-x: auto;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18, 21, 27, 0.98),
+            rgba(9, 11, 16, 0.99)
+        );
+
+    box-shadow:
+        0 28px 65px rgba(0, 0, 0, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.cl-table {
+    width: 100%;
+    min-width: 720px;
+
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.cl-table th {
+    padding: 17px 20px;
+
+    color: #707b89;
+
+    font-size: 0.66rem;
+    font-weight: 850;
+    letter-spacing: 0.13em;
+    text-align: left;
+    text-transform: uppercase;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+
+    background: rgba(255, 255, 255, 0.018);
+}
+
+.cl-table td {
+    height: 76px;
+    padding: 13px 20px;
+
+    color: #dfe4e9;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.cl-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.cl-table tbody tr {
+    position: relative;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.cl-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.cl-position {
+    width: 34px;
+    height: 34px;
+
+    display: inline-grid;
+    place-items: center;
+
+    color: #abb3bd;
+
+    font-size: 0.78rem;
+    font-weight: 850;
+
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.cl-position-first {
+    color: #161206;
+
+    border-color: rgba(245, 212, 111, 0.9);
+
+    background: linear-gradient(
+        135deg,
+        #f1d97c,
+        #cfa541
+    );
+
+    box-shadow: 0 8px 20px rgba(220, 178, 70, 0.2);
+}
+
+.cl-position-second {
+    color: #16191d;
+
+    border-color: rgba(212, 218, 225, 0.9);
+
+    background: linear-gradient(
+        135deg,
+        #eef1f4,
+        #aeb7c1
+    );
+}
+
+.cl-position-third {
+    color: #1a1009;
+
+    border-color: rgba(213, 145, 91, 0.9);
+
+    background: linear-gradient(
+        135deg,
+        #dba06f,
+        #a96d42
+    );
+}
+
+.cl-manager-cell {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.cl-manager-avatar {
+    width: 39px;
+    height: 39px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.cl-manager-avatar svg {
+    width: 19px;
+    height: 19px;
+
+    color: #8c96a3;
+    stroke-width: 1.9;
+}
+
+.cl-manager-cell strong {
+    color: #eef1f4;
+
+    font-size: 0.88rem;
+    font-weight: 750;
+}
+
+.cl-points-column {
+    width: 110px;
+
+    text-align: center !important;
+}
+
+.cl-points-column strong {
+    color: #ffffff;
+
+    font-size: 0.9rem;
+}
+
+.cl-status-column {
+    width: 170px;
+
+    text-align: right !important;
+}
+
+.cl-status {
+    min-height: 30px;
+    padding: 7px 10px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    font-size: 0.66rem;
+    font-weight: 800;
+
+    border: 1px solid transparent;
+    border-radius: 999px;
+}
+
+.cl-status svg {
+    width: 14px;
+    height: 14px;
+}
+
+.cl-status-champion {
+    color: #efd67d;
+
+    border-color: rgba(232, 197, 97, 0.22);
+    background: rgba(232, 197, 97, 0.08);
+}
+
+.cl-status-silver {
+    color: #ced5dd;
+
+    border-color: rgba(205, 213, 221, 0.14);
+    background: rgba(205, 213, 221, 0.055);
+}
+
+.cl-status-bronze {
+    color: #d9a078;
+
+    border-color: rgba(208, 139, 87, 0.16);
+    background: rgba(208, 139, 87, 0.06);
+}
+
+.cl-status-safe {
+    color: #62df91;
+
+    border-color: rgba(24, 197, 91, 0.17);
+    background: rgba(24, 197, 91, 0.06);
+}
+
+.cl-status-neutral {
+    min-width: 35px;
+
+    color: #697481;
+
+    border-color: rgba(255, 255, 255, 0.055);
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.cl-status-relegation {
+    color: #ef8585;
+
+    border-color: rgba(226, 76, 76, 0.2);
+    background: rgba(226, 76, 76, 0.075);
+}
+
+.cl-champion-row {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(232, 197, 97, 0.075),
+            transparent 68%
+        );
+}
+
+.cl-champion-row td:first-child {
+    box-shadow: inset 3px 0 0 #d7b452;
+}
+
+.cl-relegation-row {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(218, 71, 71, 0.055),
+            transparent 65%
+        );
+}
+
+.cl-relegation-row td:first-child {
+    box-shadow: inset 3px 0 0 rgba(226, 77, 77, 0.75);
+}
+
+.cl-mobile-table-hint {
+    display: none;
+
+    margin-top: 12px;
+
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    color: #687380;
+
+    font-size: 0.67rem;
+    font-weight: 650;
+}
+
+.cl-mobile-table-hint svg {
+    width: 15px;
+    height: 15px;
+}
+
+
+/* =========================================
+   TITEL- UND PREISGELDBOX
+========================================= */
+
+.cl-title-section {
+    position: relative;
+    overflow: hidden;
+
+    margin-top: 66px;
+    padding: 42px;
+
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    align-items: center;
+    gap: 46px;
+
+    border: 1px solid rgba(232, 197, 97, 0.17);
+    border-radius: 27px;
+
+    background:
+        radial-gradient(
+            circle at 15% 50%,
+            rgba(232, 197, 97, 0.16),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(31, 28, 19, 0.98),
+            rgba(10, 12, 17, 0.99)
+        );
+
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.34),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.cl-title-section::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #e1c05e,
+        transparent
+    );
+}
+
+.cl-title-visual {
+    display: grid;
+    place-items: center;
+}
+
+.cl-trophy-circle {
+    width: 190px;
+    height: 190px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(235, 201, 101, 0.22);
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(232, 197, 97, 0.16),
+            rgba(232, 197, 97, 0.025) 70%
+        );
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+.cl-trophy-circle svg {
+    width: 88px;
+    height: 88px;
+
+    color: #efcf6d;
+    stroke-width: 1.4;
+
+    filter:
+        drop-shadow(0 0 18px rgba(237, 203, 102, 0.25));
+}
+
+.cl-prize-box {
+    margin-top: 25px;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.cl-prize-box > div {
+    padding: 17px 18px;
+
+    border: 1px solid rgba(232, 197, 97, 0.14);
+    border-radius: 15px;
+
+    background: rgba(232, 197, 97, 0.045);
+}
+
+.cl-prize-box span {
+    display: block;
+    margin-bottom: 7px;
+
+    color: #89794a;
+
+    font-size: 0.58rem;
+    font-weight: 850;
+    letter-spacing: 0.15em;
+}
+
+.cl-prize-box strong {
+    color: #f2d474;
+
+    font-size: 1rem;
+    font-weight: 850;
+}
+
+
+/* =========================================
+   TABELLEN-LEGENDE
+========================================= */
+
+.cl-legend-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.cl-legend-card {
+    min-height: 125px;
+    padding: 21px;
+
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    gap: 15px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(19, 22, 28, 0.97),
+            rgba(10, 12, 17, 0.99)
+        );
+}
+
+.cl-legend-icon {
+    width: 45px;
+    height: 45px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 13px;
+
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.cl-legend-icon svg {
+    width: 21px;
+    height: 21px;
+
+    stroke-width: 1.9;
+}
+
+.cl-legend-card strong {
+    display: block;
+    margin: 2px 0 7px;
+
+    color: #ffffff;
+
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+.cl-legend-card p {
+    margin: 0;
+
+    color: #8d98a5;
+
+    font-size: 0.79rem;
+    line-height: 1.55;
+}
+
+.cl-legend-champion {
+    border-color: rgba(232, 197, 97, 0.14);
+}
+
+.cl-legend-champion .cl-legend-icon svg {
+    color: #e5c561;
+}
+
+.cl-legend-podium .cl-legend-icon svg {
+    color: #c6cdd5;
+}
+
+.cl-legend-safe {
+    border-color: rgba(24, 197, 91, 0.1);
+}
+
+.cl-legend-safe .cl-legend-icon svg {
+    color: #4bd882;
+}
+
+.cl-legend-relegation {
+    border-color: rgba(226, 76, 76, 0.12);
+}
+
+.cl-legend-relegation .cl-legend-icon svg {
+    color: #e66d6d;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+    .cl-introduction {
+        grid-template-columns: 1fr 150px;
+        gap: 25px;
+    }
+
+    .cl-introduction-trophy {
+        width: 140px;
+        height: 140px;
+    }
+
+    .cl-introduction-trophy svg {
+        width: 62px;
+        height: 62px;
+    }
+
+    .cl-title-section {
+        grid-template-columns: 190px minmax(0, 1fr);
+        gap: 32px;
+    }
+
+    .cl-trophy-circle {
+        width: 160px;
+        height: 160px;
+    }
+
+}
+
+
+/* =========================================
+   SMARTPHONES
+========================================= */
+
+@media (max-width: 600px) {
+
+    .cl-header {
+        min-height: 475px;
+        padding: 52px 18px 48px;
+    }
+
+    .cl-header-background-icon svg {
+        width: 360px;
+        height: 360px;
+    }
+
+    .cl-season-badge {
+        margin-bottom: 17px;
+        padding: 8px 12px;
+
+        font-size: 0.62rem;
+    }
+
+    .cl-logo {
+        width: 105px;
+        margin-bottom: 17px;
+    }
+
+    .cl-eyebrow {
+        margin-bottom: 9px;
+
+        font-size: 0.61rem;
+        letter-spacing: 0.17em;
+    }
+
+    .cl-title {
+        font-size: 2.75rem;
+    }
+
+    .cl-header-description {
+        max-width: 290px;
+        margin-top: 16px;
+
+        font-size: 0.88rem;
+    }
+
+    .cl-header-highlights {
+        margin-top: 23px;
+        gap: 7px;
+    }
+
+    .cl-header-highlights span {
+        min-height: 35px;
+        padding: 8px 10px;
+
+        font-size: 0.64rem;
+    }
+
+    .cl-main {
+        width: min(100% - 28px, 1180px);
+        padding-top: 42px;
+    }
+
+    .cl-introduction {
+        min-height: auto;
+        padding: 26px 21px;
+
+        grid-template-columns: 1fr;
+        gap: 25px;
+
+        border-radius: 21px;
+    }
+
+    .cl-introduction h2,
+    .cl-title-content h2 {
+        font-size: 1.85rem;
+    }
+
+    .cl-introduction-content > p:last-child,
+    .cl-title-content > p {
+        font-size: 0.86rem;
+        line-height: 1.65;
+    }
+
+    .cl-introduction-trophy {
+        width: 115px;
+        height: 115px;
+
+        justify-self: start;
+    }
+
+    .cl-introduction-trophy svg {
+        width: 52px;
+        height: 52px;
+    }
+
+    .cl-facts-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .cl-fact-card {
+        min-height: auto;
+        padding: 19px;
+
+        grid-template-columns: 47px 1fr;
+        gap: 14px;
+
+        border-radius: 17px;
+    }
+
+    .cl-fact-icon {
+        width: 47px;
+        height: 47px;
+
+        border-radius: 13px;
+    }
+
+    .cl-fact-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .cl-fact-card strong {
+        font-size: 1rem;
+    }
+
+    .cl-fact-card p {
+        font-size: 0.77rem;
+    }
+
+    .cl-table-section,
+    .cl-legend-section {
+        margin-top: 50px;
+    }
+
+    .cl-section-heading {
+        margin-bottom: 19px;
+
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 13px;
+    }
+
+    .cl-section-heading h2 {
+        font-size: 1.8rem;
+    }
+
+    .cl-section-heading .heading-with-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .cl-table-wrapper {
+        margin-left: -2px;
+        margin-right: -2px;
+
+        border-radius: 18px;
+    }
+
+    .cl-table th {
+        padding: 14px 16px;
+    }
+
+    .cl-table td {
+        height: 68px;
+        padding: 11px 16px;
+    }
+
+    .cl-mobile-table-hint {
+        display: flex;
+    }
+
+    .cl-title-section {
+        margin-top: 50px;
+        padding: 27px 21px;
+
+        grid-template-columns: 1fr;
+        gap: 27px;
+
+        border-radius: 21px;
+    }
+
+    .cl-title-visual {
+        justify-content: start;
+    }
+
+    .cl-trophy-circle {
+        width: 130px;
+        height: 130px;
+    }
+
+    .cl-trophy-circle svg {
+        width: 61px;
+        height: 61px;
+    }
+
+    .cl-prize-box {
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    .cl-prize-box > div {
+        padding: 15px 16px;
+    }
+
+    .cl-legend-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .cl-legend-card {
+        min-height: auto;
+        padding: 18px;
+
+        grid-template-columns: 41px 1fr;
+        gap: 13px;
+
+        border-radius: 16px;
+    }
+
+    .cl-legend-icon {
+        width: 41px;
+        height: 41px;
+    }
+
+}
+
+
+/* =========================================
+   REDUZIERTE BEWEGUNG
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .cl-logo {
+        animation: none;
+    }
+
+}
