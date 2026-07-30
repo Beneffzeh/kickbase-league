@@ -5530,3 +5530,241 @@ footer::after {
     }
 
 }
+/* =========================================
+   PREMIUM-BUTTONS UND KARTEN-LINKS
+========================================= */
+
+.portal-card a,
+.secondary-card a,
+.hero-actions a,
+.primary-button,
+.secondary-button {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    min-height: 46px;
+    padding: 12px 18px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    border-radius: 13px;
+
+    font-size: 0.78rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0.025em;
+    text-decoration: none;
+
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease,
+        color 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+
+/* Grüner Hauptbutton */
+
+.portal-card a,
+.primary-button {
+    color: #07110b;
+
+    border: 1px solid rgba(70, 225, 132, 0.8);
+
+    background:
+        linear-gradient(
+            135deg,
+            #4ce58a,
+            #18c55b
+        );
+
+    box-shadow:
+        0 12px 26px rgba(24, 197, 91, 0.17),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+
+/* Lichtreflex */
+
+.portal-card a::before,
+.primary-button::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    top: -80%;
+    left: -45%;
+
+    width: 36%;
+    height: 260%;
+
+    transform: rotate(22deg);
+
+    background: rgba(255, 255, 255, 0.28);
+
+    transition: left 0.45s ease;
+}
+
+
+/* Pfeil rechts */
+
+.portal-card a::after,
+.primary-button::after {
+    content: "→";
+
+    font-size: 1rem;
+    font-weight: 900;
+
+    transition: transform 0.22s ease;
+}
+
+
+/* Dezenter Zweitbutton */
+
+.secondary-card a,
+.secondary-button {
+    color: #dfe5eb;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.065),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.secondary-card a::after,
+.secondary-button::after {
+    content: "→";
+
+    color: #48df82;
+
+    font-size: 1rem;
+    font-weight: 900;
+
+    transition: transform 0.22s ease;
+}
+
+
+/* Hover nur auf Geräten mit Maus */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .portal-card a:hover,
+    .primary-button:hover {
+        transform: translateY(-2px);
+
+        border-color: #75eea4;
+
+        box-shadow:
+            0 16px 32px rgba(24, 197, 91, 0.24),
+            inset 0 1px 0 rgba(255, 255, 255, 0.38);
+    }
+
+    .portal-card a:hover::before,
+    .primary-button:hover::before {
+        left: 125%;
+    }
+
+    .portal-card a:hover::after,
+    .primary-button:hover::after,
+    .secondary-card a:hover::after,
+    .secondary-button:hover::after {
+        transform: translateX(4px);
+    }
+
+    .secondary-card a:hover,
+    .secondary-button:hover {
+        transform: translateY(-2px);
+
+        color: #ffffff;
+
+        border-color: rgba(24, 197, 91, 0.25);
+
+        background:
+            linear-gradient(
+                135deg,
+                rgba(24, 197, 91, 0.1),
+                rgba(255, 255, 255, 0.025)
+            );
+
+        box-shadow:
+            0 12px 25px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.045);
+    }
+
+}
+
+
+/* Fingerdruck auf dem Smartphone */
+
+.portal-card a:active,
+.secondary-card a:active,
+.primary-button:active,
+.secondary-button:active {
+    transform: scale(0.97);
+}
+
+
+/* Sichtbare Tastatur-Navigation */
+
+.portal-card a:focus-visible,
+.secondary-card a:focus-visible,
+.primary-button:focus-visible,
+.secondary-button:focus-visible {
+    outline: 3px solid rgba(72, 223, 130, 0.32);
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   KOMPLETT ANKLICKBARER KARTENEFFEKT
+========================================= */
+
+.portal-card,
+.secondary-card {
+    cursor: pointer;
+}
+
+.portal-card:has(a:focus-visible),
+.secondary-card:has(a:focus-visible) {
+    border-color: rgba(24, 197, 91, 0.3);
+
+    box-shadow:
+        0 0 0 3px rgba(24, 197, 91, 0.08),
+        0 24px 55px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================
+   SMARTPHONES
+========================================= */
+
+@media (max-width: 600px) {
+
+    .portal-card a,
+    .secondary-card a,
+    .hero-actions a,
+    .primary-button,
+    .secondary-button {
+        width: 100%;
+        min-height: 48px;
+
+        padding: 13px 16px;
+
+        border-radius: 12px;
+
+        font-size: 0.76rem;
+    }
+
+}
