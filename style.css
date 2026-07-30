@@ -7456,3 +7456,1230 @@ hr {
     border-color: rgba(24, 197, 91, 0.25) !important;
     background: rgba(24, 197, 91, 0.08) !important;
 }
+/* =========================================================
+   KREISLIGA – PREMIUM DESIGN
+   ========================================================= */
+
+.kreisliga-page {
+    --kreisliga-blue: #4da3ff;
+    --kreisliga-blue-light: #8fc7ff;
+    --kreisliga-blue-dark: #1e5f9f;
+    --kreisliga-silver: #c8d0da;
+    --kreisliga-silver-light: #eef3f8;
+    --kreisliga-green: #18c55b;
+    --kreisliga-gold: #f3c969;
+    --kreisliga-bg: #070a10;
+    --kreisliga-card: rgba(15, 21, 31, 0.88);
+    --kreisliga-border: rgba(143, 199, 255, 0.16);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.kreisliga-header {
+    position: relative;
+    overflow: hidden;
+    min-height: 560px;
+    padding: 90px 24px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(77, 163, 255, 0.18),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 15% 85%,
+            rgba(200, 208, 218, 0.1),
+            transparent 32%
+        ),
+        linear-gradient(
+            145deg,
+            #05080d 0%,
+            #09111b 48%,
+            #06090f 100%
+        );
+    border-bottom: 1px solid rgba(143, 199, 255, 0.16);
+}
+
+.kreisliga-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        );
+    background-size: 44px 44px;
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.8),
+        transparent 90%
+    );
+    pointer-events: none;
+}
+
+.kreisliga-header::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -210px;
+    width: 560px;
+    height: 560px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: rgba(77, 163, 255, 0.08);
+    filter: blur(90px);
+    pointer-events: none;
+}
+
+.kreisliga-header-background-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 460px;
+    height: 460px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(143, 199, 255, 0.035);
+    pointer-events: none;
+}
+
+.kreisliga-header-background-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 0.8;
+}
+
+.kreisliga-header-content {
+    position: relative;
+    z-index: 2;
+    width: min(100%, 900px);
+    margin: 0 auto;
+}
+
+.kreisliga-season-badge {
+    width: fit-content;
+    margin: 0 auto 26px;
+    padding: 9px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--kreisliga-blue-light);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: rgba(77, 163, 255, 0.08);
+    border: 1px solid rgba(143, 199, 255, 0.2);
+    border-radius: 999px;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 0 30px rgba(77, 163, 255, 0.08);
+}
+
+.kreisliga-season-badge svg {
+    width: 16px;
+    height: 16px;
+}
+
+.kreisliga-logo {
+    width: min(230px, 62vw);
+    height: auto;
+    margin: 0 auto 24px;
+    display: block;
+    filter:
+        drop-shadow(0 20px 34px rgba(0, 0, 0, 0.42))
+        drop-shadow(0 0 24px rgba(77, 163, 255, 0.12));
+    animation: kreisliga-logo-float 5s ease-in-out infinite;
+}
+
+@keyframes kreisliga-logo-float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.kreisliga-eyebrow {
+    margin: 0 0 12px;
+    color: var(--kreisliga-blue-light);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.24em;
+}
+
+.kreisliga-title {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(3.2rem, 10vw, 6.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+    text-shadow: 0 14px 40px rgba(0, 0, 0, 0.4);
+}
+
+.kreisliga-header-description {
+    max-width: 680px;
+    margin: 22px auto 0;
+    color: #b9c5d2;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    line-height: 1.7;
+}
+
+.kreisliga-header-highlights {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.kreisliga-header-highlights span {
+    padding: 11px 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #dbe7f3;
+    font-size: 0.82rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 999px;
+    backdrop-filter: blur(12px);
+}
+
+.kreisliga-header-highlights svg {
+    width: 17px;
+    height: 17px;
+    color: var(--kreisliga-blue-light);
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.kreisliga-main {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 72px 0 100px;
+}
+
+
+/* =========================================================
+   INTRODUCTION
+   ========================================================= */
+
+.kreisliga-introduction {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 28px;
+    padding: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 36px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(77, 163, 255, 0.1),
+            rgba(15, 21, 31, 0.88) 48%,
+            rgba(200, 208, 218, 0.05)
+        );
+    border: 1px solid var(--kreisliga-border);
+    border-radius: 26px;
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}
+
+.kreisliga-introduction::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 40px;
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        var(--kreisliga-blue),
+        var(--kreisliga-silver)
+    );
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 20px rgba(77, 163, 255, 0.45);
+}
+
+.kreisliga-introduction-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+}
+
+.kreisliga-section-label {
+    margin: 0 0 10px;
+    color: var(--kreisliga-blue-light);
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+}
+
+.kreisliga-introduction h2,
+.kreisliga-title-content h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+}
+
+.kreisliga-introduction-content > p:last-child,
+.kreisliga-title-content > p {
+    margin: 18px 0 0;
+    color: #aebac7;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.kreisliga-introduction-icon {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 auto;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--kreisliga-blue-light);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(77, 163, 255, 0.15),
+            rgba(255, 255, 255, 0.03)
+        );
+    border: 1px solid rgba(143, 199, 255, 0.2);
+    border-radius: 28px;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.kreisliga-introduction-icon svg {
+    width: 42px;
+    height: 42px;
+    stroke-width: 1.8;
+}
+
+
+/* =========================================================
+   FACT CARDS
+   ========================================================= */
+
+.kreisliga-facts-grid {
+    margin-bottom: 58px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.kreisliga-fact-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 230px;
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background:
+        linear-gradient(
+            150deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(12, 17, 25, 0.92)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 22px;
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.kreisliga-fact-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(143, 199, 255, 0.2);
+    box-shadow:
+        0 26px 60px rgba(0, 0, 0, 0.28),
+        0 0 30px rgba(77, 163, 255, 0.05);
+}
+
+.kreisliga-fact-card::after {
+    content: "";
+    position: absolute;
+    right: -45px;
+    bottom: -65px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: rgba(77, 163, 255, 0.06);
+    filter: blur(10px);
+}
+
+.kreisliga-fact-card-highlight {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 197, 91, 0.11),
+            rgba(12, 22, 21, 0.94)
+        );
+    border-color: rgba(24, 197, 91, 0.18);
+}
+
+.kreisliga-fact-card-highlight::after {
+    background: rgba(24, 197, 91, 0.08);
+}
+
+.kreisliga-fact-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--kreisliga-blue-light);
+    background: rgba(77, 163, 255, 0.09);
+    border: 1px solid rgba(143, 199, 255, 0.15);
+    border-radius: 15px;
+}
+
+.kreisliga-fact-card-highlight .kreisliga-fact-icon {
+    color: #62df91;
+    background: rgba(24, 197, 91, 0.09);
+    border-color: rgba(24, 197, 91, 0.18);
+}
+
+.kreisliga-fact-icon svg {
+    width: 23px;
+    height: 23px;
+}
+
+.kreisliga-fact-card span {
+    display: block;
+    margin-bottom: 8px;
+    color: #6f7d8c;
+    font-size: 0.66rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+}
+
+.kreisliga-fact-card strong {
+    display: block;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 850;
+    line-height: 1.2;
+}
+
+.kreisliga-fact-card p {
+    position: relative;
+    z-index: 2;
+    margin: 12px 0 0;
+    color: #939fab;
+    font-size: 0.88rem;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.kreisliga-section-heading {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.kreisliga-section-heading h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(1.65rem, 4vw, 2.25rem);
+    font-weight: 900;
+    letter-spacing: -0.035em;
+}
+
+.kreisliga-section-heading .heading-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.kreisliga-section-heading .heading-with-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--kreisliga-blue-light);
+}
+
+.kreisliga-table-update {
+    padding: 10px 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #8d9aa8;
+    font-size: 0.74rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 999px;
+}
+
+.kreisliga-table-update svg {
+    width: 15px;
+    height: 15px;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.kreisliga-table-section {
+    margin-bottom: 64px;
+}
+
+.kreisliga-table-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    background:
+        linear-gradient(
+            150deg,
+            rgba(255, 255, 255, 0.035),
+            rgba(9, 14, 22, 0.95)
+        );
+    border: 1px solid var(--kreisliga-border);
+    border-radius: 24px;
+    box-shadow:
+        0 26px 80px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    scrollbar-width: thin;
+}
+
+.kreisliga-table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.kreisliga-table th,
+.kreisliga-table td {
+    padding: 18px 20px;
+    text-align: left;
+}
+
+.kreisliga-table thead {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(77, 163, 255, 0.12),
+            rgba(200, 208, 218, 0.04)
+        );
+}
+
+.kreisliga-table th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    color: #91a0b0;
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: rgba(11, 18, 28, 0.97);
+    border-bottom: 1px solid rgba(143, 199, 255, 0.14);
+}
+
+.kreisliga-table th:first-child {
+    width: 110px;
+}
+
+.kreisliga-table th:nth-child(2) {
+    width: auto;
+}
+
+.kreisliga-table th:nth-child(3) {
+    width: 130px;
+}
+
+.kreisliga-table th:nth-child(4) {
+    width: 180px;
+}
+
+.kreisliga-table tbody tr {
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+    transition:
+        background 0.22s ease,
+        transform 0.22s ease;
+}
+
+.kreisliga-table tbody tr:last-child {
+    border-bottom: 0;
+}
+
+.kreisliga-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.028);
+}
+
+.kreisliga-table tbody tr.kreisliga-promotion-row {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(24, 197, 91, 0.095),
+            rgba(24, 197, 91, 0.025) 52%,
+            transparent
+        );
+}
+
+.kreisliga-table tbody tr.kreisliga-promotion-row:hover {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(24, 197, 91, 0.135),
+            rgba(24, 197, 91, 0.04) 56%,
+            transparent
+        );
+}
+
+.kreisliga-table tbody tr.kreisliga-promotion-row td:first-child {
+    box-shadow: inset 3px 0 0 #18c55b;
+}
+
+.kreisliga-table td {
+    color: #d9e1e9;
+    font-size: 0.91rem;
+}
+
+.kreisliga-position {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #a7b3bf;
+    font-size: 0.88rem;
+    font-weight: 900;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 12px;
+}
+
+.kreisliga-position-first {
+    color: #271d02;
+    background:
+        linear-gradient(
+            145deg,
+            #ffe59a,
+            #c9942c
+        );
+    border-color: rgba(255, 229, 154, 0.5);
+    box-shadow: 0 8px 20px rgba(243, 201, 105, 0.18);
+}
+
+.kreisliga-position-second {
+    color: #19222c;
+    background:
+        linear-gradient(
+            145deg,
+            #eef3f8,
+            #9da9b7
+        );
+    border-color: rgba(238, 243, 248, 0.42);
+}
+
+.kreisliga-position-third {
+    color: #2b180d;
+    background:
+        linear-gradient(
+            145deg,
+            #d7a57d,
+            #89522d
+        );
+    border-color: rgba(215, 165, 125, 0.4);
+}
+
+.kreisliga-manager-cell {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.kreisliga-manager-avatar {
+    flex: 0 0 auto;
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #7f91a3;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.07),
+            rgba(255, 255, 255, 0.025)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 50%;
+}
+
+.kreisliga-manager-avatar svg {
+    width: 18px;
+    height: 18px;
+}
+
+.kreisliga-manager-cell strong {
+    color: #edf2f7;
+    font-size: 0.94rem;
+    font-weight: 750;
+}
+
+.kreisliga-points-column {
+    text-align: center !important;
+}
+
+.kreisliga-points-column strong {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.kreisliga-status-column {
+    text-align: right !important;
+}
+
+.kreisliga-status {
+    min-width: 118px;
+    padding: 8px 11px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: 0.69rem;
+    font-weight: 850;
+    letter-spacing: 0.02em;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.kreisliga-status svg {
+    width: 14px;
+    height: 14px;
+}
+
+.kreisliga-status-champion {
+    color: #f5d77e;
+    background: rgba(243, 201, 105, 0.09);
+    border: 1px solid rgba(243, 201, 105, 0.22);
+}
+
+.kreisliga-status-promotion {
+    color: #62df91;
+    background: rgba(24, 197, 91, 0.09);
+    border: 1px solid rgba(24, 197, 91, 0.22);
+}
+
+.kreisliga-status-stay {
+    color: #9ab9d8;
+    background: rgba(77, 163, 255, 0.07);
+    border: 1px solid rgba(77, 163, 255, 0.15);
+}
+
+.kreisliga-mobile-table-hint {
+    display: none;
+    margin-top: 12px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #697888;
+    font-size: 0.72rem;
+}
+
+.kreisliga-mobile-table-hint svg {
+    width: 16px;
+    height: 16px;
+}
+
+
+/* =========================================================
+   TITLE AND PRIZE SECTION
+   ========================================================= */
+
+.kreisliga-title-section {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 64px;
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    align-items: center;
+    gap: 52px;
+    background:
+        radial-gradient(
+            circle at 12% 50%,
+            rgba(243, 201, 105, 0.12),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(18, 24, 34, 0.97),
+            rgba(8, 13, 21, 0.97)
+        );
+    border: 1px solid rgba(243, 201, 105, 0.16);
+    border-radius: 28px;
+    box-shadow:
+        0 28px 80px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.kreisliga-title-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 46px;
+    width: 140px;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        #f3c969,
+        #fff0b3
+    );
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 22px rgba(243, 201, 105, 0.4);
+}
+
+.kreisliga-title-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.kreisliga-shield-circle {
+    width: 170px;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5d77e;
+    background:
+        radial-gradient(
+            circle,
+            rgba(243, 201, 105, 0.17),
+            rgba(243, 201, 105, 0.045) 60%,
+            transparent 70%
+        );
+    border: 1px solid rgba(243, 201, 105, 0.2);
+    border-radius: 50%;
+    box-shadow:
+        inset 0 0 36px rgba(243, 201, 105, 0.06),
+        0 0 60px rgba(243, 201, 105, 0.08);
+}
+
+.kreisliga-shield-circle svg {
+    width: 68px;
+    height: 68px;
+    stroke-width: 1.5;
+}
+
+.kreisliga-prize-box {
+    margin-top: 28px;
+    padding: 18px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 18px;
+}
+
+.kreisliga-prize-box div {
+    padding: 16px 18px;
+    background: rgba(255, 255, 255, 0.025);
+    border-radius: 13px;
+}
+
+.kreisliga-prize-box span {
+    display: block;
+    margin-bottom: 7px;
+    color: #756f5e;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+}
+
+.kreisliga-prize-box strong {
+    color: #f4d477;
+    font-size: 1.15rem;
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   LEGEND
+   ========================================================= */
+
+.kreisliga-legend-section {
+    margin-bottom: 20px;
+}
+
+.kreisliga-legend-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.kreisliga-legend-card {
+    min-height: 145px;
+    padding: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(10, 15, 23, 0.94)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.065);
+    border-radius: 20px;
+    transition:
+        transform 0.24s ease,
+        border-color 0.24s ease;
+}
+
+.kreisliga-legend-card:hover {
+    transform: translateY(-4px);
+}
+
+.kreisliga-legend-icon {
+    flex: 0 0 auto;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+}
+
+.kreisliga-legend-icon svg {
+    width: 21px;
+    height: 21px;
+}
+
+.kreisliga-legend-card strong {
+    color: #ffffff;
+    font-size: 0.98rem;
+    font-weight: 850;
+}
+
+.kreisliga-legend-card p {
+    margin: 9px 0 0;
+    color: #8d99a6;
+    font-size: 0.84rem;
+    line-height: 1.55;
+}
+
+.kreisliga-legend-champion {
+    border-color: rgba(243, 201, 105, 0.15);
+}
+
+.kreisliga-legend-champion .kreisliga-legend-icon {
+    color: #f5d77e;
+    background: rgba(243, 201, 105, 0.09);
+    border: 1px solid rgba(243, 201, 105, 0.16);
+}
+
+.kreisliga-legend-promotion {
+    border-color: rgba(24, 197, 91, 0.14);
+}
+
+.kreisliga-legend-promotion .kreisliga-legend-icon {
+    color: #62df91;
+    background: rgba(24, 197, 91, 0.09);
+    border: 1px solid rgba(24, 197, 91, 0.16);
+}
+
+.kreisliga-legend-stay {
+    border-color: rgba(77, 163, 255, 0.14);
+}
+
+.kreisliga-legend-stay .kreisliga-legend-icon {
+    color: var(--kreisliga-blue-light);
+    background: rgba(77, 163, 255, 0.08);
+    border: 1px solid rgba(77, 163, 255, 0.15);
+}
+
+
+/* =========================================================
+   NAVIGATION ACTIVE COLOR
+   ========================================================= */
+
+.kreisliga-page .desktop-navigation .active-navigation-link {
+    color: #ffffff;
+    background: rgba(77, 163, 255, 0.1);
+    border-color: rgba(77, 163, 255, 0.18);
+}
+
+.kreisliga-page .desktop-navigation .active-navigation-link::after {
+    background: var(--kreisliga-blue);
+    box-shadow: 0 0 14px rgba(77, 163, 255, 0.55);
+}
+
+.kreisliga-page .active-mobile-menu-link {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(77, 163, 255, 0.14),
+            rgba(77, 163, 255, 0.045)
+        );
+    border-color: rgba(77, 163, 255, 0.18);
+}
+
+.kreisliga-page .active-mobile-menu-link .mobile-menu-icon {
+    color: var(--kreisliga-blue-light);
+    background: rgba(77, 163, 255, 0.1);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .kreisliga-facts-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .kreisliga-title-section {
+        grid-template-columns: 190px minmax(0, 1fr);
+        gap: 36px;
+    }
+
+    .kreisliga-shield-circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    .kreisliga-legend-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 760px) {
+
+    .kreisliga-header {
+        min-height: auto;
+        padding: 72px 20px 62px;
+    }
+
+    .kreisliga-logo {
+        width: min(190px, 58vw);
+    }
+
+    .kreisliga-header-background-icon {
+        width: 330px;
+        height: 330px;
+    }
+
+    .kreisliga-header-description {
+        max-width: 520px;
+        font-size: 0.98rem;
+    }
+
+    .kreisliga-header-highlights {
+        gap: 8px;
+    }
+
+    .kreisliga-header-highlights span {
+        padding: 9px 12px;
+        font-size: 0.72rem;
+    }
+
+    .kreisliga-main {
+        width: min(100% - 24px, 1180px);
+        padding: 44px 0 76px;
+    }
+
+    .kreisliga-introduction {
+        padding: 30px 24px;
+        display: block;
+    }
+
+    .kreisliga-introduction-icon {
+        width: 72px;
+        height: 72px;
+        margin-top: 26px;
+        border-radius: 21px;
+    }
+
+    .kreisliga-introduction-icon svg {
+        width: 31px;
+        height: 31px;
+    }
+
+    .kreisliga-facts-grid {
+        grid-template-columns: 1fr;
+        margin-bottom: 46px;
+    }
+
+    .kreisliga-fact-card {
+        min-height: auto;
+        padding: 23px;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .kreisliga-fact-icon {
+        flex: 0 0 auto;
+    }
+
+    .kreisliga-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .kreisliga-table-wrapper {
+        border-radius: 19px;
+    }
+
+    .kreisliga-table th,
+    .kreisliga-table td {
+        padding: 16px 15px;
+    }
+
+    .kreisliga-mobile-table-hint {
+        display: flex;
+    }
+
+    .kreisliga-title-section {
+        padding: 34px 24px;
+        grid-template-columns: 1fr;
+        gap: 26px;
+        text-align: center;
+    }
+
+    .kreisliga-title-section::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .kreisliga-shield-circle {
+        width: 130px;
+        height: 130px;
+    }
+
+    .kreisliga-shield-circle svg {
+        width: 52px;
+        height: 52px;
+    }
+
+    .kreisliga-prize-box {
+        text-align: left;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .kreisliga-header {
+        padding-top: 58px;
+    }
+
+    .kreisliga-title {
+        font-size: clamp(3rem, 17vw, 4.6rem);
+    }
+
+    .kreisliga-season-badge {
+        margin-bottom: 20px;
+        padding: 8px 12px;
+        font-size: 0.65rem;
+    }
+
+    .kreisliga-header-highlights span {
+        width: calc(50% - 5px);
+        justify-content: center;
+    }
+
+    .kreisliga-header-highlights span:last-child {
+        width: 100%;
+    }
+
+    .kreisliga-introduction {
+        padding: 28px 21px;
+        border-radius: 21px;
+    }
+
+    .kreisliga-fact-card {
+        padding: 21px;
+        gap: 17px;
+    }
+
+    .kreisliga-fact-card strong {
+        font-size: 1.08rem;
+    }
+
+    .kreisliga-title-section {
+        border-radius: 22px;
+    }
+
+    .kreisliga-prize-box {
+        grid-template-columns: 1fr;
+    }
+
+    .kreisliga-legend-card {
+        padding: 21px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .kreisliga-logo {
+        animation: none;
+    }
+
+    .kreisliga-fact-card,
+    .kreisliga-legend-card,
+    .kreisliga-table tbody tr {
+        transition: none;
+    }
+
+}
