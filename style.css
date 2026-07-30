@@ -5034,3 +5034,164 @@ einstellungen deaktiviert hat.
     }
 
 }
+/* =========================================
+   PREMIUM-SEKUNDÄRKARTEN
+========================================= */
+
+.secondary-grid {
+    gap: 18px;
+}
+
+.secondary-card {
+    min-height: 235px;
+
+    background:
+        radial-gradient(
+            circle at 88% 12%,
+            rgba(24, 197, 91, 0.08),
+            transparent 36%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(21, 26, 34, 0.96),
+            rgba(10, 13, 18, 0.99)
+        );
+
+    border-color: rgba(255, 255, 255, 0.075);
+}
+
+.secondary-card::before {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(24, 197, 91, 0.75),
+        transparent
+    );
+}
+
+.secondary-card::after {
+    background: rgba(24, 197, 91, 0.1);
+}
+
+.secondary-card .portal-icon {
+    background: rgba(24, 197, 91, 0.09);
+    border-color: rgba(24, 197, 91, 0.2);
+}
+
+.secondary-card .portal-icon svg {
+    color: #3edc7c;
+}
+
+.secondary-card h3 {
+    font-size: 1.28rem;
+}
+
+.secondary-card p {
+    max-width: 280px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+    .secondary-card:hover {
+        border-color: rgba(24, 197, 91, 0.23);
+
+        box-shadow:
+            0 28px 60px rgba(0, 0, 0, 0.34),
+            0 0 28px rgba(24, 197, 91, 0.06);
+    }
+
+}
+
+
+/* =========================================
+   PREMIUM-FOOTER
+========================================= */
+
+footer {
+    position: relative;
+    overflow: hidden;
+
+    margin-top: 72px;
+    padding: 34px 20px;
+
+    text-align: center;
+
+    color: #7f8997;
+
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(24, 197, 91, 0.08),
+            transparent 42%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(10, 13, 18, 0.98),
+            rgba(7, 9, 14, 1)
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: min(420px, 70%);
+    height: 2px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(24, 197, 91, 0.8),
+        transparent
+    );
+}
+
+footer::after {
+    content: "KICKBASE LEAGUE";
+
+    display: block;
+
+    margin-top: 8px;
+
+    color: #3b434f;
+
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+}
+
+
+/* SMARTPHONES */
+
+@media (max-width: 600px) {
+
+    .secondary-card {
+        min-height: 215px;
+    }
+
+    footer {
+        margin-top: 55px;
+        padding: 29px 18px;
+
+        font-size: 0.72rem;
+    }
+
+    footer::after {
+        font-size: 0.58rem;
+    }
+
+}
