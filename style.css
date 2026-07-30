@@ -7449,3 +7449,10 @@ hr {
     }
 
 }
+/* Klassenerhalt in der Champions League */
+
+.champions-league-page .cl-status.cl-status-safe {
+    color: #62df91 !important;
+    border-color: rgba(24, 197, 91, 0.25) !important;
+    background: rgba(24, 197, 91, 0.08) !important;
+}
