@@ -4,15 +4,33 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
 
 body {
+    min-height: 100vh;
+    color: #ffffff;
 
-    background: #080b12;
-    color: white;
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(24, 197, 91, 0.07),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 85% 35%,
+            rgba(217, 184, 95, 0.045),
+            transparent 25%
+        ),
+        linear-gradient(
+            180deg,
+            #080b12 0%,
+            #090d14 45%,
+            #070a10 100%
+        );
 
+    background-attachment: fixed;
 }
 
 
@@ -53,16 +71,25 @@ header p {
 
 }
 
-
 /* Navigation */
 
-nav:not(.main-navigation) 
+nav:not(.main-navigation) {
     background: #11151c;
     display: flex;
     overflow-x: auto;
     border-bottom: 2px solid #18c55b;
 }
 
+nav:not(.main-navigation) a {
+    color: white;
+    text-decoration: none;
+    padding: 18px 20px;
+    white-space: nowrap;
+}
+
+nav:not(.main-navigation) a:hover {
+    background: #18c55b;
+    color: #000;
 }
 
 
@@ -3077,4 +3104,151 @@ einstellungen deaktiviert hat.
         line-height: 1.6;
     }
 
+}
+
+/* =========================================
+   SCHRIFT, HINTERGRUND UND SVG-ICONS
+========================================= */
+
+/* Überschrift mit Icon */
+
+.heading-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.heading-with-icon svg {
+    width: 29px;
+    height: 29px;
+    color: #18c55b;
+    stroke-width: 2;
+    flex-shrink: 0;
+}
+
+
+/* Icons im Saisonkalender */
+
+.season-timeline-marker span svg {
+    width: 23px;
+    height: 23px;
+    color: #18c55b;
+    stroke-width: 2.1;
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+
+/* Pokalfinale */
+
+.season-timeline-item:nth-child(4)
+.season-timeline-marker span svg {
+    color: #e4b949;
+}
+
+
+/* Saisonabschluss */
+
+.season-timeline-final
+.season-timeline-marker span svg {
+    color: #f0cb67;
+}
+
+
+/* Effekt auf dem PC */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .season-timeline-item:hover
+    .season-timeline-marker span svg {
+        transform: scale(1.12);
+    }
+
+}
+
+
+/* Anpassungen für Handy */
+
+@media (max-width: 768px) {
+
+    body {
+        background-attachment: scroll;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .heading-with-icon {
+        gap: 9px;
+    }
+
+    .heading-with-icon svg {
+        width: 25px;
+        height: 25px;
+    }
+
+    .season-timeline-marker span svg {
+        width: 20px;
+        height: 20px;
+    }
+
+}/* =========================================
+   LUCIDE-ICONS AUF DER STARTSEITE
+========================================= */
+
+.fact-card span svg {
+    width: 29px;
+    height: 29px;
+    color: #18c55b;
+    stroke-width: 2;
+}
+
+.portal-icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.portal-icon svg {
+    width: 42px;
+    height: 42px;
+    stroke-width: 1.8;
+}
+
+.champions-portal-card .portal-icon svg {
+    color: #f0cb67;
+}
+
+.kreisliga-portal-card .portal-icon svg {
+    color: #bfc7c1;
+}
+
+.pokal-portal-card .portal-icon svg {
+    color: #e8c45d;
+}
+
+.quali-portal-card .portal-icon svg {
+    color: #ffffff;
+}
+
+.secondary-card .portal-icon svg {
+    color: #18c55b;
+}
+
+.mobile-menu-icon svg {
+    width: 21px;
+    height: 21px;
+    color: #ffffff;
+    stroke-width: 2;
+}
+
+.active-mobile-menu-link .mobile-menu-icon svg {
+    color: #f0cb67;
+}
+
+.season-note .heading-with-icon svg {
+    color: #d9b85f;
 }

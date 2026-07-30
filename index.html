@@ -9,12 +9,20 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Kickbase League</title>
+   <title>Kickbase League</title>
 
-    <link
-        rel="stylesheet"
-        href="/kickbase-league/style.css"
-    >
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+>
+
+<link
+    rel="stylesheet"
+    href="/kickbase-league/style.css"
+>
 </head>
 
 <body>
@@ -160,7 +168,9 @@
                 href="/kickbase-league/index.html"
                 class="mobile-menu-link active-mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🏠</span>
+                <span class="mobile-menu-icon">
+    <i data-lucide="house"></i>
+</span>
 
                 <div>
                     <strong>Startseite</strong>
@@ -178,7 +188,9 @@
                 href="/kickbase-league/qualifikationsligen.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🔴</span>
+                <span class="mobile-menu-icon">
+    <i data-lucide="circle-dot"></i>
+</span>
 
                 <div>
                     <strong>Qualifikationsligen</strong>
@@ -192,7 +204,9 @@
                 href="/kickbase-league/champions-league.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🏆</span>
+                <span class="mobile-menu-icon">
+    <i data-lucide="trophy"></i>
+</span>
 
                 <div>
                     <strong>Champions League</strong>
@@ -206,7 +220,9 @@
                 href="/kickbase-league/kreisliga.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🥈</span>
+                <span class="mobile-menu-icon">
+    <i data-lucide="medal"></i>
+</span>
 
                 <div>
                     <strong>Kreisliga</strong>
@@ -220,9 +236,11 @@
                 href="/kickbase-league/kickbase-pokal.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🏅</span>
-
-                <div>
+                
+<span class="mobile-menu-icon">
+    <i data-lucide="award"></i>
+</span>
+                                <div>
                     <strong>Kickbase-Pokal</strong>
                     <small>Der Pokalwettbewerb</small>
                 </div>
@@ -238,7 +256,9 @@
                 href="/kickbase-league/manager.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">👤</span>
+               <span class="portal-icon">
+    <i data-lucide="user-round"></i>
+</span>
 
                 <div>
                     <strong>Manager</strong>
@@ -252,7 +272,9 @@
                 href="/kickbase-league/hall-of-fame.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">👑</span>
+                <span class="portal-icon">
+    <i data-lucide="crown"></i>
+</span>
 
                 <div>
                     <strong>Hall of Fame</strong>
@@ -266,7 +288,9 @@
                 href="/kickbase-league/statistiken.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">📊</span>
+                <span class="portal-icon">
+    <i data-lucide="chart-no-axes-column-increasing"></i>
+</span>
 
                 <div>
                     <strong>Statistiken</strong>
@@ -280,7 +304,9 @@
                 href="/kickbase-league/regelwerk.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">📜</span>
+                <span class="portal-icon">
+    <i data-lucide="scroll-text"></i>
+</span>
 
                 <div>
                     <strong>Regelwerk</strong>
@@ -533,8 +559,14 @@
 <section class="portal-section season-calendar-section">
 
     <div class="section-heading">
+
         <p>SAISON 2026/27</p>
-        <h2>📅 Liga-Kalender</h2>
+
+        <h2 class="heading-with-icon">
+            <i data-lucide="calendar-days"></i>
+            Liga-Kalender
+        </h2>
+
     </div>
 
     <p class="season-calendar-intro">
@@ -546,10 +578,13 @@
         <article class="season-timeline-item">
 
             <div class="season-timeline-marker">
-                <span>🚀</span>
+                <span>
+                    <i data-lucide="flag"></i>
+                </span>
             </div>
 
             <div class="season-timeline-content">
+
                 <time datetime="2026-08-10">
                     10. August 2026
                 </time>
@@ -560,18 +595,21 @@
                     Die Saison 2026/27 beginnt mit den beiden
                     Qualifikationsligen.
                 </p>
+
             </div>
 
         </article>
 
-
         <article class="season-timeline-item">
 
             <div class="season-timeline-marker">
-                <span>🏁</span>
+                <span>
+                    <i data-lucide="circle-stop"></i>
+                </span>
             </div>
 
             <div class="season-timeline-content">
+
                 <time datetime="2026-12-22">
                     22. Dezember 2026
                 </time>
@@ -582,18 +620,21 @@
                     Die Qualifikationsligen werden abgeschlossen und die
                     Einteilung für die beiden Hauptligen steht fest.
                 </p>
+
             </div>
 
         </article>
 
-
         <article class="season-timeline-item">
 
             <div class="season-timeline-marker">
-                <span>🏆</span>
+                <span>
+                    <i data-lucide="trophy"></i>
+                </span>
             </div>
 
             <div class="season-timeline-content">
+
                 <time datetime="2026-12-22">
                     22. Dezember 2026
                 </time>
@@ -604,18 +645,21 @@
                     Die Champions League und die Kreisliga starten in die
                     entscheidende Phase der Saison.
                 </p>
+
             </div>
 
         </article>
 
-
         <article class="season-timeline-item">
 
             <div class="season-timeline-marker">
-                <span>⚔️</span>
+                <span>
+                    <i data-lucide="swords"></i>
+                </span>
             </div>
 
             <div class="season-timeline-content">
+
                 <time datetime="2027-05-22">
                     22. Mai 2027
                 </time>
@@ -626,18 +670,21 @@
                     Im großen Finale entscheidet sich, wer den
                     Kickbase-Pokal und den Wanderpokal gewinnt.
                 </p>
+
             </div>
 
         </article>
 
-
         <article class="season-timeline-item season-timeline-final">
 
             <div class="season-timeline-marker">
-                <span>👑</span>
+                <span>
+                    <i data-lucide="crown"></i>
+                </span>
             </div>
 
             <div class="season-timeline-content">
+
                 <time datetime="2027-05-22">
                     22. Mai 2027
                 </time>
@@ -648,6 +695,7 @@
                     Die Saison endet mit der Krönung des Kickbase Champions
                     und der Ehrung aller Sieger.
                 </p>
+
             </div>
 
         </article>
@@ -658,7 +706,10 @@
 
     <section class="season-note">
 
-        <h2>ℹ️ Premierensaison</h2>
+        <h2 class="heading-with-icon">
+    <i data-lucide="info"></i>
+    Premierensaison
+</h2>
 
         <p>
             In der Saison 2026/27 beginnt die Liga mit zwei
@@ -696,7 +747,14 @@
 
 <script src="/kickbase-league/script.js"></script>
 
-<script src="animations.js"></script>
+<script src="/kickbase-league/animations.js"></script>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<script>
+    lucide.createIcons();
+</script>
+
 </body>
 
 </html>
