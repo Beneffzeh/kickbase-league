@@ -2,31 +2,114 @@
 <html lang="de">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Die Champions League ist die höchste Spielklasse der Kickbase League."
+    >
+
     <title>Champions League | Kickbase League</title>
 
     <link
-    rel="stylesheet"
-    href="/kickbase-league/style.css"
->
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/kickbase-league/style.css"
+    >
+
 </head>
 
-<body>
+<body class="champions-league-page">
 
 <header class="cl-header">
 
-<img
-src="/kickbase-league/cl-logo.png"
-alt="Logo der Kickbase League Champions League"
-class="cl-logo"
->
+    <div class="cl-header-background-icon">
 
-<h1 class="cl-title">Champions League</h1>
+        <i data-lucide="trophy"></i>
 
-<p>Die höchste Spielklasse der Kickbase League.</p>
+    </div>
+
+    <div class="cl-header-content">
+
+        <div class="cl-season-badge">
+
+            <i data-lucide="star"></i>
+
+            <span>Saison 2026/27</span>
+
+        </div>
+
+        <img
+            src="/kickbase-league/cl-logo.png"
+            alt="Logo der Kickbase League Champions League"
+            class="cl-logo"
+        >
+
+        <p class="cl-eyebrow">
+            DIE HÖCHSTE SPIELKLASSE
+        </p>
+
+        <h1 class="cl-title">
+            Champions League
+        </h1>
+
+        <p class="cl-header-description">
+            Neun Manager. Zwanzig Spieltage. Ein Champion.
+        </p>
+
+        <div class="cl-header-highlights">
+
+            <span>
+
+                <i data-lucide="users"></i>
+
+                9 Manager
+
+            </span>
+
+            <span>
+
+                <i data-lucide="calendar-days"></i>
+
+                20 Spieltage
+
+            </span>
+
+            <span>
+
+                <i data-lucide="trophy"></i>
+
+                1 Champion
+
+            </span>
+
+        </div>
+
+    </div>
 
 </header>
+
 
 <nav class="main-navigation">
 
@@ -36,13 +119,16 @@ class="cl-logo"
             href="/kickbase-league/index.html"
             class="navigation-brand"
         >
+
             <img
                 src="/kickbase-league/kickbase-league-logo.png"
                 alt="Kickbase League"
             >
 
             <span>Kickbase League</span>
+
         </a>
+
 
         <div class="desktop-navigation">
 
@@ -87,6 +173,7 @@ class="cl-logo"
 
         </div>
 
+
         <button
             class="mobile-menu-button"
             id="mobile-menu-button"
@@ -94,17 +181,21 @@ class="cl-logo"
             aria-label="Navigation öffnen"
             aria-expanded="false"
         >
+
             <span></span>
             <span></span>
             <span></span>
+
         </button>
 
     </div>
+
 
     <div
         class="mobile-menu-overlay"
         id="mobile-menu-overlay"
     ></div>
+
 
     <aside
         class="mobile-side-menu"
@@ -122,11 +213,15 @@ class="cl-logo"
                 >
 
                 <div>
+
                     <strong>Kickbase League</strong>
+
                     <p>Saison 2026/27</p>
+
                 </div>
 
             </div>
+
 
             <button
                 class="mobile-menu-close"
@@ -134,10 +229,13 @@ class="cl-logo"
                 type="button"
                 aria-label="Navigation schließen"
             >
-                ✕
+
+                <i data-lucide="x"></i>
+
             </button>
 
         </div>
+
 
         <div class="mobile-side-menu-content">
 
@@ -145,138 +243,230 @@ class="cl-logo"
                 HAUPTMENÜ
             </p>
 
+
             <a
                 href="/kickbase-league/index.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🏠</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="house"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Startseite</strong>
+
                     <small>Zur Liga-Zentrale</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <p class="mobile-menu-label">
                 WETTBEWERBE
             </p>
 
+
             <a
                 href="/kickbase-league/qualifikationsligen.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🔴</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="circle-dot"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Qualifikationsligen</strong>
+
                     <small>Gruppe A und Gruppe B</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <a
                 href="/kickbase-league/champions-league.html"
                 class="mobile-menu-link active-mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🏆</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="trophy"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Champions League</strong>
+
                     <small>Die höchste Spielklasse</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <a
                 href="/kickbase-league/kreisliga.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🥈</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="medal"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Kreisliga</strong>
+
                     <small>Der Kampf um den Aufstieg</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <a
                 href="/kickbase-league/kickbase-pokal.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🏅</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="award"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Kickbase-Pokal</strong>
+
                     <small>Der Pokalwettbewerb</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <p class="mobile-menu-label">
                 LIGABEREICH
             </p>
 
+
             <a
                 href="/kickbase-league/manager.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">👤</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="users"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Manager</strong>
+
                     <small>Alle 18 Teilnehmer</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <a
                 href="/kickbase-league/hall-of-fame.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">👑</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="crown"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Hall of Fame</strong>
+
                     <small>Meister und Legenden</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <a
                 href="/kickbase-league/statistiken.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">📊</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="chart-no-axes-column"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Statistiken</strong>
+
                     <small>Rekorde und Zahlen</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <a
                 href="/kickbase-league/regelwerk.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">📜</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="scroll-text"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Regelwerk</strong>
+
                     <small>Alle Ligaregeln</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
 
         </div>
@@ -285,140 +475,749 @@ class="cl-logo"
 
 </nav>
 
-<section class="hero">
 
-<h2>Die höchste Spielklasse</h2>
+<main class="cl-main">
 
-<p>
-Hier kämpfen neun Manager um den Titel des Kickbase Champions.
-</p>
 
-</section>
+    <section class="cl-introduction">
 
-<section class="saison cl-box">
+        <div class="cl-introduction-content">
 
-<h2>📋 Liga-Informationen</h2>
+            <p class="cl-section-label">
+                KÖNIGSKLASSE
+            </p>
 
-<p>👥 9 Manager</p>
-<br>
+            <h2>
+                Der Kampf um die Meisterschaft
+            </h2>
 
-<p>⚽ 20 Spieltage</p>
-<br>
+            <p>
+                In der Champions League treten die neun besten Manager der
+                Kickbase League gegeneinander an. Nach 20 Spieltagen wird der
+                Erstplatzierte zum Kickbase Champion gekrönt.
+            </p>
 
-<p>🏆 Platz 1 wird Kickbase Champion.</p>
-<br>
+        </div>
 
-<p>⬇️ Platz 7 bis 9 steigen in die Kreisliga ab.</p>
 
-</section>
+        <div class="cl-introduction-trophy">
 
-<section class="saison cl-box">
+            <i data-lucide="trophy"></i>
 
-<h2>📊 Tabelle</h2>
+        </div>
 
-<table width="100%">
+    </section>
 
-<tr>
-<th>#</th>
-<th>Manager</th>
-<th>Punkte</th>
-<th>Status</th>
-</tr>
 
-<tr class="meister">
+    <section class="cl-facts-grid">
 
-<td>1</td>
+        <article class="cl-fact-card">
 
-<td>-</td>
+            <div class="cl-fact-icon">
 
-<td>0</td>
+                <i data-lucide="users"></i>
 
-<td>🏆</td>
+            </div>
 
-</tr>
-<tr><td>2</td><td>-</td><td>0</td><td>-</td></tr>
-<tr><td>3</td><td>-</td><td>0</td><td>-</td></tr>
-<tr><td>4</td><td>-</td><td>0</td><td>-</td></tr>
-<tr><td>5</td><td>-</td><td>0</td><td>-</td></tr>
+            <div>
 
-<tr>
+                <span>TEILNEHMER</span>
 
-<td>6</td>
+                <strong>9 Manager</strong>
 
-<td>-</td>
+                <p>
+                    Die besten Manager der Liga treten in der höchsten
+                    Spielklasse an.
+                </p>
 
-<td>0</td>
+            </div>
 
-<td>-</td>
+        </article>
 
-</tr>
 
-<tr class="abstieg">
+        <article class="cl-fact-card">
 
-<td>7</td>
+            <div class="cl-fact-icon">
 
-<td>-</td>
+                <i data-lucide="calendar-days"></i>
 
-<td>0</td>
+            </div>
 
-<td>⬇️</td>
+            <div>
 
-</tr>
+                <span>SAISON</span>
 
-<tr class="abstieg">
+                <strong>20 Spieltage</strong>
 
-<td>8</td>
+                <p>
+                    Von Januar bis Mai entscheidet sich der Kampf um den Titel.
+                </p>
 
-<td>-</td>
+            </div>
 
-<td>0</td>
+        </article>
 
-<td>⬇️</td>
 
-</tr>
+        <article class="cl-fact-card cl-fact-card-gold">
 
-<tr class="abstieg">
+            <div class="cl-fact-icon">
 
-<td>9</td>
+                <i data-lucide="crown"></i>
 
-<td>-</td>
+            </div>
 
-<td>0</td>
+            <div>
 
-<td>⬇️</td>
+                <span>MEISTERSCHAFT</span>
 
-</tr>
+                <strong>Kickbase Champion</strong>
 
-</table>
+                <p>
+                    Der Tabellenführer nach dem letzten Spieltag gewinnt den
+                    Titel.
+                </p>
 
-</section>
+            </div>
 
-<section class="saison cl-box">
+        </article>
 
-<h2>🏆 Titel</h2>
 
-<p>
-Der Erstplatzierte nach dem letzten Spieltag ist Kickbase Champion.
-</p>
-<br>
+        <article class="cl-fact-card cl-fact-card-danger">
 
-<p><strong>Legende:</strong></p>
+            <div class="cl-fact-icon">
 
-<p>🏆 = Kickbase Champion</p>
+                <i data-lucide="arrow-down"></i>
 
-<p>⬇️ = Plätze 7 bis 9 steigen in die Kreisliga ab.</p>
+            </div>
 
-</section>
+            <div>
+
+                <span>ABSTIEG</span>
+
+                <strong>Plätze 7 bis 9</strong>
+
+                <p>
+                    Die letzten drei Manager steigen in die Kreisliga ab.
+                </p>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <section class="cl-table-section">
+
+        <div class="cl-section-heading">
+
+            <div>
+
+                <p class="cl-section-label">
+                    SAISON 2026/27
+                </p>
+
+                <h2 class="heading-with-icon">
+
+                    <i data-lucide="table-2"></i>
+
+                    Aktuelle Tabelle
+
+                </h2>
+
+            </div>
+
+
+            <div class="cl-table-update">
+
+                <i data-lucide="refresh-cw"></i>
+
+                <span>
+                    Noch nicht gestartet
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="cl-table-wrapper">
+
+            <table class="cl-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Platz</th>
+
+                        <th>Manager</th>
+
+                        <th class="cl-points-column">
+                            Punkte
+                        </th>
+
+                        <th class="cl-status-column">
+                            Status
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr class="cl-champion-row">
+
+                        <td>
+
+                            <span class="cl-position cl-position-first">
+                                1
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="cl-manager-cell">
+
+                                <span class="cl-manager-avatar">
+
+                                    <i data-lucide="user"></i>
+
+                                </span>
+
+                                <strong>Noch offen</strong>
+
+                            </div>
+
+                        </td>
+
+                        <td class="cl-points-column">
+
+                            <strong>0</strong>
+
+                        </td>
+
+                        <td class="cl-status-column">
+
+                            <span class="cl-status cl-status-champion">
+
+                                <i data-lucide="trophy"></i>
+
+                                Champion
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+
+                            <span class="cl-position cl-position-second">
+                                2
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="cl-manager-cell">
+
+                                <span class="cl-manager-avatar">
+
+                                    <i data-lucide="user"></i>
+
+                                </span>
+
+                                <strong>Noch offen</strong>
+
+                            </div>
+
+                        </td>
+
+                        <td class="cl-points-column">
+                            <strong>0</strong>
+                        </td>
+
+                        <td class="cl-status-column">
+
+                            <span class="cl-status cl-status-silver">
+                                Silber
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+
+                            <span class="cl-position cl-position-third">
+                                3
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="cl-manager-cell">
+
+                                <span class="cl-manager-avatar">
+
+                                    <i data-lucide="user"></i>
+
+                                </span>
+
+                                <strong>Noch offen</strong>
+
+                            </div>
+
+                        </td>
+
+                        <td class="cl-points-column">
+                            <strong>0</strong>
+                        </td>
+
+                        <td class="cl-status-column">
+
+                            <span class="cl-status cl-status-bronze">
+                                Bronze
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            <span class="cl-position">4</span>
+                        </td>
+
+                        <td>
+
+                            <div class="cl-manager-cell">
+
+                                <span class="cl-manager-avatar">
+                                    <i data-lucide="user"></i>
+                                </span>
+
+                                <strong>Noch offen</strong>
+
+                            </div>
+
+                        </td>
+
+                        <td class="cl-points-column">
+                            <strong>0</strong>
+                        </td>
+
+                        <td class="cl-status-column">
+                            <span class="cl-status cl-status-neutral">–</span>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            <span class="cl-position">5</span>
+                        </td>
+
+                        <td>
+
+                            <div class="cl-manager-cell">
+
+                                <span class="cl-manager-avatar">
+                                    <i data-lucide="user"></i>
+                                </span>
+
+                                <strong>Noch offen</strong>
+
+                            </div>
+
+                        </td>
+
+                        <td class="cl-points-column">
+                            <strong>0</strong>
+                        </td>
+
+                        <td class="cl-status-column">
+                            <span class="cl-status cl-status-neutral">–</span>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            <span class="cl-position">6</span>
+                        </td>
+
+                        <td>
+
+                            <div class="cl-manager-cell">
+
+                                <span class="cl-manager-avatar">
+                                    <i data-lucide="user"></i>
+                                </span>
+
+                                <strong>Noch offen</strong>
+
+                            </div>
+
+                        </td>
+
+                        <td class="cl-points-column">
+                            <strong>0</strong>
+                        </td>
+
+                        <td class="cl-status-column">
+
+                            <span class="cl-status cl-status-safe">
+                                Klassenerhalt
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr class="cl-relegation-row">
+
+                        <td>
+                            <span class="cl-position">7</span>
+                        </td>
+
+                        <td>
+
+                            <div class="cl-manager-cell">
+
+                                <span class="cl-manager-avatar">
+                                    <i data-lucide="user"></i>
+                                </span>
+
+                                <strong>Noch offen</strong>
+
+                            </div>
+
+                        </td>
+
+                        <td class="cl-points-column">
+                            <strong>0</strong>
+                        </td>
+
+                        <td class="cl-status-column">
+
+                            <span class="cl-status cl-status-relegation">
+
+                                <i data-lucide="arrow-down"></i>
+
+                                Abstieg
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr class="cl-relegation-row">
+
+                        <td>
+                            <span class="cl-position">8</span>
+                        </td>
+
+                        <td>
+
+                            <div class="cl-manager-cell">
+
+                                <span class="cl-manager-avatar">
+                                    <i data-lucide="user"></i>
+                                </span>
+
+                                <strong>Noch offen</strong>
+
+                            </div>
+
+                        </td>
+
+                        <td class="cl-points-column">
+                            <strong>0</strong>
+                        </td>
+
+                        <td class="cl-status-column">
+
+                            <span class="cl-status cl-status-relegation">
+
+                                <i data-lucide="arrow-down"></i>
+
+                                Abstieg
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr class="cl-relegation-row">
+
+                        <td>
+                            <span class="cl-position">9</span>
+                        </td>
+
+                        <td>
+
+                            <div class="cl-manager-cell">
+
+                                <span class="cl-manager-avatar">
+                                    <i data-lucide="user"></i>
+                                </span>
+
+                                <strong>Noch offen</strong>
+
+                            </div>
+
+                        </td>
+
+                        <td class="cl-points-column">
+                            <strong>0</strong>
+                        </td>
+
+                        <td class="cl-status-column">
+
+                            <span class="cl-status cl-status-relegation">
+
+                                <i data-lucide="arrow-down"></i>
+
+                                Abstieg
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <div class="cl-mobile-table-hint">
+
+            <i data-lucide="move-horizontal"></i>
+
+            <span>
+                Tabelle nach links und rechts wischen
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <section class="cl-title-section">
+
+        <div class="cl-title-visual">
+
+            <div class="cl-trophy-circle">
+
+                <i data-lucide="trophy"></i>
+
+            </div>
+
+        </div>
+
+
+        <div class="cl-title-content">
+
+            <p class="cl-section-label">
+                DER GRÖSSTE TITEL
+            </p>
+
+            <h2>
+                Kickbase Champion
+            </h2>
+
+            <p>
+                Der Erstplatzierte nach dem 20. Spieltag wird zum Kickbase
+                Champion gekrönt und gewinnt den großen Champions-League-Pokal.
+            </p>
+
+
+            <div class="cl-prize-box">
+
+                <div>
+
+                    <span>PREISGELD</span>
+
+                    <strong>200 €</strong>
+
+                </div>
+
+                <div>
+
+                    <span>TROPHÄE</span>
+
+                    <strong>Großer Pokal</strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="cl-legend-section">
+
+        <div class="cl-section-heading">
+
+            <div>
+
+                <p class="cl-section-label">
+                    ORIENTIERUNG
+                </p>
+
+                <h2 class="heading-with-icon">
+
+                    <i data-lucide="info"></i>
+
+                    Tabellen-Legende
+
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="cl-legend-grid">
+
+            <article class="cl-legend-card cl-legend-champion">
+
+                <span class="cl-legend-icon">
+
+                    <i data-lucide="trophy"></i>
+
+                </span>
+
+                <div>
+
+                    <strong>Platz 1</strong>
+
+                    <p>
+                        Kickbase Champion und Sieger der Champions League.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="cl-legend-card cl-legend-podium">
+
+                <span class="cl-legend-icon">
+
+                    <i data-lucide="medal"></i>
+
+                </span>
+
+                <div>
+
+                    <strong>Plätze 2 und 3</strong>
+
+                    <p>
+                        Weitere Podiumsplätze mit Preisgeld.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="cl-legend-card cl-legend-safe">
+
+                <span class="cl-legend-icon">
+
+                    <i data-lucide="shield-check"></i>
+
+                </span>
+
+                <div>
+
+                    <strong>Plätze 4 bis 6</strong>
+
+                    <p>
+                        Sicherer Verbleib in der Champions League.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="cl-legend-card cl-legend-relegation">
+
+                <span class="cl-legend-icon">
+
+                    <i data-lucide="arrow-down"></i>
+
+                </span>
+
+                <div>
+
+                    <strong>Plätze 7 bis 9</strong>
+
+                    <p>
+                        Abstieg in die Kreisliga zur nächsten Saison.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+</main>
+
 
 <footer>
 
-© Kickbase League
+    © Kickbase League
 
 </footer>
 
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
 <script src="/kickbase-league/script.js"></script>
 
-<script src="animations.js"></script>
+<script src="/kickbase-league/animations.js"></script>
+
+<script>
+
+    lucide.createIcons();
+
+</script>
+
 </body>
 
 </html>
