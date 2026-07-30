@@ -5768,3 +5768,237 @@ footer::after {
     }
 
 }
+/* =========================================
+   GLOBALER PREMIUM-FEINSCHLIFF
+========================================= */
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-color: #25302b #090c11;
+    scrollbar-width: thin;
+}
+
+body {
+    position: relative;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 8%,
+            rgba(24, 197, 91, 0.055),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 45%,
+            rgba(24, 197, 91, 0.035),
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            #090c12 0%,
+            #080b11 45%,
+            #070a0f 100%
+        );
+
+    color: #eef2f5;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Dezente Hintergrundstruktur */
+
+body::before {
+    content: "";
+    position: fixed;
+    z-index: -1;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.16;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+        );
+
+    background-size: 42px 42px;
+
+    mask-image: linear-gradient(
+        180deg,
+        black,
+        transparent 80%
+    );
+
+    -webkit-mask-image: linear-gradient(
+        180deg,
+        black,
+        transparent 80%
+    );
+}
+
+
+/* Hauptinhalt etwas sauberer begrenzen */
+
+main {
+    position: relative;
+
+    width: min(1180px, calc(100% - 40px));
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Moderne Textmarkierung */
+
+::selection {
+    color: #061009;
+    background: #46df82;
+}
+
+::-moz-selection {
+    color: #061009;
+    background: #46df82;
+}
+
+
+/* Eigene Scrollleiste für Chrome und Safari */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #090c11;
+}
+
+::-webkit-scrollbar-thumb {
+    border: 3px solid #090c11;
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #33423b,
+            #1d2923
+        );
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background:
+        linear-gradient(
+            180deg,
+            #25cd67,
+            #16974b
+        );
+}
+
+
+/* Bilder sauber darstellen */
+
+img {
+    max-width: 100%;
+}
+
+
+/* Einheitliche Übergänge bei Links */
+
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* Überschriften besser umbrechen */
+
+h1,
+h2,
+h3 {
+    text-wrap: balance;
+}
+
+
+/* Fließtexte besser lesbar */
+
+p {
+    text-wrap: pretty;
+}
+
+
+/* Sprungziele verschwinden nicht unter der Navigation */
+
+section,
+[id] {
+    scroll-margin-top: 100px;
+}
+
+
+/* Horizontale Trennlinien */
+
+hr {
+    height: 1px;
+
+    margin: 42px 0;
+
+    border: 0;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.12),
+        transparent
+    );
+}
+
+
+/* =========================================
+   SMARTPHONES
+========================================= */
+
+@media (max-width: 600px) {
+
+    main {
+        width: min(100% - 28px, 1180px);
+    }
+
+    body::before {
+        background-size: 32px 32px;
+        opacity: 0.11;
+    }
+
+    section,
+    [id] {
+        scroll-margin-top: 82px;
+    }
+
+}
+
+
+/* =========================================
+   BEWEGUNGEN REDUZIEREN
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
