@@ -11816,3 +11816,1633 @@ hr {
     }
 
 }
+/* =========================================================
+   MANAGERSEITE – PREMIUM KARRIEREPROFILE
+   ========================================================= */
+
+.manager-page {
+    --manager-green: #18c55b;
+    --manager-green-light: #67e997;
+    --manager-gold: #e7bd52;
+    --manager-gold-light: #f5dc91;
+    --manager-silver: #b9c2cc;
+    --manager-blue: #4b95ff;
+    --manager-red: #c9505a;
+    --manager-purple: #9a72ff;
+    --manager-card: rgba(14, 18, 24, 0.96);
+    --manager-border: rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.manager-header {
+    position: relative;
+    overflow: hidden;
+    min-height: 610px;
+    padding: 92px 24px 84px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at 20% 18%,
+            rgba(24, 197, 91, 0.15),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(154, 114, 255, 0.14),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(231, 189, 82, 0.08),
+            transparent 36%
+        ),
+        linear-gradient(
+            145deg,
+            #05070a 0%,
+            #0b0f16 48%,
+            #06080c 100%
+        );
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.manager-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.023) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.023) 1px,
+            transparent 1px
+        );
+    background-size: 48px 48px;
+    mask-image:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.95),
+            transparent 94%
+        );
+    pointer-events: none;
+}
+
+.manager-header::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -300px;
+    width: 760px;
+    height: 760px;
+    transform: translateX(-50%);
+    background:
+        radial-gradient(
+            circle,
+            rgba(24, 197, 91, 0.08),
+            rgba(154, 114, 255, 0.05) 44%,
+            transparent 70%
+        );
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+}
+
+.manager-header-content {
+    position: relative;
+    z-index: 3;
+    width: min(100%, 930px);
+    margin: 0 auto;
+}
+
+.manager-header-background-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 500px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.022);
+    pointer-events: none;
+}
+
+.manager-header-background-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 0.65;
+}
+
+.manager-header-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(12px);
+    pointer-events: none;
+}
+
+.manager-header-glow-one {
+    top: 90px;
+    left: 10%;
+    width: 210px;
+    height: 210px;
+    background: rgba(24, 197, 91, 0.045);
+    box-shadow: 0 0 100px rgba(24, 197, 91, 0.12);
+}
+
+.manager-header-glow-two {
+    top: 100px;
+    right: 10%;
+    width: 220px;
+    height: 220px;
+    background: rgba(154, 114, 255, 0.045);
+    box-shadow: 0 0 100px rgba(154, 114, 255, 0.12);
+}
+
+.manager-season-badge {
+    width: fit-content;
+    margin: 0 auto 28px;
+    padding: 9px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #d5c5ff;
+    font-size: 0.73rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(24, 197, 91, 0.08),
+            rgba(154, 114, 255, 0.1)
+        );
+    border: 1px solid rgba(154, 114, 255, 0.2);
+    border-radius: 999px;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 0 28px rgba(154, 114, 255, 0.06);
+}
+
+.manager-season-badge svg {
+    width: 16px;
+    height: 16px;
+}
+
+.manager-header-logo {
+    width: min(205px, 58vw);
+    height: auto;
+    margin: 0 auto 25px;
+    display: block;
+    border-radius: 50%;
+    filter:
+        drop-shadow(0 22px 35px rgba(0, 0, 0, 0.48))
+        drop-shadow(0 0 28px rgba(231, 189, 82, 0.1));
+    animation: manager-logo-float 5s ease-in-out infinite;
+}
+
+@keyframes manager-logo-float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.manager-eyebrow {
+    margin: 0 0 12px;
+    color: #b999ff;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.23em;
+}
+
+.manager-title {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(3.2rem, 9vw, 6.6rem);
+    font-weight: 900;
+    line-height: 0.94;
+    letter-spacing: -0.065em;
+    text-shadow: 0 16px 44px rgba(0, 0, 0, 0.48);
+}
+
+.manager-header-description {
+    max-width: 730px;
+    margin: 24px auto 0;
+    color: #b7bec9;
+    font-size: clamp(1rem, 2.4vw, 1.2rem);
+    line-height: 1.72;
+}
+
+.manager-header-highlights {
+    margin-top: 34px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.manager-header-highlights span {
+    padding: 11px 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #e7ebf0;
+    font-size: 0.81rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 999px;
+    backdrop-filter: blur(12px);
+}
+
+.manager-header-highlights span:nth-child(1) svg {
+    color: var(--manager-green-light);
+}
+
+.manager-header-highlights span:nth-child(2) svg {
+    color: var(--manager-gold-light);
+}
+
+.manager-header-highlights span:nth-child(3) svg {
+    color: #bd9eff;
+}
+
+.manager-header-highlights svg {
+    width: 17px;
+    height: 17px;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.manager-main {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 72px 0 100px;
+}
+
+
+/* =========================================================
+   INTRODUCTION
+   ========================================================= */
+
+.manager-introduction {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 28px;
+    padding: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 38px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(24, 197, 91, 0.075),
+            rgba(15, 18, 24, 0.96) 45%,
+            rgba(154, 114, 255, 0.09)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 27px;
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}
+
+.manager-introduction::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 42px;
+    width: 145px;
+    height: 3px;
+    background:
+        linear-gradient(
+            90deg,
+            var(--manager-green),
+            var(--manager-purple)
+        );
+    border-radius: 0 0 10px 10px;
+    box-shadow:
+        -18px 0 22px rgba(24, 197, 91, 0.18),
+        18px 0 22px rgba(154, 114, 255, 0.2);
+}
+
+.manager-introduction-content {
+    position: relative;
+    z-index: 2;
+    max-width: 770px;
+}
+
+.manager-section-label {
+    margin: 0 0 10px;
+    color: #b896ff;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+}
+
+.manager-introduction h2,
+.manager-history-note h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+}
+
+.manager-introduction-content > p:last-child,
+.manager-history-note p {
+    margin: 18px 0 0;
+    color: #adb5c0;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.manager-introduction-icon {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 auto;
+    width: 102px;
+    height: 102px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c1a4ff;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 197, 91, 0.08),
+            rgba(154, 114, 255, 0.12)
+        );
+    border: 1px solid rgba(154, 114, 255, 0.18);
+    border-radius: 29px;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 18px 40px rgba(0, 0, 0, 0.3);
+}
+
+.manager-introduction-icon svg {
+    width: 43px;
+    height: 43px;
+    stroke-width: 1.8;
+}
+
+
+/* =========================================================
+   FACT CARDS
+   ========================================================= */
+
+.manager-facts-grid {
+    margin-bottom: 62px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.manager-fact-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 225px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    background:
+        linear-gradient(
+            150deg,
+            rgba(255, 255, 255, 0.042),
+            rgba(11, 14, 19, 0.96)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 22px;
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.manager-fact-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(154, 114, 255, 0.22);
+    box-shadow:
+        0 26px 60px rgba(0, 0, 0, 0.28),
+        0 0 30px rgba(154, 114, 255, 0.045);
+}
+
+.manager-fact-card::after {
+    content: "";
+    position: absolute;
+    right: -55px;
+    bottom: -72px;
+    width: 160px;
+    height: 160px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(24, 197, 91, 0.06),
+            rgba(154, 114, 255, 0.075)
+        );
+    border-radius: 50%;
+    filter: blur(10px);
+}
+
+.manager-fact-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c0a2ff;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 197, 91, 0.07),
+            rgba(154, 114, 255, 0.11)
+        );
+    border: 1px solid rgba(154, 114, 255, 0.17);
+    border-radius: 15px;
+}
+
+.manager-fact-card:nth-child(1) .manager-fact-icon {
+    color: var(--manager-gold-light);
+    background: rgba(231, 189, 82, 0.08);
+    border-color: rgba(231, 189, 82, 0.17);
+}
+
+.manager-fact-card:nth-child(2) .manager-fact-icon {
+    color: var(--manager-silver);
+}
+
+.manager-fact-card:nth-child(3) .manager-fact-icon {
+    color: var(--manager-green-light);
+}
+
+.manager-fact-card:nth-child(4) .manager-fact-icon {
+    color: #c0a2ff;
+}
+
+.manager-fact-icon svg {
+    width: 23px;
+    height: 23px;
+}
+
+.manager-fact-card span {
+    display: block;
+    margin-bottom: 8px;
+    color: #747d88;
+    font-size: 0.66rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+}
+
+.manager-fact-card strong {
+    display: block;
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 850;
+    line-height: 1.3;
+}
+
+.manager-fact-card p {
+    position: relative;
+    z-index: 2;
+    margin: 11px 0 0;
+    color: #939ca7;
+    font-size: 0.87rem;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.manager-section-heading {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.manager-section-heading h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(1.65rem, 4vw, 2.3rem);
+    font-weight: 900;
+    letter-spacing: -0.035em;
+}
+
+.manager-section-heading .heading-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.manager-section-heading .heading-with-icon svg {
+    width: 28px;
+    height: 28px;
+    color: #b896ff;
+}
+
+.manager-overview-count {
+    padding: 10px 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #c3a9ff;
+    font-size: 0.73rem;
+    font-weight: 800;
+    background: rgba(154, 114, 255, 0.08);
+    border: 1px solid rgba(154, 114, 255, 0.17);
+    border-radius: 999px;
+}
+
+.manager-overview-count svg {
+    width: 15px;
+    height: 15px;
+}
+
+
+/* =========================================================
+   MANAGER GRID
+   ========================================================= */
+
+.manager-overview-section {
+    margin-bottom: 68px;
+}
+
+.manager-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+
+/* =========================================================
+   MANAGER CARD
+   ========================================================= */
+
+.manager-card {
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    padding: 24px;
+    background:
+        radial-gradient(
+            circle at 100% 0,
+            rgba(154, 114, 255, 0.055),
+            transparent 34%
+        ),
+        linear-gradient(
+            150deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(10, 13, 18, 0.98)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 24px;
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    transition:
+        transform 0.28s ease,
+        border-color 0.28s ease,
+        box-shadow 0.28s ease;
+}
+
+.manager-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(154, 114, 255, 0.23);
+    box-shadow:
+        0 30px 72px rgba(0, 0, 0, 0.32),
+        0 0 35px rgba(154, 114, 255, 0.05);
+}
+
+.manager-card::after {
+    content: "";
+    position: absolute;
+    right: -75px;
+    bottom: -90px;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: rgba(154, 114, 255, 0.035);
+    filter: blur(6px);
+    pointer-events: none;
+}
+
+.manager-card-topline {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    width: 85px;
+    height: 3px;
+    background:
+        linear-gradient(
+            90deg,
+            var(--manager-green),
+            var(--manager-purple)
+        );
+    border-radius: 0 0 10px 10px;
+    box-shadow:
+        -10px 0 18px rgba(24, 197, 91, 0.15),
+        10px 0 18px rgba(154, 114, 255, 0.18);
+}
+
+.manager-card-header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.manager-card-identity {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.manager-avatar {
+    flex: 0 0 auto;
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 197, 91, 0.18),
+            rgba(154, 114, 255, 0.22)
+        );
+    border: 1px solid rgba(190, 160, 255, 0.24);
+    border-radius: 17px;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 12px 26px rgba(0, 0, 0, 0.25);
+}
+
+.manager-number {
+    display: block;
+    margin-bottom: 4px;
+    color: #6f7884;
+    font-size: 0.59rem;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+}
+
+.manager-card h3 {
+    margin: 0;
+    overflow: hidden;
+    color: #ffffff;
+    font-size: 1.28rem;
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.manager-current-league {
+    flex: 0 0 auto;
+    max-width: 142px;
+    padding: 7px 9px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 0.6rem;
+    font-weight: 850;
+    line-height: 1.25;
+    text-align: center;
+    border-radius: 999px;
+}
+
+.manager-current-league svg {
+    flex: 0 0 auto;
+    width: 12px;
+    height: 12px;
+}
+
+.manager-league-quali-a {
+    color: #64e792;
+    background: rgba(24, 197, 91, 0.08);
+    border: 1px solid rgba(24, 197, 91, 0.16);
+}
+
+.manager-league-quali-b {
+    color: #7eb3ff;
+    background: rgba(75, 149, 255, 0.08);
+    border: 1px solid rgba(75, 149, 255, 0.16);
+}
+
+.manager-league-champions {
+    color: var(--manager-gold-light);
+    background: rgba(231, 189, 82, 0.09);
+    border: 1px solid rgba(231, 189, 82, 0.18);
+}
+
+.manager-league-kreisliga {
+    color: #c7d0d8;
+    background: rgba(185, 194, 204, 0.08);
+    border: 1px solid rgba(185, 194, 204, 0.17);
+}
+
+.manager-league-neutral {
+    color: #aeb5bf;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   TITLE BADGES
+   ========================================================= */
+
+.manager-title-badges {
+    position: relative;
+    z-index: 2;
+    min-height: 37px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.manager-title-badge {
+    padding: 7px 9px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.61rem;
+    font-weight: 850;
+    border-radius: 999px;
+}
+
+.manager-title-badge svg {
+    width: 13px;
+    height: 13px;
+}
+
+.manager-title-badge-champions {
+    color: var(--manager-gold-light);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(231, 189, 82, 0.12),
+            rgba(231, 189, 82, 0.06)
+        );
+    border: 1px solid rgba(231, 189, 82, 0.24);
+    box-shadow: 0 0 18px rgba(231, 189, 82, 0.05);
+}
+
+.manager-title-badge-kreisliga {
+    color: #d5dce3;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(185, 194, 204, 0.11),
+            rgba(24, 197, 91, 0.05)
+        );
+    border: 1px solid rgba(185, 194, 204, 0.21);
+}
+
+.manager-title-badge-cup {
+    color: #efc95f;
+    background: rgba(231, 189, 82, 0.08);
+    border: 1px solid rgba(231, 189, 82, 0.18);
+}
+
+.manager-title-badge-empty {
+    color: #737c87;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+/* =========================================================
+   CARD DIVIDER
+   ========================================================= */
+
+.manager-card-divider {
+    position: relative;
+    z-index: 2;
+    height: 1px;
+    margin: 19px 0;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.09),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   STATISTICS
+   ========================================================= */
+
+.manager-statistics-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.manager-statistic {
+    min-width: 0;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.055);
+    border-radius: 13px;
+}
+
+.manager-statistic-icon {
+    flex: 0 0 auto;
+    width: 31px;
+    height: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b59aff;
+    background: rgba(154, 114, 255, 0.08);
+    border-radius: 9px;
+}
+
+.manager-statistic-icon svg {
+    width: 15px;
+    height: 15px;
+}
+
+.manager-statistic small {
+    display: block;
+    overflow: hidden;
+    color: #737c87;
+    font-size: 0.57rem;
+    font-weight: 800;
+    line-height: 1.25;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.manager-statistic strong {
+    display: block;
+    margin-top: 4px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 900;
+}
+
+.manager-statistic-promotion .manager-statistic-icon {
+    color: var(--manager-green-light);
+    background: rgba(24, 197, 91, 0.08);
+}
+
+.manager-statistic-relegation .manager-statistic-icon {
+    color: #df7880;
+    background: rgba(201, 80, 90, 0.08);
+}
+
+.manager-statistic-cup .manager-statistic-icon {
+    color: var(--manager-gold-light);
+    background: rgba(231, 189, 82, 0.08);
+}
+
+
+/* =========================================================
+   BEST POSITION
+   ========================================================= */
+
+.manager-best-position {
+    position: relative;
+    z-index: 2;
+    margin-top: 14px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    background:
+        linear-gradient(
+            110deg,
+            rgba(154, 114, 255, 0.07),
+            rgba(255, 255, 255, 0.025)
+        );
+    border: 1px solid rgba(154, 114, 255, 0.12);
+    border-radius: 15px;
+}
+
+.manager-best-position-icon {
+    flex: 0 0 auto;
+    width: 39px;
+    height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c1a3ff;
+    background: rgba(154, 114, 255, 0.09);
+    border: 1px solid rgba(154, 114, 255, 0.14);
+    border-radius: 12px;
+}
+
+.manager-best-position-icon svg {
+    width: 19px;
+    height: 19px;
+}
+
+.manager-best-position span {
+    display: block;
+    margin-bottom: 3px;
+    color: #767f8b;
+    font-size: 0.58rem;
+    font-weight: 900;
+    letter-spacing: 0.11em;
+}
+
+.manager-best-position strong {
+    display: block;
+    color: #ffffff;
+    font-size: 0.92rem;
+    font-weight: 900;
+}
+
+.manager-best-position p {
+    margin: 3px 0 0;
+    color: #979fac;
+    font-size: 0.7rem;
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   CHAMPIONS-LEAGUE-WINNER
+   ========================================================= */
+
+.manager-card-champions-winner {
+    background:
+        radial-gradient(
+            circle at 100% 0,
+            rgba(231, 189, 82, 0.14),
+            transparent 34%
+        ),
+        linear-gradient(
+            150deg,
+            rgba(92, 69, 17, 0.24),
+            rgba(11, 13, 17, 0.98) 55%
+        );
+    border-color: rgba(231, 189, 82, 0.34);
+    box-shadow:
+        0 22px 65px rgba(0, 0, 0, 0.27),
+        0 0 30px rgba(231, 189, 82, 0.06),
+        inset 0 1px 0 rgba(255, 235, 176, 0.08);
+}
+
+.manager-card-champions-winner .manager-card-topline {
+    width: 110px;
+    background:
+        linear-gradient(
+            90deg,
+            #b78520,
+            #f3d77e,
+            #b78520
+        );
+    box-shadow: 0 0 24px rgba(231, 189, 82, 0.32);
+}
+
+.manager-card-champions-winner .manager-avatar {
+    color: #211800;
+    background:
+        linear-gradient(
+            145deg,
+            #f3d77e,
+            #b88220
+        );
+    border-color: rgba(255, 230, 157, 0.55);
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.3),
+        0 0 22px rgba(231, 189, 82, 0.11);
+}
+
+.manager-card-champions-winner h3 {
+    color: #f5dc91;
+}
+
+
+/* =========================================================
+   KREISLIGA-WINNER
+   ========================================================= */
+
+.manager-card-kreisliga-winner {
+    background:
+        radial-gradient(
+            circle at 100% 0,
+            rgba(185, 194, 204, 0.11),
+            transparent 34%
+        ),
+        linear-gradient(
+            150deg,
+            rgba(66, 74, 82, 0.18),
+            rgba(10, 13, 18, 0.98) 58%
+        );
+    border-color: rgba(185, 194, 204, 0.28);
+    box-shadow:
+        0 22px 65px rgba(0, 0, 0, 0.27),
+        0 0 30px rgba(185, 194, 204, 0.045),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.manager-card-kreisliga-winner .manager-card-topline {
+    width: 110px;
+    background:
+        linear-gradient(
+            90deg,
+            #72808b,
+            #d5dde4,
+            #5bbd7b
+        );
+    box-shadow:
+        0 0 22px rgba(185, 194, 204, 0.24);
+}
+
+.manager-card-kreisliga-winner .manager-avatar {
+    color: #111820;
+    background:
+        linear-gradient(
+            145deg,
+            #d8dfe5,
+            #7c8a95
+        );
+    border-color: rgba(225, 232, 237, 0.4);
+}
+
+.manager-card-kreisliga-winner h3 {
+    color: #d7dee4;
+}
+
+
+/* =========================================================
+   WINNER OF BOTH LEAGUES
+   ========================================================= */
+
+.manager-card-double-champion {
+    background:
+        radial-gradient(
+            circle at 0 0,
+            rgba(231, 189, 82, 0.13),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 100% 0,
+            rgba(185, 194, 204, 0.12),
+            transparent 35%
+        ),
+        linear-gradient(
+            150deg,
+            rgba(87, 65, 17, 0.2),
+            rgba(12, 15, 20, 0.98) 54%,
+            rgba(60, 70, 77, 0.17)
+        );
+    border-color: rgba(231, 189, 82, 0.4);
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.32),
+        -8px 0 35px rgba(231, 189, 82, 0.05),
+        8px 0 35px rgba(185, 194, 204, 0.05),
+        inset 0 1px 0 rgba(255, 241, 196, 0.08);
+}
+
+.manager-card-double-champion .manager-card-topline {
+    width: 140px;
+    background:
+        linear-gradient(
+            90deg,
+            #b98622,
+            #f2d77e,
+            #d6dde3,
+            #6aa881
+        );
+    box-shadow: 0 0 26px rgba(231, 189, 82, 0.25);
+}
+
+.manager-card-double-champion .manager-avatar {
+    color: #1c170b;
+    background:
+        linear-gradient(
+            135deg,
+            #f1d477,
+            #d9dfe4 56%,
+            #6fa483
+        );
+    border-color: rgba(255, 236, 177, 0.5);
+}
+
+.manager-card-double-champion h3 {
+    background:
+        linear-gradient(
+            90deg,
+            #f3d985,
+            #d9e0e6
+        );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+
+/* =========================================================
+   TITLE EXPLANATION
+   ========================================================= */
+
+.manager-title-explanation {
+    margin-bottom: 66px;
+}
+
+.manager-title-explanation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.manager-title-explanation-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 225px;
+    padding: 25px;
+    display: flex;
+    align-items: flex-start;
+    gap: 17px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.038),
+            rgba(10, 13, 18, 0.97)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 22px;
+}
+
+.manager-title-explanation-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 24px;
+    width: 78px;
+    height: 2px;
+}
+
+.manager-title-cl::before {
+    background: var(--manager-gold);
+}
+
+.manager-title-kl::before {
+    background:
+        linear-gradient(
+            90deg,
+            var(--manager-silver),
+            var(--manager-green)
+        );
+}
+
+.manager-title-double::before {
+    width: 115px;
+    background:
+        linear-gradient(
+            90deg,
+            var(--manager-gold),
+            var(--manager-silver),
+            var(--manager-green)
+        );
+}
+
+.manager-title-explanation-icon {
+    flex: 0 0 auto;
+    width: 47px;
+    height: 47px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.manager-title-cl .manager-title-explanation-icon {
+    color: var(--manager-gold-light);
+    background: rgba(231, 189, 82, 0.08);
+    border: 1px solid rgba(231, 189, 82, 0.17);
+}
+
+.manager-title-kl .manager-title-explanation-icon {
+    color: #d5dde4;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(185, 194, 204, 0.09),
+            rgba(24, 197, 91, 0.05)
+        );
+    border: 1px solid rgba(185, 194, 204, 0.18);
+}
+
+.manager-title-double .manager-title-explanation-icon {
+    color: #efd276;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(231, 189, 82, 0.1),
+            rgba(185, 194, 204, 0.07)
+        );
+    border: 1px solid rgba(231, 189, 82, 0.19);
+}
+
+.manager-title-explanation-icon svg {
+    width: 23px;
+    height: 23px;
+}
+
+.manager-title-explanation-card span {
+    display: block;
+    margin-bottom: 7px;
+    color: #737c87;
+    font-size: 0.63rem;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+}
+
+.manager-title-explanation-card strong {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 850;
+    line-height: 1.4;
+}
+
+.manager-title-explanation-card p {
+    margin: 11px 0 0;
+    color: #9099a4;
+    font-size: 0.84rem;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   HISTORY NOTE
+   ========================================================= */
+
+.manager-history-note {
+    position: relative;
+    overflow: hidden;
+    padding: 42px;
+    display: grid;
+    grid-template-columns: 110px minmax(0, 1fr);
+    align-items: center;
+    gap: 35px;
+    background:
+        radial-gradient(
+            circle at 10% 50%,
+            rgba(154, 114, 255, 0.11),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(15, 18, 24, 0.98),
+            rgba(8, 11, 15, 0.98)
+        );
+    border: 1px solid rgba(154, 114, 255, 0.16);
+    border-radius: 26px;
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.27),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.manager-history-note::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 42px;
+    width: 120px;
+    height: 3px;
+    background:
+        linear-gradient(
+            90deg,
+            var(--manager-purple),
+            var(--manager-green)
+        );
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 22px rgba(154, 114, 255, 0.25);
+}
+
+.manager-history-note-icon {
+    width: 92px;
+    height: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c0a2ff;
+    background: rgba(154, 114, 255, 0.08);
+    border: 1px solid rgba(154, 114, 255, 0.17);
+    border-radius: 50%;
+    box-shadow:
+        inset 0 0 25px rgba(154, 114, 255, 0.04),
+        0 0 32px rgba(154, 114, 255, 0.05);
+}
+
+.manager-history-note-icon svg {
+    width: 39px;
+    height: 39px;
+    stroke-width: 1.7;
+}
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+   ========================================================= */
+
+.manager-page .desktop-navigation .active-navigation-link {
+    color: #ffffff;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(24, 197, 91, 0.07),
+            rgba(154, 114, 255, 0.11)
+        );
+    border-color: rgba(154, 114, 255, 0.17);
+}
+
+.manager-page .desktop-navigation .active-navigation-link::after {
+    background:
+        linear-gradient(
+            90deg,
+            var(--manager-green),
+            var(--manager-purple)
+        );
+    box-shadow:
+        -7px 0 14px rgba(24, 197, 91, 0.18),
+        7px 0 14px rgba(154, 114, 255, 0.23);
+}
+
+.manager-page .active-mobile-menu-link {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(24, 197, 91, 0.09),
+            rgba(154, 114, 255, 0.11)
+        );
+    border-color: rgba(154, 114, 255, 0.18);
+}
+
+.manager-page .active-mobile-menu-link .mobile-menu-icon {
+    color: #c0a2ff;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 197, 91, 0.08),
+            rgba(154, 114, 255, 0.12)
+        );
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1080px) {
+
+    .manager-facts-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .manager-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .manager-title-explanation-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .manager-title-explanation-card {
+        min-height: auto;
+    }
+
+}
+
+
+@media (max-width: 760px) {
+
+    .manager-header {
+        min-height: auto;
+        padding: 72px 20px 62px;
+    }
+
+    .manager-header-logo {
+        width: min(180px, 54vw);
+    }
+
+    .manager-header-background-icon {
+        width: 340px;
+        height: 340px;
+    }
+
+    .manager-header-description {
+        max-width: 530px;
+        font-size: 0.98rem;
+    }
+
+    .manager-header-highlights {
+        gap: 8px;
+    }
+
+    .manager-header-highlights span {
+        padding: 9px 12px;
+        font-size: 0.71rem;
+    }
+
+    .manager-main {
+        width: min(100% - 24px, 1180px);
+        padding: 44px 0 76px;
+    }
+
+    .manager-introduction {
+        padding: 30px 24px;
+        display: block;
+    }
+
+    .manager-introduction-icon {
+        width: 73px;
+        height: 73px;
+        margin-top: 26px;
+        border-radius: 21px;
+    }
+
+    .manager-introduction-icon svg {
+        width: 31px;
+        height: 31px;
+    }
+
+    .manager-facts-grid {
+        grid-template-columns: 1fr;
+        margin-bottom: 50px;
+    }
+
+    .manager-fact-card {
+        min-height: auto;
+        padding: 22px;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .manager-fact-icon {
+        flex: 0 0 auto;
+    }
+
+    .manager-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .manager-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .manager-card {
+        padding: 22px;
+    }
+
+    .manager-history-note {
+        padding: 34px 24px;
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .manager-history-note-icon {
+        width: 82px;
+        height: 82px;
+        margin: 0 auto;
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .manager-header {
+        padding-top: 58px;
+    }
+
+    .manager-title {
+        font-size: clamp(3rem, 16vw, 4.5rem);
+    }
+
+    .manager-season-badge {
+        margin-bottom: 21px;
+        padding: 8px 12px;
+        font-size: 0.64rem;
+    }
+
+    .manager-header-highlights span {
+        width: calc(50% - 5px);
+        justify-content: center;
+    }
+
+    .manager-header-highlights span:last-child {
+        width: 100%;
+    }
+
+    .manager-introduction {
+        padding: 28px 21px;
+        border-radius: 22px;
+    }
+
+    .manager-card {
+        padding: 20px;
+        border-radius: 21px;
+    }
+
+    .manager-card-header {
+        flex-direction: column;
+    }
+
+    .manager-current-league {
+        max-width: none;
+        margin-left: 67px;
+    }
+
+    .manager-statistics-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .manager-statistic {
+        padding: 10px;
+    }
+
+    .manager-statistic-icon {
+        width: 29px;
+        height: 29px;
+    }
+
+    .manager-title-explanation-card {
+        padding: 22px;
+    }
+
+    .manager-history-note {
+        border-radius: 22px;
+    }
+
+}
+
+
+@media (max-width: 380px) {
+
+    .manager-statistics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .manager-current-league {
+        margin-left: 0;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .manager-header-logo {
+        animation: none;
+    }
+
+    .manager-card,
+    .manager-fact-card {
+        transition: none;
+    }
+
+}

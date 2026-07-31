@@ -10,7 +10,30 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Manager | Kickbase League</title>
+    <meta
+        name="description"
+        content="Alle Manager und Karriereerfolge der Kickbase League."
+    >
+
+    <title>
+        Manager | Kickbase League
+    </title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
 
     <link
         rel="stylesheet"
@@ -19,17 +42,92 @@
 
 </head>
 
-<body>
 
-<header>
+<body class="manager-page">
 
-    <h1>👤 Manager</h1>
 
-    <p>
-        Die Teilnehmer der Kickbase League.
-    </p>
+<header class="manager-header">
+
+    <div class="manager-header-background-icon">
+
+        <i data-lucide="users"></i>
+
+    </div>
+
+
+    <div class="manager-header-glow manager-header-glow-one"></div>
+
+    <div class="manager-header-glow manager-header-glow-two"></div>
+
+
+    <div class="manager-header-content">
+
+        <div class="manager-season-badge">
+
+            <i data-lucide="calendar-days"></i>
+
+            <span>Saison 2026/27</span>
+
+        </div>
+
+
+        <img
+            src="/kickbase-league/kickbase-league-logo.png"
+            alt="Logo der Kickbase League"
+            class="manager-header-logo"
+        >
+
+
+        <p class="manager-eyebrow">
+            DIE TEILNEHMER DER LIGA
+        </p>
+
+
+        <h1 class="manager-title">
+            Manager
+        </h1>
+
+
+        <p class="manager-header-description">
+            18 Manager kämpfen um Meisterschaften, Aufstiege,
+            Pokale und einen Platz in der Geschichte der Kickbase League.
+        </p>
+
+
+        <div class="manager-header-highlights">
+
+            <span>
+
+                <i data-lucide="users"></i>
+
+                18 Manager
+
+            </span>
+
+
+            <span>
+
+                <i data-lucide="trophy"></i>
+
+                3 Wettbewerbe
+
+            </span>
+
+
+            <span>
+
+                <i data-lucide="history"></i>
+
+                Eine Karrierehistorie
+
+            </span>
+
+        </div>
+
+    </div>
 
 </header>
+
 
 <nav class="main-navigation">
 
@@ -39,13 +137,16 @@
             href="/kickbase-league/index.html"
             class="navigation-brand"
         >
+
             <img
                 src="/kickbase-league/kickbase-league-logo.png"
                 alt="Kickbase League"
             >
 
             <span>Kickbase League</span>
+
         </a>
+
 
         <div class="desktop-navigation">
 
@@ -90,6 +191,7 @@
 
         </div>
 
+
         <button
             class="mobile-menu-button"
             id="mobile-menu-button"
@@ -97,17 +199,21 @@
             aria-label="Navigation öffnen"
             aria-expanded="false"
         >
+
             <span></span>
             <span></span>
             <span></span>
+
         </button>
 
     </div>
+
 
     <div
         class="mobile-menu-overlay"
         id="mobile-menu-overlay"
     ></div>
+
 
     <aside
         class="mobile-side-menu"
@@ -125,11 +231,15 @@
                 >
 
                 <div>
+
                     <strong>Kickbase League</strong>
+
                     <p>Saison 2026/27</p>
+
                 </div>
 
             </div>
+
 
             <button
                 class="mobile-menu-close"
@@ -137,10 +247,13 @@
                 type="button"
                 aria-label="Navigation schließen"
             >
-                ✕
+
+                <i data-lucide="x"></i>
+
             </button>
 
         </div>
+
 
         <div class="mobile-side-menu-content">
 
@@ -148,138 +261,230 @@
                 HAUPTMENÜ
             </p>
 
+
             <a
                 href="/kickbase-league/index.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🏠</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="house"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Startseite</strong>
+
                     <small>Zur Liga-Zentrale</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <p class="mobile-menu-label">
                 WETTBEWERBE
             </p>
 
+
             <a
                 href="/kickbase-league/qualifikationsligen.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🔴</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="route"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Qualifikationsligen</strong>
+
                     <small>Gruppe A und Gruppe B</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <a
                 href="/kickbase-league/champions-league.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🏆</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="trophy"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Champions League</strong>
+
                     <small>Die höchste Spielklasse</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <a
                 href="/kickbase-league/kreisliga.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🥈</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="shield"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Kreisliga</strong>
+
                     <small>Der Kampf um den Aufstieg</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <a
                 href="/kickbase-league/kickbase-pokal.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">🏅</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="award"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Kickbase-Pokal</strong>
+
                     <small>Der Pokalwettbewerb</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <p class="mobile-menu-label">
                 LIGABEREICH
             </p>
 
+
             <a
                 href="/kickbase-league/manager.html"
                 class="mobile-menu-link active-mobile-menu-link"
             >
-                <span class="mobile-menu-icon">👤</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="users"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Manager</strong>
+
                     <small>Alle 18 Teilnehmer</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <a
                 href="/kickbase-league/hall-of-fame.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">👑</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="crown"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Hall of Fame</strong>
+
                     <small>Meister und Legenden</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <a
                 href="/kickbase-league/statistiken.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">📊</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="chart-no-axes-column"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Statistiken</strong>
+
                     <small>Rekorde und Zahlen</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
+
 
             <a
                 href="/kickbase-league/regelwerk.html"
                 class="mobile-menu-link"
             >
-                <span class="mobile-menu-icon">📜</span>
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="scroll-text"></i>
+
+                </span>
 
                 <div>
+
                     <strong>Regelwerk</strong>
+
                     <small>Alle Ligaregeln</small>
+
                 </div>
 
-                <span>→</span>
+                <i data-lucide="chevron-right"></i>
+
             </a>
 
         </div>
@@ -288,191 +493,318 @@
 
 </nav>
 
-<main>
 
-    <section class="hero">
+<main class="manager-main">
 
-        <h2>
-            Die Manager der Liga
-        </h2>
 
-        <p>
-            18 Manager kämpfen um Meisterschaften,
-            Pokale und Rekorde.
-        </p>
+    <section class="manager-introduction">
 
-    </section>
+        <div class="manager-introduction-content">
 
-    <section>
+            <p class="manager-section-label">
+                MANAGERKARRIEREN
+            </p>
 
-        <h2 style="text-align:center; margin-top:30px;">
-            👥 Managerübersicht
-        </h2>
+            <h2>
+                Jeder Manager schreibt seine eigene Geschichte
+            </h2>
 
-        <div class="container">
+            <p>
+                Auf dieser Seite werden die wichtigsten Karrierewerte
+                aller Teilnehmer festgehalten. Nach jeder abgeschlossenen
+                Saison werden Meisterschaften, Auf- und Abstiege sowie
+                persönliche Bestplatzierungen aktualisiert.
+            </p>
 
-            <div class="card">
-                <h3>Ben</h3>
-                <p>🏆 Meistertitel: 0</p>
-                <p>🏅 Pokalsiege: 0</p>
-                <p>⬆️ Aufstiege: 0</p>
-                <p>📈 Beste Platzierung: -</p>
-            </div>
+        </div>
 
-            <div class="card">
-                <h3>Bruno</h3>
-                <p>🏆 Meistertitel: 0</p>
-                <p>🏅 Pokalsiege: 0</p>
-                <p>⬆️ Aufstiege: 0</p>
-                <p>📈 Beste Platzierung: -</p>
-            </div>
 
-            <div class="card">
-                <h3>Enrico</h3>
-                <p>🏆 Meistertitel: 0</p>
-                <p>🏅 Pokalsiege: 0</p>
-                <p>⬆️ Aufstiege: 0</p>
-                <p>📈 Beste Platzierung: -</p>
-            </div>
+        <div class="manager-introduction-icon">
 
-            <div class="card">
-                <h3>Fabio</h3>
-                <p>🏆 Meistertitel: 0</p>
-                <p>🏅 Pokalsiege: 0</p>
-                <p>⬆️ Aufstiege: 0</p>
-                <p>📈 Beste Platzierung: -</p>
-            </div>
-
-            <div class="card">
-                <h3>Heiko</h3>
-                <p>🏆 Meistertitel: 0</p>
-                <p>🏅 Pokalsiege: 0</p>
-                <p>⬆️ Aufstiege: 0</p>
-                <p>📈 Beste Platzierung: -</p>
-            </div>
-
-            <div class="card">
-                <h3>Janis</h3>
-                <p>🏆 Meistertitel: 0</p>
-                <p>🏅 Pokalsiege: 0</p>
-                <p>⬆️ Aufstiege: 0</p>
-                <p>📈 Beste Platzierung: -</p>
-            </div>
-
-            <div class="card">
-                <h3>Malik</h3>
-                <p>🏆 Meistertitel: 0</p>
-                <p>🏅 Pokalsiege: 0</p>
-                <p>⬆️ Aufstiege: 0</p>
-                <p>📈 Beste Platzierung: -</p>
-            </div>
-
-            <div class="card">
-                <h3>Marco</h3>
-                <p>🏆 Meistertitel: 0</p>
-                <p>🏅 Pokalsiege: 0</p>
-                <p>⬆️ Aufstiege: 0</p>
-                <p>📈 Beste Platzierung: -</p>
-            </div>
-
-            <div class="card">
-                <h3>Marcel</h3>
-                <p>🏆 Meistertitel: 0</p>
-                <p>🏅 Pokalsiege: 0</p>
-                <p>⬆️ Aufstiege: 0</p>
-                <p>📈 Beste Platzierung: -</p>
-            </div>
-
-            <div class="card">
-                <h3>Messe</h3>
-                <p>🏆 Meistertitel: 0</p>
-                <p>🏅 Pokalsiege: 0</p>
-                <p>⬆️ Aufstiege: 0</p>
-                <p>📈 Beste Platzierung: -</p>
-            </div>
-
-            <div class="card">
-                <h3>Nikolaj</h3>
-                <p>🏆 Meistertitel: 0</p>
-                <p>🏅 Pokalsiege: 0</p>
-                <p>⬆️ Aufstiege: 0</p>
-                <p>📈 Beste Platzierung: -</p>
-            </div>
-
-            <div class="card">
-                <h3>Nils</h3>
-                <p>🏆 Meistertitel: 0</p>
-                <p>🏅 Pokalsiege: 0</p>
-                <p>⬆️ Aufstiege: 0</p>
-                <p>📈 Beste Platzierung: -</p>
-            </div>
-
-            <div class="card">
-                <h3>Philipp</h3>
-                <p>🏆 Meistertitel: 0</p>
-                <p>🏅 Pokalsiege: 0</p>
-                <p>⬆️ Aufstiege: 0</p>
-                <p>📈 Beste Platzierung: -</p>
-            </div>
-
-            <div class="card">
-                <h3>Reichi</h3>
-                <p>🏆 Meistertitel: 0</p>
-                <p>🏅 Pokalsiege: 0</p>
-                <p>⬆️ Aufstiege: 0</p>
-                <p>📈 Beste Platzierung: -</p>
-            </div>
-
-            <div class="card">
-                <h3>Sauer</h3>
-                <p>🏆 Meistertitel: 0</p>
-                <p>🏅 Pokalsiege: 0</p>
-                <p>⬆️ Aufstiege: 0</p>
-                <p>📈 Beste Platzierung: -</p>
-            </div>
-
-            <div class="card">
-                <h3>Schwartzer</h3>
-                <p>🏆 Meistertitel: 0</p>
-                <p>🏅 Pokalsiege: 0</p>
-                <p>⬆️ Aufstiege: 0</p>
-                <p>📈 Beste Platzierung: -</p>
-            </div>
-
-            <div class="card">
-                <h3>Tim</h3>
-                <p>🏆 Meistertitel: 0</p>
-                <p>🏅 Pokalsiege: 0</p>
-                <p>⬆️ Aufstiege: 0</p>
-                <p>📈 Beste Platzierung: -</p>
-            </div>
-
-            <div class="card">
-                <h3>Tobsen</h3>
-                <p>🏆 Meistertitel: 0</p>
-                <p>🏅 Pokalsiege: 0</p>
-                <p>⬆️ Aufstiege: 0</p>
-                <p>📈 Beste Platzierung: -</p>
-            </div>
+            <i data-lucide="shield-check"></i>
 
         </div>
 
     </section>
 
-    <section class="saison">
 
-        <h2>
-            🏆 Erfolge
-        </h2>
+    <section class="manager-facts-grid">
 
-        <p>
-            Die ersten Titel und Rekorde werden nach der
-            Premierensaison eingetragen.
-        </p>
+        <article class="manager-fact-card">
+
+            <div class="manager-fact-icon">
+
+                <i data-lucide="trophy"></i>
+
+            </div>
+
+            <div>
+
+                <span>HÖCHSTE EHRE</span>
+
+                <strong>Champions-League-Titel</strong>
+
+                <p>
+                    Der Meistertitel in der höchsten Spielklasse.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="manager-fact-card">
+
+            <div class="manager-fact-icon">
+
+                <i data-lucide="shield"></i>
+
+            </div>
+
+            <div>
+
+                <span>ZWEITE LIGA</span>
+
+                <strong>Kreisliga-Meister</strong>
+
+                <p>
+                    Meisterschaft und direkter Aufstieg.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="manager-fact-card">
+
+            <div class="manager-fact-icon">
+
+                <i data-lucide="arrow-up"></i>
+
+            </div>
+
+            <div>
+
+                <span>LIGAWECHSEL</span>
+
+                <strong>Auf- und Abstiege</strong>
+
+                <p>
+                    Die vollständige Ligahistorie jedes Managers.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="manager-fact-card">
+
+            <div class="manager-fact-icon">
+
+                <i data-lucide="medal"></i>
+
+            </div>
+
+            <div>
+
+                <span>KARRIEREBESTWERT</span>
+
+                <strong>Beste Platzierung</strong>
+
+                <p>
+                    Einschließlich der Liga, in der sie erreicht wurde.
+                </p>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <section class="manager-overview-section">
+
+        <div class="manager-section-heading">
+
+            <div>
+
+                <p class="manager-section-label">
+                    ALLE TEILNEHMER
+                </p>
+
+                <h2 class="heading-with-icon">
+
+                    <i data-lucide="users-round"></i>
+
+                    Managerübersicht
+
+                </h2>
+
+            </div>
+
+
+            <span class="manager-overview-count">
+
+                <i data-lucide="users"></i>
+
+                18 Manager
+
+            </span>
+
+        </div>
+
+
+        <div
+            class="manager-grid"
+            id="manager-grid"
+        ></div>
+
+    </section>
+
+
+    <section class="manager-title-explanation">
+
+        <div class="manager-section-heading">
+
+            <div>
+
+                <p class="manager-section-label">
+                    TITEL UND AUSZEICHNUNGEN
+                </p>
+
+                <h2 class="heading-with-icon">
+
+                    <i data-lucide="badge-check"></i>
+
+                    So werden Erfolge dargestellt
+
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="manager-title-explanation-grid">
+
+            <article class="manager-title-explanation-card manager-title-cl">
+
+                <div class="manager-title-explanation-icon">
+
+                    <i data-lucide="crown"></i>
+
+                </div>
+
+                <div>
+
+                    <span>GOLDENER TITEL</span>
+
+                    <strong>
+                        Champions-League-Meister
+                    </strong>
+
+                    <p>
+                        Ein Champions-League-Titel wird durch einen
+                        goldenen Meister-Badge und eine goldene
+                        Hervorhebung der Managerkarte gekennzeichnet.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="manager-title-explanation-card manager-title-kl">
+
+                <div class="manager-title-explanation-icon">
+
+                    <i data-lucide="shield-check"></i>
+
+                </div>
+
+                <div>
+
+                    <span>SILBERNER TITEL</span>
+
+                    <strong>
+                        Kreisliga-Meister
+                    </strong>
+
+                    <p>
+                        Ein Kreisliga-Titel erhält einen silbernen
+                        Meister-Badge mit blau-grüner Akzentfarbe.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="manager-title-explanation-card manager-title-double">
+
+                <div class="manager-title-explanation-icon">
+
+                    <i data-lucide="sparkles"></i>
+
+                </div>
+
+                <div>
+
+                    <span>BESONDERE KARRIERE</span>
+
+                    <strong>
+                        Meister beider Ligen
+                    </strong>
+
+                    <p>
+                        Hat ein Manager beide Meisterschaften gewonnen,
+                        werden beide Titel und eine besondere Kartenoptik
+                        angezeigt.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <section class="manager-history-note">
+
+        <div class="manager-history-note-icon">
+
+            <i data-lucide="history"></i>
+
+        </div>
+
+
+        <div>
+
+            <p class="manager-section-label">
+                KARRIERESTATISTIKEN
+            </p>
+
+            <h2>
+                Einträge nach Saisonende
+            </h2>
+
+            <p>
+                Die erste vollständige Aktualisierung der Managerprofile
+                erfolgt nach Abschluss der Saison 2026/27. Bis dahin
+                werden alle Karrierewerte mit null beziehungsweise
+                „Noch keine abgeschlossene Saison“ angezeigt.
+            </p>
+
+        </div>
 
     </section>
 
 </main>
+
 
 <footer>
 
@@ -480,9 +812,660 @@
 
 </footer>
 
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
 <script src="/kickbase-league/script.js"></script>
 
-<script src="animations.js"></script>
+<script src="/kickbase-league/animations.js"></script>
+
+
+<script>
+
+    /*
+    ==========================================================
+    MANAGERDATEN
+
+    Nach jeder Saison musst du nur diesen Bereich bearbeiten.
+
+    Beispiel:
+
+    seasons: 2,
+    championsTitles: 1,
+    kreisligaTitles: 0,
+    cupTitles: 1,
+    promotions: 0,
+    relegations: 1,
+    bestPosition: "1. Platz",
+    bestLeague: "Champions League",
+    currentLeague: "Champions League"
+
+    Mögliche aktuelle Ligen:
+
+    "Qualifikation A"
+    "Qualifikation B"
+    "Champions League"
+    "Kreisliga"
+    ==========================================================
+    */
+
+    const managers = [
+
+        {
+            name: "Ben",
+            currentLeague: "Qualifikation B",
+            seasons: 0,
+            championsTitles: 0,
+            kreisligaTitles: 0,
+            cupTitles: 0,
+            promotions: 0,
+            relegations: 0,
+            bestPosition: "–",
+            bestLeague: "Noch keine abgeschlossene Saison"
+        },
+
+        {
+            name: "Bruno",
+            currentLeague: "Qualifikation A",
+            seasons: 0,
+            championsTitles: 0,
+            kreisligaTitles: 0,
+            cupTitles: 0,
+            promotions: 0,
+            relegations: 0,
+            bestPosition: "–",
+            bestLeague: "Noch keine abgeschlossene Saison"
+        },
+
+        {
+            name: "Enrico",
+            currentLeague: "Qualifikation A",
+            seasons: 0,
+            championsTitles: 0,
+            kreisligaTitles: 0,
+            cupTitles: 0,
+            promotions: 0,
+            relegations: 0,
+            bestPosition: "–",
+            bestLeague: "Noch keine abgeschlossene Saison"
+        },
+
+        {
+            name: "Fabio",
+            currentLeague: "Qualifikation B",
+            seasons: 0,
+            championsTitles: 0,
+            kreisligaTitles: 0,
+            cupTitles: 0,
+            promotions: 0,
+            relegations: 0,
+            bestPosition: "–",
+            bestLeague: "Noch keine abgeschlossene Saison"
+        },
+
+        {
+            name: "Heiko",
+            currentLeague: "Qualifikation B",
+            seasons: 0,
+            championsTitles: 0,
+            kreisligaTitles: 0,
+            cupTitles: 0,
+            promotions: 0,
+            relegations: 0,
+            bestPosition: "–",
+            bestLeague: "Noch keine abgeschlossene Saison"
+        },
+
+        {
+            name: "Janis",
+            currentLeague: "Qualifikation B",
+            seasons: 0,
+            championsTitles: 0,
+            kreisligaTitles: 0,
+            cupTitles: 0,
+            promotions: 0,
+            relegations: 0,
+            bestPosition: "–",
+            bestLeague: "Noch keine abgeschlossene Saison"
+        },
+
+        {
+            name: "Malik",
+            currentLeague: "Qualifikation B",
+            seasons: 0,
+            championsTitles: 0,
+            kreisligaTitles: 0,
+            cupTitles: 0,
+            promotions: 0,
+            relegations: 0,
+            bestPosition: "–",
+            bestLeague: "Noch keine abgeschlossene Saison"
+        },
+
+        {
+            name: "Marco",
+            currentLeague: "Qualifikation B",
+            seasons: 0,
+            championsTitles: 0,
+            kreisligaTitles: 0,
+            cupTitles: 0,
+            promotions: 0,
+            relegations: 0,
+            bestPosition: "–",
+            bestLeague: "Noch keine abgeschlossene Saison"
+        },
+
+        {
+            name: "Marcel",
+            currentLeague: "Qualifikation A",
+            seasons: 0,
+            championsTitles: 0,
+            kreisligaTitles: 0,
+            cupTitles: 0,
+            promotions: 0,
+            relegations: 0,
+            bestPosition: "–",
+            bestLeague: "Noch keine abgeschlossene Saison"
+        },
+
+        {
+            name: "Messe",
+            currentLeague: "Qualifikation A",
+            seasons: 0,
+            championsTitles: 0,
+            kreisligaTitles: 0,
+            cupTitles: 0,
+            promotions: 0,
+            relegations: 0,
+            bestPosition: "–",
+            bestLeague: "Noch keine abgeschlossene Saison"
+        },
+
+        {
+            name: "Nikolaj",
+            currentLeague: "Qualifikation B",
+            seasons: 0,
+            championsTitles: 0,
+            kreisligaTitles: 0,
+            cupTitles: 0,
+            promotions: 0,
+            relegations: 0,
+            bestPosition: "–",
+            bestLeague: "Noch keine abgeschlossene Saison"
+        },
+
+        {
+            name: "Nils",
+            currentLeague: "Qualifikation A",
+            seasons: 0,
+            championsTitles: 0,
+            kreisligaTitles: 0,
+            cupTitles: 0,
+            promotions: 0,
+            relegations: 0,
+            bestPosition: "–",
+            bestLeague: "Noch keine abgeschlossene Saison"
+        },
+
+        {
+            name: "Philipp",
+            currentLeague: "Qualifikation B",
+            seasons: 0,
+            championsTitles: 0,
+            kreisligaTitles: 0,
+            cupTitles: 0,
+            promotions: 0,
+            relegations: 0,
+            bestPosition: "–",
+            bestLeague: "Noch keine abgeschlossene Saison"
+        },
+
+        {
+            name: "Reichi",
+            currentLeague: "Qualifikation A",
+            seasons: 0,
+            championsTitles: 0,
+            kreisligaTitles: 0,
+            cupTitles: 0,
+            promotions: 0,
+            relegations: 0,
+            bestPosition: "–",
+            bestLeague: "Noch keine abgeschlossene Saison"
+        },
+
+        {
+            name: "Sauer",
+            currentLeague: "Qualifikation A",
+            seasons: 0,
+            championsTitles: 0,
+            kreisligaTitles: 0,
+            cupTitles: 0,
+            promotions: 0,
+            relegations: 0,
+            bestPosition: "–",
+            bestLeague: "Noch keine abgeschlossene Saison"
+        },
+
+        {
+            name: "Schwartzer",
+            currentLeague: "Qualifikation B",
+            seasons: 0,
+            championsTitles: 0,
+            kreisligaTitles: 0,
+            cupTitles: 0,
+            promotions: 0,
+            relegations: 0,
+            bestPosition: "–",
+            bestLeague: "Noch keine abgeschlossene Saison"
+        },
+
+        {
+            name: "Tim",
+            currentLeague: "Qualifikation A",
+            seasons: 0,
+            championsTitles: 0,
+            kreisligaTitles: 0,
+            cupTitles: 0,
+            promotions: 0,
+            relegations: 0,
+            bestPosition: "–",
+            bestLeague: "Noch keine abgeschlossene Saison"
+        },
+
+        {
+            name: "Tobsen",
+            currentLeague: "Qualifikation A",
+            seasons: 0,
+            championsTitles: 0,
+            kreisligaTitles: 0,
+            cupTitles: 0,
+            promotions: 0,
+            relegations: 0,
+            bestPosition: "–",
+            bestLeague: "Noch keine abgeschlossene Saison"
+        }
+
+    ];
+
+
+    function getInitials(name) {
+
+        return name
+            .split(" ")
+            .map(part => part.charAt(0))
+            .join("")
+            .substring(0, 2)
+            .toUpperCase();
+
+    }
+
+
+    function getLeagueClass(league) {
+
+        if (league === "Champions League") {
+            return "manager-league-champions";
+        }
+
+        if (league === "Kreisliga") {
+            return "manager-league-kreisliga";
+        }
+
+        if (league === "Qualifikation A") {
+            return "manager-league-quali-a";
+        }
+
+        if (league === "Qualifikation B") {
+            return "manager-league-quali-b";
+        }
+
+        return "manager-league-neutral";
+
+    }
+
+
+    function getCardClass(manager) {
+
+        const hasChampionsTitle =
+            manager.championsTitles > 0;
+
+        const hasKreisligaTitle =
+            manager.kreisligaTitles > 0;
+
+
+        if (hasChampionsTitle && hasKreisligaTitle) {
+            return "manager-card-double-champion";
+        }
+
+        if (hasChampionsTitle) {
+            return "manager-card-champions-winner";
+        }
+
+        if (hasKreisligaTitle) {
+            return "manager-card-kreisliga-winner";
+        }
+
+        return "";
+
+    }
+
+
+    function createTitleBadges(manager) {
+
+        let badges = "";
+
+
+        if (manager.championsTitles > 0) {
+
+            badges += `
+
+                <span class="manager-title-badge manager-title-badge-champions">
+
+                    <i data-lucide="crown"></i>
+
+                    ${manager.championsTitles}
+                    ${manager.championsTitles === 1 ? "CL-Titel" : "CL-Titel"}
+
+                </span>
+
+            `;
+
+        }
+
+
+        if (manager.kreisligaTitles > 0) {
+
+            badges += `
+
+                <span class="manager-title-badge manager-title-badge-kreisliga">
+
+                    <i data-lucide="shield-check"></i>
+
+                    ${manager.kreisligaTitles}
+                    ${manager.kreisligaTitles === 1
+                        ? "Kreisliga-Titel"
+                        : "Kreisliga-Titel"}
+
+                </span>
+
+            `;
+
+        }
+
+
+        if (manager.cupTitles > 0) {
+
+            badges += `
+
+                <span class="manager-title-badge manager-title-badge-cup">
+
+                    <i data-lucide="award"></i>
+
+                    ${manager.cupTitles}
+                    ${manager.cupTitles === 1
+                        ? "Pokalsieg"
+                        : "Pokalsiege"}
+
+                </span>
+
+            `;
+
+        }
+
+
+        if (badges === "") {
+
+            badges = `
+
+                <span class="manager-title-badge manager-title-badge-empty">
+
+                    <i data-lucide="circle-dashed"></i>
+
+                    Noch ohne Titel
+
+                </span>
+
+            `;
+
+        }
+
+
+        return badges;
+
+    }
+
+
+    function createManagerCard(manager, index) {
+
+        const leagueClass =
+            getLeagueClass(manager.currentLeague);
+
+        const cardClass =
+            getCardClass(manager);
+
+        const initials =
+            getInitials(manager.name);
+
+        const rankingNumber =
+            String(index + 1).padStart(2, "0");
+
+
+        return `
+
+            <article class="manager-card ${cardClass}">
+
+                <div class="manager-card-topline"></div>
+
+
+                <div class="manager-card-header">
+
+                    <div class="manager-card-identity">
+
+                        <span class="manager-avatar">
+
+                            ${initials}
+
+                        </span>
+
+
+                        <div>
+
+                            <span class="manager-number">
+                                MANAGER ${rankingNumber}
+                            </span>
+
+                            <h3>
+                                ${manager.name}
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="manager-current-league ${leagueClass}">
+
+                        <i data-lucide="map-pin"></i>
+
+                        ${manager.currentLeague}
+
+                    </span>
+
+                </div>
+
+
+                <div class="manager-title-badges">
+
+                    ${createTitleBadges(manager)}
+
+                </div>
+
+
+                <div class="manager-card-divider"></div>
+
+
+                <div class="manager-statistics-grid">
+
+                    <div class="manager-statistic">
+
+                        <span class="manager-statistic-icon">
+
+                            <i data-lucide="calendar-range"></i>
+
+                        </span>
+
+                        <div>
+
+                            <small>Gespielte Saisons</small>
+
+                            <strong>
+                                ${manager.seasons}
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="manager-statistic manager-statistic-promotion">
+
+                        <span class="manager-statistic-icon">
+
+                            <i data-lucide="arrow-up"></i>
+
+                        </span>
+
+                        <div>
+
+                            <small>Aufstiege</small>
+
+                            <strong>
+                                ${manager.promotions}
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="manager-statistic manager-statistic-relegation">
+
+                        <span class="manager-statistic-icon">
+
+                            <i data-lucide="arrow-down"></i>
+
+                        </span>
+
+                        <div>
+
+                            <small>Abstiege</small>
+
+                            <strong>
+                                ${manager.relegations}
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="manager-statistic manager-statistic-cup">
+
+                        <span class="manager-statistic-icon">
+
+                            <i data-lucide="award"></i>
+
+                        </span>
+
+                        <div>
+
+                            <small>Pokalsiege</small>
+
+                            <strong>
+                                ${manager.cupTitles}
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="manager-best-position">
+
+                    <div class="manager-best-position-icon">
+
+                        <i data-lucide="medal"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            BESTE PLATZIERUNG
+                        </span>
+
+                        <strong>
+                            ${manager.bestPosition}
+                        </strong>
+
+                        <p>
+                            ${manager.bestLeague}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        `;
+
+    }
+
+
+    function renderManagers() {
+
+        const managerGrid =
+            document.getElementById("manager-grid");
+
+
+        if (!managerGrid) {
+            return;
+        }
+
+
+        const sortedManagers = [...managers].sort(
+
+            (managerA, managerB) =>
+
+                managerA.name.localeCompare(
+                    managerB.name,
+                    "de"
+                )
+
+        );
+
+
+        managerGrid.innerHTML =
+            sortedManagers
+                .map(createManagerCard)
+                .join("");
+
+
+        lucide.createIcons();
+
+    }
+
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        renderManagers
+    );
+
+</script>
+
 </body>
 
 </html>
