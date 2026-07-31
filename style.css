@@ -16138,30 +16138,55 @@ hr {
 
 }
 /* =========================================================
-   DESKTOP-NAVIGATION – ÜBERSCHNEIDUNG VERHINDERN
+   NAVIGATION – SAUBERER WECHSEL ZUM MOBILMENÜ
 ========================================================= */
 
+/* Große Bildschirme */
 .navigation-inner {
+    width: min(1500px, calc(100% - 32px));
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 28px;
+    gap: 24px;
 }
 
 .navigation-brand {
-    flex: 0 0 auto;
-    min-width: max-content;
+    flex-shrink: 0;
 }
 
 .desktop-navigation {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    gap: 6px;
-    min-width: 0;
+    gap: 4px;
 }
 
 .desktop-navigation a {
-    flex: 0 0 auto;
     white-space: nowrap;
+}
+
+/* Auf normalen Laptops früher auf das Seitenmenü wechseln */
+@media (max-width: 1450px) {
+
+    .desktop-navigation {
+        display: none;
+    }
+
+    .mobile-menu-button {
+        display: flex;
+    }
+
+}
+
+/* Erst auf sehr großen Bildschirmen normale Desktop-Navigation */
+@media (min-width: 1451px) {
+
+    .desktop-navigation {
+        display: flex;
+    }
+
+    .mobile-menu-button {
+        display: none;
+    }
+
 }
