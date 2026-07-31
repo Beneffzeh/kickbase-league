@@ -10278,3 +10278,1541 @@ hr {
     }
 
 }
+/* =========================================================
+   QUALIFIKATIONSLIGEN – PREMIUM DESIGN
+   ========================================================= */
+
+.qualification-page {
+    --qualification-green: #18c55b;
+    --qualification-green-light: #63e892;
+    --qualification-blue: #3d8cff;
+    --qualification-blue-light: #78adff;
+    --qualification-yellow: #e7b33f;
+    --qualification-red: #a93d47;
+    --qualification-bg: #07090d;
+    --qualification-card: rgba(15, 18, 24, 0.94);
+    --qualification-border: rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.qualification-header {
+    position: relative;
+    overflow: hidden;
+    min-height: 600px;
+    padding: 92px 24px 82px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at 28% 15%,
+            rgba(24, 197, 91, 0.16),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 72% 18%,
+            rgba(61, 140, 255, 0.17),
+            transparent 36%
+        ),
+        linear-gradient(
+            145deg,
+            #050609 0%,
+            #0b0f15 50%,
+            #06070a 100%
+        );
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.qualification-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.024) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.024) 1px,
+            transparent 1px
+        );
+    background-size: 46px 46px;
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.92),
+        transparent 92%
+    );
+    pointer-events: none;
+}
+
+.qualification-header::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -260px;
+    width: 680px;
+    height: 680px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(24, 197, 91, 0.08),
+            rgba(61, 140, 255, 0.08)
+        );
+    filter: blur(110px);
+    pointer-events: none;
+}
+
+.qualification-header-content {
+    position: relative;
+    z-index: 3;
+    width: min(100%, 930px);
+    margin: 0 auto;
+}
+
+.qualification-header-background-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 480px;
+    height: 480px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.025);
+    pointer-events: none;
+}
+
+.qualification-header-background-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 0.65;
+}
+
+.qualification-header-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.045);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.qualification-header-orbit-one {
+    width: 410px;
+    height: 410px;
+    box-shadow:
+        -150px 0 70px rgba(24, 197, 91, 0.045),
+        150px 0 70px rgba(61, 140, 255, 0.045);
+}
+
+.qualification-header-orbit-two {
+    width: 570px;
+    height: 570px;
+    border-style: dashed;
+    opacity: 0.55;
+}
+
+.qualification-season-badge {
+    width: fit-content;
+    margin: 0 auto 26px;
+    padding: 9px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #a8c7ff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(24, 197, 91, 0.08),
+            rgba(61, 140, 255, 0.1)
+        );
+    border: 1px solid rgba(99, 159, 255, 0.2);
+    border-radius: 999px;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 0 30px rgba(61, 140, 255, 0.06);
+}
+
+.qualification-season-badge svg {
+    width: 16px;
+    height: 16px;
+}
+
+.qualification-logo {
+    width: min(245px, 64vw);
+    height: auto;
+    margin: 0 auto 24px;
+    display: block;
+    filter:
+        drop-shadow(0 22px 38px rgba(0, 0, 0, 0.5))
+        drop-shadow(0 0 24px rgba(61, 140, 255, 0.11));
+    animation: qualification-logo-float 5s ease-in-out infinite;
+}
+
+@keyframes qualification-logo-float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.qualification-eyebrow {
+    margin: 0 0 12px;
+    color: #75aaff;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.23em;
+}
+
+.qualification-title {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(2.9rem, 8vw, 6rem);
+    font-weight: 900;
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+    text-shadow: 0 15px 42px rgba(0, 0, 0, 0.45);
+}
+
+.qualification-header-description {
+    max-width: 720px;
+    margin: 22px auto 0;
+    color: #b9c0ca;
+    font-size: clamp(1rem, 2.4vw, 1.2rem);
+    line-height: 1.7;
+}
+
+.qualification-header-highlights {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.qualification-header-highlights span {
+    padding: 11px 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #e7ebf0;
+    font-size: 0.82rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 999px;
+    backdrop-filter: blur(12px);
+}
+
+.qualification-header-highlights span:nth-child(1) svg {
+    color: var(--qualification-green-light);
+}
+
+.qualification-header-highlights span:nth-child(2) svg {
+    color: var(--qualification-blue-light);
+}
+
+.qualification-header-highlights span:nth-child(3) svg {
+    color: #b9c6d9;
+}
+
+.qualification-header-highlights svg {
+    width: 17px;
+    height: 17px;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.qualification-main {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 72px 0 100px;
+}
+
+
+/* =========================================================
+   INTRODUCTION
+   ========================================================= */
+
+.qualification-introduction {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 28px;
+    padding: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 36px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(24, 197, 91, 0.08),
+            rgba(15, 18, 24, 0.94) 44%,
+            rgba(61, 140, 255, 0.09)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 26px;
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}
+
+.qualification-introduction::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 40px;
+    width: 145px;
+    height: 3px;
+    background:
+        linear-gradient(
+            90deg,
+            var(--qualification-green),
+            var(--qualification-blue)
+        );
+    border-radius: 0 0 10px 10px;
+    box-shadow:
+        -20px 0 24px rgba(24, 197, 91, 0.2),
+        20px 0 24px rgba(61, 140, 255, 0.2);
+}
+
+.qualification-introduction-content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+}
+
+.qualification-section-label {
+    margin: 0 0 10px;
+    color: #72a8ff;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+}
+
+.qualification-introduction h2,
+.qualification-comparison-content h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+}
+
+.qualification-introduction-content > p:last-child,
+.qualification-comparison-content > p {
+    margin: 18px 0 0;
+    color: #adb5c0;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.qualification-introduction-icon {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 auto;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #84b3ff;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 197, 91, 0.1),
+            rgba(61, 140, 255, 0.12)
+        );
+    border: 1px solid rgba(97, 156, 255, 0.18);
+    border-radius: 28px;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 18px 40px rgba(0, 0, 0, 0.3);
+}
+
+.qualification-introduction-icon svg {
+    width: 42px;
+    height: 42px;
+    stroke-width: 1.8;
+}
+
+
+/* =========================================================
+   FACT CARDS
+   ========================================================= */
+
+.qualification-facts-grid {
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.qualification-fact-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 230px;
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background:
+        linear-gradient(
+            150deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(11, 14, 19, 0.95)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 22px;
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.qualification-fact-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(95, 158, 255, 0.2);
+    box-shadow:
+        0 26px 60px rgba(0, 0, 0, 0.28),
+        0 0 30px rgba(61, 140, 255, 0.045);
+}
+
+.qualification-fact-card::after {
+    content: "";
+    position: absolute;
+    right: -45px;
+    bottom: -65px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(24, 197, 91, 0.07),
+            rgba(61, 140, 255, 0.075)
+        );
+    filter: blur(10px);
+}
+
+.qualification-fact-card-highlight {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 197, 91, 0.08),
+            rgba(61, 140, 255, 0.08),
+            rgba(12, 15, 20, 0.96)
+        );
+    border-color: rgba(95, 158, 255, 0.16);
+}
+
+.qualification-fact-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #73a9ff;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 197, 91, 0.08),
+            rgba(61, 140, 255, 0.1)
+        );
+    border: 1px solid rgba(95, 158, 255, 0.16);
+    border-radius: 15px;
+}
+
+.qualification-fact-icon svg {
+    width: 23px;
+    height: 23px;
+}
+
+.qualification-fact-card span {
+    display: block;
+    margin-bottom: 8px;
+    color: #747d88;
+    font-size: 0.66rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+}
+
+.qualification-fact-card strong {
+    display: block;
+    color: #ffffff;
+    font-size: 1.24rem;
+    font-weight: 850;
+    line-height: 1.2;
+}
+
+.qualification-fact-card p {
+    position: relative;
+    z-index: 2;
+    margin: 12px 0 0;
+    color: #939ca7;
+    font-size: 0.88rem;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.qualification-section-heading {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.qualification-section-heading h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(1.65rem, 4vw, 2.25rem);
+    font-weight: 900;
+    letter-spacing: -0.035em;
+}
+
+.qualification-section-heading .heading-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.qualification-section-heading .heading-with-icon svg {
+    width: 28px;
+    height: 28px;
+    color: #72a8ff;
+}
+
+
+/* =========================================================
+   RULES
+   ========================================================= */
+
+.qualification-rules-section {
+    margin-bottom: 62px;
+}
+
+.qualification-rules-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.qualification-rule-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 225px;
+    padding: 26px;
+    grid-column: span 2;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(11, 14, 19, 0.96)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 21px;
+}
+
+.qualification-rule-card:nth-child(4),
+.qualification-rule-card:nth-child(5) {
+    grid-column: span 3;
+}
+
+.qualification-rule-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 25px;
+    width: 75px;
+    height: 2px;
+    background:
+        linear-gradient(
+            90deg,
+            var(--qualification-green),
+            var(--qualification-blue)
+        );
+    box-shadow: 0 0 15px rgba(61, 140, 255, 0.2);
+}
+
+.qualification-rule-card-green::before {
+    background: var(--qualification-green);
+}
+
+.qualification-rule-card-yellow::before {
+    background: var(--qualification-yellow);
+}
+
+.qualification-rule-card-red::before {
+    background: var(--qualification-red);
+}
+
+.qualification-rule-number {
+    display: block;
+    margin-bottom: 28px;
+    color: #73a9ff;
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: -0.06em;
+}
+
+.qualification-rule-card-green .qualification-rule-number {
+    color: var(--qualification-green-light);
+}
+
+.qualification-rule-card-yellow .qualification-rule-number {
+    color: #efc75c;
+}
+
+.qualification-rule-card-red .qualification-rule-number {
+    color: #d06a72;
+}
+
+.qualification-rule-card strong {
+    color: #ffffff;
+    font-size: 1.08rem;
+    font-weight: 850;
+}
+
+.qualification-rule-card p {
+    margin: 12px 0 0;
+    color: #9099a4;
+    font-size: 0.87rem;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+.qualification-tables-section {
+    margin-bottom: 64px;
+}
+
+.qualification-table-update {
+    padding: 10px 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #9cbfff;
+    font-size: 0.73rem;
+    font-weight: 800;
+    background: rgba(61, 140, 255, 0.08);
+    border: 1px solid rgba(61, 140, 255, 0.16);
+    border-radius: 999px;
+}
+
+.qualification-table-update svg {
+    width: 15px;
+    height: 15px;
+}
+
+.qualification-groups-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+
+.qualification-group {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.038),
+            rgba(9, 12, 17, 0.97)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 24px;
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.qualification-group::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+}
+
+.qualification-group-a::before {
+    background:
+        linear-gradient(
+            90deg,
+            var(--qualification-green),
+            var(--qualification-green-light)
+        );
+    box-shadow: 0 0 18px rgba(24, 197, 91, 0.3);
+}
+
+.qualification-group-b::before {
+    background:
+        linear-gradient(
+            90deg,
+            var(--qualification-blue),
+            var(--qualification-blue-light)
+        );
+    box-shadow: 0 0 18px rgba(61, 140, 255, 0.3);
+}
+
+.qualification-group-header {
+    padding: 25px 24px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.065);
+}
+
+.qualification-group-identity {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.qualification-group-symbol {
+    flex: 0 0 auto;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.qualification-group-a .qualification-group-symbol {
+    color: var(--qualification-green-light);
+    background: rgba(24, 197, 91, 0.09);
+    border: 1px solid rgba(24, 197, 91, 0.17);
+}
+
+.qualification-group-b .qualification-group-symbol {
+    color: var(--qualification-blue-light);
+    background: rgba(61, 140, 255, 0.09);
+    border: 1px solid rgba(61, 140, 255, 0.17);
+}
+
+.qualification-group-symbol svg {
+    width: 23px;
+    height: 23px;
+}
+
+.qualification-group-identity p {
+    margin: 0 0 5px;
+    color: #737c87;
+    font-size: 0.66rem;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+}
+
+.qualification-group-identity h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.18rem;
+    font-weight: 850;
+    letter-spacing: -0.025em;
+}
+
+.qualification-group-count {
+    padding: 8px 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #87909b;
+    font-size: 0.68rem;
+    font-weight: 750;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.065);
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.qualification-group-count svg {
+    width: 14px;
+    height: 14px;
+}
+
+.qualification-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.qualification-table {
+    width: 100%;
+    min-width: 700px;
+    border-collapse: collapse;
+}
+
+.qualification-table thead {
+    background: rgba(255, 255, 255, 0.022);
+}
+
+.qualification-table th,
+.qualification-table td {
+    padding: 15px 16px;
+    text-align: left;
+}
+
+.qualification-table th {
+    color: #747d88;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.qualification-table th:first-child,
+.qualification-table td:first-child {
+    width: 75px;
+    text-align: center;
+}
+
+.qualification-table th:nth-child(3),
+.qualification-table td:nth-child(3) {
+    width: 92px;
+    text-align: center;
+}
+
+.qualification-table th:last-child,
+.qualification-table td:last-child {
+    width: 185px;
+    text-align: right;
+}
+
+.qualification-table tbody tr {
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.052);
+    transition: background 0.2s ease;
+}
+
+.qualification-table tbody tr:last-child {
+    border-bottom: 0;
+}
+
+.qualification-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.qualification-table tbody tr.champions-place {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(24, 197, 91, 0.095),
+            transparent 35%
+        );
+}
+
+.qualification-table tbody tr.comparison-place {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(231, 179, 63, 0.105),
+            transparent 35%
+        );
+}
+
+.qualification-table tbody tr.kreisliga-place {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(169, 61, 71, 0.085),
+            transparent 35%
+        );
+}
+
+.qualification-position {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 900;
+    border-radius: 10px;
+}
+
+.champions-place .qualification-position {
+    color: #05140a;
+    background: var(--qualification-green);
+    box-shadow: 0 0 16px rgba(24, 197, 91, 0.13);
+}
+
+.comparison-place .qualification-position {
+    color: #211600;
+    background: var(--qualification-yellow);
+    box-shadow: 0 0 16px rgba(231, 179, 63, 0.12);
+}
+
+.kreisliga-place .qualification-position {
+    background: var(--qualification-red);
+    box-shadow: 0 0 16px rgba(169, 61, 71, 0.1);
+}
+
+.qualification-manager-cell {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.qualification-manager-avatar {
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #dce3ec;
+    font-size: 0.72rem;
+    font-weight: 900;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.07),
+            rgba(255, 255, 255, 0.025)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 11px;
+}
+
+.qualification-manager-cell strong {
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+.qualification-points-column strong {
+    color: #f1ca62;
+    font-size: 0.95rem;
+    font-weight: 900;
+}
+
+.qualification-status {
+    min-width: 145px;
+    padding: 7px 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: 0.63rem;
+    font-weight: 850;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.qualification-status svg {
+    width: 13px;
+    height: 13px;
+}
+
+.qualification-status-champions {
+    color: #65e695;
+    background: rgba(24, 197, 91, 0.08);
+    border: 1px solid rgba(24, 197, 91, 0.16);
+}
+
+.qualification-status-comparison {
+    color: #efc65d;
+    background: rgba(231, 179, 63, 0.08);
+    border: 1px solid rgba(231, 179, 63, 0.16);
+}
+
+.qualification-status-kreisliga {
+    color: #d97981;
+    background: rgba(169, 61, 71, 0.08);
+    border: 1px solid rgba(169, 61, 71, 0.15);
+}
+
+.qualification-mobile-table-hint {
+    display: none;
+    padding: 12px 18px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #717a85;
+    font-size: 0.68rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.qualification-mobile-table-hint svg {
+    width: 14px;
+    height: 14px;
+}
+
+
+/* =========================================================
+   FIFTH-PLACE COMPARISON
+   ========================================================= */
+
+.qualification-comparison-section {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 64px;
+    padding: 44px;
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    align-items: center;
+    gap: 42px;
+    background:
+        radial-gradient(
+            circle at 10% 50%,
+            rgba(231, 179, 63, 0.11),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(18, 18, 16, 0.98),
+            rgba(9, 11, 15, 0.98)
+        );
+    border: 1px solid rgba(231, 179, 63, 0.15);
+    border-radius: 27px;
+    box-shadow:
+        0 26px 75px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.qualification-comparison-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 42px;
+    width: 125px;
+    height: 3px;
+    background:
+        linear-gradient(
+            90deg,
+            #e7b33f,
+            #f5db91
+        );
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 22px rgba(231, 179, 63, 0.32);
+}
+
+.qualification-comparison-icon {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #efc65d;
+    background:
+        radial-gradient(
+            circle,
+            rgba(231, 179, 63, 0.14),
+            rgba(231, 179, 63, 0.035) 65%,
+            transparent 72%
+        );
+    border: 1px solid rgba(231, 179, 63, 0.17);
+    border-radius: 50%;
+    box-shadow:
+        inset 0 0 32px rgba(231, 179, 63, 0.05),
+        0 0 42px rgba(231, 179, 63, 0.055);
+}
+
+.qualification-comparison-icon svg {
+    width: 48px;
+    height: 48px;
+    stroke-width: 1.5;
+}
+
+.qualification-comparison-result {
+    margin-top: 26px;
+    padding: 18px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 52px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 18px;
+}
+
+.qualification-comparison-result > div {
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.025);
+    border-radius: 13px;
+}
+
+.qualification-comparison-result span {
+    display: block;
+    margin-bottom: 7px;
+    color: #7e7661;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+}
+
+.qualification-comparison-result strong {
+    color: #ffffff;
+    font-size: 0.94rem;
+    font-weight: 850;
+}
+
+.qualification-comparison-versus {
+    width: 44px;
+    height: 44px;
+    margin: 0 auto;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    color: #efc65d !important;
+    font-size: 0.7rem !important;
+    background: rgba(231, 179, 63, 0.08);
+    border: 1px solid rgba(231, 179, 63, 0.16);
+    border-radius: 50%;
+}
+
+.qualification-comparison-note {
+    margin-top: 14px !important;
+    padding: 11px 13px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    color: #817d72 !important;
+    font-size: 0.74rem !important;
+    line-height: 1.55 !important;
+    background: rgba(255, 255, 255, 0.018);
+    border-radius: 12px;
+}
+
+.qualification-comparison-note svg {
+    flex: 0 0 auto;
+    width: 15px;
+    height: 15px;
+    margin-top: 2px;
+    color: #efc65d;
+}
+
+
+/* =========================================================
+   LEGEND
+   ========================================================= */
+
+.qualification-legend-section {
+    margin-bottom: 6px;
+}
+
+.qualification-legend-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.qualification-legend-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 185px;
+    padding: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 17px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.038),
+            rgba(10, 13, 18, 0.96)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 21px;
+}
+
+.qualification-legend-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 22px;
+    width: 72px;
+    height: 2px;
+}
+
+.qualification-legend-champions::before {
+    background: var(--qualification-green);
+}
+
+.qualification-legend-comparison::before {
+    background: var(--qualification-yellow);
+}
+
+.qualification-legend-kreisliga::before {
+    background: var(--qualification-red);
+}
+
+.qualification-legend-icon {
+    flex: 0 0 auto;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+}
+
+.qualification-legend-champions .qualification-legend-icon {
+    color: var(--qualification-green-light);
+    background: rgba(24, 197, 91, 0.08);
+    border: 1px solid rgba(24, 197, 91, 0.16);
+}
+
+.qualification-legend-comparison .qualification-legend-icon {
+    color: #efc65d;
+    background: rgba(231, 179, 63, 0.08);
+    border: 1px solid rgba(231, 179, 63, 0.16);
+}
+
+.qualification-legend-kreisliga .qualification-legend-icon {
+    color: #d97981;
+    background: rgba(169, 61, 71, 0.08);
+    border: 1px solid rgba(169, 61, 71, 0.15);
+}
+
+.qualification-legend-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.qualification-legend-card strong {
+    color: #ffffff;
+    font-size: 0.94rem;
+    font-weight: 850;
+    line-height: 1.4;
+}
+
+.qualification-legend-card p {
+    margin: 10px 0 0;
+    color: #8e97a2;
+    font-size: 0.83rem;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+   ========================================================= */
+
+.qualification-page .desktop-navigation .active-navigation-link {
+    color: #ffffff;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(24, 197, 91, 0.08),
+            rgba(61, 140, 255, 0.1)
+        );
+    border-color: rgba(95, 158, 255, 0.16);
+}
+
+.qualification-page .desktop-navigation .active-navigation-link::after {
+    background:
+        linear-gradient(
+            90deg,
+            var(--qualification-green),
+            var(--qualification-blue)
+        );
+    box-shadow:
+        -8px 0 14px rgba(24, 197, 91, 0.2),
+        8px 0 14px rgba(61, 140, 255, 0.25);
+}
+
+.qualification-page .active-mobile-menu-link {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(24, 197, 91, 0.1),
+            rgba(61, 140, 255, 0.1)
+        );
+    border-color: rgba(95, 158, 255, 0.16);
+}
+
+.qualification-page .active-mobile-menu-link .mobile-menu-icon {
+    color: #79adff;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 197, 91, 0.08),
+            rgba(61, 140, 255, 0.11)
+        );
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1080px) {
+
+    .qualification-facts-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .qualification-groups-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .qualification-legend-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .qualification-rules-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .qualification-rule-card,
+    .qualification-rule-card:nth-child(4),
+    .qualification-rule-card:nth-child(5) {
+        grid-column: auto;
+    }
+
+}
+
+
+@media (max-width: 760px) {
+
+    .qualification-header {
+        min-height: auto;
+        padding: 72px 20px 62px;
+    }
+
+    .qualification-logo {
+        width: min(200px, 60vw);
+    }
+
+    .qualification-header-background-icon {
+        width: 330px;
+        height: 330px;
+    }
+
+    .qualification-header-orbit-one {
+        width: 300px;
+        height: 300px;
+    }
+
+    .qualification-header-orbit-two {
+        width: 410px;
+        height: 410px;
+    }
+
+    .qualification-header-description {
+        max-width: 520px;
+        font-size: 0.98rem;
+    }
+
+    .qualification-header-highlights {
+        gap: 8px;
+    }
+
+    .qualification-header-highlights span {
+        padding: 9px 12px;
+        font-size: 0.72rem;
+    }
+
+    .qualification-main {
+        width: min(100% - 24px, 1180px);
+        padding: 44px 0 76px;
+    }
+
+    .qualification-introduction {
+        padding: 30px 24px;
+        display: block;
+    }
+
+    .qualification-introduction-icon {
+        width: 72px;
+        height: 72px;
+        margin-top: 26px;
+        border-radius: 21px;
+    }
+
+    .qualification-introduction-icon svg {
+        width: 31px;
+        height: 31px;
+    }
+
+    .qualification-facts-grid {
+        grid-template-columns: 1fr;
+        margin-bottom: 48px;
+    }
+
+    .qualification-fact-card {
+        min-height: auto;
+        padding: 23px;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .qualification-fact-icon {
+        flex: 0 0 auto;
+    }
+
+    .qualification-rules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .qualification-rule-card {
+        min-height: auto;
+    }
+
+    .qualification-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .qualification-group-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .qualification-mobile-table-hint {
+        display: flex;
+    }
+
+    .qualification-comparison-section {
+        padding: 34px 24px;
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .qualification-comparison-section::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .qualification-comparison-icon {
+        width: 105px;
+        height: 105px;
+        margin: 0 auto;
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .qualification-header {
+        padding-top: 58px;
+    }
+
+    .qualification-title {
+        font-size: clamp(2.65rem, 14vw, 4rem);
+    }
+
+    .qualification-season-badge {
+        margin-bottom: 20px;
+        padding: 8px 12px;
+        font-size: 0.65rem;
+    }
+
+    .qualification-header-highlights span {
+        width: calc(50% - 5px);
+        justify-content: center;
+    }
+
+    .qualification-header-highlights span:last-child {
+        width: 100%;
+    }
+
+    .qualification-introduction {
+        padding: 28px 21px;
+        border-radius: 21px;
+    }
+
+    .qualification-fact-card {
+        padding: 21px;
+        gap: 17px;
+    }
+
+    .qualification-fact-card strong {
+        font-size: 1.08rem;
+    }
+
+    .qualification-group {
+        border-radius: 20px;
+    }
+
+    .qualification-group-header {
+        padding: 23px 18px 19px;
+    }
+
+    .qualification-group-identity h3 {
+        font-size: 1.02rem;
+    }
+
+    .qualification-comparison-section {
+        border-radius: 22px;
+    }
+
+    .qualification-comparison-result {
+        grid-template-columns: 1fr;
+    }
+
+    .qualification-comparison-versus {
+        transform: rotate(90deg);
+    }
+
+    .qualification-comparison-result > div {
+        text-align: center;
+    }
+
+    .qualification-legend-card {
+        min-height: auto;
+        padding: 22px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .qualification-logo {
+        animation: none;
+    }
+
+    .qualification-fact-card,
+    .qualification-table tbody tr {
+        transition: none;
+    }
+
+}
