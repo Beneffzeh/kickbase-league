@@ -9,23 +9,93 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <meta
+        name="description"
+        content="Die Championsleague-Meister, Kreisliga-Meister und Pokalsieger der Kickbase League."
+    >
+
     <title>Hall of Fame | Kickbase League</title>
 
     <link
-    rel="stylesheet"
-    href="/kickbase-league/style.css"
->
+        rel="stylesheet"
+        href="/kickbase-league/style.css"
+    >
+
+    <script
+        src="https://unpkg.com/lucide@latest"
+        defer
+    ></script>
 </head>
 
-<body>
+<body class="hof-page">
 
 <header class="hof-header">
 
-    <div class="hof-crown">👑</div>
+    <div class="hof-header-background"></div>
 
-    <h1 class="hof-title">Hall of Fame</h1>
+    <div class="hof-header-content">
 
-    <p>Die größten Erfolge der Kickbase League.</p>
+        <div class="hof-crown">
+            <i data-lucide="crown"></i>
+        </div>
+
+        <p class="hof-eyebrow">
+            EWIGER RUHM
+        </p>
+
+        <h1 class="hof-title">
+            Hall of Fame
+        </h1>
+
+        <p class="hof-header-description">
+            Hier werden die größten Erfolge der Kickbase League
+            für immer verewigt.
+        </p>
+
+        <div class="hof-header-facts">
+
+            <div class="hof-header-fact">
+
+                <div class="hof-header-fact-icon gold">
+                    <i data-lucide="crown"></i>
+                </div>
+
+                <div>
+                    <strong>Championsleague</strong>
+                    <span>Die Champions der Liga</span>
+                </div>
+
+            </div>
+
+            <div class="hof-header-fact">
+
+                <div class="hof-header-fact-icon silver">
+                    <i data-lucide="medal"></i>
+                </div>
+
+                <div>
+                    <strong>Kreisliga</strong>
+                    <span>Die Meister der 2. Liga</span>
+                </div>
+
+            </div>
+
+            <div class="hof-header-fact">
+
+                <div class="hof-header-fact-icon bronze">
+                    <i data-lucide="trophy"></i>
+                </div>
+
+                <div>
+                    <strong>Kickbase-Pokal</strong>
+                    <span>Die Pokalsieger</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </header>
 
@@ -288,157 +358,367 @@
 
 <main class="hof-main">
 
-    <section class="hof-intro">
+    <section class="hof-introduction">
 
-        <p class="hof-label">EWIGER RUHM</p>
+        <div class="hof-introduction-heading">
 
-        <h2>Hier werden Legenden geboren</h2>
+            <div class="hof-introduction-icon">
+                <i data-lucide="landmark"></i>
+            </div>
 
-        <p>
-            Meister, Pokalsieger und Rekordhalter werden nach jeder
-            Saison dauerhaft in der Hall of Fame verewigt.
+            <div>
+
+                <p class="hof-label">
+                    RUHMESHALLE
+                </p>
+
+                <h2>
+                    Hier werden Legenden geboren
+                </h2>
+
+            </div>
+
+        </div>
+
+        <p class="hof-introduction-text">
+            Jeder Titelgewinn erhält einen festen Platz in der
+            Geschichte der Kickbase League. Nach jeder Saison werden
+            die neuen Champions und Pokalsieger hier aufgenommen.
         </p>
 
     </section>
 
-    <section class="hof-grid">
+    <!-- CHAMPIONSLEAGUE -->
 
-        <div class="hof-card champion-card">
+    <section class="hof-section hof-champions-section">
 
-            <span class="hof-icon">🏆</span>
+        <div class="hof-section-heading">
 
-            <h2>Kickbase Champions</h2>
+            <div>
 
-            <table class="hof-table">
+                <p class="hof-label">
+                    HÖCHSTE SPIELKLASSE
+                </p>
 
-                <tr>
-                    <th>Saison</th>
-                    <th>Champion</th>
-                </tr>
+                <h2>
+                    Championsleague-Meister
+                </h2>
 
-                <tr>
-                    <td>2026/27</td>
-                    <td>folgt</td>
-                </tr>
+                <p>
+                    Die Gewinner der wichtigsten Meisterschaft
+                    der Kickbase League.
+                </p>
 
-            </table>
+            </div>
 
-        </div>
-
-        <div class="hof-card cup-card">
-
-            <span class="hof-icon">🏅</span>
-
-            <h2>Pokalsieger</h2>
-
-            <table class="hof-table">
-
-                <tr>
-                    <th>Saison</th>
-                    <th>Sieger</th>
-                </tr>
-
-                <tr>
-                    <td>2026/27</td>
-                    <td>folgt</td>
-                </tr>
-
-            </table>
+            <div class="hof-section-emblem gold">
+                <i data-lucide="crown"></i>
+            </div>
 
         </div>
+
+        <div
+            class="hof-winner-grid"
+            id="championsleague-winners"
+        ></div>
 
     </section>
 
-    <section class="hof-grid">
+    <!-- KREISLIGA -->
 
-        <div class="hof-card record-card">
+    <section class="hof-section hof-kreisliga-section">
 
-            <span class="hof-icon">⭐</span>
+        <div class="hof-section-heading">
 
-            <h2>Rekordmeister</h2>
+            <div>
 
-            <div class="hof-record">
+                <p class="hof-label">
+                    ZWEITE SPIELKLASSE
+                </p>
 
-                <strong>folgt</strong>
+                <h2>
+                    Kreisliga-Meister
+                </h2>
 
-                <p>Meistertitel: 0</p>
+                <p>
+                    Die Manager, die sich zum Meister der Kreisliga
+                    gekrönt haben.
+                </p>
 
+            </div>
+
+            <div class="hof-section-emblem silver">
+                <i data-lucide="medal"></i>
             </div>
 
         </div>
 
-        <div class="hof-card record-card">
-
-            <span class="hof-icon">🔥</span>
-
-            <h2>Rekordpokalsieger</h2>
-
-            <div class="hof-record">
-
-                <strong>folgt</strong>
-
-                <p>Pokalsiege: 0</p>
-
-            </div>
-
-        </div>
-
-        <div class="hof-card record-card">
-
-            <span class="hof-icon">📈</span>
-
-            <h2>Höchste Spieltagswertung</h2>
-
-            <div class="hof-record">
-
-                <strong>folgt</strong>
-
-                <p>Punkte: –</p>
-
-            </div>
-
-        </div>
-
-        <div class="hof-card record-card">
-
-            <span class="hof-icon">👑</span>
-
-            <h2>Erfolgreichster Manager</h2>
-
-            <div class="hof-record">
-
-                <strong>folgt</strong>
-
-                <p>Gesamttitel: 0</p>
-
-            </div>
-
-        </div>
+        <div
+            class="hof-winner-grid"
+            id="kreisliga-winners"
+        ></div>
 
     </section>
 
-    <section class="hof-note">
+    <!-- KICKBASE-POKAL -->
 
-        <h2>Premierensaison 2026/27</h2>
+    <section class="hof-section hof-cup-section">
 
-        <p>
-            Die ersten Namen werden nach Abschluss der Premierensaison
-            in die Hall of Fame aufgenommen.
-        </p>
+        <div class="hof-section-heading">
+
+            <div>
+
+                <p class="hof-label">
+                    POKALWETTBEWERB
+                </p>
+
+                <h2>
+                    Kickbase-Pokalsieger
+                </h2>
+
+                <p>
+                    Die Sieger des Pokalwettbewerbs und Gewinner
+                    des Wanderpokals.
+                </p>
+
+            </div>
+
+            <div class="hof-section-emblem bronze">
+                <i data-lucide="trophy"></i>
+            </div>
+
+        </div>
+
+        <div
+            class="hof-winner-grid"
+            id="cup-winners"
+        ></div>
+
+    </section>
+
+    <!-- PREMIERENSAISON -->
+
+    <section class="hof-premiere">
+
+        <div class="hof-premiere-icon">
+            <i data-lucide="sparkles"></i>
+        </div>
+
+        <div>
+
+            <p class="hof-label">
+                DER BEGINN EINER ÄRA
+            </p>
+
+            <h2>
+                Premierensaison 2026/27
+            </h2>
+
+            <p>
+                Die ersten Namen werden nach Abschluss der Saison
+                2026/27 offiziell in die Hall of Fame aufgenommen.
+                Bis dahin bleiben die Ehrenplätze für die ersten
+                Champions der Ligageschichte reserviert.
+            </p>
+
+        </div>
 
     </section>
 
 </main>
 
 <footer>
-
     © 2026 Kickbase League
-
 </footer>
 
 <script src="/kickbase-league/script.js"></script>
+<script src="/kickbase-league/animations.js"></script>
 
-<script src="animations.js"></script>
+<script>
+
+    /* =====================================================
+       HALL-OF-FAME-DATEN
+
+       Nach jeder Saison musst du hier nur einen neuen
+       Eintrag ergänzen.
+
+       Beispiel:
+
+       {
+           season: "2026/27",
+           manager: "Ben",
+           status: "winner"
+       }
+    ===================================================== */
+
+    const championsleagueWinners = [
+        {
+            season: "2026/27",
+            manager: "Noch offen",
+            status: "pending"
+        }
+    ];
+
+    const kreisligaWinners = [
+        {
+            season: "2026/27",
+            manager: "Noch offen",
+            status: "pending"
+        }
+    ];
+
+    const cupWinners = [
+        {
+            season: "2026/27",
+            manager: "Noch offen",
+            status: "pending"
+        }
+    ];
+
+    /* =====================================================
+       EHRENKARTEN ERSTELLEN
+    ===================================================== */
+
+    function renderWinnerCards(
+        winners,
+        containerId,
+        competition
+    ) {
+
+        const container =
+            document.getElementById(containerId);
+
+        if (!container) {
+            return;
+        }
+
+        container.innerHTML = winners
+            .map((winner, index) => {
+
+                const isPending =
+                    winner.status === "pending";
+
+                const winnerNumber =
+                    winners.length - index;
+
+                return `
+                    <article class="
+                        hof-winner-card
+                        ${competition}
+                        ${isPending ? "pending-winner" : ""}
+                    ">
+
+                        <div class="hof-winner-card-glow"></div>
+
+                        <div class="hof-season-badge">
+                            SAISON ${winner.season}
+                        </div>
+
+                        <div class="hof-medal">
+
+                            <div class="hof-medal-ring">
+
+                                <div class="hof-medal-inner">
+
+                                    <i
+                                        data-lucide="${
+                                            isPending
+                                                ? "hourglass"
+                                                : competition === "championsleague"
+                                                    ? "crown"
+                                                    : competition === "kreisliga"
+                                                        ? "medal"
+                                                        : "trophy"
+                                        }"
+                                    ></i>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="hof-winner-content">
+
+                            <p class="hof-winner-category">
+                                ${
+                                    competition === "championsleague"
+                                        ? "KICKBASE CHAMPION"
+                                        : competition === "kreisliga"
+                                            ? "KREISLIGA-MEISTER"
+                                            : "POKALSIEGER"
+                                }
+                            </p>
+
+                            <h3>
+                                ${winner.manager}
+                            </h3>
+
+                            <p class="hof-winner-description">
+                                ${
+                                    isPending
+                                        ? "Der Sieger wird nach Saisonende eingetragen."
+                                        : "Offizielles Mitglied der Hall of Fame."
+                                }
+                            </p>
+
+                        </div>
+
+                        <div class="hof-winner-footer">
+
+                            <span>
+                                ${
+                                    isPending
+                                        ? "Ehrenplatz reserviert"
+                                        : `Titelgewinn Nr. ${winnerNumber}`
+                                }
+                            </span>
+
+                            <i data-lucide="star"></i>
+
+                        </div>
+
+                    </article>
+                `;
+            })
+            .join("");
+    }
+
+    /* =====================================================
+       SEITE STARTEN
+    ===================================================== */
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        () => {
+
+            renderWinnerCards(
+                championsleagueWinners,
+                "championsleague-winners",
+                "championsleague"
+            );
+
+            renderWinnerCards(
+                kreisligaWinners,
+                "kreisliga-winners",
+                "kreisliga"
+            );
+
+            renderWinnerCards(
+                cupWinners,
+                "cup-winners",
+                "cup"
+            );
+
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+
+        }
+    );
+
+</script>
+
 </body>
 
 </html>
