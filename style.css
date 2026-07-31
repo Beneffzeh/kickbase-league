@@ -16137,3 +16137,31 @@ hr {
     }
 
 }
+/* =========================================================
+   DESKTOP-NAVIGATION – ÜBERSCHNEIDUNG VERHINDERN
+========================================================= */
+
+.navigation-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.navigation-brand {
+    flex: 0 0 auto;
+    min-width: max-content;
+}
+
+.desktop-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    min-width: 0;
+}
+
+.desktop-navigation a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
