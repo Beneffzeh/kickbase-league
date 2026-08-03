@@ -58,3 +58,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
     closeMenu();
 });
+
+/* =========================================================
+   SERVICE WORKER REGISTRIEREN
+========================================================= */
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener("load", async () => {
+
+        try {
+
+            const registration =
+                await navigator.serviceWorker.register(
+                    "/kickbase-league/service-worker.js",
+                    {
+                        scope: "/kickbase-league/",
+                        updateViaCache: "none"
+                    }
+                );
+
+
+            /*
+            Bei jedem Start nach einer neuen Version suchen.
+            */
+
+            registration.update();
+
+
+            console.log(
+                "Kickbase-League-App wurde erfolgreich registriert."
+            );
+
+        } catch (error) {
+
+            console.error(
+                "Service Worker konnte nicht registriert werden:",
+                error
+            );
+
+        }
+
+    });
+
+}
