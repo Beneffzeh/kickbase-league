@@ -91,3 +91,81 @@ function createManager(id, name) {
         }
     };
 }
+/*
+=========================================
+TEMPORÄRE TESTDATEN
+Später wieder löschen
+=========================================
+*/
+
+const ben = leagueData.managers.find(manager => manager.id === "ben");
+
+ben.qualification = {
+    group: "A",
+    points: 14600,
+    matchdayWins: 3,
+    currentPosition: 2
+};
+
+ben.mainRound = {
+    league: "champions-league",
+    points: 23900,
+    matchdayWins: 5,
+    currentPosition: 1,
+    finalPosition: 1
+};
+
+ben.cup = {
+    preliminaryRoundWin: true,
+    stage: "semi-final"
+};
+
+
+const marcel = leagueData.managers.find(
+    manager => manager.id === "marcel"
+);
+
+marcel.qualification = {
+    group: "B",
+    points: 13800,
+    matchdayWins: 2,
+    currentPosition: 3
+};
+
+marcel.mainRound = {
+    league: "champions-league",
+    points: 23100,
+    matchdayWins: 4,
+    currentPosition: 2,
+    finalPosition: 2
+};
+
+marcel.cup = {
+    preliminaryRoundWin: false,
+    stage: "final"
+};
+
+
+const marco = leagueData.managers.find(
+    manager => manager.id === "marco"
+);
+
+marco.qualification = {
+    group: "B",
+    points: 13200,
+    matchdayWins: 2,
+    currentPosition: 5
+};
+
+marco.mainRound = {
+    league: "kreisliga",
+    points: 23800,
+    matchdayWins: 5,
+    currentPosition: 1,
+    finalPosition: 1
+};
+
+marco.cup = {
+    preliminaryRoundWin: false,
+    stage: "quarter-final"
+};

@@ -1,0 +1,329 @@
+/*
+=========================================
+KICKBASE LEAGUE – LEGENDENSEITE
+=========================================
+*/
+
+.legends-main {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 64px 0 90px;
+}
+
+
+/* INTRO */
+
+.legends-intro {
+    max-width: 780px;
+    margin-bottom: 56px;
+}
+
+.legends-label,
+.legends-section-label {
+    margin: 0 0 10px;
+    color: #18c55b;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.legends-intro h1 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(2.3rem, 6vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.legends-intro > p:last-child {
+    max-width: 680px;
+    margin: 22px 0 0;
+    color: #a9b0bd;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+
+/* SECTION HEADINGS */
+
+.legends-ranking-section,
+.legends-rules-section {
+    margin-top: 48px;
+}
+
+.legends-section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 22px;
+}
+
+.legends-section-heading h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(1.65rem, 4vw, 2.5rem);
+    letter-spacing: -0.03em;
+}
+
+.legends-season {
+    padding: 9px 13px;
+    border: 1px solid rgba(24, 197, 91, 0.3);
+    border-radius: 999px;
+    background: rgba(24, 197, 91, 0.08);
+    color: #7fe9a8;
+    font-size: 0.82rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+/* RANGLISTE */
+
+.legends-table-wrapper {
+    overflow-x: auto;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.015)
+        );
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+}
+
+.legends-table {
+    width: 100%;
+    min-width: 580px;
+    border-collapse: collapse;
+}
+
+.legends-table th,
+.legends-table td {
+    padding: 18px 20px;
+    text-align: left;
+}
+
+.legends-table th {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: #6f7887;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.legends-table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+    color: #dce1e8;
+}
+
+.legends-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.legends-table tbody tr {
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.legends-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.legend-position {
+    display: inline-grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    color: #aeb5c0;
+    font-weight: 900;
+}
+
+.legend-position-gold {
+    border-color: rgba(255, 207, 70, 0.45);
+    background: rgba(255, 207, 70, 0.12);
+    color: #ffd75e;
+}
+
+.legend-position-silver {
+    border-color: rgba(214, 222, 233, 0.35);
+    background: rgba(214, 222, 233, 0.09);
+    color: #e4e9f0;
+}
+
+.legend-position-bronze {
+    border-color: rgba(208, 135, 78, 0.4);
+    background: rgba(208, 135, 78, 0.11);
+    color: #e8a26c;
+}
+
+.legend-manager {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.legend-manager-name {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.legend-points {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 84px;
+    padding: 8px 12px;
+    border: 1px solid rgba(24, 197, 91, 0.26);
+    border-radius: 999px;
+    background: rgba(24, 197, 91, 0.08);
+    color: #7fe9a8;
+    font-size: 0.9rem;
+    font-weight: 900;
+}
+
+
+/* REGELKARTEN */
+
+.legends-rules-section {
+    margin-top: 72px;
+}
+
+.legends-rules-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.legends-rule-card {
+    min-height: 100%;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.018)
+        );
+}
+
+.legends-rule-icon {
+    display: inline-grid;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 20px;
+    place-items: center;
+    border: 1px solid rgba(24, 197, 91, 0.28);
+    border-radius: 13px;
+    background: rgba(24, 197, 91, 0.09);
+    color: #18c55b;
+}
+
+.legends-rule-icon svg {
+    width: 21px;
+    height: 21px;
+    stroke-width: 2;
+}
+
+.legends-rule-card h3 {
+    margin: 0 0 16px;
+    color: #ffffff;
+    font-size: 1.1rem;
+}
+
+.legends-rule-card ul {
+    margin: 0;
+    padding-left: 18px;
+    color: #a9b0bd;
+}
+
+.legends-rule-card li {
+    margin-bottom: 9px;
+    line-height: 1.5;
+}
+
+.legends-rule-card li:last-child {
+    margin-bottom: 0;
+}
+
+
+/* HINWEIS */
+
+.legends-rule-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 18px;
+    padding: 18px 20px;
+    border: 1px solid rgba(24, 197, 91, 0.2);
+    border-radius: 16px;
+    background: rgba(24, 197, 91, 0.055);
+}
+
+.legends-rule-note svg {
+    width: 20px;
+    min-width: 20px;
+    margin-top: 2px;
+    color: #18c55b;
+}
+
+.legends-rule-note p {
+    margin: 0;
+    color: #aeb6c2;
+    line-height: 1.65;
+}
+
+
+/* TABLET */
+
+@media (max-width: 980px) {
+    .legends-rules-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* SMARTPHONE */
+
+@media (max-width: 640px) {
+    .legends-main {
+        width: min(100% - 22px, 1180px);
+        padding: 42px 0 70px;
+    }
+
+    .legends-intro {
+        margin-bottom: 42px;
+    }
+
+    .legends-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .legends-table th,
+    .legends-table td {
+        padding: 15px 14px;
+    }
+
+    .legends-rules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .legends-rule-card {
+        padding: 21px;
+    }
+
+    .legends-rule-note {
+        padding: 16px;
+    }
+}
