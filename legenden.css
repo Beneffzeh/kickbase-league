@@ -189,7 +189,89 @@ KICKBASE LEAGUE – LEGENDENSEITE
     font-size: 0.9rem;
     font-weight: 900;
 }
+/* RÄNGE */
 
+.legend-rank {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 0.88rem;
+    font-weight: 800;
+}
+
+.legend-rank-icon {
+    display: inline-grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border: 1px solid currentColor;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.legend-rank-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2.2;
+}
+
+.legend-rank-name {
+    color: inherit;
+}
+
+
+/* ROOKIE */
+
+.rank-rookie {
+    color: #818a98;
+}
+
+
+/* ANWÄRTER */
+
+.rank-contender {
+    color: #b87947;
+}
+
+
+/* AMATEUR */
+
+.rank-amateur {
+    color: #cbd3dd;
+}
+
+
+/* PROFI */
+
+.rank-professional {
+    color: #4ca6ff;
+}
+
+
+/* ELITE */
+
+.rank-elite {
+    color: #b06cff;
+}
+
+
+/* CHAMPION */
+
+.rank-champion {
+    color: #ff5d5d;
+}
+
+
+/* LEGENDE */
+
+.rank-legend {
+    color: #ffd45c;
+}
+
+.rank-legend .legend-rank-icon {
+    background: rgba(255, 212, 92, 0.1);
+    box-shadow: 0 0 20px rgba(255, 212, 92, 0.12);
+}
 
 /* REGELKARTEN */
 

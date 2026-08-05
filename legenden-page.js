@@ -28,29 +28,45 @@ function renderLegendRanking() {
         const row = document.createElement("tr");
 
         row.innerHTML = `
-            <td>
-                <span class="legend-position ${getPositionClass(index + 1)}">
-                    ${index + 1}
-                </span>
-            </td>
+    <td>
+        <span class="legend-position ${getPositionClass(index + 1)}">
+            ${index + 1}
+        </span>
+    </td>
 
-            <td>
-                <div class="legend-manager">
-                    <span class="legend-manager-name">
-                        ${manager.name}
-                    </span>
-                </div>
-            </td>
+    <td>
+        <div class="legend-manager">
+            <span class="legend-manager-name">
+                ${manager.name}
+            </span>
+        </div>
+    </td>
 
-            <td>
-                <span class="legend-points">
-                    ${manager.legendPoints} LP
-                </span>
-            </td>
-        `;
+    <td>
+        <div class="legend-rank ${manager.legendRank.className}">
+            <span class="legend-rank-icon">
+                <i data-lucide="${manager.legendRank.icon}"></i>
+            </span>
+
+            <span class="legend-rank-name">
+                ${manager.legendRank.name}
+            </span>
+        </div>
+    </td>
+
+    <td>
+        <span class="legend-points">
+            ${manager.legendPoints} LP
+        </span>
+    </td>
+`;
+        
 
         tableBody.appendChild(row);
     });
+    if (window.lucide) {
+    window.lucide.createIcons();
+}
 }
 
 
