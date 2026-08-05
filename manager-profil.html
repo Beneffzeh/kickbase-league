@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Karriereprofil eines Managers der Kickbase League."
+    >
+
+    <title>Managerprofil | Kickbase League</title>
+
+    <link
+        rel="stylesheet"
+        href="/kickbase-league/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/kickbase-league/manager-profil.css"
+    >
+
+    <link
+        rel="manifest"
+        href="/kickbase-league/manifest.json"
+    >
+
+    <meta
+        name="theme-color"
+        content="#080b12"
+    >
+
+    <meta
+        name="apple-mobile-web-app-capable"
+        content="yes"
+    >
+
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"
+    >
+
+    <meta
+        name="apple-mobile-web-app-title"
+        content="Kickbase League"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="/kickbase-league/app-icon-512.png"
+    >
+
+    <script
+        src="https://unpkg.com/lucide@latest"
+        defer
+    ></script>
+</head>
+
+<body class="manager-profile-page">
+
+<nav class="main-navigation">
+
+    <div class="navigation-inner">
+
+        <a
+            href="/kickbase-league/index.html"
+            class="navigation-brand"
+        >
+            <img
+                src="/kickbase-league/kickbase-league-logo.png"
+                alt="Kickbase League"
+            >
+
+            <span>Kickbase League</span>
+        </a>
+
+        <div class="desktop-navigation">
+
+            <a href="/kickbase-league/index.html">
+                Startseite
+            </a>
+
+            <a href="/kickbase-league/qualifikationsligen.html">
+                Qualifikation
+            </a>
+
+            <a href="/kickbase-league/champions-league.html">
+                Champions League
+            </a>
+
+            <a href="/kickbase-league/kreisliga.html">
+                Kreisliga
+            </a>
+
+            <a href="/kickbase-league/kickbase-pokal.html">
+                Pokal
+            </a>
+
+            <a
+                href="/kickbase-league/manager.html"
+                class="active-navigation-link"
+            >
+                Manager
+            </a>
+
+            <a href="/kickbase-league/legenden.html">
+                Legenden
+            </a>
+
+            <a href="/kickbase-league/hall-of-fame.html">
+                Hall of Fame
+            </a>
+
+            <a href="/kickbase-league/statistiken.html">
+                Statistiken
+            </a>
+
+            <a href="/kickbase-league/regelwerk.html">
+                Regelwerk
+            </a>
+
+        </div>
+
+        <button
+            class="mobile-menu-button"
+            id="mobile-menu-button"
+            type="button"
+            aria-label="Navigation öffnen"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+
+    <div
+        class="mobile-menu-overlay"
+        id="mobile-menu-overlay"
+    ></div>
+
+    <aside
+        class="mobile-side-menu"
+        id="mobile-side-menu"
+        aria-hidden="true"
+    >
+
+        <div class="mobile-side-menu-header">
+
+            <div class="mobile-side-brand">
+
+                <img
+                    src="/kickbase-league/kickbase-league-logo.png"
+                    alt="Kickbase League"
+                >
+
+                <div>
+                    <strong>Kickbase League</strong>
+                    <p>Saison 2026/27</p>
+                </div>
+
+            </div>
+
+            <button
+                class="mobile-menu-close"
+                id="mobile-menu-close"
+                type="button"
+                aria-label="Navigation schließen"
+            >
+                ✕
+            </button>
+
+        </div>
+
+        <div class="mobile-side-menu-content">
+
+            <p class="mobile-menu-label">
+                HAUPTMENÜ
+            </p>
+
+            <a
+                href="/kickbase-league/index.html"
+                class="mobile-menu-link"
+            >
+                <span class="mobile-menu-icon">🏠</span>
+
+                <div>
+                    <strong>Startseite</strong>
+                    <small>Zur Liga-Zentrale</small>
+                </div>
+
+                <span>→</span>
+            </a>
+
+            <p class="mobile-menu-label">
+                LIGABEREICH
+            </p>
+
+            <a
+                href="/kickbase-league/manager.html"
+                class="mobile-menu-link active-mobile-menu-link"
+            >
+                <span class="mobile-menu-icon">👤</span>
+
+                <div>
+                    <strong>Manager</strong>
+                    <small>Alle 18 Teilnehmer</small>
+                </div>
+
+                <span>→</span>
+            </a>
+
+            <a
+                href="/kickbase-league/legenden.html"
+                class="mobile-menu-link"
+            >
+                <span class="mobile-menu-icon">🛡️</span>
+
+                <div>
+                    <strong>Legenden</strong>
+                    <small>Karriere-Rangliste</small>
+                </div>
+
+                <span>→</span>
+            </a>
+
+            <a
+                href="/kickbase-league/hall-of-fame.html"
+                class="mobile-menu-link"
+            >
+                <span class="mobile-menu-icon">👑</span>
+
+                <div>
+                    <strong>Hall of Fame</strong>
+                    <small>Meister und Pokalsieger</small>
+                </div>
+
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+</nav>
+
+
+<main class="manager-profile-main">
+
+    <a
+        href="/kickbase-league/legenden.html"
+        class="manager-profile-back"
+    >
+        <i data-lucide="arrow-left"></i>
+        Zur Legendenrangliste
+    </a>
+
+
+    <section
+        class="manager-profile-hero"
+        id="manager-profile"
+    >
+
+        <div class="manager-profile-emblem">
+
+            <i
+                id="manager-rank-main-icon"
+                data-lucide="circle-user-round"
+            ></i>
+
+        </div>
+
+
+        <p class="manager-profile-label">
+            MANAGERPROFIL
+        </p>
+
+        <h1 id="manager-profile-name">
+            Manager
+        </h1>
+
+
+        <div
+            class="manager-profile-rank"
+            id="manager-profile-rank"
+        >
+
+            <i
+                id="manager-rank-icon"
+                data-lucide="circle-user-round"
+            ></i>
+
+            <span id="manager-rank-name">
+                Rookie
+            </span>
+
+        </div>
+
+
+        <div class="manager-profile-points">
+
+            <strong id="manager-legend-points">
+                0
+            </strong>
+
+            <span>
+                Legendenpunkte
+            </span>
+
+        </div>
+
+
+        <div class="manager-profile-progress">
+
+            <div class="manager-profile-progress-header">
+
+                <span id="manager-current-rank">
+                    Rookie
+                </span>
+
+                <span id="manager-next-rank">
+                    40 LP bis Anwärter
+                </span>
+
+            </div>
+
+            <div class="manager-profile-progress-track">
+
+                <div
+                    class="manager-profile-progress-value"
+                    id="manager-progress-value"
+                ></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="manager-profile-section">
+
+        <div class="manager-profile-section-heading">
+
+            <p>
+                PUNKTEAUFSCHLÜSSELUNG
+            </p>
+
+            <h2>
+                So entstehen die Legendenpunkte
+            </h2>
+
+        </div>
+
+
+        <div class="manager-profile-stats-grid">
+
+            <article class="manager-profile-stat-card">
+
+                <span class="manager-profile-stat-icon">
+                    <i data-lucide="route"></i>
+                </span>
+
+                <small>
+                    Qualifikation
+                </small>
+
+                <strong id="manager-qualification-points">
+                    0 LP
+                </strong>
+
+            </article>
+
+
+            <article class="manager-profile-stat-card">
+
+                <span class="manager-profile-stat-icon">
+                    <i data-lucide="chart-no-axes-column-increasing"></i>
+                </span>
+
+                <small>
+                    Hauptphase
+                </small>
+
+                <strong id="manager-main-round-points">
+                    0 LP
+                </strong>
+
+            </article>
+
+
+            <article class="manager-profile-stat-card">
+
+                <span class="manager-profile-stat-icon">
+                    <i data-lucide="table-properties"></i>
+                </span>
+
+                <small>
+                    Saisonabschluss
+                </small>
+
+                <strong id="manager-final-position-points">
+                    0 LP
+                </strong>
+
+            </article>
+
+
+            <article class="manager-profile-stat-card">
+
+                <span class="manager-profile-stat-icon">
+                    <i data-lucide="trophy"></i>
+                </span>
+
+                <small>
+                    Kickbase-Pokal
+                </small>
+
+                <strong id="manager-cup-points">
+                    0 LP
+                </strong>
+
+            </article>
+
+
+            <article class="manager-profile-stat-card">
+
+                <span class="manager-profile-stat-icon">
+                    <i data-lucide="medal"></i>
+                </span>
+
+                <small>
+                    Rekorde
+                </small>
+
+                <strong id="manager-record-points">
+                    0 LP
+                </strong>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <section class="manager-profile-section">
+
+        <div class="manager-profile-section-heading">
+
+            <p>
+                AKTUELLE SAISON
+            </p>
+
+            <h2>
+                Leistungsdaten
+            </h2>
+
+        </div>
+
+
+        <div class="manager-profile-details">
+
+            <div>
+                <span>Qualifikationsgruppe</span>
+                <strong id="manager-qualification-group">–</strong>
+            </div>
+
+            <div>
+                <span>Qualifikationspunkte</span>
+                <strong id="manager-qualification-score">0</strong>
+            </div>
+
+            <div>
+                <span>Spieltagssiege Qualifikation</span>
+                <strong id="manager-qualification-wins">0</strong>
+            </div>
+
+            <div>
+                <span>Aktuelle Liga</span>
+                <strong id="manager-current-league">Noch offen</strong>
+            </div>
+
+            <div>
+                <span>Punkte Hauptphase</span>
+                <strong id="manager-main-round-score">0</strong>
+            </div>
+
+            <div>
+                <span>Spieltagssiege Hauptphase</span>
+                <strong id="manager-main-round-wins">0</strong>
+            </div>
+
+            <div>
+                <span>Aktueller Tabellenplatz</span>
+                <strong id="manager-current-position">–</strong>
+            </div>
+
+            <div>
+                <span>Pokalergebnis</span>
+                <strong id="manager-cup-stage">Achtelfinale</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section
+        class="manager-profile-error"
+        id="manager-profile-error"
+        hidden
+    >
+
+        <i data-lucide="triangle-alert"></i>
+
+        <div>
+
+            <h2>
+                Manager nicht gefunden
+            </h2>
+
+            <p>
+                Der aufgerufene Manager existiert nicht
+                in den Ligadaten.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    © 2026 Kickbase League
+</footer>
+
+
+<script src="/kickbase-league/script.js"></script>
+<script src="/kickbase-league/animations.js"></script>
+<script src="/kickbase-league/league-data.js"></script>
+<script src="/kickbase-league/legenden.js"></script>
+<script src="/kickbase-league/manager-profil.js"></script>
+
+</body>
+
+</html>
