@@ -65,6 +65,63 @@ const LEGEND_RULES = {
     }
 };
 
+/*
+=========================================
+RANGSYSTEM
+=========================================
+*/
+
+const LEGEND_RANKS = [
+    {
+        name: "Legende",
+        minimumPoints: 800,
+        className: "rank-legend",
+        icon: "crown"
+    },
+    {
+        name: "Champion",
+        minimumPoints: 550,
+        className: "rank-champion",
+        icon: "trophy"
+    },
+    {
+        name: "Elite",
+        minimumPoints: 350,
+        className: "rank-elite",
+        icon: "gem"
+    },
+    {
+        name: "Profi",
+        minimumPoints: 200,
+        className: "rank-professional",
+        icon: "shield-check"
+    },
+    {
+        name: "Amateur",
+        minimumPoints: 100,
+        className: "rank-amateur",
+        icon: "shield"
+    },
+    {
+        name: "Anwärter",
+        minimumPoints: 40,
+        className: "rank-contender",
+        icon: "badge"
+    },
+    {
+        name: "Rookie",
+        minimumPoints: 0,
+        className: "rank-rookie",
+        icon: "circle-user-round"
+    }
+];
+
+
+function getLegendRank(legendPoints) {
+    return LEGEND_RANKS.find(
+        rank => legendPoints >= rank.minimumPoints
+    );
+}
 
 /*
 =========================================
@@ -229,10 +286,16 @@ RANGLISTE
 
 function createLegendRanking() {
     return leagueData.managers
-        .map(manager => ({
-            ...manager,
-            legendPoints: calculateLegendPoints(manager)
-        }))
+        .map(manager => {
+    const legendPoints = calculateLegendPoints(manager);
+    const legendRank = getLegendRank(legendPoints);
+
+    return {
+        ...manager,
+        legendPoints: legendPoints,
+        legendRank: legendRank
+    };
+})
         .sort((a, b) => {
             if (b.legendPoints !== a.legendPoints) {
                 return b.legendPoints - a.legendPoints;
