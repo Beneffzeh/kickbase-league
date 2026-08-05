@@ -56,15 +56,24 @@ function renderLegendCards(ranking) {
     ranking.forEach((manager, index) => {
         const position = index + 1;
 
-        const card = document.createElement("article");
+        const card = document.createElement("a");
 
-        card.className = [
-            "legend-card",
-            getPositionCardClass(position),
-            manager.legendRank.className
-        ]
-            .filter(Boolean)
-            .join(" ");
+card.href =
+    `/kickbase-league/manager-profil.html?id=${encodeURIComponent(manager.id)}`;
+
+card.className = [
+    "legend-card",
+    "legend-card-link",
+    getPositionCardClass(position),
+    manager.legendRank.className
+]
+    .filter(Boolean)
+    .join(" ");
+
+card.setAttribute(
+    "aria-label",
+    `Managerprofil von ${manager.name} öffnen`
+);
 
         card.innerHTML = createLegendCardHTML(
             manager,
