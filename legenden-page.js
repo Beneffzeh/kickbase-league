@@ -12,76 +12,88 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
 function renderLegendRanking() {
-    const tableBody = document.getElementById("legends-ranking-body");
 
-    if (!tableBody) {
+    const container = document.getElementById("legends-ranking");
+
+    if (!container) {
         return;
     }
 
     const ranking = createLegendRanking();
 
-    tableBody.innerHTML = "";
+    container.innerHTML = "";
 
     ranking.forEach((manager, index) => {
-        const row = document.createElement("tr");
 
-        row.innerHTML = `
-    <td>
-        <span class="legend-position ${getPositionClass(index + 1)}">
-            ${index + 1}
-        </span>
-    </td>
+        const card = document.createElement("article");
 
-    <td>
-        <div class="legend-manager">
-            <span class="legend-manager-name">
-                ${manager.name}
-            </span>
-        </div>
-    </td>
+        card.className = "legend-card";
 
-    <td>
-        <div class="legend-rank ${manager.legendRank.className}">
-            <span class="legend-rank-icon">
-                <i data-lucide="${manager.legendRank.icon}"></i>
-            </span>
+        card.innerHTML = `
 
-            <span class="legend-rank-name">
-                ${manager.legendRank.name}
-            </span>
-        </div>
-    </td>
+            <div class="legend-card-position ${getPositionClass(index + 1)}">
 
-    <td>
-        <span class="legend-points">
-            ${manager.legendPoints} LP
-        </span>
-    </td>
-`;
-        
+                ${index + 1}
 
-        tableBody.appendChild(row);
+            </div>
+
+            <div class="legend-card-content">
+
+                <h3 class="legend-card-name">
+                    ${manager.name}
+                </h3>
+
+                <div class="legend-card-rank ${manager.legendRank.className}">
+
+                    <span class="legend-card-rank-icon">
+                        <i data-lucide="${manager.legendRank.icon}"></i>
+                    </span>
+
+                    <span>
+                        ${manager.legendRank.name}
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="legend-card-points">
+
+                ${manager.legendPoints}
+
+                <small>LP</small>
+
+            </div>
+
+        `;
+
+        container.appendChild(card);
+
     });
-    if (window.lucide) {
-    window.lucide.createIcons();
-}
-}
 
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
+
+}
 
 function getPositionClass(position) {
-    if (position === 1) {
-        return "legend-position-gold";
+
+    switch (position) {
+
+        case 1:
+            return "gold";
+
+        case 2:
+            return "silver";
+
+        case 3:
+            return "bronze";
+
+        default:
+            return "";
+
     }
 
-    if (position === 2) {
-        return "legend-position-silver";
-    }
-
-    if (position === 3) {
-        return "legend-position-bronze";
-    }
-
-    return "";
 }
