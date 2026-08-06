@@ -7,25 +7,15 @@ KICKBASE LEAGUE – MANAGERPROFIL
 .manager-profile-page {
     min-height: 100vh;
     background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(24, 197, 91, 0.09),
-            transparent 34%
-        ),
+        radial-gradient(circle at 50% 0%, rgba(24, 197, 91, 0.09), transparent 34%),
         #080b12;
 }
-
-
-/* HAUPTBEREICH */
 
 .manager-profile-main {
     width: min(1120px, calc(100% - 32px));
     margin: 0 auto;
     padding: 48px 0 90px;
 }
-
-
-/* ZURÜCK-LINK */
 
 .manager-profile-back {
     display: inline-flex;
@@ -36,9 +26,7 @@ KICKBASE LEAGUE – MANAGERPROFIL
     font-size: 0.9rem;
     font-weight: 700;
     text-decoration: none;
-    transition:
-        color 0.2s ease,
-        transform 0.2s ease;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .manager-profile-back:hover {
@@ -51,9 +39,6 @@ KICKBASE LEAGUE – MANAGERPROFIL
     height: 18px;
 }
 
-
-/* PROFIL-HERO */
-
 .manager-profile-hero {
     position: relative;
     overflow: hidden;
@@ -61,16 +46,8 @@ KICKBASE LEAGUE – MANAGERPROFIL
     border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: 30px;
     background:
-        radial-gradient(
-            circle at 50% 12%,
-            rgba(255, 255, 255, 0.08),
-            transparent 36%
-        ),
-        linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.055),
-            rgba(255, 255, 255, 0.018)
-        );
+        radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.08), transparent 36%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
     box-shadow:
         0 28px 80px rgba(0, 0, 0, 0.35),
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -82,13 +59,12 @@ KICKBASE LEAGUE – MANAGERPROFIL
     position: absolute;
     inset: -50%;
     pointer-events: none;
-    background:
-        conic-gradient(
-            from 180deg,
-            transparent,
-            rgba(255, 255, 255, 0.035),
-            transparent 24%
-        );
+    background: conic-gradient(
+        from 180deg,
+        transparent,
+        rgba(255, 255, 255, 0.035),
+        transparent 24%
+    );
     animation: manager-profile-shine 12s linear infinite;
 }
 
@@ -98,154 +74,114 @@ KICKBASE LEAGUE – MANAGERPROFIL
 }
 
 @keyframes manager-profile-shine {
-    to {
-        transform: rotate(360deg);
-    }
+    to { transform: rotate(360deg); }
 }
 
+/* RANG-EMBLEM */
 
-/* GROSSES RANG-EMBLEM */
-
-/* =========================================
-   RANG-EMBLEM
-========================================= */
-
-.rank-emblem{
-
-    position:relative;
-
-    width:150px;
-    height:165px;
-
-    margin:0 auto 28px;
-
+.rank-emblem {
+    position: relative;
+    width: 150px;
+    height: 165px;
+    margin: 0 auto 28px;
+    color: #d2d9e2;
 }
 
-.rank-emblem-glow{
-
-    position:absolute;
-    inset:0;
-
-    background:
-        radial-gradient(circle,
-        rgba(24,197,91,.35),
-        transparent 72%);
-
-    filter:blur(18px);
-
-    animation:rankGlow 3s ease-in-out infinite;
-
-}
-
-.rank-emblem-shield{
-
-    position:relative;
-
-    width:100%;
-    height:100%;
-
-    clip-path:polygon(
-        50% 0%,
-        92% 18%,
-        92% 63%,
-        50% 100%,
-        8% 63%,
-        8% 18%
+.rank-emblem-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle,
+        rgba(210, 217, 226, 0.52),
+        rgba(24, 197, 91, 0.2) 42%,
+        transparent 72%
     );
-
+    filter: blur(18px);
+    animation: rank-glow 3s ease-in-out infinite;
 }
 
-.rank-emblem-border{
-
-    position:absolute;
-    inset:0;
-
-    background:
-        linear-gradient(
-            180deg,
-            #ffffff,
-            #8b939d
-        );
-
+.rank-emblem-shield {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 0%, 92% 18%, 92% 63%, 50% 100%, 8% 63%, 8% 18%);
+    filter: drop-shadow(0 18px 18px rgba(0, 0, 0, 0.42));
 }
 
-.rank-emblem-face{
-
-    position:absolute;
-
-    inset:6px;
-
-    clip-path:inherit;
-
-    background:
-        linear-gradient(
-            180deg,
-            #4b525d,
-            #1a1d23
-        );
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-
+.rank-emblem-border {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, #ffffff, #8d96a2 48%, #eef2f6);
 }
 
-.rank-emblem-symbol{
-
-    margin-top:8px;
-
+.rank-emblem-face {
+    position: absolute;
+    inset: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    clip-path: inherit;
+    background: linear-gradient(160deg, #555d68, #242930 48%, #101318);
 }
 
-.rank-emblem-symbol svg{
-
-    width:42px;
-    height:42px;
-
-    stroke-width:2.2;
-
+.rank-emblem-face::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+        115deg,
+        rgba(255, 255, 255, 0.22),
+        transparent 35%,
+        transparent 65%,
+        rgba(255, 255, 255, 0.04)
+    );
 }
 
-.rank-emblem-chevrons{
-
-    margin-top:16px;
-
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-
+.rank-emblem-symbol,
+.rank-emblem-chevrons {
+    position: relative;
+    z-index: 2;
 }
 
-.rank-emblem-chevrons span{
-
-    width:46px;
-    height:5px;
-
-    border-radius:999px;
-
-    background:#d7dbe1;
-
+.rank-emblem-symbol {
+    margin-top: 8px;
 }
 
-@keyframes rankGlow{
+.rank-emblem-symbol svg {
+    width: 42px;
+    height: 42px;
+    stroke-width: 2.2;
+}
 
-    0%,100%{
+.rank-emblem-chevrons {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 16px;
+}
 
-        transform:scale(1);
-        opacity:.65;
+.rank-emblem-chevrons span {
+    width: 46px;
+    height: 5px;
+    border-radius: 999px;
+    background: currentColor;
+    opacity: 0.92;
+}
 
+@keyframes rank-glow {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.65;
     }
 
-    50%{
-
-        transform:scale(1.08);
-        opacity:1;
-
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
     }
-
 }
-
-/* TITEL */
 
 .manager-profile-label,
 .manager-profile-section-heading p {
@@ -265,9 +201,6 @@ KICKBASE LEAGUE – MANAGERPROFIL
     letter-spacing: -0.055em;
 }
 
-
-/* RANG */
-
 .manager-profile-rank {
     display: inline-flex;
     align-items: center;
@@ -286,9 +219,6 @@ KICKBASE LEAGUE – MANAGERPROFIL
     width: 18px;
     height: 18px;
 }
-
-
-/* LEGENDENPUNKTE */
 
 .manager-profile-points {
     display: flex;
@@ -312,16 +242,62 @@ KICKBASE LEAGUE – MANAGERPROFIL
     font-weight: 800;
 }
 
+.manager-profile-badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 26px;
+}
 
-/* FORTSCHRITT */
+.manager-profile-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.manager-profile-badge svg {
+    width: 17px;
+    height: 17px;
+}
+
+.manager-profile-badge.gold {
+    color: #ffd45c;
+    border-color: rgba(255, 212, 92, 0.25);
+}
+
+.manager-profile-badge.green {
+    color: #18c55b;
+    border-color: rgba(24, 197, 91, 0.25);
+}
+
+.manager-profile-badge.red {
+    color: #ff6c6c;
+    border-color: rgba(255, 108, 108, 0.25);
+}
+
+.manager-profile-badge.blue {
+    color: #56a9ff;
+    border-color: rgba(86, 169, 255, 0.25);
+}
 
 .manager-profile-progress {
+    display: block;
+    position: relative;
+    z-index: 5;
     width: min(620px, 100%);
-    margin: 34px auto 0;
+    margin: 30px auto 0;
     padding: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 18px;
-    background: rgba(0, 0, 0, 0.18);
+    background: rgba(0, 0, 0, 0.28);
 }
 
 .manager-profile-progress-header {
@@ -329,35 +305,30 @@ KICKBASE LEAGUE – MANAGERPROFIL
     justify-content: space-between;
     gap: 16px;
     margin-bottom: 12px;
-    color: #aab2bf;
-    font-size: 0.8rem;
+    color: #c2c8d1;
+    font-size: 0.82rem;
     font-weight: 800;
 }
 
 .manager-profile-progress-track {
-    overflow: hidden;
+    display: block;
+    width: 100%;
     height: 10px;
+    overflow: hidden;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.075);
+    background: rgba(255, 255, 255, 0.12);
 }
 
 .manager-profile-progress-value {
+    display: block;
     width: 0;
+    min-width: 3px;
     height: 100%;
-    border-radius: inherit;
-    background:
-        linear-gradient(
-            90deg,
-            currentColor,
-            #ffffff
-        );
-    color: #18c55b;
-    box-shadow: 0 0 18px currentColor;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #18c55b, #79e9a5);
+    box-shadow: 0 0 16px rgba(24, 197, 91, 0.45);
     transition: width 0.8s ease;
 }
-
-
-/* ABSCHNITTE */
 
 .manager-profile-section {
     margin-top: 72px;
@@ -374,9 +345,6 @@ KICKBASE LEAGUE – MANAGERPROFIL
     letter-spacing: -0.035em;
 }
 
-
-/* LP-AUFSCHLÜSSELUNG */
-
 .manager-profile-stats-grid {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -388,12 +356,11 @@ KICKBASE LEAGUE – MANAGERPROFIL
     padding: 22px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.045),
-            rgba(255, 255, 255, 0.014)
-        );
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.045),
+        rgba(255, 255, 255, 0.014)
+    );
     transition:
         transform 0.2s ease,
         border-color 0.2s ease,
@@ -403,12 +370,11 @@ KICKBASE LEAGUE – MANAGERPROFIL
 .manager-profile-stat-card:hover {
     transform: translateY(-4px);
     border-color: rgba(24, 197, 91, 0.28);
-    background:
-        linear-gradient(
-            145deg,
-            rgba(24, 197, 91, 0.075),
-            rgba(255, 255, 255, 0.015)
-        );
+    background: linear-gradient(
+        145deg,
+        rgba(24, 197, 91, 0.075),
+        rgba(255, 255, 255, 0.015)
+    );
 }
 
 .manager-profile-stat-icon {
@@ -445,21 +411,17 @@ KICKBASE LEAGUE – MANAGERPROFIL
     font-weight: 950;
 }
 
-
-/* SAISONDETAILS */
-
 .manager-profile-details {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 22px;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.038),
-            rgba(255, 255, 255, 0.012)
-        );
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.038),
+        rgba(255, 255, 255, 0.012)
+    );
 }
 
 .manager-profile-details > div {
@@ -492,9 +454,6 @@ KICKBASE LEAGUE – MANAGERPROFIL
     font-size: 1.08rem;
     font-weight: 900;
 }
-
-
-/* FEHLER */
 
 .manager-profile-error {
     display: flex;
@@ -529,75 +488,146 @@ KICKBASE LEAGUE – MANAGERPROFIL
     line-height: 1.55;
 }
 
-
 /* RANGFARBEN */
 
-.rank-rookie {
+.rank-rookie { color: #818a98; }
+.rank-contender { color: #bc7b46; }
+.rank-amateur { color: #d2d9e2; }
+.rank-professional { color: #4ba7ff; }
+.rank-elite { color: #b36cff; }
+.rank-champion { color: #ff6060; }
+.rank-legend { color: #ffd45c; }
+
+/* ROOKIE */
+
+.manager-profile-hero.rank-rookie .rank-emblem {
     color: #818a98;
 }
 
-.rank-contender {
-    color: #bc7b46;
+.manager-profile-hero.rank-rookie .rank-emblem-border {
+    background: linear-gradient(145deg, #c7ccd3, #646c77 50%, #9ba3ae);
 }
 
-.rank-amateur {
-    color: #d2d9e2;
+.manager-profile-hero.rank-rookie .rank-emblem-face {
+    background: linear-gradient(160deg, #3d434c, #1d2128 55%, #101318);
 }
 
-.rank-professional {
-    color: #4ba7ff;
+.manager-profile-hero.rank-rookie .rank-emblem-glow {
+    background: radial-gradient(circle, rgba(129, 138, 152, 0.42), transparent 72%);
 }
 
-.rank-elite {
-    color: #b36cff;
+/* ANWÄRTER */
+
+.manager-profile-hero.rank-contender .rank-emblem {
+    color: #f0ad73;
 }
 
-.rank-champion {
-    color: #ff6060;
+.manager-profile-hero.rank-contender .rank-emblem-border {
+    background: linear-gradient(150deg, #f2b77f, #8e4f25 55%, #d48a51);
 }
 
-.rank-legend {
-    color: #ffd45c;
+.manager-profile-hero.rank-contender .rank-emblem-face {
+    background: linear-gradient(160deg, #75401f, #331c0e 55%, #170d07);
 }
 
-
-/* EMBLEM NACH RANG */
-
-.manager-profile-hero.rank-rookie
-.manager-profile-emblem {
-    color: #818a98;
+.manager-profile-hero.rank-contender .rank-emblem-glow {
+    background: radial-gradient(circle, rgba(188, 123, 70, 0.62), transparent 72%);
 }
 
-.manager-profile-hero.rank-contender
-.manager-profile-emblem {
-    color: #bc7b46;
+/* AMATEUR */
+
+.manager-profile-hero.rank-amateur .rank-emblem {
+    color: #f0f3f7;
 }
 
-.manager-profile-hero.rank-amateur
-.manager-profile-emblem {
-    color: #d2d9e2;
+.manager-profile-hero.rank-amateur .rank-emblem-border {
+    background: linear-gradient(145deg, #ffffff, #8d96a2 48%, #eef2f6);
 }
 
-.manager-profile-hero.rank-professional
-.manager-profile-emblem {
-    color: #4ba7ff;
+.manager-profile-hero.rank-amateur .rank-emblem-face {
+    background: linear-gradient(160deg, #555d68, #242930 48%, #101318);
 }
 
-.manager-profile-hero.rank-elite
-.manager-profile-emblem {
-    color: #b36cff;
+.manager-profile-hero.rank-amateur .rank-emblem-glow {
+    background: radial-gradient(
+        circle,
+        rgba(210, 217, 226, 0.58),
+        rgba(24, 197, 91, 0.2) 42%,
+        transparent 72%
+    );
 }
 
-.manager-profile-hero.rank-champion
-.manager-profile-emblem {
-    color: #ff6060;
+/* PROFI */
+
+.manager-profile-hero.rank-professional .rank-emblem {
+    color: #77bdff;
 }
 
-.manager-profile-hero.rank-legend
-.manager-profile-emblem {
-    color: #ffd45c;
+.manager-profile-hero.rank-professional .rank-emblem-border {
+    background: linear-gradient(145deg, #d6ecff, #287fd1 48%, #79c1ff);
 }
 
+.manager-profile-hero.rank-professional .rank-emblem-face {
+    background: linear-gradient(160deg, #184f84, #0c2845 55%, #071422);
+}
+
+.manager-profile-hero.rank-professional .rank-emblem-glow {
+    background: radial-gradient(circle, rgba(75, 167, 255, 0.68), transparent 72%);
+}
+
+/* ELITE */
+
+.manager-profile-hero.rank-elite .rank-emblem {
+    color: #d1a4ff;
+}
+
+.manager-profile-hero.rank-elite .rank-emblem-border {
+    background: linear-gradient(145deg, #f1dcff, #7d31bd 48%, #c077ff);
+}
+
+.manager-profile-hero.rank-elite .rank-emblem-face {
+    background: linear-gradient(160deg, #572080, #28103e 55%, #12071c);
+}
+
+.manager-profile-hero.rank-elite .rank-emblem-glow {
+    background: radial-gradient(circle, rgba(179, 108, 255, 0.72), transparent 72%);
+}
+
+/* CHAMPION */
+
+.manager-profile-hero.rank-champion .rank-emblem {
+    color: #ff9a9a;
+}
+
+.manager-profile-hero.rank-champion .rank-emblem-border {
+    background: linear-gradient(145deg, #ffd7b0, #b32424 48%, #ff5f4d);
+}
+
+.manager-profile-hero.rank-champion .rank-emblem-face {
+    background: linear-gradient(160deg, #8c2020, #3c0d0d 55%, #190606);
+}
+
+.manager-profile-hero.rank-champion .rank-emblem-glow {
+    background: radial-gradient(circle, rgba(255, 96, 96, 0.76), transparent 72%);
+}
+
+/* LEGENDE */
+
+.manager-profile-hero.rank-legend .rank-emblem {
+    color: #ffe48c;
+}
+
+.manager-profile-hero.rank-legend .rank-emblem-border {
+    background: linear-gradient(145deg, #fff2ac, #b77a13 48%, #ffd45c);
+}
+
+.manager-profile-hero.rank-legend .rank-emblem-face {
+    background: linear-gradient(160deg, #785110, #352105 55%, #171004);
+}
+
+.manager-profile-hero.rank-legend .rank-emblem-glow {
+    background: radial-gradient(circle, rgba(255, 212, 92, 0.82), transparent 72%);
+}
 
 /* PROFILHINTERGRUND NACH RANG */
 
@@ -637,7 +667,6 @@ KICKBASE LEAGUE – MANAGERPROFIL
         inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-
 /* TABLET */
 
 @media (max-width: 980px) {
@@ -666,7 +695,6 @@ KICKBASE LEAGUE – MANAGERPROFIL
     }
 }
 
-
 /* SMARTPHONE */
 
 @media (max-width: 640px) {
@@ -684,22 +712,40 @@ KICKBASE LEAGUE – MANAGERPROFIL
         border-radius: 24px;
     }
 
-    .manager-profile-emblem {
-        width: 88px;
-        height: 88px;
-        margin-bottom: 21px;
-        border-radius: 24px;
+    .rank-emblem {
+        width: 125px;
+        height: 138px;
+        margin-bottom: 24px;
     }
 
-    .manager-profile-emblem svg {
+    .rank-emblem-symbol svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .rank-emblem-chevrons {
+        margin-top: 13px;
+        gap: 5px;
+    }
+
+    .rank-emblem-chevrons span {
         width: 40px;
-        height: 40px;
+        height: 4px;
     }
 
     .manager-profile-points {
         align-items: center;
         flex-direction: column;
         gap: 7px;
+    }
+
+    .manager-profile-badges {
+        gap: 9px;
+    }
+
+    .manager-profile-badge {
+        padding: 8px 12px;
+        font-size: 0.76rem;
     }
 
     .manager-profile-progress {
@@ -743,245 +789,4 @@ KICKBASE LEAGUE – MANAGERPROFIL
     .manager-profile-details > div:last-child {
         border-bottom: 0 !important;
     }
-}
-/* BADGES */
-
-.manager-profile-badges{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:12px;
-
-    margin-top:26px;
-}
-
-.manager-profile-badge{
-
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-
-    padding:10px 16px;
-
-    border-radius:999px;
-
-    font-size:.82rem;
-    font-weight:800;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    background:rgba(255,255,255,.04);
-
-    color:#ffffff;
-}
-
-.manager-profile-badge svg{
-
-    width:17px;
-    height:17px;
-
-}
-
-.manager-profile-badge.gold{
-
-    color:#ffd45c;
-    border-color:rgba(255,212,92,.25);
-
-}
-
-.manager-profile-badge.green{
-
-    color:#18c55b;
-    border-color:rgba(24,197,91,.25);
-
-}
-
-.manager-profile-badge.red{
-
-    color:#ff6c6c;
-    border-color:rgba(255,108,108,.25);
-
-}
-
-.manager-profile-badge.blue{
-
-    color:#56a9ff;
-    border-color:rgba(86,169,255,.25);
-
-}
-/* FORTSCHRITTSBALKEN – SICHERE DARSTELLUNG */
-
-.manager-profile-progress {
-    display: block !important;
-    width: min(620px, 100%);
-    margin: 30px auto 0;
-    padding: 18px;
-    position: relative;
-    z-index: 5;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 18px;
-    background: rgba(0, 0, 0, 0.28);
-}
-
-.manager-profile-progress-header {
-    display: flex !important;
-    justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 12px;
-    color: #c2c8d1;
-    font-size: 0.82rem;
-    font-weight: 800;
-}
-
-.manager-profile-progress-track {
-    display: block !important;
-    width: 100%;
-    height: 10px;
-    overflow: hidden;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.12);
-}
-
-.manager-profile-progress-value {
-    display: block !important;
-    width: 0;
-    min-width: 3px;
-    height: 100%;
-    border-radius: 999px;
-    background: linear-gradient(
-        90deg,
-        #18c55b,
-        #79e9a5
-    );
-    box-shadow: 0 0 16px rgba(24, 197, 91, 0.45);
-    transition: width 0.8s ease;
-}
-/* =========================================
-   RANG-EMBLEM – INDIVIDUELLE OPTIK
-========================================= */
-
-/* ROOKIE */
-
-.manager-profile-hero.rank-rookie
-.manager-profile-emblem {
-    color: #818a98;
-}
-
-.manager-profile-hero.rank-rookie
-.manager-emblem-glow {
-    background: radial-gradient(
-        circle,
-        rgba(129, 138, 152, 0.3),
-        transparent 72%
-    );
-}
-
-
-/* ANWÄRTER */
-
-.manager-profile-hero.rank-contender
-.manager-profile-emblem {
-    color: #bc7b46;
-}
-
-.manager-profile-hero.rank-contender
-.manager-emblem-glow {
-    background: radial-gradient(
-        circle,
-        rgba(188, 123, 70, 0.38),
-        transparent 72%
-    );
-}
-
-
-/* AMATEUR */
-
-.manager-profile-hero.rank-amateur
-.manager-profile-emblem {
-    color: #d2d9e2;
-}
-
-.manager-profile-hero.rank-amateur
-.manager-emblem-glow {
-    background: radial-gradient(
-        circle,
-        rgba(210, 217, 226, 0.4),
-        transparent 72%
-    );
-}
-
-
-/* PROFI */
-
-.manager-profile-hero.rank-professional
-.manager-profile-emblem {
-    color: #4ba7ff;
-}
-
-.manager-profile-hero.rank-professional
-.manager-emblem-glow {
-    background: radial-gradient(
-        circle,
-        rgba(75, 167, 255, 0.45),
-        transparent 72%
-    );
-}
-
-
-/* ELITE */
-
-.manager-profile-hero.rank-elite
-.manager-profile-emblem {
-    color: #b36cff;
-}
-
-.manager-profile-hero.rank-elite
-.manager-emblem-glow {
-    background: radial-gradient(
-        circle,
-        rgba(179, 108, 255, 0.48),
-        transparent 72%
-    );
-}
-
-
-/* CHAMPION */
-
-.manager-profile-hero.rank-champion
-.manager-profile-emblem {
-    color: #ff6060;
-}
-
-.manager-profile-hero.rank-champion
-.manager-emblem-glow {
-    background: radial-gradient(
-        circle,
-        rgba(255, 96, 96, 0.5),
-        transparent 72%
-    );
-}
-
-
-/* LEGENDE */
-
-.manager-profile-hero.rank-legend
-.manager-profile-emblem {
-    color: #ffd45c;
-}
-
-.manager-profile-hero.rank-legend
-.manager-emblem-glow {
-    background: radial-gradient(
-        circle,
-        rgba(255, 212, 92, 0.58),
-        transparent 72%
-    );
-}
-
-.manager-profile-hero.rank-legend
-.manager-emblem-inner {
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.25),
-        0 0 28px rgba(255, 212, 92, 0.28),
-        0 20px 50px rgba(0, 0, 0, 0.4);
 }
