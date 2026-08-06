@@ -1,266 +1,805 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Die Legendenrangliste der Kickbase League mit automatisch berechneten Legendenpunkten.">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Die Karriere-Rangliste aller Manager der Kickbase League mit automatisch berechneten Legendenpunkten."
+    >
 
     <title>Legenden | Kickbase League</title>
 
-    <link rel="stylesheet" href="/kickbase-league/style.css">
-    <link rel="stylesheet" href="/kickbase-league/legenden.css">
-    <link rel="manifest" href="/kickbase-league/manifest.json">
+    <link
+        rel="stylesheet"
+        href="/kickbase-league/style.css"
+    >
 
-    <meta name="theme-color" content="#080b12">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Kickbase League">
+    <link
+        rel="stylesheet"
+        href="/kickbase-league/legenden.css"
+    >
 
-    <link rel="apple-touch-icon" href="/kickbase-league/app-icon-512.png">
+    <link
+        rel="manifest"
+        href="/kickbase-league/manifest.json"
+    >
 
-    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <meta
+        name="theme-color"
+        content="#080b12"
+    >
+
+    <meta
+        name="apple-mobile-web-app-capable"
+        content="yes"
+    >
+
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent"
+    >
+
+    <meta
+        name="apple-mobile-web-app-title"
+        content="Kickbase League"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="/kickbase-league/app-icon-512.png"
+    >
+
+    <script
+        src="https://unpkg.com/lucide@latest"
+        defer
+    ></script>
 </head>
+
 
 <body class="legends-page">
 
 <header class="legends-hero">
+
     <div class="legends-hero-glow"></div>
 
     <div class="legends-hero-content">
+
         <div class="legends-hero-icon">
             <i data-lucide="crown"></i>
         </div>
 
-        <p class="legends-eyebrow">KARRIERE · PRESTIGE · ERFOLG</p>
-
-        <h1>Legenden der Liga</h1>
-
-        <p class="legends-hero-description">
-            Die erfolgreichsten Manager der Ligageschichte. Jeder Punkt erzählt Geschichte.
+        <p class="legends-eyebrow">
+            KARRIERE · PRESTIGE · ERFOLG
         </p>
 
+        <h1>
+            Legenden der Liga
+        </h1>
+
+        <p class="legends-hero-description">
+            Die Karriere-Rangliste aller Manager.
+            Jeder Punkt, jeder Titel und jeder Rekord
+            schreibt ein neues Kapitel der Ligageschichte.
+        </p>
+
+
         <div class="legends-summary-grid">
-            <article class="legends-summary-card">
-                <span class="legends-summary-icon"><i data-lucide="crown"></i></span>
-                <div>
-                    <small>Aktuelle Nummer 1</small>
-                    <strong id="summary-leader-name">–</strong>
-                    <span id="summary-leader-points">0 LP</span>
-                </div>
-            </article>
 
             <article class="legends-summary-card">
-                <span class="legends-summary-icon"><i data-lucide="shield-star"></i></span>
+
+                <span class="legends-summary-icon">
+                    <i data-lucide="crown"></i>
+                </span>
+
                 <div>
-                    <small>Höchster Rang</small>
-                    <strong id="summary-highest-rank">Rookie</strong>
-                    <span id="summary-highest-rank-count">0 Manager</span>
+
+                    <small>
+                        Aktuelle Nummer 1
+                    </small>
+
+                    <strong id="summary-leader-name">
+                        –
+                    </strong>
+
+                    <span id="summary-leader-points">
+                        0 LP
+                    </span>
+
                 </div>
+
             </article>
 
+
             <article class="legends-summary-card">
-                <span class="legends-summary-icon"><i data-lucide="chart-no-axes-column-increasing"></i></span>
+
+                <span class="legends-summary-icon">
+                    <i data-lucide="shield-star"></i>
+                </span>
+
                 <div>
-                    <small>Durchschnitt</small>
-                    <strong id="summary-average-points">0 LP</strong>
-                    <span>aller 18 Manager</span>
+
+                    <small>
+                        Höchster Rang
+                    </small>
+
+                    <strong id="summary-highest-rank">
+                        Rookie
+                    </strong>
+
+                    <span id="summary-highest-rank-count">
+                        0 Manager
+                    </span>
+
                 </div>
+
             </article>
+
+
+            <article class="legends-summary-card">
+
+                <span class="legends-summary-icon">
+                    <i data-lucide="chart-no-axes-column-increasing"></i>
+                </span>
+
+                <div>
+
+                    <small>
+                        Durchschnitt
+                    </small>
+
+                    <strong id="summary-average-points">
+                        0 LP
+                    </strong>
+
+                    <span>
+                        aller 18 Manager
+                    </span>
+
+                </div>
+
+            </article>
+
         </div>
+
     </div>
+
 </header>
 
+
 <nav class="main-navigation">
+
     <div class="navigation-inner">
-        <a href="/kickbase-league/index.html" class="navigation-brand">
-            <img src="/kickbase-league/kickbase-league-logo.png" alt="Kickbase League">
-            <span>Kickbase League</span>
+
+        <a
+            href="/kickbase-league/index.html"
+            class="navigation-brand"
+        >
+
+            <img
+                src="/kickbase-league/kickbase-league-logo.png"
+                alt="Kickbase League"
+            >
+
+            <span>
+                Kickbase League
+            </span>
+
         </a>
 
+
         <div class="desktop-navigation">
-            <a href="/kickbase-league/index.html">Startseite</a>
-            <a href="/kickbase-league/qualifikationsligen.html">Qualifikation</a>
-            <a href="/kickbase-league/champions-league.html">Champions League</a>
-            <a href="/kickbase-league/kreisliga.html">Kreisliga</a>
-            <a href="/kickbase-league/kickbase-pokal.html">Pokal</a>
-            <a href="/kickbase-league/manager.html">Manager</a>
-            <a href="/kickbase-league/legenden.html" class="active-navigation-link">Legenden</a>
-            <a href="/kickbase-league/hall-of-fame.html">Hall of Fame</a>
-            <a href="/kickbase-league/statistiken.html">Statistiken</a>
-            <a href="/kickbase-league/regelwerk.html">Regelwerk</a>
+
+            <a href="/kickbase-league/index.html">
+                Startseite
+            </a>
+
+            <a href="/kickbase-league/qualifikationsligen.html">
+                Qualifikation
+            </a>
+
+            <a href="/kickbase-league/champions-league.html">
+                Champions League
+            </a>
+
+            <a href="/kickbase-league/kreisliga.html">
+                Kreisliga
+            </a>
+
+            <a href="/kickbase-league/kickbase-pokal.html">
+                Pokal
+            </a>
+
+            <a href="/kickbase-league/manager.html">
+                Manager
+            </a>
+
+            <a
+                href="/kickbase-league/legenden.html"
+                class="active-navigation-link"
+            >
+                Legenden
+            </a>
+
+            <a href="/kickbase-league/hall-of-fame.html">
+                Hall of Fame
+            </a>
+
+            <a href="/kickbase-league/statistiken.html">
+                Statistiken
+            </a>
+
+            <a href="/kickbase-league/regelwerk.html">
+                Regelwerk
+            </a>
+
         </div>
 
-        <button class="mobile-menu-button" id="mobile-menu-button" type="button" aria-label="Navigation öffnen" aria-expanded="false">
-            <span></span><span></span><span></span>
+
+        <button
+            class="mobile-menu-button"
+            id="mobile-menu-button"
+            type="button"
+            aria-label="Navigation öffnen"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
+
     </div>
 
-    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
 
-    <aside class="mobile-side-menu" id="mobile-side-menu" aria-hidden="true">
+    <div
+        class="mobile-menu-overlay"
+        id="mobile-menu-overlay"
+    ></div>
+
+
+    <aside
+        class="mobile-side-menu"
+        id="mobile-side-menu"
+        aria-hidden="true"
+    >
+
         <div class="mobile-side-menu-header">
+
             <div class="mobile-side-brand">
-                <img src="/kickbase-league/kickbase-league-logo.png" alt="Kickbase League">
+
+                <img
+                    src="/kickbase-league/kickbase-league-logo.png"
+                    alt="Kickbase League"
+                >
+
                 <div>
-                    <strong>Kickbase League</strong>
-                    <p>Saison 2026/27</p>
+
+                    <strong>
+                        Kickbase League
+                    </strong>
+
+                    <p>
+                        Saison 2026/27
+                    </p>
+
                 </div>
+
             </div>
 
-            <button class="mobile-menu-close" id="mobile-menu-close" type="button" aria-label="Navigation schließen">✕</button>
+
+            <button
+                class="mobile-menu-close"
+                id="mobile-menu-close"
+                type="button"
+                aria-label="Navigation schließen"
+            >
+                ✕
+            </button>
+
         </div>
+
 
         <div class="mobile-side-menu-content">
-            <p class="mobile-menu-label">HAUPTMENÜ</p>
 
-            <a href="/kickbase-league/index.html" class="mobile-menu-link">
-                <span class="mobile-menu-icon">🏠</span>
-                <div><strong>Startseite</strong><small>Zur Liga-Zentrale</small></div>
+            <p class="mobile-menu-label">
+                HAUPTMENÜ
+            </p>
+
+
+            <a
+                href="/kickbase-league/index.html"
+                class="mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    🏠
+                </span>
+
+                <div>
+
+                    <strong>
+                        Startseite
+                    </strong>
+
+                    <small>
+                        Zur Liga-Zentrale
+                    </small>
+
+                </div>
+
                 <span>→</span>
+
             </a>
 
-            <p class="mobile-menu-label">WETTBEWERBE</p>
 
-            <a href="/kickbase-league/qualifikationsligen.html" class="mobile-menu-link">
-                <span class="mobile-menu-icon">🔴</span>
-                <div><strong>Qualifikationsligen</strong><small>Gruppe A und Gruppe B</small></div>
+            <p class="mobile-menu-label">
+                WETTBEWERBE
+            </p>
+
+
+            <a
+                href="/kickbase-league/qualifikationsligen.html"
+                class="mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    🔴
+                </span>
+
+                <div>
+
+                    <strong>
+                        Qualifikationsligen
+                    </strong>
+
+                    <small>
+                        Gruppe A und Gruppe B
+                    </small>
+
+                </div>
+
                 <span>→</span>
+
             </a>
 
-            <a href="/kickbase-league/champions-league.html" class="mobile-menu-link">
-                <span class="mobile-menu-icon">🏆</span>
-                <div><strong>Champions League</strong><small>Die höchste Spielklasse</small></div>
+
+            <a
+                href="/kickbase-league/champions-league.html"
+                class="mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    🏆
+                </span>
+
+                <div>
+
+                    <strong>
+                        Champions League
+                    </strong>
+
+                    <small>
+                        Die höchste Spielklasse
+                    </small>
+
+                </div>
+
                 <span>→</span>
+
             </a>
 
-            <a href="/kickbase-league/kreisliga.html" class="mobile-menu-link">
-                <span class="mobile-menu-icon">🥈</span>
-                <div><strong>Kreisliga</strong><small>Der Kampf um den Aufstieg</small></div>
+
+            <a
+                href="/kickbase-league/kreisliga.html"
+                class="mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    🥈
+                </span>
+
+                <div>
+
+                    <strong>
+                        Kreisliga
+                    </strong>
+
+                    <small>
+                        Der Kampf um den Aufstieg
+                    </small>
+
+                </div>
+
                 <span>→</span>
+
             </a>
 
-            <a href="/kickbase-league/kickbase-pokal.html" class="mobile-menu-link">
-                <span class="mobile-menu-icon">🏅</span>
-                <div><strong>Kickbase-Pokal</strong><small>Der Pokalwettbewerb</small></div>
+
+            <a
+                href="/kickbase-league/kickbase-pokal.html"
+                class="mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    🏅
+                </span>
+
+                <div>
+
+                    <strong>
+                        Kickbase-Pokal
+                    </strong>
+
+                    <small>
+                        Der Pokalwettbewerb
+                    </small>
+
+                </div>
+
                 <span>→</span>
+
             </a>
 
-            <p class="mobile-menu-label">LIGABEREICH</p>
 
-            <a href="/kickbase-league/manager.html" class="mobile-menu-link">
-                <span class="mobile-menu-icon">👤</span>
-                <div><strong>Manager</strong><small>Alle 18 Teilnehmer</small></div>
+            <p class="mobile-menu-label">
+                LIGABEREICH
+            </p>
+
+
+            <a
+                href="/kickbase-league/manager.html"
+                class="mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    👤
+                </span>
+
+                <div>
+
+                    <strong>
+                        Manager
+                    </strong>
+
+                    <small>
+                        Alle 18 Teilnehmer
+                    </small>
+
+                </div>
+
                 <span>→</span>
+
             </a>
 
-            <a href="/kickbase-league/legenden.html" class="mobile-menu-link active-mobile-menu-link">
-                <span class="mobile-menu-icon">🛡️</span>
-                <div><strong>Legenden</strong><small>Karriere-Rangliste</small></div>
+
+            <a
+                href="/kickbase-league/legenden.html"
+                class="mobile-menu-link active-mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    🛡️
+                </span>
+
+                <div>
+
+                    <strong>
+                        Legenden
+                    </strong>
+
+                    <small>
+                        Karriere-Rangliste
+                    </small>
+
+                </div>
+
                 <span>→</span>
+
             </a>
 
-            <a href="/kickbase-league/hall-of-fame.html" class="mobile-menu-link">
-                <span class="mobile-menu-icon">👑</span>
-                <div><strong>Hall of Fame</strong><small>Meister und Pokalsieger</small></div>
+
+            <a
+                href="/kickbase-league/hall-of-fame.html"
+                class="mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    👑
+                </span>
+
+                <div>
+
+                    <strong>
+                        Hall of Fame
+                    </strong>
+
+                    <small>
+                        Meister und Pokalsieger
+                    </small>
+
+                </div>
+
                 <span>→</span>
+
             </a>
 
-            <a href="/kickbase-league/statistiken.html" class="mobile-menu-link">
-                <span class="mobile-menu-icon">📊</span>
-                <div><strong>Statistiken</strong><small>Rekorde und Zahlen</small></div>
+
+            <a
+                href="/kickbase-league/statistiken.html"
+                class="mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    📊
+                </span>
+
+                <div>
+
+                    <strong>
+                        Statistiken
+                    </strong>
+
+                    <small>
+                        Rekorde und Zahlen
+                    </small>
+
+                </div>
+
                 <span>→</span>
+
             </a>
 
-            <a href="/kickbase-league/regelwerk.html" class="mobile-menu-link">
-                <span class="mobile-menu-icon">📜</span>
-                <div><strong>Regelwerk</strong><small>Alle Ligaregeln</small></div>
+
+            <a
+                href="/kickbase-league/regelwerk.html"
+                class="mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    📜
+                </span>
+
+                <div>
+
+                    <strong>
+                        Regelwerk
+                    </strong>
+
+                    <small>
+                        Alle Ligaregeln
+                    </small>
+
+                </div>
+
                 <span>→</span>
+
             </a>
+
         </div>
+
     </aside>
+
 </nav>
 
+
 <main class="legends-main">
+
     <section class="legends-ranking-section">
+
         <div class="legends-section-heading">
+
             <div>
-                <p class="legends-section-label">AKTUELLER STAND</p>
-                <h2>Legendenrangliste</h2>
+
+                <p class="legends-section-label">
+                    AKTUELLER STAND
+                </p>
+
+                <h2>
+                    Legendenrangliste
+                </h2>
+
             </div>
 
-            <span class="legends-season" id="legends-season">Saison 2026/27</span>
+
+            <span
+                class="legends-season"
+                id="legends-season"
+            >
+                Saison 2026/27
+            </span>
+
         </div>
 
-        <div class="legend-card-grid" id="legends-ranking-cards">
+
+        <div
+            class="legend-card-grid"
+            id="legends-ranking-cards"
+        >
             <!-- Wird automatisch durch JavaScript gefüllt -->
         </div>
+
     </section>
+
 
     <section class="legends-rules-section">
+
         <div class="legends-section-heading">
+
             <div>
-                <p class="legends-section-label">PUNKTEVERGABE</p>
-                <h2>So entstehen Legendenpunkte</h2>
+
+                <p class="legends-section-label">
+                    PUNKTEVERGABE
+                </p>
+
+                <h2>
+                    So entstehen Legendenpunkte
+                </h2>
+
             </div>
+
         </div>
+
 
         <div class="legends-rules-grid">
-            <article class="legends-rule-card">
-                <span class="legends-rule-icon"><i data-lucide="chart-no-axes-column-increasing"></i></span>
-                <h3>Saisonleistung</h3>
-                <ul>
-                    <li>Je volle 1.000 Kickbase-Punkte: 1 LP</li>
-                    <li>Je Spieltagssieg: 2 LP</li>
-                    <li>Aktueller Tabellenplatz: bis zu 5 LP</li>
-                    <li>Kreisliga-Multiplikator: 0,80</li>
-                </ul>
-            </article>
 
             <article class="legends-rule-card">
-                <span class="legends-rule-icon"><i data-lucide="table-properties"></i></span>
-                <h3>Saisonabschluss</h3>
+
+                <span class="legends-rule-icon">
+                    <i data-lucide="chart-no-axes-column-increasing"></i>
+                </span>
+
+                <h3>
+                    Saisonleistung
+                </h3>
+
                 <ul>
-                    <li>Champions League: 7 bis 55 LP</li>
-                    <li>Kreisliga: 3 bis 32 LP</li>
-                    <li>Platz 1 ist gleichzeitig die Meisterschaft</li>
-                    <li>Kein zusätzlicher Meisterbonus</li>
+                    <li>
+                        Je volle 1.000 Kickbase-Punkte: 1 LP
+                    </li>
+
+                    <li>
+                        Je Spieltagssieg: 2 LP
+                    </li>
+
+                    <li>
+                        Aktueller Tabellenplatz: bis zu 5 LP
+                    </li>
+
+                    <li>
+                        Kreisliga-Multiplikator: 0,80
+                    </li>
                 </ul>
+
             </article>
 
-            <article class="legends-rule-card">
-                <span class="legends-rule-icon"><i data-lucide="trophy"></i></span>
-                <h3>Kickbase-Pokal</h3>
-                <ul>
-                    <li>Vorrundensieg: 1 LP</li>
-                    <li>Viertelfinale: 5 LP</li>
-                    <li>Halbfinale: 9 LP</li>
-                    <li>Finale: 14 LP</li>
-                    <li>Pokalsieg: 22 LP</li>
-                </ul>
-            </article>
 
             <article class="legends-rule-card">
-                <span class="legends-rule-icon"><i data-lucide="medal"></i></span>
-                <h3>Rekorde</h3>
+
+                <span class="legends-rule-icon">
+                    <i data-lucide="table-properties"></i>
+                </span>
+
+                <h3>
+                    Saisonabschluss
+                </h3>
+
                 <ul>
-                    <li>Höchste Saisonpunktzahl: 10 LP</li>
-                    <li>Höchste Spieltagswertung: 5 LP</li>
-                    <li>Höchster Teamwert: 5 LP</li>
-                    <li>Meiste Spieltagssiege einer Saison: 5 LP</li>
+                    <li>
+                        Champions League: 7 bis 55 LP
+                    </li>
+
+                    <li>
+                        Kreisliga: 3 bis 32 LP
+                    </li>
+
+                    <li>
+                        Platz 1 ist gleichzeitig die Meisterschaft
+                    </li>
+
+                    <li>
+                        Kein zusätzlicher Meisterbonus
+                    </li>
                 </ul>
+
             </article>
+
+
+            <article class="legends-rule-card">
+
+                <span class="legends-rule-icon">
+                    <i data-lucide="trophy"></i>
+                </span>
+
+                <h3>
+                    Kickbase-Pokal
+                </h3>
+
+                <ul>
+                    <li>
+                        Vorrundensieg: 1 LP
+                    </li>
+
+                    <li>
+                        Viertelfinale: 5 LP
+                    </li>
+
+                    <li>
+                        Halbfinale: 9 LP
+                    </li>
+
+                    <li>
+                        Finale: 14 LP
+                    </li>
+
+                    <li>
+                        Pokalsieg: 22 LP
+                    </li>
+                </ul>
+
+            </article>
+
+
+            <article class="legends-rule-card">
+
+                <span class="legends-rule-icon">
+                    <i data-lucide="medal"></i>
+                </span>
+
+                <h3>
+                    Rekorde
+                </h3>
+
+                <ul>
+                    <li>
+                        Höchste Saisonpunktzahl: 10 LP
+                    </li>
+
+                    <li>
+                        Höchste Spieltagswertung: 5 LP
+                    </li>
+
+                    <li>
+                        Höchster Teamwert: 5 LP
+                    </li>
+
+                    <li>
+                        Meiste Spieltagssiege einer Saison: 5 LP
+                    </li>
+                </ul>
+
+            </article>
+
         </div>
+
 
         <div class="legends-rule-note">
+
             <i data-lucide="info"></i>
+
             <p>
-                Im Pokal zählt nur die höchste erreichte Runde. Ein Vorrundensieg wird zusätzlich mit einem Legendenpunkt belohnt. Rekordpunkte erhält ausschließlich der aktuelle Rekordhalter.
+                Im Pokal zählt nur die höchste erreichte Runde.
+                Ein Vorrundensieg wird zusätzlich mit einem
+                Legendenpunkt belohnt. Rekordpunkte erhält
+                ausschließlich der aktuelle Rekordhalter.
             </p>
+
         </div>
+
     </section>
+
 </main>
 
-<footer>© 2026 Kickbase League</footer>
+
+<footer>
+    © 2026 Kickbase League
+</footer>
+
 
 <script src="/kickbase-league/script.js"></script>
 <script src="/kickbase-league/animations.js"></script>
@@ -269,4 +808,5 @@
 <script src="/kickbase-league/legenden-page.js"></script>
 
 </body>
+
 </html>
