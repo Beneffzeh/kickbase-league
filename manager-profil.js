@@ -143,7 +143,11 @@ function renderManagerProfile(manager) {
 
     renderSeasonData(manager);
 }
-
+renderBadges(
+    manager,
+    legendRank,
+    legendPoints
+);
 
 /*
 =========================================
@@ -457,4 +461,122 @@ function setLucideIcon(
         "data-lucide",
         iconName
     );
+}
+/*
+=========================================
+BADGES
+=========================================
+*/
+
+function renderBadges(
+    manager,
+    legendRank,
+    legendPoints
+) {
+    const container =
+        document.getElementById(
+            "manager-profile-badges"
+        );
+
+    if (!container) {
+        return;
+    }
+
+    const ranking =
+        createLegendRanking();
+
+    const rankingPosition =
+        ranking.findIndex(
+            item => item.id === manager.id
+        ) + 1;
+
+    const badges = [];
+
+
+    if (
+        rankingPosition === 1 &&
+        legendPoints > 0
+    ) {
+        badges.push({
+            icon: "crown",
+            text: "Aktuelle Nummer 1",
+            color: "gold"
+        });
+    }
+
+
+    if (
+        manager.mainRound &&
+        manager.mainRound.currentPosition === 1
+    ) {
+        badges.push({
+            icon: "trophy",
+            text: "Tabellenführer",
+            color: "green"
+        });
+    }
+
+
+    if (
+        manager.cup &&
+        manager.cup.stage === "winner"
+    ) {
+        badges.push({
+            icon: "medal",
+            text: "Pokalsieger",
+            color: "red"
+        });
+    }
+
+
+    if (
+        legendRank &&
+        legendRank.name === "Legende"
+    ) {
+        badges.push({
+            icon: "crown",
+            text: "Legende",
+            color: "gold"
+        });
+    }
+
+
+    if (
+        manager.mainRound &&
+        manager.mainRound.finalPosition === 1 &&
+        manager.mainRound.league ===
+            "champions-league"
+    ) {
+        badges.push({
+            icon: "shield-check",
+            text: "Kickbase Champion",
+            color: "blue"
+        });
+    }
+
+
+    container.innerHTML = badges
+        .map(badge => `
+            <div
+                class="
+                    manager-profile-badge
+                    ${badge.color}
+                "
+            >
+                <i
+                    data-lucide="${badge.icon}"
+                    aria-hidden="true"
+                ></i>
+
+                <span>
+                    ${badge.text}
+                </span>
+            </div>
+        `)
+        .join("");
+
+
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
 }

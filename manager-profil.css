@@ -634,3 +634,68 @@ KICKBASE LEAGUE – MANAGERPROFIL
         border-bottom: 0 !important;
     }
 }
+/* BADGES */
+
+.manager-profile-badges{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+
+    margin-top:26px;
+}
+
+.manager-profile-badge{
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:10px 16px;
+
+    border-radius:999px;
+
+    font-size:.82rem;
+    font-weight:800;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:rgba(255,255,255,.04);
+
+    color:#ffffff;
+}
+
+.manager-profile-badge svg{
+
+    width:17px;
+    height:17px;
+
+}
+
+.manager-profile-badge.gold{
+
+    color:#ffd45c;
+    border-color:rgba(255,212,92,.25);
+
+}
+
+.manager-profile-badge.green{
+
+    color:#18c55b;
+    border-color:rgba(24,197,91,.25);
+
+}
+
+.manager-profile-badge.red{
+
+    color:#ff6c6c;
+    border-color:rgba(255,108,108,.25);
+
+}
+
+.manager-profile-badge.blue{
+
+    color:#56a9ff;
+    border-color:rgba(86,169,255,.25);
+
+}
