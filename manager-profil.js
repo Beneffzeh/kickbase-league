@@ -192,12 +192,15 @@ function applyRankDesign(rank) {
     if (profileContainer) {
         profileContainer.className =
             `manager-profile-hero ${rank.className}`;
+
+        profileContainer.dataset.rank =
+            rank.name.toLowerCase();
     }
 
 
-    const emblemData = {
+    const emblemDesigns = {
         Rookie: {
-            icon: "circle-user-round",
+            icon: "user-round",
             chevrons: 0
         },
 
@@ -208,7 +211,7 @@ function applyRankDesign(rank) {
 
         Amateur: {
             icon: "star",
-            chevrons: 3
+            chevrons: 2
         },
 
         Profi: {
@@ -233,15 +236,15 @@ function applyRankDesign(rank) {
     };
 
 
-    const design =
-        emblemData[rank.name] ||
-        emblemData.Rookie;
+    const emblemDesign =
+        emblemDesigns[rank.name] ||
+        emblemDesigns.Rookie;
 
 
     if (emblemSymbol) {
         emblemSymbol.setAttribute(
             "data-lucide",
-            design.icon
+            emblemDesign.icon
         );
     }
 
@@ -249,7 +252,10 @@ function applyRankDesign(rank) {
     if (emblemChevrons) {
         emblemChevrons.innerHTML =
             Array.from(
-                { length: design.chevrons },
+                {
+                    length:
+                        emblemDesign.chevrons
+                },
                 () => "<span></span>"
             ).join("");
     }
@@ -259,6 +265,15 @@ function applyRankDesign(rank) {
         "manager-rank-icon",
         rank.icon
     );
+
+
+    if (
+        window.lucide &&
+        typeof window.lucide.createIcons ===
+            "function"
+    ) {
+        window.lucide.createIcons();
+    }
 }
 
 /*
@@ -540,6 +555,12 @@ BADGES
 =========================================
 */
 
+/*
+=========================================
+AUTOMATISCHE AUSZEICHNUNGEN
+=========================================
+*/
+
 function renderBadges(
     manager,
     legendRank,
@@ -554,6 +575,7 @@ function renderBadges(
         return;
     }
 
+
     const ranking =
         createLegendRanking();
 
@@ -562,43 +584,35 @@ function renderBadges(
             item => item.id === manager.id
         ) + 1;
 
+
+    const qualification =
+        manager.qualification || {};
+
+    const mainRound =
+        manager.mainRound || {};
+
+    const cup =
+        manager.cup || {};
+
+
+    const totalMatchdayWins =
+        (qualification.matchdayWins || 0) +
+        (mainRound.matchdayWins || 0);
+
+
+    const totalSeasonPoints =
+        (qualification.points || 0) +
+        (mainRound.points || 0);
+
+
     const badges = [];
 
 
-    if (
-        rankingPosition === 1 &&
-        legendPoints > 0
-    ) {
-        badges.push({
-            icon: "crown",
-            text: "Aktuelle Nummer 1",
-            color: "gold"
-        });
-    }
-
-
-    if (
-        manager.mainRound &&
-        manager.mainRound.currentPosition === 1
-    ) {
-        badges.push({
-            icon: "trophy",
-            text: "Tabellenführer",
-            color: "green"
-        });
-    }
-
-
-    if (
-        manager.cup &&
-        manager.cup.stage === "winner"
-    ) {
-        badges.push({
-            icon: "medal",
-            text: "Pokalsieger",
-            color: "red"
-        });
-    }
+    /*
+    =====================================
+    KARRIERE-AUSZEICHNUNGEN
+    =====================================
+    */
 
 
     if (
@@ -608,26 +622,175 @@ function renderBadges(
         badges.push({
             icon: "crown",
             text: "Legende",
-            color: "gold"
+            color: "gold",
+            priority: 100
         });
     }
 
 
     if (
-        manager.mainRound &&
-        manager.mainRound.finalPosition === 1 &&
-        manager.mainRound.league ===
-            "champions-league"
+        mainRound.league ===
+            "champions-league" &&
+        mainRound.finalPosition === 1
     ) {
         badges.push({
             icon: "shield-check",
             text: "Kickbase Champion",
-            color: "blue"
+            color: "blue",
+            priority: 95
         });
     }
 
 
-    container.innerHTML = badges
+    if (
+        mainRound.league === "kreisliga" &&
+        mainRound.finalPosition === 1
+    ) {
+        badges.push({
+            icon: "medal",
+            text: "Kreisliga-Meister",
+            color: "purple",
+            priority: 90
+        });
+    }
+
+
+    if (cup.stage === "winner") {
+        badges.push({
+            icon: "trophy",
+            text: "Pokalsieger",
+            color: "red",
+            priority: 90
+        });
+    }
+
+
+    /*
+    =====================================
+    AKTUELLE AUSZEICHNUNGEN
+    =====================================
+    */
+
+
+    if (
+        rankingPosition === 1 &&
+        legendPoints > 0
+    ) {
+        badges.push({
+            icon: "crown",
+            text: "Aktuelle Nummer 1",
+            color: "gold",
+            priority: 85
+        });
+    }
+
+
+    if (
+        mainRound.currentPosition === 1 ||
+        (
+            !mainRound.league &&
+            qualification.currentPosition === 1
+        )
+    ) {
+        badges.push({
+            icon: "chart-no-axes-column-increasing",
+            text: "Tabellenführer",
+            color: "green",
+            priority: 70
+        });
+    }
+
+
+    /*
+    =====================================
+    LEISTUNGS-AUSZEICHNUNGEN
+    =====================================
+    */
+
+
+    if (totalSeasonPoints >= 40000) {
+        badges.push({
+            icon: "flame",
+            text: "40.000-Punkte-Club",
+            color: "red",
+            priority: 80
+        });
+    }
+
+
+    if (totalMatchdayWins >= 5) {
+        badges.push({
+            icon: "star",
+            text: "Tagessieg-Spezialist",
+            color: "purple",
+            priority: 60
+        });
+    }
+
+
+    /*
+    =====================================
+    REKORDHALTER
+    =====================================
+    */
+
+
+    if (isManagerRecordHolder(manager)) {
+        badges.push({
+            icon: "medal",
+            text: "Rekordhalter",
+            color: "gold",
+            priority: 75
+        });
+    }
+
+
+    /*
+    =====================================
+    DOUBLE-SIEGER
+    =====================================
+    */
+
+
+    const isChampion =
+        mainRound.league ===
+            "champions-league" &&
+        mainRound.finalPosition === 1;
+
+    const isCupWinner =
+        cup.stage === "winner";
+
+
+    if (isChampion && isCupWinner) {
+        badges.push({
+            icon: "sparkles",
+            text: "Double-Sieger",
+            color: "gold",
+            priority: 110
+        });
+    }
+
+
+    /*
+    =====================================
+    SORTIEREN UND BEGRENZEN
+    =====================================
+
+    Es werden höchstens vier Auszeichnungen
+    angezeigt, damit das Profil übersichtlich
+    bleibt.
+    */
+
+
+    const visibleBadges = badges
+        .sort(
+            (a, b) =>
+                b.priority - a.priority
+        )
+        .slice(0, 4);
+
+
+    container.innerHTML = visibleBadges
         .map(badge => `
             <div
                 class="
@@ -635,10 +798,14 @@ function renderBadges(
                     ${badge.color}
                 "
             >
-                <i
-                    data-lucide="${badge.icon}"
-                    aria-hidden="true"
-                ></i>
+                <span class="manager-profile-badge-icon">
+
+                    <i
+                        data-lucide="${badge.icon}"
+                        aria-hidden="true"
+                    ></i>
+
+                </span>
 
                 <span>
                     ${badge.text}
@@ -651,4 +818,29 @@ function renderBadges(
     if (window.lucide) {
         window.lucide.createIcons();
     }
+}
+
+
+/*
+=========================================
+PRÜFUNG AUF REKORDHALTER
+=========================================
+*/
+
+function isManagerRecordHolder(manager) {
+    if (
+        typeof leagueData === "undefined" ||
+        !leagueData.records
+    ) {
+        return false;
+    }
+
+    return Object.values(
+        leagueData.records
+    ).some(record => {
+        return (
+            record &&
+            record.managerId === manager.id
+        );
+    });
 }
