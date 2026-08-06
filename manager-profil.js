@@ -173,6 +173,17 @@ function applyRankDesign(rank) {
             "manager-profile"
         );
 
+    const emblemSymbol =
+        document.querySelector(
+            "#manager-rank-symbol i"
+        );
+
+    const emblemChevrons =
+        document.getElementById(
+            "manager-rank-chevrons"
+        );
+
+
     if (rankContainer) {
         rankContainer.className =
             `manager-profile-rank ${rank.className}`;
@@ -184,17 +195,71 @@ function applyRankDesign(rank) {
     }
 
 
-    setLucideIcon(
-        "manager-rank-main-icon",
-        rank.icon
-    );
+    const emblemData = {
+        Rookie: {
+            icon: "circle-user-round",
+            chevrons: 0
+        },
+
+        Anwärter: {
+            icon: "star",
+            chevrons: 1
+        },
+
+        Amateur: {
+            icon: "star",
+            chevrons: 3
+        },
+
+        Profi: {
+            icon: "gem",
+            chevrons: 3
+        },
+
+        Elite: {
+            icon: "diamond",
+            chevrons: 2
+        },
+
+        Champion: {
+            icon: "trophy",
+            chevrons: 1
+        },
+
+        Legende: {
+            icon: "crown",
+            chevrons: 0
+        }
+    };
+
+
+    const design =
+        emblemData[rank.name] ||
+        emblemData.Rookie;
+
+
+    if (emblemSymbol) {
+        emblemSymbol.setAttribute(
+            "data-lucide",
+            design.icon
+        );
+    }
+
+
+    if (emblemChevrons) {
+        emblemChevrons.innerHTML =
+            Array.from(
+                { length: design.chevrons },
+                () => "<span></span>"
+            ).join("");
+    }
+
 
     setLucideIcon(
         "manager-rank-icon",
         rank.icon
     );
 }
-
 
 /*
 =========================================
