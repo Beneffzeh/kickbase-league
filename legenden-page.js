@@ -4,7 +4,6 @@ KICKBASE LEAGUE – LEGENDENSEITE
 =========================================
 */
 
-
 document.addEventListener("DOMContentLoaded", () => {
     startLegendsPage();
 });
@@ -28,7 +27,6 @@ function startLegendsPage() {
     renderLegendCards(ranking);
     renderLegendSummary(ranking);
     renderSeason();
-
     refreshLucideIcons();
 }
 
@@ -58,22 +56,22 @@ function renderLegendCards(ranking) {
 
         const card = document.createElement("a");
 
-card.href =
-    `/kickbase-league/manager-profil.html?id=${encodeURIComponent(manager.id)}`;
+        card.href =
+            `/kickbase-league/manager-profil.html?id=${encodeURIComponent(manager.id)}`;
 
-card.className = [
-    "legend-card",
-    "legend-card-link",
-    getPositionCardClass(position),
-    manager.legendRank.className
-]
-    .filter(Boolean)
-    .join(" ");
+        card.className = [
+            "legend-card",
+            "legend-card-link",
+            getPositionCardClass(position),
+            manager.legendRank.className
+        ]
+            .filter(Boolean)
+            .join(" ");
 
-card.setAttribute(
-    "aria-label",
-    `Managerprofil von ${manager.name} öffnen`
-);
+        card.setAttribute(
+            "aria-label",
+            `Managerprofil von ${manager.name} öffnen`
+        );
 
         card.innerHTML = createLegendCardHTML(
             manager,
@@ -82,10 +80,17 @@ card.setAttribute(
 
         container.appendChild(card);
     });
+
+    refreshLucideIcons();
 }
 
 
 function createLegendCardHTML(manager, position) {
+    const award = getPrimaryAward(
+        manager,
+        position
+    );
+
     return `
         <div class="legend-card-glow"></div>
 
@@ -95,7 +100,7 @@ function createLegendCardHTML(manager, position) {
                 legend-card-position
                 ${getPositionBadgeClass(position)}
             ">
-                ${getPositionDisplay(position)}
+                ${position}
             </span>
 
             <span class="legend-card-position-label">
@@ -141,7 +146,7 @@ function createLegendCardHTML(manager, position) {
                 ></i>
 
                 <span>
-                    ${manager.legendRank.name}
+                    ${escapeHTML(manager.legendRank.name)}
                 </span>
 
             </div>
@@ -162,10 +167,56 @@ function createLegendCardHTML(manager, position) {
         </div>
 
 
+        <div class="legend-card-meta">
+
+            <span>
+                <i
+                    data-lucide="shield"
+                    aria-hidden="true"
+                ></i>
+
+                ${escapeHTML(getManagerLeagueLabel(manager))}
+            </span>
+
+            <span>
+                <i
+                    data-lucide="chart-no-axes-column"
+                    aria-hidden="true"
+                ></i>
+
+                ${escapeHTML(getManagerPositionLabel(manager))}
+            </span>
+
+        </div>
+
+
+        ${
+            award
+                ? `
+                    <div class="
+                        legend-card-award
+                        ${award.className}
+                    ">
+
+                        <i
+                            data-lucide="${award.icon}"
+                            aria-hidden="true"
+                        ></i>
+
+                        <span>
+                            ${escapeHTML(award.text)}
+                        </span>
+
+                    </div>
+                `
+                : ""
+        }
+
+
         <div class="legend-card-footer">
 
             <span>
-                ${getRankProgressText(manager)}
+                Profil öffnen
             </span>
 
             <i
@@ -175,6 +226,151 @@ function createLegendCardHTML(manager, position) {
 
         </div>
     `;
+}
+
+
+/*
+=========================================
+SELTENE HAUPTAUSZEICHNUNG
+=========================================
+*/
+
+function getPrimaryAward(manager, rankingPosition) {
+    if (
+        manager.legendRank &&
+        manager.legendRank.name === "Legende"
+    ) {
+        return {
+            icon: "crown",
+            text: "Legende",
+            className: "award-legend"
+        };
+    }
+
+    if (
+        manager.mainRound &&
+        manager.mainRound.league === "champions-league" &&
+        manager.mainRound.finalPosition === 1
+    ) {
+        return {
+            icon: "shield-check",
+            text: "Kickbase Champion",
+            className: "award-champion"
+        };
+    }
+
+    if (
+        manager.cup &&
+        manager.cup.stage === "winner"
+    ) {
+        return {
+            icon: "trophy",
+            text: "Pokalsieger",
+            className: "award-cup"
+        };
+    }
+
+    if (
+        rankingPosition === 1 &&
+        manager.legendPoints > 0
+    ) {
+        return {
+            icon: "crown",
+            text: "Aktuelle Nummer 1",
+            className: "award-number-one"
+        };
+    }
+
+    if (
+        manager.mainRound &&
+        manager.mainRound.currentPosition === 1
+    ) {
+        return {
+            icon: "chart-no-axes-column-increasing",
+            text: "Tabellenführer",
+            className: "award-leader"
+        };
+    }
+
+    if (isRecordHolder(manager)) {
+        return {
+            icon: "medal",
+            text: "Rekordhalter",
+            className: "award-record"
+        };
+    }
+
+    return null;
+}
+
+
+function isRecordHolder(manager) {
+    if (
+        typeof leagueData === "undefined" ||
+        !leagueData.records
+    ) {
+        return false;
+    }
+
+    return Object.values(
+        leagueData.records
+    ).some(record => {
+        return (
+            record &&
+            record.managerId === manager.id
+        );
+    });
+}
+
+
+/*
+=========================================
+LIGA UND TABELLENPLATZ
+=========================================
+*/
+
+function getManagerLeagueLabel(manager) {
+    const mainRound =
+        manager.mainRound || {};
+
+    if (
+        mainRound.league ===
+        "champions-league"
+    ) {
+        return "Champions League";
+    }
+
+    if (mainRound.league === "kreisliga") {
+        return "Kreisliga";
+    }
+
+    const qualification =
+        manager.qualification || {};
+
+    if (qualification.group) {
+        return `Qualifikation ${qualification.group}`;
+    }
+
+    return "Liga noch offen";
+}
+
+
+function getManagerPositionLabel(manager) {
+    const mainRound =
+        manager.mainRound || {};
+
+    if (mainRound.currentPosition) {
+        return `${mainRound.currentPosition}. Platz`;
+    }
+
+    const qualification =
+        manager.qualification || {};
+
+    if (qualification.currentPosition) {
+        return `${qualification.currentPosition}. Platz`;
+    }
+
+    return "Platz noch offen";
 }
 
 
@@ -202,7 +398,8 @@ function renderLegendSummary(ranking) {
     );
 
 
-    const highestRank = getHighestReachedRank(ranking);
+    const highestRank =
+        getHighestReachedRank(ranking);
 
     setText(
         "summary-highest-rank",
@@ -211,7 +408,9 @@ function renderLegendSummary(ranking) {
 
     setText(
         "summary-highest-rank-count",
-        formatManagerCount(highestRank.count)
+        formatManagerCount(
+            highestRank.count
+        )
     );
 
 
@@ -267,43 +466,6 @@ function getHighestReachedRank(ranking) {
 
 /*
 =========================================
-RANGFORTSCHRITT
-=========================================
-*/
-
-function getRankProgressText(manager) {
-    const currentRankIndex =
-        LEGEND_RANKS.findIndex(
-            rank =>
-                rank.name ===
-                manager.legendRank.name
-        );
-
-    if (currentRankIndex === 0) {
-        return "Höchster Rang erreicht";
-    }
-
-    const nextRank =
-        LEGEND_RANKS[currentRankIndex - 1];
-
-    if (!nextRank) {
-        return "Höchster Rang erreicht";
-    }
-
-    const missingPoints =
-        nextRank.minimumPoints -
-        manager.legendPoints;
-
-    if (missingPoints <= 0) {
-        return `Rang: ${manager.legendRank.name}`;
-    }
-
-    return `${missingPoints} LP bis ${nextRank.name}`;
-}
-
-
-/*
-=========================================
 PLATZIERUNG
 =========================================
 */
@@ -339,23 +501,6 @@ function getPositionBadgeClass(position) {
     }
 
     return "";
-}
-
-
-function getPositionDisplay(position) {
-    if (position === 1) {
-        return "1";
-    }
-
-    if (position === 2) {
-        return "2";
-    }
-
-    if (position === 3) {
-        return "3";
-    }
-
-    return position;
 }
 
 
