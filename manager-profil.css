@@ -11,13 +11,67 @@ Bereinigte Gesamtversion
 
 .manager-profile-page {
     min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
     background:
         radial-gradient(
-            circle at 50% 0%,
-            rgba(24, 197, 91, 0.09),
+            ellipse at 50% 8%,
+            rgba(24, 197, 91, 0.22),
             transparent 34%
         ),
-        #080b12;
+        radial-gradient(
+            ellipse at 14% 38%,
+            rgba(24, 197, 91, 0.08),
+            transparent 28%
+        ),
+        radial-gradient(
+            ellipse at 88% 52%,
+            rgba(51, 115, 255, 0.055),
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            #05080d 0%,
+            #071018 42%,
+            #080b12 100%
+        );
+}
+
+.manager-profile-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.42;
+    background:
+        repeating-linear-gradient(
+            115deg,
+            transparent 0,
+            transparent 48px,
+            rgba(255, 255, 255, 0.012) 49px,
+            transparent 50px
+        );
+}
+
+.manager-profile-page::after {
+    content: "";
+    position: fixed;
+    left: 50%;
+    top: 145px;
+    width: min(980px, 130vw);
+    height: 760px;
+    z-index: -1;
+    pointer-events: none;
+    transform: translateX(-50%);
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(24, 197, 91, 0.12),
+            rgba(24, 197, 91, 0.035) 38%,
+            transparent 72%
+        );
+    filter: blur(26px);
 }
 
 .manager-profile-main {
@@ -69,23 +123,30 @@ Bereinigte Gesamtversion
 .manager-profile-hero {
     position: relative;
     overflow: hidden;
-    padding: 54px 28px 38px;
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    border-radius: 30px;
+    padding: 64px 28px 42px;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 34px;
     background:
         radial-gradient(
-            circle at 50% 12%,
-            rgba(255, 255, 255, 0.08),
-            transparent 36%
+            ellipse at 50% 12%,
+            rgba(24, 197, 91, 0.20),
+            transparent 29%
+        ),
+        radial-gradient(
+            ellipse at 50% 48%,
+            rgba(24, 197, 91, 0.07),
+            transparent 45%
         ),
         linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.055),
-            rgba(255, 255, 255, 0.018)
+            155deg,
+            rgba(20, 42, 41, 0.94),
+            rgba(8, 17, 24, 0.97) 48%,
+            rgba(6, 10, 16, 0.99)
         );
     box-shadow:
-        0 28px 80px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        0 38px 110px rgba(0, 0, 0, 0.52),
+        0 0 80px rgba(24, 197, 91, 0.075),
+        inset 0 1px 0 rgba(255, 255, 255, 0.075);
     text-align: center;
     isolation: isolate;
 }
@@ -93,17 +154,19 @@ Bereinigte Gesamtversion
 .manager-profile-hero::before {
     content: "";
     position: absolute;
-    inset: -50%;
+    inset: -42%;
     z-index: -1;
     pointer-events: none;
     background:
         conic-gradient(
             from 180deg,
-            transparent,
-            rgba(255, 255, 255, 0.035),
-            transparent 24%
+            transparent 0deg,
+            rgba(24, 197, 91, 0.06) 35deg,
+            rgba(255, 255, 255, 0.055) 58deg,
+            transparent 92deg,
+            transparent 360deg
         );
-    animation: manager-profile-shine 12s linear infinite;
+    animation: manager-profile-shine 13s linear infinite;
 }
 
 .manager-profile-hero::after {
@@ -113,12 +176,32 @@ Bereinigte Gesamtversion
     z-index: -1;
     pointer-events: none;
     background:
+        radial-gradient(
+            circle at 22% 18%,
+            rgba(24, 197, 91, 0.12) 0 1px,
+            transparent 2px
+        ),
+        radial-gradient(
+            circle at 76% 27%,
+            rgba(24, 197, 91, 0.10) 0 1px,
+            transparent 2px
+        ),
+        radial-gradient(
+            circle at 68% 54%,
+            rgba(255, 255, 255, 0.07) 0 1px,
+            transparent 2px
+        ),
         linear-gradient(
             180deg,
             transparent 0%,
-            rgba(0, 0, 0, 0.08) 55%,
-            rgba(0, 0, 0, 0.22) 100%
+            rgba(0, 0, 0, 0.06) 52%,
+            rgba(0, 0, 0, 0.32) 100%
         );
+    background-size:
+        170px 160px,
+        220px 210px,
+        260px 240px,
+        auto;
 }
 
 .manager-profile-hero > * {
@@ -139,24 +222,26 @@ Bereinigte Gesamtversion
 
 .rank-emblem {
     position: relative;
-    width: 168px;
-    height: 188px;
-    margin: 0 auto 30px;
+    width: 202px;
+    height: 226px;
+    margin: 0 auto 34px;
     color: #d2d9e2;
+    transform: translateZ(0);
 }
 
 .rank-emblem-glow {
     position: absolute;
-    inset: -4px;
+    inset: -28px;
     border-radius: 50%;
     background:
         radial-gradient(
             circle,
-            rgba(210, 217, 226, 0.58),
-            rgba(24, 197, 91, 0.18) 42%,
-            transparent 72%
+            rgba(255, 255, 255, 0.22) 0%,
+            rgba(24, 197, 91, 0.42) 28%,
+            rgba(24, 197, 91, 0.14) 52%,
+            transparent 73%
         );
-    filter: blur(19px);
+    filter: blur(22px);
     animation: rank-emblem-glow 3.2s ease-in-out infinite;
 }
 
@@ -177,8 +262,8 @@ Bereinigte Gesamtversion
         16% 10%
     );
     filter:
-        drop-shadow(0 20px 20px rgba(0, 0, 0, 0.46))
-        drop-shadow(0 0 15px rgba(24, 197, 91, 0.12));
+        drop-shadow(0 26px 22px rgba(0, 0, 0, 0.52))
+        drop-shadow(0 0 20px rgba(24, 197, 91, 0.22));
 }
 
 .rank-emblem-border {
@@ -263,9 +348,9 @@ Bereinigte Gesamtversion
 }
 
 .rank-emblem-symbol svg {
-    width: 50px;
-    height: 50px;
-    stroke-width: 2.15;
+    width: 62px;
+    height: 62px;
+    stroke-width: 2.1;
 }
 
 .rank-emblem-chevrons {
@@ -276,8 +361,8 @@ Bereinigte Gesamtversion
 }
 
 .rank-emblem-chevrons span {
-    width: 56px;
-    height: 13px;
+    width: 68px;
+    height: 15px;
     background: currentColor;
     clip-path: polygon(
         0 0,
@@ -814,9 +899,10 @@ Bereinigte Gesamtversion
     background:
         radial-gradient(
             circle,
-            rgba(210, 217, 226, 0.62),
-            rgba(24, 197, 91, 0.2) 42%,
-            transparent 72%
+            rgba(255, 255, 255, 0.34) 0%,
+            rgba(24, 197, 91, 0.52) 29%,
+            rgba(24, 197, 91, 0.16) 53%,
+            transparent 74%
         );
 }
 
@@ -1082,19 +1168,19 @@ Bereinigte Gesamtversion
     }
 
     .manager-profile-hero {
-        padding: 42px 18px 25px;
-        border-radius: 24px;
+        padding: 50px 18px 28px;
+        border-radius: 26px;
     }
 
     .rank-emblem {
-        width: 146px;
-        height: 164px;
-        margin-bottom: 26px;
+        width: 176px;
+        height: 197px;
+        margin-bottom: 30px;
     }
 
     .rank-emblem-symbol svg {
-        width: 43px;
-        height: 43px;
+        width: 53px;
+        height: 53px;
     }
 
     .rank-emblem-chevrons {
@@ -1102,8 +1188,8 @@ Bereinigte Gesamtversion
     }
 
     .rank-emblem-chevrons span {
-        width: 48px;
-        height: 11px;
+        width: 58px;
+        height: 13px;
     }
 
     .manager-profile-points {
