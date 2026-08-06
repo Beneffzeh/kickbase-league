@@ -486,9 +486,28 @@ Bereinigte Gesamtversion
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
-.manager-profile-badge svg {
-    width: 17px;
-    height: 17px;
+.manager-profile-badge-icon{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:28px;
+    height:28px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    flex-shrink:0;
+
+}
+
+.manager-profile-badge-icon svg{
+
+    width:16px;
+    height:16px;
+
 }
 
 .manager-profile-badge.gold {
@@ -521,6 +540,13 @@ Bereinigte Gesamtversion
     background: rgba(179, 108, 255, 0.045);
 }
 
+.manager-profile-badge.purple{
+
+    color:#b36cff;
+
+    border-color:rgba(179,108,255,.25);
+
+}
 
 /* =========================================
    8. RANGFORTSCHRITT
