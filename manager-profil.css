@@ -1,13 +1,22 @@
 /*
 =========================================
 KICKBASE LEAGUE – MANAGERPROFIL
+Bereinigte Gesamtversion
 =========================================
 */
+
+/* =========================================
+   1. GRUNDLAYOUT
+========================================= */
 
 .manager-profile-page {
     min-height: 100vh;
     background:
-        radial-gradient(circle at 50% 0%, rgba(24, 197, 91, 0.09), transparent 34%),
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(24, 197, 91, 0.09),
+            transparent 34%
+        ),
         #080b12;
 }
 
@@ -16,6 +25,11 @@ KICKBASE LEAGUE – MANAGERPROFIL
     margin: 0 auto;
     padding: 48px 0 90px;
 }
+
+
+/* =========================================
+   2. ZURÜCK-LINK
+========================================= */
 
 .manager-profile-back {
     display: inline-flex;
@@ -26,7 +40,9 @@ KICKBASE LEAGUE – MANAGERPROFIL
     font-size: 0.9rem;
     font-weight: 700;
     text-decoration: none;
-    transition: color 0.2s ease, transform 0.2s ease;
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .manager-profile-back:hover {
@@ -34,10 +50,21 @@ KICKBASE LEAGUE – MANAGERPROFIL
     transform: translateX(-3px);
 }
 
+.manager-profile-back:focus-visible {
+    outline: 3px solid rgba(24, 197, 91, 0.45);
+    outline-offset: 5px;
+    border-radius: 8px;
+}
+
 .manager-profile-back svg {
     width: 18px;
     height: 18px;
 }
+
+
+/* =========================================
+   3. PROFIL-HERO
+========================================= */
 
 .manager-profile-hero {
     position: relative;
@@ -46,26 +73,52 @@ KICKBASE LEAGUE – MANAGERPROFIL
     border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: 30px;
     background:
-        radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.08), transparent 36%),
-        linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
+        radial-gradient(
+            circle at 50% 12%,
+            rgba(255, 255, 255, 0.08),
+            transparent 36%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.018)
+        );
     box-shadow:
         0 28px 80px rgba(0, 0, 0, 0.35),
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
     text-align: center;
+    isolation: isolate;
 }
 
 .manager-profile-hero::before {
     content: "";
     position: absolute;
     inset: -50%;
+    z-index: -1;
     pointer-events: none;
-    background: conic-gradient(
-        from 180deg,
-        transparent,
-        rgba(255, 255, 255, 0.035),
-        transparent 24%
-    );
+    background:
+        conic-gradient(
+            from 180deg,
+            transparent,
+            rgba(255, 255, 255, 0.035),
+            transparent 24%
+        );
     animation: manager-profile-shine 12s linear infinite;
+}
+
+.manager-profile-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        linear-gradient(
+            180deg,
+            transparent 0%,
+            rgba(0, 0, 0, 0.08) 55%,
+            rgba(0, 0, 0, 0.22) 100%
+        );
 }
 
 .manager-profile-hero > * {
@@ -74,56 +127,95 @@ KICKBASE LEAGUE – MANAGERPROFIL
 }
 
 @keyframes manager-profile-shine {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-/* RANG-EMBLEM */
+
+/* =========================================
+   4. RANG-EMBLEM – GRUNDSTRUKTUR
+========================================= */
 
 .rank-emblem {
     position: relative;
-    width: 150px;
-    height: 165px;
-    margin: 0 auto 28px;
+    width: 168px;
+    height: 188px;
+    margin: 0 auto 30px;
     color: #d2d9e2;
 }
 
 .rank-emblem-glow {
     position: absolute;
-    inset: 0;
-    background: radial-gradient(
-        circle,
-        rgba(210, 217, 226, 0.52),
-        rgba(24, 197, 91, 0.2) 42%,
-        transparent 72%
-    );
-    filter: blur(18px);
-    animation: rank-glow 3s ease-in-out infinite;
+    inset: -4px;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(210, 217, 226, 0.58),
+            rgba(24, 197, 91, 0.18) 42%,
+            transparent 72%
+        );
+    filter: blur(19px);
+    animation: rank-emblem-glow 3.2s ease-in-out infinite;
 }
 
 .rank-emblem-shield {
     position: relative;
     width: 100%;
     height: 100%;
-    clip-path: polygon(50% 0%, 92% 18%, 92% 63%, 50% 100%, 8% 63%, 8% 18%);
-    filter: drop-shadow(0 18px 18px rgba(0, 0, 0, 0.42));
+    clip-path: polygon(
+        50% 0%,
+        84% 10%,
+        94% 20%,
+        92% 63%,
+        80% 78%,
+        50% 100%,
+        20% 78%,
+        8% 63%,
+        6% 20%,
+        16% 10%
+    );
+    filter:
+        drop-shadow(0 20px 20px rgba(0, 0, 0, 0.46))
+        drop-shadow(0 0 15px rgba(24, 197, 91, 0.12));
 }
 
 .rank-emblem-border {
     position: absolute;
     inset: 0;
-    background: linear-gradient(145deg, #ffffff, #8d96a2 48%, #eef2f6);
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #d9dee5 18%,
+            #737d89 48%,
+            #f4f7fa 74%,
+            #8d96a2 100%
+        );
 }
 
 .rank-emblem-face {
     position: absolute;
-    inset: 6px;
+    inset: 7px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     clip-path: inherit;
-    background: linear-gradient(160deg, #555d68, #242930 48%, #101318);
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255, 255, 255, 0.13),
+            transparent 32%
+        ),
+        linear-gradient(
+            165deg,
+            #59616d 0%,
+            #252b33 48%,
+            #0e1116 100%
+        );
 }
 
 .rank-emblem-face::before {
@@ -131,13 +223,29 @@ KICKBASE LEAGUE – MANAGERPROFIL
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: linear-gradient(
-        115deg,
-        rgba(255, 255, 255, 0.22),
-        transparent 35%,
-        transparent 65%,
-        rgba(255, 255, 255, 0.04)
-    );
+    background:
+        linear-gradient(
+            115deg,
+            rgba(255, 255, 255, 0.24),
+            transparent 33%,
+            transparent 66%,
+            rgba(255, 255, 255, 0.035)
+        );
+}
+
+.rank-emblem-face::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        repeating-linear-gradient(
+            135deg,
+            transparent 0,
+            transparent 11px,
+            rgba(255, 255, 255, 0.018) 12px,
+            transparent 13px
+        );
 }
 
 .rank-emblem-symbol,
@@ -147,32 +255,45 @@ KICKBASE LEAGUE – MANAGERPROFIL
 }
 
 .rank-emblem-symbol {
-    margin-top: 8px;
+    display: grid;
+    place-items: center;
+    margin-top: -5px;
+    color: currentColor;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35));
 }
 
 .rank-emblem-symbol svg {
-    width: 42px;
-    height: 42px;
-    stroke-width: 2.2;
+    width: 50px;
+    height: 50px;
+    stroke-width: 2.15;
 }
 
 .rank-emblem-chevrons {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    margin-top: 16px;
+    gap: 2px;
+    margin-top: 14px;
 }
 
 .rank-emblem-chevrons span {
-    width: 46px;
-    height: 5px;
-    border-radius: 999px;
+    width: 56px;
+    height: 13px;
     background: currentColor;
+    clip-path: polygon(
+        0 0,
+        50% 61%,
+        100% 0,
+        100% 35%,
+        50% 100%,
+        0 35%
+    );
     opacity: 0.92;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.25));
 }
 
-@keyframes rank-glow {
-    0%, 100% {
+@keyframes rank-emblem-glow {
+    0%,
+    100% {
         transform: scale(1);
         opacity: 0.65;
     }
@@ -182,6 +303,11 @@ KICKBASE LEAGUE – MANAGERPROFIL
         opacity: 1;
     }
 }
+
+
+/* =========================================
+   5. TITEL UND RANG
+========================================= */
 
 .manager-profile-label,
 .manager-profile-section-heading p {
@@ -220,6 +346,11 @@ KICKBASE LEAGUE – MANAGERPROFIL
     height: 18px;
 }
 
+
+/* =========================================
+   6. LEGENDENPUNKTE
+========================================= */
+
 .manager-profile-points {
     display: flex;
     align-items: baseline;
@@ -242,6 +373,12 @@ KICKBASE LEAGUE – MANAGERPROFIL
     font-weight: 800;
 }
 
+
+/* =========================================
+   7. AUSZEICHNUNGS-BADGES
+   Zukunftssicher: weitere Farbklassen möglich
+========================================= */
+
 .manager-profile-badges {
     display: flex;
     justify-content: center;
@@ -261,6 +398,7 @@ KICKBASE LEAGUE – MANAGERPROFIL
     color: #ffffff;
     font-size: 0.82rem;
     font-weight: 800;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .manager-profile-badge svg {
@@ -271,22 +409,37 @@ KICKBASE LEAGUE – MANAGERPROFIL
 .manager-profile-badge.gold {
     color: #ffd45c;
     border-color: rgba(255, 212, 92, 0.25);
+    background: rgba(255, 212, 92, 0.045);
 }
 
 .manager-profile-badge.green {
     color: #18c55b;
     border-color: rgba(24, 197, 91, 0.25);
+    background: rgba(24, 197, 91, 0.045);
 }
 
 .manager-profile-badge.red {
     color: #ff6c6c;
     border-color: rgba(255, 108, 108, 0.25);
+    background: rgba(255, 108, 108, 0.045);
 }
 
 .manager-profile-badge.blue {
     color: #56a9ff;
     border-color: rgba(86, 169, 255, 0.25);
+    background: rgba(86, 169, 255, 0.045);
 }
+
+.manager-profile-badge.purple {
+    color: #b36cff;
+    border-color: rgba(179, 108, 255, 0.25);
+    background: rgba(179, 108, 255, 0.045);
+}
+
+
+/* =========================================
+   8. RANGFORTSCHRITT
+========================================= */
 
 .manager-profile-progress {
     display: block;
@@ -325,10 +478,20 @@ KICKBASE LEAGUE – MANAGERPROFIL
     min-width: 3px;
     height: 100%;
     border-radius: 999px;
-    background: linear-gradient(90deg, #18c55b, #79e9a5);
+    background:
+        linear-gradient(
+            90deg,
+            #18c55b,
+            #79e9a5
+        );
     box-shadow: 0 0 16px rgba(24, 197, 91, 0.45);
     transition: width 0.8s ease;
 }
+
+
+/* =========================================
+   9. ABSCHNITTE
+========================================= */
 
 .manager-profile-section {
     margin-top: 72px;
@@ -345,6 +508,11 @@ KICKBASE LEAGUE – MANAGERPROFIL
     letter-spacing: -0.035em;
 }
 
+
+/* =========================================
+   10. LP-AUFSCHLÜSSELUNG
+========================================= */
+
 .manager-profile-stats-grid {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -356,11 +524,12 @@ KICKBASE LEAGUE – MANAGERPROFIL
     padding: 22px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
-    background: linear-gradient(
-        145deg,
-        rgba(255, 255, 255, 0.045),
-        rgba(255, 255, 255, 0.014)
-    );
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.014)
+        );
     transition:
         transform 0.2s ease,
         border-color 0.2s ease,
@@ -370,11 +539,12 @@ KICKBASE LEAGUE – MANAGERPROFIL
 .manager-profile-stat-card:hover {
     transform: translateY(-4px);
     border-color: rgba(24, 197, 91, 0.28);
-    background: linear-gradient(
-        145deg,
-        rgba(24, 197, 91, 0.075),
-        rgba(255, 255, 255, 0.015)
-    );
+    background:
+        linear-gradient(
+            145deg,
+            rgba(24, 197, 91, 0.075),
+            rgba(255, 255, 255, 0.015)
+        );
 }
 
 .manager-profile-stat-icon {
@@ -411,17 +581,23 @@ KICKBASE LEAGUE – MANAGERPROFIL
     font-weight: 950;
 }
 
+
+/* =========================================
+   11. SAISONDETAILS
+========================================= */
+
 .manager-profile-details {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 22px;
-    background: linear-gradient(
-        145deg,
-        rgba(255, 255, 255, 0.038),
-        rgba(255, 255, 255, 0.012)
-    );
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.038),
+            rgba(255, 255, 255, 0.012)
+        );
 }
 
 .manager-profile-details > div {
@@ -454,6 +630,11 @@ KICKBASE LEAGUE – MANAGERPROFIL
     font-size: 1.08rem;
     font-weight: 900;
 }
+
+
+/* =========================================
+   12. FEHLERMELDUNG
+========================================= */
 
 .manager-profile-error {
     display: flex;
@@ -488,33 +669,79 @@ KICKBASE LEAGUE – MANAGERPROFIL
     line-height: 1.55;
 }
 
-/* RANGFARBEN */
 
-.rank-rookie { color: #818a98; }
-.rank-contender { color: #bc7b46; }
-.rank-amateur { color: #d2d9e2; }
-.rank-professional { color: #4ba7ff; }
-.rank-elite { color: #b36cff; }
-.rank-champion { color: #ff6060; }
-.rank-legend { color: #ffd45c; }
+/* =========================================
+   13. ALLGEMEINE RANGFARBEN
+========================================= */
+
+.rank-rookie {
+    color: #818a98;
+}
+
+.rank-contender {
+    color: #bc7b46;
+}
+
+.rank-amateur {
+    color: #d2d9e2;
+}
+
+.rank-professional {
+    color: #4ba7ff;
+}
+
+.rank-elite {
+    color: #b36cff;
+}
+
+.rank-champion {
+    color: #ff6060;
+}
+
+.rank-legend {
+    color: #ffd45c;
+}
+
+
+/* =========================================
+   14. EMBLEM-FARBEN JE RANG
+========================================= */
 
 /* ROOKIE */
 
 .manager-profile-hero.rank-rookie .rank-emblem {
-    color: #818a98;
+    color: #a5adb8;
 }
 
 .manager-profile-hero.rank-rookie .rank-emblem-border {
-    background: linear-gradient(145deg, #c7ccd3, #646c77 50%, #9ba3ae);
+    background:
+        linear-gradient(
+            145deg,
+            #c7ccd3,
+            #646c77 50%,
+            #9ba3ae
+        );
 }
 
 .manager-profile-hero.rank-rookie .rank-emblem-face {
-    background: linear-gradient(160deg, #3d434c, #1d2128 55%, #101318);
+    background:
+        linear-gradient(
+            160deg,
+            #3d434c,
+            #1d2128 55%,
+            #101318
+        );
 }
 
 .manager-profile-hero.rank-rookie .rank-emblem-glow {
-    background: radial-gradient(circle, rgba(129, 138, 152, 0.42), transparent 72%);
+    background:
+        radial-gradient(
+            circle,
+            rgba(129, 138, 152, 0.45),
+            transparent 72%
+        );
 }
+
 
 /* ANWÄRTER */
 
@@ -523,16 +750,34 @@ KICKBASE LEAGUE – MANAGERPROFIL
 }
 
 .manager-profile-hero.rank-contender .rank-emblem-border {
-    background: linear-gradient(150deg, #f2b77f, #8e4f25 55%, #d48a51);
+    background:
+        linear-gradient(
+            150deg,
+            #f2b77f,
+            #8e4f25 55%,
+            #d48a51
+        );
 }
 
 .manager-profile-hero.rank-contender .rank-emblem-face {
-    background: linear-gradient(160deg, #75401f, #331c0e 55%, #170d07);
+    background:
+        linear-gradient(
+            160deg,
+            #75401f,
+            #331c0e 55%,
+            #170d07
+        );
 }
 
 .manager-profile-hero.rank-contender .rank-emblem-glow {
-    background: radial-gradient(circle, rgba(188, 123, 70, 0.62), transparent 72%);
+    background:
+        radial-gradient(
+            circle,
+            rgba(188, 123, 70, 0.65),
+            transparent 72%
+        );
 }
+
 
 /* AMATEUR */
 
@@ -541,39 +786,76 @@ KICKBASE LEAGUE – MANAGERPROFIL
 }
 
 .manager-profile-hero.rank-amateur .rank-emblem-border {
-    background: linear-gradient(145deg, #ffffff, #8d96a2 48%, #eef2f6);
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #8d96a2 48%,
+            #eef2f6
+        );
 }
 
 .manager-profile-hero.rank-amateur .rank-emblem-face {
-    background: linear-gradient(160deg, #555d68, #242930 48%, #101318);
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255, 255, 255, 0.14),
+            transparent 33%
+        ),
+        linear-gradient(
+            160deg,
+            #59616d,
+            #242930 48%,
+            #101318
+        );
 }
 
 .manager-profile-hero.rank-amateur .rank-emblem-glow {
-    background: radial-gradient(
-        circle,
-        rgba(210, 217, 226, 0.58),
-        rgba(24, 197, 91, 0.2) 42%,
-        transparent 72%
-    );
+    background:
+        radial-gradient(
+            circle,
+            rgba(210, 217, 226, 0.62),
+            rgba(24, 197, 91, 0.2) 42%,
+            transparent 72%
+        );
 }
+
 
 /* PROFI */
 
 .manager-profile-hero.rank-professional .rank-emblem {
-    color: #77bdff;
+    color: #8ac8ff;
 }
 
 .manager-profile-hero.rank-professional .rank-emblem-border {
-    background: linear-gradient(145deg, #d6ecff, #287fd1 48%, #79c1ff);
+    background:
+        linear-gradient(
+            145deg,
+            #d6ecff,
+            #287fd1 48%,
+            #79c1ff
+        );
 }
 
 .manager-profile-hero.rank-professional .rank-emblem-face {
-    background: linear-gradient(160deg, #184f84, #0c2845 55%, #071422);
+    background:
+        linear-gradient(
+            160deg,
+            #184f84,
+            #0c2845 55%,
+            #071422
+        );
 }
 
 .manager-profile-hero.rank-professional .rank-emblem-glow {
-    background: radial-gradient(circle, rgba(75, 167, 255, 0.68), transparent 72%);
+    background:
+        radial-gradient(
+            circle,
+            rgba(75, 167, 255, 0.72),
+            transparent 72%
+        );
 }
+
 
 /* ELITE */
 
@@ -582,34 +864,70 @@ KICKBASE LEAGUE – MANAGERPROFIL
 }
 
 .manager-profile-hero.rank-elite .rank-emblem-border {
-    background: linear-gradient(145deg, #f1dcff, #7d31bd 48%, #c077ff);
+    background:
+        linear-gradient(
+            145deg,
+            #f1dcff,
+            #7d31bd 48%,
+            #c077ff
+        );
 }
 
 .manager-profile-hero.rank-elite .rank-emblem-face {
-    background: linear-gradient(160deg, #572080, #28103e 55%, #12071c);
+    background:
+        linear-gradient(
+            160deg,
+            #572080,
+            #28103e 55%,
+            #12071c
+        );
 }
 
 .manager-profile-hero.rank-elite .rank-emblem-glow {
-    background: radial-gradient(circle, rgba(179, 108, 255, 0.72), transparent 72%);
+    background:
+        radial-gradient(
+            circle,
+            rgba(179, 108, 255, 0.76),
+            transparent 72%
+        );
 }
+
 
 /* CHAMPION */
 
 .manager-profile-hero.rank-champion .rank-emblem {
-    color: #ff9a9a;
+    color: #ffd0a3;
 }
 
 .manager-profile-hero.rank-champion .rank-emblem-border {
-    background: linear-gradient(145deg, #ffd7b0, #b32424 48%, #ff5f4d);
+    background:
+        linear-gradient(
+            145deg,
+            #ffd7b0,
+            #b32424 48%,
+            #ff5f4d
+        );
 }
 
 .manager-profile-hero.rank-champion .rank-emblem-face {
-    background: linear-gradient(160deg, #8c2020, #3c0d0d 55%, #190606);
+    background:
+        linear-gradient(
+            160deg,
+            #8c2020,
+            #3c0d0d 55%,
+            #190606
+        );
 }
 
 .manager-profile-hero.rank-champion .rank-emblem-glow {
-    background: radial-gradient(circle, rgba(255, 96, 96, 0.76), transparent 72%);
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 96, 96, 0.8),
+            transparent 72%
+        );
 }
+
 
 /* LEGENDE */
 
@@ -618,18 +936,38 @@ KICKBASE LEAGUE – MANAGERPROFIL
 }
 
 .manager-profile-hero.rank-legend .rank-emblem-border {
-    background: linear-gradient(145deg, #fff2ac, #b77a13 48%, #ffd45c);
+    background:
+        linear-gradient(
+            145deg,
+            #fff2ac,
+            #b77a13 48%,
+            #ffd45c
+        );
 }
 
 .manager-profile-hero.rank-legend .rank-emblem-face {
-    background: linear-gradient(160deg, #785110, #352105 55%, #171004);
+    background:
+        linear-gradient(
+            160deg,
+            #785110,
+            #352105 55%,
+            #171004
+        );
 }
 
 .manager-profile-hero.rank-legend .rank-emblem-glow {
-    background: radial-gradient(circle, rgba(255, 212, 92, 0.82), transparent 72%);
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 212, 92, 0.86),
+            transparent 72%
+        );
 }
 
-/* PROFILHINTERGRUND NACH RANG */
+
+/* =========================================
+   15. PROFILHINTERGRUND NACH RANG
+========================================= */
 
 .manager-profile-hero.rank-contender {
     box-shadow:
@@ -667,7 +1005,40 @@ KICKBASE LEAGUE – MANAGERPROFIL
         inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-/* TABLET */
+
+/* =========================================
+   16. ZUKÜNFTIGE ERWEITERUNGS-HOOKS
+========================================= */
+
+/* Später verwendbar für Profilbilder */
+.manager-profile-avatar {
+    display: none;
+}
+
+/* Später verwendbar für Karriere-Tabs */
+.manager-profile-tabs {
+    display: none;
+}
+
+/* Später verwendbar für anklickbare Detailkarten */
+.manager-profile-stat-card.is-clickable {
+    cursor: pointer;
+}
+
+.manager-profile-stat-card.is-clickable:focus-visible {
+    outline: 3px solid rgba(24, 197, 91, 0.45);
+    outline-offset: 4px;
+}
+
+/* Später verwendbar für saisonale Statushinweise */
+.manager-profile-status {
+    display: none;
+}
+
+
+/* =========================================
+   17. TABLET
+========================================= */
 
 @media (max-width: 980px) {
     .manager-profile-stats-grid {
@@ -695,7 +1066,10 @@ KICKBASE LEAGUE – MANAGERPROFIL
     }
 }
 
-/* SMARTPHONE */
+
+/* =========================================
+   18. SMARTPHONE
+========================================= */
 
 @media (max-width: 640px) {
     .manager-profile-main {
@@ -713,24 +1087,23 @@ KICKBASE LEAGUE – MANAGERPROFIL
     }
 
     .rank-emblem {
-        width: 125px;
-        height: 138px;
-        margin-bottom: 24px;
+        width: 146px;
+        height: 164px;
+        margin-bottom: 26px;
     }
 
     .rank-emblem-symbol svg {
-        width: 36px;
-        height: 36px;
+        width: 43px;
+        height: 43px;
     }
 
     .rank-emblem-chevrons {
-        margin-top: 13px;
-        gap: 5px;
+        margin-top: 12px;
     }
 
     .rank-emblem-chevrons span {
-        width: 40px;
-        height: 4px;
+        width: 48px;
+        height: 11px;
     }
 
     .manager-profile-points {
@@ -788,5 +1161,23 @@ KICKBASE LEAGUE – MANAGERPROFIL
 
     .manager-profile-details > div:last-child {
         border-bottom: 0 !important;
+    }
+}
+
+
+/* =========================================
+   19. BEWEGUNGEN REDUZIEREN
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .manager-profile-hero::before,
+    .rank-emblem-glow {
+        animation: none;
+    }
+
+    .manager-profile-progress-value,
+    .manager-profile-stat-card,
+    .manager-profile-back {
+        transition: none;
     }
 }
