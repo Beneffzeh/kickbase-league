@@ -1177,6 +1177,522 @@ Bereinigte Gesamtversion
 }
 
 
+
+
+/* =========================================
+   20. ULTIMATE-KARTE
+========================================= */
+
+.manager-ultimate-section {
+    width: min(760px, 100%);
+    margin: 58px auto 0;
+}
+
+.manager-ultimate-section .manager-profile-section-heading {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.manager-ultimate-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 560px;
+    padding: 26px 24px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 34px;
+    background:
+        radial-gradient(
+            ellipse at 50% 12%,
+            rgba(255, 255, 255, 0.11),
+            transparent 31%
+        ),
+        radial-gradient(
+            ellipse at 50% 58%,
+            rgba(24, 197, 91, 0.08),
+            transparent 47%
+        ),
+        linear-gradient(
+            155deg,
+            rgba(22, 31, 40, 0.98),
+            rgba(9, 14, 21, 0.995) 56%,
+            rgba(5, 8, 13, 1)
+        );
+    box-shadow:
+        0 34px 95px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    isolation: isolate;
+    color: #d2d9e2;
+}
+
+.manager-ultimate-card::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    z-index: -1;
+    pointer-events: none;
+    border: 1px solid rgba(255, 255, 255, 0.055);
+    border-radius: 27px;
+}
+
+.manager-ultimate-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        linear-gradient(
+            115deg,
+            rgba(255, 255, 255, 0.08),
+            transparent 30%,
+            transparent 68%,
+            rgba(24, 197, 91, 0.04)
+        );
+}
+
+.manager-ultimate-card-glow {
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    z-index: -1;
+    width: 520px;
+    height: 390px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(24, 197, 91, 0.22),
+            transparent 68%
+        );
+    filter: blur(34px);
+}
+
+.manager-ultimate-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.manager-ultimate-rating {
+    display: flex;
+    align-items: flex-end;
+    gap: 7px;
+}
+
+.manager-ultimate-rating strong {
+    color: #ffffff;
+    font-size: clamp(3.4rem, 10vw, 5.4rem);
+    font-weight: 950;
+    line-height: 0.85;
+    letter-spacing: -0.07em;
+    text-shadow: 0 6px 22px rgba(0, 0, 0, 0.34);
+}
+
+.manager-ultimate-rating span {
+    margin-bottom: 5px;
+    color: currentColor;
+    font-size: 0.76rem;
+    font-weight: 950;
+    letter-spacing: 0.13em;
+}
+
+.manager-ultimate-ranking {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 58px;
+    padding: 10px 13px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.035);
+    backdrop-filter: blur(10px);
+}
+
+.manager-ultimate-ranking > svg {
+    width: 21px;
+    height: 21px;
+    color: #ffd45c;
+}
+
+.manager-ultimate-ranking small,
+.manager-ultimate-ranking strong {
+    display: block;
+}
+
+.manager-ultimate-ranking small {
+    margin-bottom: 2px;
+    color: #7d8795;
+    font-size: 0.58rem;
+    font-weight: 900;
+    letter-spacing: 0.09em;
+}
+
+.manager-ultimate-ranking strong {
+    color: #ffffff;
+    font-size: 1.12rem;
+    font-weight: 950;
+}
+
+.manager-ultimate-emblem {
+    display: grid;
+    width: 134px;
+    height: 148px;
+    margin: 26px auto 20px;
+    place-items: center;
+    color: currentColor;
+    clip-path: polygon(
+        50% 0%,
+        84% 10%,
+        94% 20%,
+        92% 63%,
+        80% 78%,
+        50% 100%,
+        20% 78%,
+        8% 63%,
+        6% 20%,
+        16% 10%
+    );
+    background:
+        radial-gradient(
+            circle at 50% 18%,
+            rgba(255, 255, 255, 0.18),
+            transparent 33%
+        ),
+        linear-gradient(
+            160deg,
+            rgba(255, 255, 255, 0.14),
+            rgba(255, 255, 255, 0.035)
+        );
+    box-shadow:
+        inset 0 0 0 2px currentColor,
+        0 20px 35px rgba(0, 0, 0, 0.34);
+    filter: drop-shadow(0 0 18px currentColor);
+}
+
+.manager-ultimate-emblem svg {
+    width: 58px;
+    height: 58px;
+    stroke-width: 1.85;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.32));
+}
+
+.manager-ultimate-label {
+    margin: 0 0 6px;
+    color: #18c55b;
+    font-size: 0.68rem;
+    font-weight: 950;
+    letter-spacing: 0.18em;
+    text-align: center;
+}
+
+.manager-ultimate-card h3 {
+    margin: 0;
+    overflow: hidden;
+    color: #ffffff;
+    font-size: clamp(2.2rem, 7vw, 3.7rem);
+    font-weight: 950;
+    letter-spacing: -0.055em;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.manager-ultimate-rank {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: max-content;
+    margin: 14px auto 0;
+    padding: 8px 13px;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.035);
+    font-size: 0.82rem;
+    font-weight: 900;
+}
+
+.manager-ultimate-rank svg {
+    width: 17px;
+    height: 17px;
+}
+
+.manager-ultimate-divider {
+    width: min(490px, 86%);
+    height: 1px;
+    margin: 25px auto 21px;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            currentColor 22%,
+            currentColor 78%,
+            transparent
+        );
+    opacity: 0.22;
+}
+
+.manager-ultimate-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.manager-ultimate-stats > div {
+    min-height: 82px;
+    padding: 13px 7px;
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 16px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.05),
+            rgba(255, 255, 255, 0.018)
+        );
+    text-align: center;
+}
+
+.manager-ultimate-stats strong,
+.manager-ultimate-stats span {
+    display: block;
+}
+
+.manager-ultimate-stats strong {
+    color: #ffffff;
+    font-size: 1.55rem;
+    font-weight: 950;
+    line-height: 1;
+}
+
+.manager-ultimate-stats span {
+    margin-top: 8px;
+    color: #77818e;
+    font-size: 0.61rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.manager-ultimate-league {
+    display: flex;
+    width: max-content;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 18px auto 0;
+    padding: 9px 14px;
+    border: 1px solid rgba(24, 197, 91, 0.24);
+    border-radius: 999px;
+    background: rgba(24, 197, 91, 0.06);
+    color: #8be8ad;
+    font-size: 0.77rem;
+    font-weight: 850;
+}
+
+.manager-ultimate-league svg {
+    width: 16px;
+    height: 16px;
+}
+
+
+/* ULTIMATE-KARTE: RANGFARBEN */
+
+.manager-ultimate-card.rank-rookie {
+    color: #a4adb9;
+}
+
+.manager-ultimate-card.rank-contender {
+    color: #d88b50;
+    border-color: rgba(188, 123, 70, 0.26);
+    background:
+        radial-gradient(
+            ellipse at 50% 12%,
+            rgba(188, 123, 70, 0.23),
+            transparent 32%
+        ),
+        linear-gradient(
+            155deg,
+            rgba(61, 35, 20, 0.98),
+            rgba(14, 13, 15, 0.995) 58%,
+            #06090e
+        );
+}
+
+.manager-ultimate-card.rank-amateur {
+    color: #e2e7ed;
+    border-color: rgba(210, 217, 226, 0.28);
+    background:
+        radial-gradient(
+            ellipse at 50% 12%,
+            rgba(210, 217, 226, 0.22),
+            transparent 32%
+        ),
+        radial-gradient(
+            ellipse at 50% 60%,
+            rgba(24, 197, 91, 0.07),
+            transparent 48%
+        ),
+        linear-gradient(
+            155deg,
+            rgba(52, 59, 67, 0.98),
+            rgba(12, 16, 22, 0.995) 58%,
+            #06090e
+        );
+    box-shadow:
+        0 34px 95px rgba(0, 0, 0, 0.5),
+        0 0 58px rgba(210, 217, 226, 0.075),
+        inset 0 1px 0 rgba(255, 255, 255, 0.09);
+}
+
+.manager-ultimate-card.rank-professional {
+    color: #6ab7ff;
+    border-color: rgba(75, 167, 255, 0.29);
+    background:
+        radial-gradient(
+            ellipse at 50% 12%,
+            rgba(75, 167, 255, 0.27),
+            transparent 32%
+        ),
+        linear-gradient(
+            155deg,
+            rgba(14, 48, 80, 0.98),
+            rgba(8, 15, 24, 0.995) 58%,
+            #05080d
+        );
+}
+
+.manager-ultimate-card.rank-elite {
+    color: #c185ff;
+    border-color: rgba(179, 108, 255, 0.31);
+    background:
+        radial-gradient(
+            ellipse at 50% 12%,
+            rgba(179, 108, 255, 0.3),
+            transparent 32%
+        ),
+        linear-gradient(
+            155deg,
+            rgba(55, 24, 78, 0.98),
+            rgba(14, 10, 22, 0.995) 58%,
+            #05080d
+        );
+}
+
+.manager-ultimate-card.rank-champion {
+    color: #ff7070;
+    border-color: rgba(255, 96, 96, 0.32);
+    background:
+        radial-gradient(
+            ellipse at 50% 12%,
+            rgba(255, 96, 96, 0.31),
+            transparent 32%
+        ),
+        linear-gradient(
+            155deg,
+            rgba(78, 20, 20, 0.98),
+            rgba(20, 9, 12, 0.995) 58%,
+            #05080d
+        );
+}
+
+.manager-ultimate-card.rank-legend {
+    color: #ffd45c;
+    border-color: rgba(255, 212, 92, 0.36);
+    background:
+        radial-gradient(
+            ellipse at 50% 12%,
+            rgba(255, 212, 92, 0.34),
+            transparent 32%
+        ),
+        linear-gradient(
+            155deg,
+            rgba(76, 55, 12, 0.98),
+            rgba(24, 17, 7, 0.995) 58%,
+            #05080d
+        );
+    box-shadow:
+        0 34px 100px rgba(0, 0, 0, 0.52),
+        0 0 68px rgba(255, 212, 92, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+
+/* SMARTPHONE – ULTIMATE-KARTE */
+
+@media (max-width: 640px) {
+    .manager-ultimate-section {
+        margin-top: 48px;
+    }
+
+    .manager-ultimate-card {
+        min-height: 520px;
+        padding: 20px 15px 18px;
+        border-radius: 28px;
+    }
+
+    .manager-ultimate-card::before {
+        inset: 6px;
+        border-radius: 23px;
+    }
+
+    .manager-ultimate-top {
+        gap: 10px;
+    }
+
+    .manager-ultimate-rating strong {
+        font-size: 3.55rem;
+    }
+
+    .manager-ultimate-ranking {
+        min-height: 52px;
+        padding: 8px 10px;
+    }
+
+    .manager-ultimate-ranking small {
+        font-size: 0.52rem;
+    }
+
+    .manager-ultimate-emblem {
+        width: 118px;
+        height: 130px;
+        margin-top: 22px;
+    }
+
+    .manager-ultimate-emblem svg {
+        width: 50px;
+        height: 50px;
+    }
+
+    .manager-ultimate-divider {
+        margin-top: 22px;
+    }
+
+    .manager-ultimate-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+    }
+
+    .manager-ultimate-stats > div {
+        min-height: 74px;
+    }
+
+    .manager-ultimate-stats strong {
+        font-size: 1.4rem;
+    }
+}
+
+
+/* REDUZIERTE BEWEGUNG – ULTIMATE */
+
+@media (prefers-reduced-motion: reduce) {
+    .manager-ultimate-card {
+        transition: none;
+    }
+}
+
+
 /* =========================================
    17. TABLET
 ========================================= */
