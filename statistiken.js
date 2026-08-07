@@ -101,10 +101,18 @@ function renderAllTimeTable() {
                             ),
 
                         points:
-                            getCareerValue(
-                                manager,
-                                "totalPoints"
-                            )
+    getCareerValue(
+        manager,
+        "totalPoints"
+    )
+    +
+    (
+        manager.qualification.points || 0
+    )
+    +
+    (
+        manager.mainRound.points || 0
+    )
 
                     };
 
