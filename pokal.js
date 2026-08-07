@@ -394,7 +394,58 @@ function getCupParticipantDisplayName(
 
 }
 
+/*
+=========================================
+ANKLICKBARER MANAGERNAME
+=========================================
+*/
 
+function getCupParticipantHTML(
+    participant
+) {
+
+    const managerId =
+        getResolvedCupParticipant(
+            participant
+        );
+
+
+    const displayName =
+        getCupParticipantDisplayName(
+            participant
+        );
+
+
+    /*
+    Echter Manager steht fest:
+    Profil-Link erzeugen.
+    */
+
+    if (managerId) {
+
+        return `
+            <a
+                class="pokal-manager-link"
+                href="/kickbase-league/manager-profil.html?id=${managerId}"
+            >
+                ${displayName}
+            </a>
+        `;
+
+    }
+
+
+    /*
+    Noch offener Platzhalter.
+    */
+
+    return `
+        <span>
+            ${displayName}
+        </span>
+    `;
+
+}
 /*
 =========================================
 PUNKTZAHL FÜR DIE ANZEIGE
@@ -688,8 +739,12 @@ function createCupMatchHTML(
             <div class="pokal-team${homeWinnerClass}">
 
                 <span class="pokal-team-name">
-                    ${homeName}
-                </span>
+
+    ${getCupParticipantHTML(
+        match.home
+    )}
+
+</span>
 
                 <strong>
                     ${homeScore}
@@ -701,8 +756,12 @@ function createCupMatchHTML(
             <div class="pokal-team${awayWinnerClass}">
 
                 <span class="pokal-team-name">
-                    ${awayName}
-                </span>
+
+    ${getCupParticipantHTML(
+        match.away
+    )}
+
+</span>
 
                 <strong>
                     ${awayScore}
