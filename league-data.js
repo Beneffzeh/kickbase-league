@@ -1383,7 +1383,520 @@ function calculateMatchdayWins(
 
 }
 
+/*
+=========================================
+POKAL AUTOMATISCH BERECHNEN
+=========================================
+*/
 
+function calculateCupProgress() {
+
+    /*
+    Pokaldaten der Manager zunächst
+    auf den Ausgangszustand setzen.
+    */
+
+    leagueData.managers.forEach(
+        manager => {
+
+            manager.cup = {
+                preliminaryRoundWin: false,
+                stage: "round-of-16"
+            };
+
+        }
+    );
+
+
+    const winners = {};
+
+
+    /*
+    =====================================
+    VORRUNDE
+    =====================================
+    */
+
+    processCupRound(
+        leagueData.cup.preliminaryRound,
+        winners,
+        "preliminary-round"
+    );
+
+
+    /*
+    =====================================
+    ACHTELFINALE
+    =====================================
+    */
+
+    processCupRound(
+        leagueData.cup.roundOf16,
+        winners,
+        "round-of-16"
+    );
+
+
+    /*
+    =====================================
+    VIERTELFINALE
+    =====================================
+    */
+
+    processCupRound(
+        leagueData.cup.quarterFinals,
+        winners,
+        "quarter-final"
+    );
+
+
+    /*
+    =====================================
+    HALBFINALE
+    =====================================
+    */
+
+    processCupRound(
+        leagueData.cup.semiFinals,
+        winners,
+        "semi-final"
+    );
+
+
+    /*
+    =====================================
+    FINALE
+    =====================================
+    */
+
+    processCupRound(
+        leagueData.cup.final,
+        winners,
+        "final"
+    );
+
+
+    /*
+    Finalgewinner = Pokalsieger
+    */
+
+    if (winners.F1) {
+
+        const champion =
+            getManagerById(
+                winners.F1
+            );
+
+
+        if (champion) {
+
+            champion.cup.stage =
+                "winner";
+
+        }
+
+    }
+
+}
+
+
+/*
+=========================================
+EINZELNE POKALRUNDE AUSWERTEN
+=========================================
+*/
+
+function processCupRound(
+    matches,
+    winners,
+    stage
+) {
+
+    if (!Array.isArray(matches)) {
+        return;
+    }
+
+
+    matches.forEach(
+        match => {
+
+            const homeId =
+                resolveCupParticipant(
+                    match.home,
+                    winners
+                );
+
+
+            const awayId =
+                resolveCupParticipant(
+                    match.away,
+                    winners
+                );
+
+
+            /*
+            Vorherige Runde noch nicht
+            entschieden.
+            */
+
+            if (
+                !homeId ||
+                !awayId
+            ) {
+                return;
+            }
+
+
+            const homeManager =
+                getManagerById(
+                    homeId
+                );
+
+
+            const awayManager =
+                getManagerById(
+                    awayId
+                );
+
+
+            if (
+                !homeManager ||
+                !awayManager
+            ) {
+                return;
+            }
+
+
+            /*
+            Beide Teilnehmer haben diese
+            Runde erreicht.
+            */
+
+            setReachedCupStage(
+                homeManager,
+                stage
+            );
+
+
+            setReachedCupStage(
+                awayManager,
+                stage
+            );
+
+
+            const homeScore =
+                getManagerCupScore(
+                    homeId,
+                    match.matchday
+                );
+
+
+            const awayScore =
+                getManagerCupScore(
+                    awayId,
+                    match.matchday
+                );
+
+
+            /*
+            Spieltag noch nicht vorhanden.
+            */
+
+            if (
+                homeScore === null ||
+                awayScore === null
+            ) {
+                return;
+            }
+
+
+            /*
+            Punktgleichheit:
+            Keine automatische Entscheidung.
+            */
+
+            if (
+                homeScore === awayScore
+            ) {
+
+                console.warn(
+                    `Pokalspiel ${match.id} ist punktgleich: ${homeManager.name} ${homeScore} : ${awayScore} ${awayManager.name}`
+                );
+
+                return;
+            }
+
+
+            const winnerId =
+                homeScore > awayScore
+                    ? homeId
+                    : awayId;
+
+
+            winners[
+                match.id
+            ] =
+                winnerId;
+
+
+            /*
+            Besonderheit Vorrunde:
+            zusätzlicher LP-Bonus.
+            */
+
+            if (
+                stage ===
+                "preliminary-round"
+            ) {
+
+                const winner =
+                    getManagerById(
+                        winnerId
+                    );
+
+
+                if (winner) {
+
+                    winner.cup
+                        .preliminaryRoundWin =
+                        true;
+
+                }
+
+            }
+
+        }
+    );
+
+}
+
+
+/*
+=========================================
+POKALTEILNEHMER AUFLÖSEN
+=========================================
+*/
+
+function resolveCupParticipant(
+    participant,
+    winners
+) {
+
+    if (!participant) {
+        return null;
+    }
+
+
+    if (
+        participant.startsWith(
+            "winner-"
+        )
+    ) {
+
+        const matchId =
+            participant.replace(
+                "winner-",
+                ""
+            );
+
+
+        return winners[
+            matchId
+        ] || null;
+
+    }
+
+
+    return participant;
+
+}
+
+
+/*
+=========================================
+POKALPUNKTE EINES SPIELTAGS
+=========================================
+*/
+
+function getManagerCupScore(
+    managerId,
+    bundesligaMatchday
+) {
+
+    const manager =
+        getManagerById(
+            managerId
+        );
+
+
+    if (!manager) {
+        return null;
+    }
+
+
+    /*
+    Bundesliga-Spieltage 1–14
+    = Qualifikationsphase
+    */
+
+    if (
+        bundesligaMatchday <= 14
+    ) {
+
+        const score =
+            manager
+                .qualification
+                .scores[
+                    bundesligaMatchday - 1
+                ];
+
+
+        if (
+            score === undefined ||
+            score === null
+        ) {
+            return null;
+        }
+
+
+        return Number(score);
+
+    }
+
+
+    /*
+    Bundesliga-Spieltage 15–34
+    = Hauptphase
+
+    Zuerst suchen wir nach dem echten
+    Bundesliga-Spieltag.
+    */
+
+    const matchdayData =
+        leagueData
+            .mainRoundMatchdays
+            .find(
+                item =>
+                    item.matchday ===
+                    bundesligaMatchday
+            );
+
+
+    if (
+        matchdayData &&
+        matchdayData.scores &&
+        matchdayData.scores[
+            managerId
+        ] !== undefined &&
+        matchdayData.scores[
+            managerId
+        ] !== null
+    ) {
+
+        return Number(
+            matchdayData.scores[
+                managerId
+            ]
+        );
+
+    }
+
+
+    /*
+    Fallback:
+    Falls die Hauptphase später als
+    Spieltag 1–20 eingetragen wird.
+
+    Bundesliga-Spieltag 18
+    = Hauptphasen-Spieltag 4.
+    */
+
+    const localMatchday =
+        bundesligaMatchday - 14;
+
+
+    const localMatchdayData =
+        leagueData
+            .mainRoundMatchdays
+            .find(
+                item =>
+                    item.matchday ===
+                    localMatchday
+            );
+
+
+    if (
+        localMatchdayData &&
+        localMatchdayData.scores &&
+        localMatchdayData.scores[
+            managerId
+        ] !== undefined &&
+        localMatchdayData.scores[
+            managerId
+        ] !== null
+    ) {
+
+        return Number(
+            localMatchdayData.scores[
+                managerId
+            ]
+        );
+
+    }
+
+
+    return null;
+
+}
+
+
+/*
+=========================================
+HÖCHSTE ERREICHTE POKALRUNDE
+=========================================
+*/
+
+function setReachedCupStage(
+    manager,
+    newStage
+) {
+
+    const stageOrder = {
+
+        "preliminary-round": 0,
+
+        "round-of-16": 1,
+
+        "quarter-final": 2,
+
+        "semi-final": 3,
+
+        "final": 4,
+
+        "winner": 5
+
+    };
+
+
+    const currentStage =
+        manager.cup.stage;
+
+
+    if (
+        stageOrder[
+            newStage
+        ] >
+        stageOrder[
+            currentStage
+        ]
+    ) {
+
+        manager.cup.stage =
+            newStage;
+
+    }
+
+}
 /*
 =========================================
 AUTOMATISCHE REKORDE
