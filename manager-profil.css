@@ -475,78 +475,107 @@ Bereinigte Gesamtversion
 .manager-profile-badge {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
+    gap: 10px;
+    min-height: 46px;
+    padding: 8px 15px 8px 9px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.04);
     color: #ffffff;
     font-size: 0.82rem;
-    font-weight: 800;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    font-weight: 850;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 9px 24px rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(10px);
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-.manager-profile-badge-icon{
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    width:28px;
-    height:28px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.08);
-
-    flex-shrink:0;
-
+.manager-profile-badge:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 12px 28px rgba(0, 0, 0, 0.22);
 }
 
-.manager-profile-badge-icon svg{
+.manager-profile-badge-icon {
+    display: grid;
+    width: 29px;
+    height: 29px;
+    min-width: 29px;
+    place-items: center;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.055);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 0 13px rgba(255, 255, 255, 0.025);
+}
 
-    width:16px;
-    height:16px;
-
+.manager-profile-badge-icon svg {
+    width: 15px;
+    height: 15px;
+    stroke-width: 2.15;
 }
 
 .manager-profile-badge.gold {
     color: #ffd45c;
-    border-color: rgba(255, 212, 92, 0.25);
-    background: rgba(255, 212, 92, 0.045);
+    border-color: rgba(255, 212, 92, 0.28);
+    background: rgba(255, 212, 92, 0.05);
+}
+
+.manager-profile-badge.gold .manager-profile-badge-icon {
+    background: rgba(255, 212, 92, 0.09);
+    box-shadow: 0 0 16px rgba(255, 212, 92, 0.1);
 }
 
 .manager-profile-badge.green {
     color: #18c55b;
-    border-color: rgba(24, 197, 91, 0.25);
-    background: rgba(24, 197, 91, 0.045);
+    border-color: rgba(24, 197, 91, 0.28);
+    background: rgba(24, 197, 91, 0.05);
+}
+
+.manager-profile-badge.green .manager-profile-badge-icon {
+    background: rgba(24, 197, 91, 0.09);
+    box-shadow: 0 0 16px rgba(24, 197, 91, 0.1);
 }
 
 .manager-profile-badge.red {
     color: #ff6c6c;
-    border-color: rgba(255, 108, 108, 0.25);
-    background: rgba(255, 108, 108, 0.045);
+    border-color: rgba(255, 108, 108, 0.28);
+    background: rgba(255, 108, 108, 0.05);
+}
+
+.manager-profile-badge.red .manager-profile-badge-icon {
+    background: rgba(255, 108, 108, 0.09);
+    box-shadow: 0 0 16px rgba(255, 108, 108, 0.1);
 }
 
 .manager-profile-badge.blue {
     color: #56a9ff;
-    border-color: rgba(86, 169, 255, 0.25);
-    background: rgba(86, 169, 255, 0.045);
+    border-color: rgba(86, 169, 255, 0.28);
+    background: rgba(86, 169, 255, 0.05);
+}
+
+.manager-profile-badge.blue .manager-profile-badge-icon {
+    background: rgba(86, 169, 255, 0.09);
+    box-shadow: 0 0 16px rgba(86, 169, 255, 0.1);
 }
 
 .manager-profile-badge.purple {
     color: #b36cff;
-    border-color: rgba(179, 108, 255, 0.25);
-    background: rgba(179, 108, 255, 0.045);
+    border-color: rgba(179, 108, 255, 0.28);
+    background: rgba(179, 108, 255, 0.05);
 }
 
-.manager-profile-badge.purple{
-
-    color:#b36cff;
-
-    border-color:rgba(179,108,255,.25);
-
+.manager-profile-badge.purple .manager-profile-badge-icon {
+    background: rgba(179, 108, 255, 0.09);
+    box-shadow: 0 0 16px rgba(179, 108, 255, 0.1);
 }
+
 
 /* =========================================
    8. RANGFORTSCHRITT
@@ -1229,8 +1258,20 @@ Bereinigte Gesamtversion
     }
 
     .manager-profile-badge {
-        padding: 8px 12px;
+        min-height: 43px;
+        padding: 7px 12px 7px 8px;
         font-size: 0.76rem;
+    }
+
+    .manager-profile-badge-icon {
+        width: 27px;
+        height: 27px;
+        min-width: 27px;
+    }
+
+    .manager-profile-badge-icon svg {
+        width: 14px;
+        height: 14px;
     }
 
     .manager-profile-progress {
@@ -1289,7 +1330,12 @@ Bereinigte Gesamtversion
 
     .manager-profile-progress-value,
     .manager-profile-stat-card,
-    .manager-profile-back {
+    .manager-profile-back,
+    .manager-profile-badge {
         transition: none;
+    }
+
+    .manager-profile-badge:hover {
+        transform: none;
     }
 }
