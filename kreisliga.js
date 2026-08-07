@@ -232,24 +232,27 @@ function renderKreisligaTable() {
 
                             <td>
 
-                                <div class="kreisliga-manager-cell">
+                                <a
+    class="kreisliga-manager-cell kreisliga-manager-link"
+    href="/kickbase-league/manager-profil.html?id=${manager.id}"
+>
 
-                                    <span class="kreisliga-manager-avatar">
+    <span class="kreisliga-manager-avatar">
 
-                                        <i
-                                            data-lucide="user"
-                                            aria-hidden="true"
-                                        ></i>
+        <i
+            data-lucide="user"
+            aria-hidden="true"
+        ></i>
 
-                                    </span>
+    </span>
 
-                                    <strong>
-                                        ${escapeKreisligaHTML(
-                                            manager.name
-                                        )}
-                                    </strong>
+    <strong>
+        ${escapeKreisligaHTML(
+            manager.name
+        )}
+    </strong>
 
-                                </div>
+</a>
 
                             </td>
 

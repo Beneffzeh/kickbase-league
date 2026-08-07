@@ -237,25 +237,27 @@ function renderChampionsLeagueTable() {
 
                             <td>
 
-                                <div class="cl-manager-cell">
+                                <a
+    class="cl-manager-cell cl-manager-link"
+    href="/kickbase-league/manager-profil.html?id=${manager.id}"
+>
 
-                                    <span class="cl-manager-avatar">
+    <span class="cl-manager-avatar">
 
-                                        <i
-                                            data-lucide="user"
-                                            aria-hidden="true"
-                                        ></i>
+        <i
+            data-lucide="user"
+            aria-hidden="true"
+        ></i>
 
-                                    </span>
+    </span>
 
+    <strong>
+        ${escapeChampionsLeagueHTML(
+            manager.name
+        )}
+    </strong>
 
-                                    <strong>
-                                        ${escapeChampionsLeagueHTML(
-                                            manager.name
-                                        )}
-                                    </strong>
-
-                                </div>
+</a>
 
                             </td>
 
