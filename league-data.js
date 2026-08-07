@@ -646,6 +646,8 @@ function recalculateLeagueData() {
 
     calculateMainRoundPositions();
 
+    calculateCupProgress();
+
     calculateAutomaticRecords();
 
 }
