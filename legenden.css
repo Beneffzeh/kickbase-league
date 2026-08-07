@@ -1,40 +1,63 @@
 /*
 =========================================
 KICKBASE LEAGUE – LEGENDENSEITE
-KOMPLETTE VERSION
+FINALE PREMIUM-VERSION
 =========================================
 */
 
 
 /* =========================================
-   GRUNDLAYOUT
+   1. GRUNDLAYOUT
 ========================================= */
 
 .legends-page {
     min-height: 100vh;
     overflow-x: hidden;
+    position: relative;
     background:
         radial-gradient(
             ellipse at 50% 0%,
-            rgba(24, 197, 91, 0.15),
+            rgba(24, 197, 91, 0.17),
             transparent 32%
         ),
         radial-gradient(
-            ellipse at 10% 45%,
-            rgba(24, 197, 91, 0.045),
+            ellipse at 8% 44%,
+            rgba(24, 197, 91, 0.05),
             transparent 28%
+        ),
+        radial-gradient(
+            ellipse at 92% 56%,
+            rgba(76, 112, 255, 0.045),
+            transparent 30%
         ),
         linear-gradient(
             180deg,
             #05080d 0%,
-            #080b12 48%,
+            #071018 46%,
             #080b12 100%
+        );
+}
+
+.legends-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.38;
+    background:
+        repeating-linear-gradient(
+            115deg,
+            transparent 0,
+            transparent 48px,
+            rgba(255, 255, 255, 0.012) 49px,
+            transparent 50px
         );
 }
 
 
 /* =========================================
-   HERO
+   2. HERO
 ========================================= */
 
 .legends-hero {
@@ -45,14 +68,14 @@ KOMPLETTE VERSION
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     background:
         radial-gradient(
-            ellipse at 50% 20%,
-            rgba(24, 197, 91, 0.23),
-            transparent 31%
+            ellipse at 50% 19%,
+            rgba(24, 197, 91, 0.26),
+            transparent 30%
         ),
         radial-gradient(
-            ellipse at 50% 75%,
-            rgba(24, 197, 91, 0.07),
-            transparent 44%
+            ellipse at 50% 74%,
+            rgba(24, 197, 91, 0.08),
+            transparent 45%
         ),
         linear-gradient(
             165deg,
@@ -71,7 +94,7 @@ KOMPLETTE VERSION
         conic-gradient(
             from 180deg,
             transparent,
-            rgba(24, 197, 91, 0.045),
+            rgba(24, 197, 91, 0.05),
             rgba(255, 255, 255, 0.025),
             transparent 23%
         );
@@ -86,7 +109,7 @@ KOMPLETTE VERSION
     background:
         radial-gradient(
             circle at 14% 26%,
-            rgba(24, 197, 91, 0.12) 0 1px,
+            rgba(24, 197, 91, 0.13) 0 1px,
             transparent 2px
         ),
         radial-gradient(
@@ -96,14 +119,14 @@ KOMPLETTE VERSION
         ),
         radial-gradient(
             circle at 66% 66%,
-            rgba(24, 197, 91, 0.08) 0 1px,
+            rgba(24, 197, 91, 0.085) 0 1px,
             transparent 2px
         );
     background-size:
         190px 170px,
         250px 220px,
         290px 260px;
-    opacity: 0.72;
+    opacity: 0.74;
 }
 
 @keyframes legends-hero-shine {
@@ -116,19 +139,19 @@ KOMPLETTE VERSION
     position: absolute;
     top: 35px;
     left: 50%;
-    width: min(850px, 130vw);
-    height: 540px;
+    width: min(880px, 135vw);
+    height: 560px;
     pointer-events: none;
     transform: translateX(-50%);
     border-radius: 50%;
     background:
         radial-gradient(
             ellipse at center,
-            rgba(24, 197, 91, 0.17),
-            rgba(24, 197, 91, 0.035) 45%,
+            rgba(24, 197, 91, 0.19),
+            rgba(24, 197, 91, 0.04) 45%,
             transparent 74%
         );
-    filter: blur(30px);
+    filter: blur(32px);
 }
 
 .legends-hero-content {
@@ -145,18 +168,18 @@ KOMPLETTE VERSION
     height: 82px;
     margin: 0 auto 25px;
     place-items: center;
-    border: 1px solid rgba(255, 212, 92, 0.38);
+    border: 1px solid rgba(255, 212, 92, 0.42);
     border-radius: 24px;
     background:
         linear-gradient(
             145deg,
-            rgba(255, 212, 92, 0.16),
+            rgba(255, 212, 92, 0.18),
             rgba(255, 212, 92, 0.035)
         );
     color: #ffd45c;
     box-shadow:
-        0 0 38px rgba(255, 212, 92, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+        0 0 42px rgba(255, 212, 92, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.13);
     transform: rotate(45deg);
 }
 
@@ -186,7 +209,7 @@ KOMPLETTE VERSION
 }
 
 .legends-hero-description {
-    max-width: 660px;
+    max-width: 670px;
     margin: 24px auto 0;
     color: #a7b0bd;
     font-size: clamp(0.98rem, 2.5vw, 1.12rem);
@@ -195,7 +218,7 @@ KOMPLETTE VERSION
 
 
 /* =========================================
-   ÜBERSICHTSKARTEN
+   3. ÜBERSICHTSKARTEN
 ========================================= */
 
 .legends-summary-grid {
@@ -217,7 +240,7 @@ KOMPLETTE VERSION
     background:
         linear-gradient(
             145deg,
-            rgba(255, 255, 255, 0.065),
+            rgba(255, 255, 255, 0.068),
             rgba(255, 255, 255, 0.018)
         );
     box-shadow:
@@ -233,10 +256,11 @@ KOMPLETTE VERSION
     height: 47px;
     min-width: 47px;
     place-items: center;
-    border: 1px solid rgba(24, 197, 91, 0.28);
+    border: 1px solid rgba(24, 197, 91, 0.3);
     border-radius: 14px;
-    background: rgba(24, 197, 91, 0.08);
+    background: rgba(24, 197, 91, 0.09);
     color: #18c55b;
+    box-shadow: 0 0 18px rgba(24, 197, 91, 0.06);
 }
 
 .legends-summary-icon svg {
@@ -277,7 +301,7 @@ KOMPLETTE VERSION
 
 
 /* =========================================
-   HAUPTBEREICH
+   4. HAUPTBEREICH
 ========================================= */
 
 .legends-main {
@@ -322,7 +346,7 @@ KOMPLETTE VERSION
 
 
 /* =========================================
-   MANAGERKARTEN-GRID
+   5. MANAGERKARTEN-GRID
 ========================================= */
 
 .legend-card-grid {
@@ -333,13 +357,13 @@ KOMPLETTE VERSION
 
 
 /* =========================================
-   MANAGERKARTE
+   6. MANAGERKARTE – BASIS
 ========================================= */
 
 .legend-card {
     position: relative;
     display: flex;
-    min-height: 535px;
+    min-height: 520px;
     overflow: hidden;
     flex-direction: column;
     padding: 21px;
@@ -347,7 +371,7 @@ KOMPLETTE VERSION
     border-radius: 25px;
     background:
         radial-gradient(
-            circle at 50% 9%,
+            circle at 50% 8%,
             rgba(255, 255, 255, 0.07),
             transparent 30%
         ),
@@ -408,8 +432,8 @@ KOMPLETTE VERSION
     top: -110px;
     left: 50%;
     z-index: -1;
-    width: 290px;
-    height: 260px;
+    width: 300px;
+    height: 270px;
     pointer-events: none;
     transform: translateX(-50%);
     border-radius: 50%;
@@ -424,15 +448,15 @@ KOMPLETTE VERSION
 
 
 /* =========================================
-   TOP 3
+   7. TOP 3 – ZUSÄTZLICHE AURA
 ========================================= */
 
 .legend-card-first {
-    border-color: rgba(255, 212, 92, 0.31);
+    border-color: rgba(255, 212, 92, 0.34);
     background:
         radial-gradient(
             circle at 50% 7%,
-            rgba(255, 212, 92, 0.15),
+            rgba(255, 212, 92, 0.17),
             transparent 30%
         ),
         linear-gradient(
@@ -443,21 +467,147 @@ KOMPLETTE VERSION
         );
     box-shadow:
         0 30px 78px rgba(0, 0, 0, 0.42),
-        0 0 50px rgba(255, 212, 92, 0.08),
+        0 0 54px rgba(255, 212, 92, 0.09),
         inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
 .legend-card-second {
-    border-color: rgba(217, 225, 235, 0.22);
+    border-color: rgba(217, 225, 235, 0.24);
 }
 
 .legend-card-third {
-    border-color: rgba(211, 137, 78, 0.25);
+    border-color: rgba(211, 137, 78, 0.27);
 }
 
 
 /* =========================================
-   KARTENKOPF
+   8. RANG-AURA AUF DEN KARTEN
+========================================= */
+
+.legend-card.rank-rookie {
+    box-shadow:
+        0 24px 65px rgba(0, 0, 0, 0.34),
+        0 0 36px rgba(129, 138, 152, 0.035),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}
+
+.legend-card.rank-contender {
+    background:
+        radial-gradient(
+            circle at 50% 8%,
+            rgba(188, 123, 70, 0.14),
+            transparent 30%
+        ),
+        linear-gradient(
+            155deg,
+            rgba(54, 31, 18, 0.96),
+            rgba(14, 13, 15, 0.99) 55%,
+            rgba(6, 9, 14, 0.99)
+        );
+    box-shadow:
+        0 24px 65px rgba(0, 0, 0, 0.36),
+        0 0 40px rgba(188, 123, 70, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}
+
+.legend-card.rank-amateur {
+    background:
+        radial-gradient(
+            circle at 50% 8%,
+            rgba(210, 217, 226, 0.13),
+            transparent 30%
+        ),
+        linear-gradient(
+            155deg,
+            rgba(34, 39, 45, 0.97),
+            rgba(12, 15, 20, 0.99) 55%,
+            rgba(6, 9, 14, 0.99)
+        );
+    box-shadow:
+        0 24px 65px rgba(0, 0, 0, 0.36),
+        0 0 42px rgba(210, 217, 226, 0.055),
+        inset 0 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+.legend-card.rank-professional {
+    background:
+        radial-gradient(
+            circle at 50% 8%,
+            rgba(75, 167, 255, 0.16),
+            transparent 30%
+        ),
+        linear-gradient(
+            155deg,
+            rgba(12, 40, 68, 0.96),
+            rgba(8, 15, 24, 0.99) 55%,
+            rgba(6, 9, 14, 0.99)
+        );
+    box-shadow:
+        0 24px 65px rgba(0, 0, 0, 0.36),
+        0 0 46px rgba(75, 167, 255, 0.075),
+        inset 0 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+.legend-card.rank-elite {
+    background:
+        radial-gradient(
+            circle at 50% 8%,
+            rgba(179, 108, 255, 0.17),
+            transparent 30%
+        ),
+        linear-gradient(
+            155deg,
+            rgba(47, 21, 68, 0.96),
+            rgba(13, 10, 22, 0.99) 55%,
+            rgba(6, 9, 14, 0.99)
+        );
+    box-shadow:
+        0 24px 65px rgba(0, 0, 0, 0.36),
+        0 0 48px rgba(179, 108, 255, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+.legend-card.rank-champion {
+    background:
+        radial-gradient(
+            circle at 50% 8%,
+            rgba(255, 96, 96, 0.18),
+            transparent 30%
+        ),
+        linear-gradient(
+            155deg,
+            rgba(75, 19, 19, 0.96),
+            rgba(19, 9, 12, 0.99) 55%,
+            rgba(6, 9, 14, 0.99)
+        );
+    box-shadow:
+        0 24px 65px rgba(0, 0, 0, 0.36),
+        0 0 50px rgba(255, 96, 96, 0.085),
+        inset 0 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+.legend-card.rank-legend {
+    background:
+        radial-gradient(
+            circle at 50% 8%,
+            rgba(255, 212, 92, 0.22),
+            transparent 30%
+        ),
+        linear-gradient(
+            155deg,
+            rgba(71, 50, 11, 0.97),
+            rgba(22, 16, 7, 0.99) 55%,
+            rgba(6, 9, 14, 0.99)
+        );
+    box-shadow:
+        0 24px 65px rgba(0, 0, 0, 0.38),
+        0 0 56px rgba(255, 212, 92, 0.11),
+        inset 0 1px 0 rgba(255, 255, 255, 0.065);
+}
+
+
+/* =========================================
+   9. KARTENKOPF
 ========================================= */
 
 .legend-card-top {
@@ -509,19 +659,19 @@ KOMPLETTE VERSION
 
 
 /* =========================================
-   RANG-EMBLEM AUF KARTE
+   10. RANG-EMBLEM AUF KARTE
 ========================================= */
 
 .legend-card-emblem {
     display: grid;
-    margin: 31px auto 23px;
+    margin: 28px auto 20px;
     place-items: center;
 }
 
 .legend-card-emblem-ring {
     display: grid;
-    width: 94px;
-    height: 94px;
+    width: 92px;
+    height: 92px;
     place-items: center;
     border: 2px solid currentColor;
     border-radius: 27px;
@@ -550,9 +700,61 @@ KOMPLETTE VERSION
     transform: rotate(-45deg);
 }
 
+.legend-card.rank-rookie .legend-card-emblem-ring {
+    color: #818a98;
+}
+
+.legend-card.rank-contender .legend-card-emblem-ring {
+    color: #bc7b46;
+    box-shadow:
+        0 17px 38px rgba(0, 0, 0, 0.3),
+        0 0 24px rgba(188, 123, 70, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.legend-card.rank-amateur .legend-card-emblem-ring {
+    color: #d2d9e2;
+    box-shadow:
+        0 17px 38px rgba(0, 0, 0, 0.3),
+        0 0 24px rgba(210, 217, 226, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.legend-card.rank-professional .legend-card-emblem-ring {
+    color: #4ba7ff;
+    box-shadow:
+        0 17px 38px rgba(0, 0, 0, 0.3),
+        0 0 26px rgba(75, 167, 255, 0.11),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.legend-card.rank-elite .legend-card-emblem-ring {
+    color: #b36cff;
+    box-shadow:
+        0 17px 38px rgba(0, 0, 0, 0.3),
+        0 0 28px rgba(179, 108, 255, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.legend-card.rank-champion .legend-card-emblem-ring {
+    color: #ff6060;
+    box-shadow:
+        0 17px 38px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(255, 96, 96, 0.13),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.legend-card.rank-legend .legend-card-emblem-ring {
+    color: #ffd45c;
+    box-shadow:
+        0 17px 38px rgba(0, 0, 0, 0.3),
+        0 0 34px rgba(255, 212, 92, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
 
 /* =========================================
-   MANAGER UND RANG
+   11. MANAGER UND RANG
 ========================================= */
 
 .legend-card-main {
@@ -598,11 +800,11 @@ KOMPLETTE VERSION
 
 
 /* =========================================
-   LEGENDENPUNKTE
+   12. LEGENDENPUNKTE
 ========================================= */
 
 .legend-card-score {
-    margin-top: 27px;
+    margin-top: 24px;
     text-align: center;
 }
 
@@ -627,19 +829,19 @@ KOMPLETTE VERSION
 
 
 /* =========================================
-   LIGA UND PLATZIERUNG
+   13. LIGA UND PLATZIERUNG
 ========================================= */
 
 .legend-card-meta {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 9px;
-    margin-top: 23px;
+    margin-top: 20px;
 }
 
 .legend-card-meta > span {
     display: flex;
-    min-height: 49px;
+    min-height: 47px;
     align-items: center;
     justify-content: center;
     gap: 7px;
@@ -663,59 +865,77 @@ KOMPLETTE VERSION
 
 
 /* =========================================
-   SELTENE AUSZEICHNUNG
+   14. SELTENE AUSZEICHNUNG – PREMIUM
 ========================================= */
 
 .legend-card-award {
     display: flex;
-    min-height: 43px;
+    min-height: 44px;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 9px;
     margin-top: 11px;
-    padding: 9px 12px;
+    padding: 9px 13px;
     border: 1px solid currentColor;
-    border-radius: 13px;
+    border-radius: 14px;
     background: rgba(255, 255, 255, 0.035);
     font-size: 0.75rem;
     font-weight: 900;
     text-align: center;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 9px 22px rgba(0, 0, 0, 0.15);
 }
 
 .legend-card-award svg {
-    width: 16px;
-    height: 16px;
+    width: 17px;
+    height: 17px;
 }
 
 .award-legend,
 .award-number-one {
     color: #ffd45c;
-    background: rgba(255, 212, 92, 0.055);
+    background: rgba(255, 212, 92, 0.06);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 0 22px rgba(255, 212, 92, 0.06);
 }
 
 .award-champion {
     color: #68b7ff;
-    background: rgba(86, 169, 255, 0.055);
+    background: rgba(86, 169, 255, 0.06);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 0 22px rgba(86, 169, 255, 0.06);
 }
 
 .award-cup {
     color: #ff7777;
-    background: rgba(255, 108, 108, 0.055);
+    background: rgba(255, 108, 108, 0.06);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 0 22px rgba(255, 108, 108, 0.06);
 }
 
 .award-leader {
     color: #18c55b;
-    background: rgba(24, 197, 91, 0.055);
+    background: rgba(24, 197, 91, 0.06);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 0 22px rgba(24, 197, 91, 0.06);
 }
 
 .award-record {
     color: #bc82ff;
-    background: rgba(179, 108, 255, 0.055);
+    background: rgba(179, 108, 255, 0.06);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 0 22px rgba(179, 108, 255, 0.06);
 }
 
 
 /* =========================================
-   KARTENFUSS
+   15. KARTENFUSS
 ========================================= */
 
 .legend-card-footer {
@@ -724,7 +944,7 @@ KOMPLETTE VERSION
     justify-content: space-between;
     gap: 12px;
     margin-top: auto;
-    padding-top: 18px;
+    padding-top: 17px;
     border-top: 1px solid rgba(255, 255, 255, 0.065);
     color: #76818f;
     font-size: 0.76rem;
@@ -744,7 +964,7 @@ KOMPLETTE VERSION
 
 
 /* =========================================
-   RANGFARBEN
+   16. RANGFARBEN
 ========================================= */
 
 .rank-rookie {
@@ -775,37 +995,9 @@ KOMPLETTE VERSION
     color: #ffd45c;
 }
 
-.legend-card.rank-rookie .legend-card-emblem-ring {
-    color: #818a98;
-}
-
-.legend-card.rank-contender .legend-card-emblem-ring {
-    color: #bc7b46;
-}
-
-.legend-card.rank-amateur .legend-card-emblem-ring {
-    color: #d2d9e2;
-}
-
-.legend-card.rank-professional .legend-card-emblem-ring {
-    color: #4ba7ff;
-}
-
-.legend-card.rank-elite .legend-card-emblem-ring {
-    color: #b36cff;
-}
-
-.legend-card.rank-champion .legend-card-emblem-ring {
-    color: #ff6060;
-}
-
-.legend-card.rank-legend .legend-card-emblem-ring {
-    color: #ffd45c;
-}
-
 
 /* =========================================
-   PUNKTE-LEGENDE
+   17. PUNKTE-LEGENDE
 ========================================= */
 
 .legends-rules-section {
@@ -896,7 +1088,7 @@ KOMPLETTE VERSION
 
 
 /* =========================================
-   FEHLERKARTE
+   18. FEHLERKARTE
 ========================================= */
 
 .legends-error-card {
@@ -929,7 +1121,28 @@ KOMPLETTE VERSION
 
 
 /* =========================================
-   TABLET
+   19. ZUKÜNFTIGE ULTIMATE-KARTEN-HOOKS
+========================================= */
+
+.legend-card-ultimate {
+    position: relative;
+}
+
+.legend-card-ultimate-overlay,
+.legend-card-ultimate-stats,
+.legend-card-ultimate-badge {
+    display: none;
+}
+
+.legend-card.has-ultimate-card .legend-card-ultimate-overlay,
+.legend-card.has-ultimate-card .legend-card-ultimate-stats,
+.legend-card.has-ultimate-card .legend-card-ultimate-badge {
+    display: block;
+}
+
+
+/* =========================================
+   20. TABLET
 ========================================= */
 
 @media (max-width: 980px) {
@@ -949,7 +1162,7 @@ KOMPLETTE VERSION
 
 
 /* =========================================
-   SMARTPHONE
+   21. SMARTPHONE
 ========================================= */
 
 @media (max-width: 640px) {
@@ -994,27 +1207,50 @@ KOMPLETTE VERSION
     }
 
     .legend-card {
-        min-height: 510px;
-        padding: 19px;
+        min-height: 470px;
+        padding: 18px;
+        border-radius: 23px;
     }
 
     .legend-card-first {
         order: -1;
     }
 
+    .legend-card-emblem {
+        margin: 24px auto 18px;
+    }
+
     .legend-card-emblem-ring {
-        width: 86px;
-        height: 86px;
-        border-radius: 24px;
+        width: 82px;
+        height: 82px;
+        border-radius: 23px;
     }
 
     .legend-card-emblem-ring svg {
-        width: 36px;
-        height: 36px;
+        width: 34px;
+        height: 34px;
+    }
+
+    .legend-card-score {
+        margin-top: 21px;
     }
 
     .legend-card-meta {
         grid-template-columns: 1fr;
+        margin-top: 17px;
+    }
+
+    .legend-card-meta > span {
+        min-height: 44px;
+    }
+
+    .legend-card-award {
+        min-height: 42px;
+        font-size: 0.73rem;
+    }
+
+    .legend-card-footer {
+        padding-top: 15px;
     }
 
     .legends-rules-grid {
@@ -1033,7 +1269,7 @@ KOMPLETTE VERSION
 
 
 /* =========================================
-   REDUZIERTE BEWEGUNG
+   22. REDUZIERTE BEWEGUNG
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1044,5 +1280,9 @@ KOMPLETTE VERSION
     .legend-card,
     .legend-card-footer svg {
         transition: none;
+    }
+
+    .legend-card:hover {
+        transform: none;
     }
 }
