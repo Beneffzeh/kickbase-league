@@ -6,14 +6,18 @@ AUTOMATISCHE VERSION
 */
 
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
+if (document.readyState === "loading") {
 
-        startStatisticsPage();
+    document.addEventListener(
+        "DOMContentLoaded",
+        startStatisticsPage
+    );
 
-    }
-);
+} else {
+
+    startStatisticsPage();
+
+}
 
 
 /*
