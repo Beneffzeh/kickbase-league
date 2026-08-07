@@ -265,14 +265,27 @@ qualificationMatchdays: [
 
     leagues: {
 
-        championsLeague: [
-        ],
+    championsLeague: [],
 
-        kreisliga: [
-        ]
+    kreisliga: []
 
-    },
+},
 
+/*
+=========================================
+HAUPTPHASE – SPIELTAGSPUNKTE
+=========================================
+
+Wird nach Abschluss der Qualifikation
+genutzt.
+
+Pro Spieltag wird später nur EIN neuer
+Block mit den Punkten ergänzt.
+
+=========================================
+*/
+
+mainRoundMatchdays: [],
 
     /*
     =====================================
