@@ -1,6 +1,7 @@
 /*
 =========================================
 KICKBASE LEAGUE – MANAGERPROFIL
+FINALE LEGENDEN-VERSION
 =========================================
 */
 
@@ -10,10 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function startManagerProfile() {
+
     if (
         typeof leagueData === "undefined" ||
         typeof calculateLegendPoints !== "function" ||
-        typeof getLegendRank !== "function"
+        typeof getLegendRank !== "function" ||
+        typeof createLegendRanking !== "function"
     ) {
         showManagerProfileError();
         return;
@@ -32,22 +35,22 @@ function startManagerProfile() {
 
     renderManagerProfile(manager);
 
-    if (window.lucide) {
-        window.lucide.createIcons();
-    }
+    refreshLucideIcons();
 }
 
 
 /*
 =========================================
-MANAGER-ID AUS DER URL
+MANAGER-ID AUS URL
 =========================================
 */
 
 function getManagerIdFromUrl() {
-    const params = new URLSearchParams(
-        window.location.search
-    );
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
 
     return params.get("id");
 }
@@ -60,6 +63,7 @@ PROFIL RENDERN
 */
 
 function renderManagerProfile(manager) {
+
     const legendPoints =
         calculateLegendPoints(manager);
 
@@ -107,7 +111,10 @@ function renderManagerProfile(manager) {
     );
 
 
-    applyRankDesign(legendRank);
+    applyRankDesign(
+        legendRank
+    );
+
 
     renderRankProgress(
         legendPoints,
@@ -141,20 +148,25 @@ function renderManagerProfile(manager) {
     );
 
 
-    renderSeasonData(manager);
+    renderSeasonData(
+        manager
+    );
 
-renderBadges(
-    manager,
-    legendRank,
-    legendPoints
-);
+
+    renderBadges(
+        manager,
+        legendRank,
+        legendPoints
+    );
+
+
+    renderUltimateCard(
+        manager,
+        legendRank,
+        legendPoints
+    );
 }
 
-/*
-=========================================
-RANG-DESIGN
-=========================================
-*/
 
 /*
 =========================================
@@ -163,6 +175,7 @@ RANG-DESIGN
 */
 
 function applyRankDesign(rank) {
+
     const rankContainer =
         document.getElementById(
             "manager-profile-rank"
@@ -185,20 +198,26 @@ function applyRankDesign(rank) {
 
 
     if (rankContainer) {
+
         rankContainer.className =
             `manager-profile-rank ${rank.className}`;
+
     }
 
+
     if (profileContainer) {
+
         profileContainer.className =
             `manager-profile-hero ${rank.className}`;
 
         profileContainer.dataset.rank =
             rank.name.toLowerCase();
+
     }
 
 
     const emblemDesigns = {
+
         Rookie: {
             icon: "user-round",
             chevrons: 0
@@ -233,31 +252,36 @@ function applyRankDesign(rank) {
             icon: "crown",
             chevrons: 0
         }
+
     };
 
 
-    const emblemDesign =
+    const design =
         emblemDesigns[rank.name] ||
         emblemDesigns.Rookie;
 
 
     if (emblemSymbol) {
+
         emblemSymbol.setAttribute(
             "data-lucide",
-            emblemDesign.icon
+            design.icon
         );
+
     }
 
 
     if (emblemChevrons) {
+
         emblemChevrons.innerHTML =
             Array.from(
                 {
                     length:
-                        emblemDesign.chevrons
+                        design.chevrons
                 },
                 () => "<span></span>"
             ).join("");
+
     }
 
 
@@ -267,14 +291,9 @@ function applyRankDesign(rank) {
     );
 
 
-    if (
-        window.lucide &&
-        typeof window.lucide.createIcons ===
-            "function"
-    ) {
-        window.lucide.createIcons();
-    }
+    refreshLucideIcons();
 }
+
 
 /*
 =========================================
@@ -286,10 +305,12 @@ function renderRankProgress(
     legendPoints,
     currentRank
 ) {
+
     const currentRankIndex =
         LEGEND_RANKS.findIndex(
             rank =>
-                rank.name === currentRank.name
+                rank.name ===
+                currentRank.name
         );
 
     const progressElement =
@@ -297,15 +318,19 @@ function renderRankProgress(
             "manager-progress-value"
         );
 
+
     if (currentRankIndex === 0) {
+
         setText(
             "manager-next-rank",
             "Höchster Rang erreicht"
         );
 
         if (progressElement) {
+
             progressElement.style.width =
                 "100%";
+
         }
 
         return;
@@ -313,7 +338,9 @@ function renderRankProgress(
 
 
     const nextRank =
-        LEGEND_RANKS[currentRankIndex - 1];
+        LEGEND_RANKS[
+            currentRankIndex - 1
+        ];
 
     const currentMinimum =
         currentRank.minimumPoints;
@@ -322,23 +349,28 @@ function renderRankProgress(
         nextRank.minimumPoints;
 
     const pointsInsideRank =
-        legendPoints - currentMinimum;
+        legendPoints -
+        currentMinimum;
 
     const rankRange =
-        nextMinimum - currentMinimum;
+        nextMinimum -
+        currentMinimum;
 
     const progress =
         Math.min(
             100,
             Math.max(
                 0,
-                (pointsInsideRank / rankRange) *
-                    100
+                (
+                    pointsInsideRank /
+                    rankRange
+                ) * 100
             )
         );
 
     const missingPoints =
-        nextMinimum - legendPoints;
+        nextMinimum -
+        legendPoints;
 
 
     setText(
@@ -346,9 +378,12 @@ function renderRankProgress(
         `${missingPoints} LP bis ${nextRank.name}`
     );
 
+
     if (progressElement) {
+
         progressElement.style.width =
             `${progress}%`;
+
     }
 }
 
@@ -360,6 +395,7 @@ AKTUELLE SAISON
 */
 
 function renderSeasonData(manager) {
+
     const qualification =
         manager.qualification || {};
 
@@ -377,12 +413,14 @@ function renderSeasonData(manager) {
             : "–"
     );
 
+
     setText(
         "manager-qualification-score",
         formatNumber(
             qualification.points || 0
         )
     );
+
 
     setText(
         "manager-qualification-wins",
@@ -397,6 +435,7 @@ function renderSeasonData(manager) {
         )
     );
 
+
     setText(
         "manager-main-round-score",
         formatNumber(
@@ -404,17 +443,22 @@ function renderSeasonData(manager) {
         )
     );
 
+
     setText(
         "manager-main-round-wins",
         mainRound.matchdayWins || 0
     );
 
+
     setText(
         "manager-current-position",
         mainRound.currentPosition
             ? `${mainRound.currentPosition}.`
-            : "–"
+            : qualification.currentPosition
+                ? `${qualification.currentPosition}.`
+                : "–"
     );
+
 
     setText(
         "manager-cup-stage",
@@ -425,135 +469,324 @@ function renderSeasonData(manager) {
 
 /*
 =========================================
-FORMATIERUNGEN
+ULTIMATE-KARTE
 =========================================
 */
 
-function formatLeagueName(league) {
-    switch (league) {
-        case "champions-league":
-            return "Champions League";
+function renderUltimateCard(
+    manager,
+    legendRank,
+    legendPoints
+) {
 
-        case "kreisliga":
-            return "Kreisliga";
-
-        default:
-            return "Noch offen";
-    }
-}
-
-
-function formatCupStage(cup) {
-    const stageNames = {
-        "preliminary-round":
-            "Vorrunde",
-
-        "round-of-16":
-            "Achtelfinale",
-
-        "quarter-final":
-            "Viertelfinale",
-
-        "semi-final":
-            "Halbfinale",
-
-        final:
-            "Finale",
-
-        winner:
-            "Pokalsieger"
-    };
-
-    const stageName =
-        stageNames[cup.stage] ||
-        "Noch offen";
-
-    if (
-        cup.preliminaryRoundWin &&
-        cup.stage !== "preliminary-round"
-    ) {
-        return `${stageName} · Vorrunde gewonnen`;
-    }
-
-    return stageName;
-}
-
-
-function formatNumber(value) {
-    return new Intl.NumberFormat(
-        "de-DE"
-    ).format(value);
-}
-
-
-/*
-=========================================
-FEHLERMELDUNG
-=========================================
-*/
-
-function showManagerProfileError() {
-    const profile =
+    const profileHero =
         document.getElementById(
             "manager-profile"
         );
 
-    const error =
-        document.getElementById(
-            "manager-profile-error"
-        );
-
-    if (profile) {
-        profile.hidden = true;
-    }
-
-    if (error) {
-        error.hidden = false;
-    }
-
-    if (window.lucide) {
-        window.lucide.createIcons();
-    }
-}
-
-
-/*
-=========================================
-HILFSFUNKTIONEN
-=========================================
-*/
-
-function setText(elementId, value) {
-    const element =
-        document.getElementById(elementId);
-
-    if (element) {
-        element.textContent = value;
-    }
-}
-
-
-function setLucideIcon(
-    elementId,
-    iconName
-) {
-    const element =
-        document.getElementById(elementId);
-
-    if (!element) {
+    if (!profileHero) {
         return;
     }
 
-    element.setAttribute(
-        "data-lucide",
-        iconName
+
+    const oldCard =
+        document.getElementById(
+            "manager-ultimate-section"
+        );
+
+    if (oldCard) {
+        oldCard.remove();
+    }
+
+
+    const ranking =
+        createLegendRanking();
+
+    const rankingPosition =
+        ranking.findIndex(
+            item =>
+                item.id === manager.id
+        ) + 1;
+
+
+    const qualification =
+        manager.qualification || {};
+
+    const mainRound =
+        manager.mainRound || {};
+
+
+    const seasonPoints =
+        (qualification.points || 0) +
+        (mainRound.points || 0);
+
+
+    const matchdayWins =
+        (qualification.matchdayWins || 0) +
+        (mainRound.matchdayWins || 0);
+
+
+    const currentPosition =
+        mainRound.currentPosition ||
+        qualification.currentPosition ||
+        null;
+
+
+    const leagueName =
+        getCurrentLeagueName(
+            manager
+        );
+
+
+    const overall =
+        calculateUltimateRating(
+            legendPoints,
+            rankingPosition
+        );
+
+
+    const section =
+        document.createElement(
+            "section"
+        );
+
+
+    section.id =
+        "manager-ultimate-section";
+
+    section.className =
+        "manager-ultimate-section";
+
+
+    section.innerHTML = `
+
+        <div class="manager-profile-section-heading">
+
+            <p>
+                MANAGER CARD
+            </p>
+
+            <h2>
+                Ultimate-Karte
+            </h2>
+
+        </div>
+
+
+        <div
+            class="
+                manager-ultimate-card
+                ${legendRank.className}
+            "
+        >
+
+            <div class="manager-ultimate-card-glow"></div>
+
+
+            <div class="manager-ultimate-top">
+
+                <div class="manager-ultimate-rating">
+
+                    <strong>
+                        ${overall}
+                    </strong>
+
+                    <span>
+                        OVR
+                    </span>
+
+                </div>
+
+
+                <div class="manager-ultimate-ranking">
+
+                    <i
+                        data-lucide="crown"
+                        aria-hidden="true"
+                    ></i>
+
+                    <div>
+
+                        <small>
+                            LEGENDENRANGLISTE
+                        </small>
+
+                        <strong>
+                            #${rankingPosition}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="manager-ultimate-emblem">
+
+                <i
+                    data-lucide="${legendRank.icon}"
+                    aria-hidden="true"
+                ></i>
+
+            </div>
+
+
+            <p class="manager-ultimate-label">
+                KICKBASE MANAGER
+            </p>
+
+
+            <h3>
+                ${escapeHTML(manager.name)}
+            </h3>
+
+
+            <div class="manager-ultimate-rank">
+
+                <i
+                    data-lucide="${legendRank.icon}"
+                    aria-hidden="true"
+                ></i>
+
+                ${escapeHTML(legendRank.name)}
+
+            </div>
+
+
+            <div class="manager-ultimate-divider"></div>
+
+
+            <div class="manager-ultimate-stats">
+
+                <div>
+
+                    <strong>
+                        ${legendPoints}
+                    </strong>
+
+                    <span>
+                        LP
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        ${formatCompactNumber(
+                            seasonPoints
+                        )}
+                    </strong>
+
+                    <span>
+                        PUNKTE
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        ${matchdayWins}
+                    </strong>
+
+                    <span>
+                        TAGESSIEGE
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        ${
+                            currentPosition
+                                ? `${currentPosition}.`
+                                : "–"
+                        }
+                    </strong>
+
+                    <span>
+                        PLATZ
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="manager-ultimate-league">
+
+                <i
+                    data-lucide="shield"
+                    aria-hidden="true"
+                ></i>
+
+                ${escapeHTML(leagueName)}
+
+            </div>
+
+        </div>
+    `;
+
+
+    profileHero.insertAdjacentElement(
+        "afterend",
+        section
     );
+
+
+    refreshLucideIcons();
 }
+
+
 /*
 =========================================
-BADGES
+ULTIMATE-RATING
+
+Nur Anzeige.
+Keine zusätzlichen Legendenpunkte.
 =========================================
 */
+
+function calculateUltimateRating(
+    legendPoints,
+    rankingPosition
+) {
+
+    let rating =
+        60 +
+        Math.floor(
+            legendPoints / 12
+        );
+
+
+    if (rankingPosition === 1) {
+        rating += 3;
+    }
+
+    else if (rankingPosition <= 3) {
+        rating += 2;
+    }
+
+    else if (rankingPosition <= 6) {
+        rating += 1;
+    }
+
+
+    return Math.min(
+        99,
+        Math.max(
+            60,
+            rating
+        )
+    );
+}
+
 
 /*
 =========================================
@@ -566,6 +799,7 @@ function renderBadges(
     legendRank,
     legendPoints
 ) {
+
     const container =
         document.getElementById(
             "manager-profile-badges"
@@ -581,7 +815,8 @@ function renderBadges(
 
     const rankingPosition =
         ranking.findIndex(
-            item => item.id === manager.id
+            item =>
+                item.id === manager.id
         ) + 1;
 
 
@@ -608,23 +843,17 @@ function renderBadges(
     const badges = [];
 
 
-    /*
-    =====================================
-    KARRIERE-AUSZEICHNUNGEN
-    =====================================
-    */
-
-
     if (
-        legendRank &&
         legendRank.name === "Legende"
     ) {
+
         badges.push({
             icon: "crown",
             text: "Legende",
             color: "gold",
             priority: 100
         });
+
     }
 
 
@@ -633,12 +862,14 @@ function renderBadges(
             "champions-league" &&
         mainRound.finalPosition === 1
     ) {
+
         badges.push({
             icon: "shield-check",
             text: "Kickbase Champion",
             color: "blue",
             priority: 95
         });
+
     }
 
 
@@ -646,42 +877,43 @@ function renderBadges(
         mainRound.league === "kreisliga" &&
         mainRound.finalPosition === 1
     ) {
+
         badges.push({
             icon: "medal",
             text: "Kreisliga-Meister",
             color: "purple",
             priority: 90
         });
+
     }
 
 
-    if (cup.stage === "winner") {
+    if (
+        cup.stage === "winner"
+    ) {
+
         badges.push({
             icon: "trophy",
             text: "Pokalsieger",
             color: "red",
             priority: 90
         });
+
     }
-
-
-    /*
-    =====================================
-    AKTUELLE AUSZEICHNUNGEN
-    =====================================
-    */
 
 
     if (
         rankingPosition === 1 &&
         legendPoints > 0
     ) {
+
         badges.push({
             icon: "crown",
             text: "Aktuelle Nummer 1",
             color: "gold",
             priority: 85
         });
+
     }
 
 
@@ -692,64 +924,63 @@ function renderBadges(
             qualification.currentPosition === 1
         )
     ) {
+
         badges.push({
-            icon: "chart-no-axes-column-increasing",
-            text: "Tabellenführer",
-            color: "green",
-            priority: 70
+            icon:
+                "chart-no-axes-column-increasing",
+            text:
+                "Tabellenführer",
+            color:
+                "green",
+            priority:
+                70
         });
+
     }
 
 
-    /*
-    =====================================
-    LEISTUNGS-AUSZEICHNUNGEN
-    =====================================
-    */
+    if (
+        totalSeasonPoints >= 40000
+    ) {
 
-
-    if (totalSeasonPoints >= 40000) {
         badges.push({
             icon: "flame",
             text: "40.000-Punkte-Club",
             color: "red",
             priority: 80
         });
+
     }
 
 
-    if (totalMatchdayWins >= 5) {
+    if (
+        totalMatchdayWins >= 5
+    ) {
+
         badges.push({
             icon: "star",
             text: "Tagessieg-Spezialist",
             color: "purple",
             priority: 60
         });
+
     }
 
 
-    /*
-    =====================================
-    REKORDHALTER
-    =====================================
-    */
+    if (
+        isManagerRecordHolder(
+            manager
+        )
+    ) {
 
-
-    if (isManagerRecordHolder(manager)) {
         badges.push({
             icon: "medal",
             text: "Rekordhalter",
             color: "gold",
             priority: 75
         });
+
     }
-
-
-    /*
-    =====================================
-    DOUBLE-SIEGER
-    =====================================
-    */
 
 
     const isChampion =
@@ -757,77 +988,88 @@ function renderBadges(
             "champions-league" &&
         mainRound.finalPosition === 1;
 
+
     const isCupWinner =
         cup.stage === "winner";
 
 
-    if (isChampion && isCupWinner) {
+    if (
+        isChampion &&
+        isCupWinner
+    ) {
+
         badges.push({
             icon: "sparkles",
             text: "Double-Sieger",
             color: "gold",
             priority: 110
         });
+
     }
 
 
-    /*
-    =====================================
-    SORTIEREN UND BEGRENZEN
-    =====================================
-
-    Es werden höchstens vier Auszeichnungen
-    angezeigt, damit das Profil übersichtlich
-    bleibt.
-    */
-
-
-    const visibleBadges = badges
-        .sort(
-            (a, b) =>
-                b.priority - a.priority
-        )
-        .slice(0, 4);
+    const visibleBadges =
+        badges
+            .sort(
+                (a, b) =>
+                    b.priority -
+                    a.priority
+            )
+            .slice(
+                0,
+                4
+            );
 
 
-    container.innerHTML = visibleBadges
-        .map(badge => `
-            <div
-                class="
-                    manager-profile-badge
-                    ${badge.color}
-                "
-            >
-                <span class="manager-profile-badge-icon">
+    container.innerHTML =
+        visibleBadges
+            .map(
+                badge => `
 
-                    <i
-                        data-lucide="${badge.icon}"
-                        aria-hidden="true"
-                    ></i>
+                    <div
+                        class="
+                            manager-profile-badge
+                            ${badge.color}
+                        "
+                    >
 
-                </span>
+                        <span
+                            class="
+                                manager-profile-badge-icon
+                            "
+                        >
 
-                <span>
-                    ${badge.text}
-                </span>
-            </div>
-        `)
-        .join("");
+                            <i
+                                data-lucide="${badge.icon}"
+                                aria-hidden="true"
+                            ></i>
+
+                        </span>
 
 
-    if (window.lucide) {
-        window.lucide.createIcons();
-    }
+                        <span>
+                            ${badge.text}
+                        </span>
+
+                    </div>
+
+                `
+            )
+            .join("");
+
+
+    refreshLucideIcons();
 }
 
 
 /*
 =========================================
-PRÜFUNG AUF REKORDHALTER
+REKORDHALTER
 =========================================
 */
 
 function isManagerRecordHolder(manager) {
+
     if (
         typeof leagueData === "undefined" ||
         !leagueData.records
@@ -835,12 +1077,276 @@ function isManagerRecordHolder(manager) {
         return false;
     }
 
+
     return Object.values(
         leagueData.records
-    ).some(record => {
-        return (
+    ).some(
+        record =>
             record &&
-            record.managerId === manager.id
+            record.managerId ===
+                manager.id
+    );
+}
+
+
+/*
+=========================================
+LIGANAME
+=========================================
+*/
+
+function getCurrentLeagueName(manager) {
+
+    const mainRound =
+        manager.mainRound || {};
+
+    const qualification =
+        manager.qualification || {};
+
+
+    if (
+        mainRound.league ===
+        "champions-league"
+    ) {
+        return "Champions League";
+    }
+
+
+    if (
+        mainRound.league ===
+        "kreisliga"
+    ) {
+        return "Kreisliga";
+    }
+
+
+    if (
+        qualification.group
+    ) {
+        return `Qualifikation ${qualification.group}`;
+    }
+
+
+    return "Liga noch offen";
+}
+
+
+/*
+=========================================
+FORMATIERUNGEN
+=========================================
+*/
+
+function formatLeagueName(league) {
+
+    switch (league) {
+
+        case "champions-league":
+            return "Champions League";
+
+        case "kreisliga":
+            return "Kreisliga";
+
+        default:
+            return "Noch offen";
+
+    }
+}
+
+
+function formatCupStage(cup) {
+
+    const stageNames = {
+
+        "preliminary-round":
+            "Vorrunde",
+
+        "round-of-16":
+            "Achtelfinale",
+
+        "quarter-final":
+            "Viertelfinale",
+
+        "semi-final":
+            "Halbfinale",
+
+        final:
+            "Finale",
+
+        winner:
+            "Pokalsieger"
+
+    };
+
+
+    const stageName =
+        stageNames[
+            cup.stage
+        ] ||
+        "Noch offen";
+
+
+    if (
+        cup.preliminaryRoundWin &&
+        cup.stage !==
+            "preliminary-round"
+    ) {
+
+        return `${stageName} · Vorrunde gewonnen`;
+
+    }
+
+
+    return stageName;
+}
+
+
+function formatNumber(value) {
+
+    return new Intl.NumberFormat(
+        "de-DE"
+    ).format(value);
+
+}
+
+
+function formatCompactNumber(value) {
+
+    if (value >= 1000) {
+
+        return `${Math.floor(
+            value / 1000
+        )}K`;
+
+    }
+
+
+    return value;
+}
+
+
+/*
+=========================================
+FEHLERMELDUNG
+=========================================
+*/
+
+function showManagerProfileError() {
+
+    const profile =
+        document.getElementById(
+            "manager-profile"
         );
-    });
+
+    const error =
+        document.getElementById(
+            "manager-profile-error"
+        );
+
+
+    if (profile) {
+        profile.hidden = true;
+    }
+
+
+    if (error) {
+        error.hidden = false;
+    }
+
+
+    refreshLucideIcons();
+}
+
+
+/*
+=========================================
+HILFSFUNKTIONEN
+=========================================
+*/
+
+function setText(
+    elementId,
+    value
+) {
+
+    const element =
+        document.getElementById(
+            elementId
+        );
+
+
+    if (element) {
+
+        element.textContent =
+            value;
+
+    }
+}
+
+
+function setLucideIcon(
+    elementId,
+    iconName
+) {
+
+    const element =
+        document.getElementById(
+            elementId
+        );
+
+
+    if (!element) {
+        return;
+    }
+
+
+    element.setAttribute(
+        "data-lucide",
+        iconName
+    );
+}
+
+
+function refreshLucideIcons() {
+
+    if (
+        window.lucide &&
+        typeof window.lucide.createIcons ===
+            "function"
+    ) {
+
+        window.lucide.createIcons();
+
+    }
+}
+
+
+function escapeHTML(value) {
+
+    return String(value)
+
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
 }
