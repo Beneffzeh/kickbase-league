@@ -597,6 +597,7 @@ function recalculateLeagueData() {
     calculateQualificationMatchdayWins();
 
     calculateQualificationPositions();
+    updateMainRoundLeaguesFromQualification();
 
     assignMainRoundLeagues();
 
@@ -862,7 +863,122 @@ function calculateQualificationPositions() {
 
 }
 
+/*
+=========================================
+AUTOMATISCHE LIGAEINTEILUNG
+NACH DER QUALIFIKATION
+=========================================
+*/
 
+function updateMainRoundLeaguesFromQualification() {
+
+    const currentMatchday =
+        getCurrentQualificationMatchday();
+
+
+    if (currentMatchday < 14) {
+        return;
+    }
+
+
+    const groupA =
+        getQualificationManagers("A")
+            .sort(
+                (a, b) =>
+                    b.qualification.points -
+                    a.qualification.points
+            );
+
+
+    const groupB =
+        getQualificationManagers("B")
+            .sort(
+                (a, b) =>
+                    b.qualification.points -
+                    a.qualification.points
+            );
+
+
+    if (
+        groupA.length !== 9 ||
+        groupB.length !== 9
+    ) {
+        return;
+    }
+
+
+    const championsLeague = [
+
+        ...groupA
+            .slice(0, 4)
+            .map(manager => manager.id),
+
+        ...groupB
+            .slice(0, 4)
+            .map(manager => manager.id)
+
+    ];
+
+
+    const kreisliga = [
+
+        ...groupA
+            .slice(5, 9)
+            .map(manager => manager.id),
+
+        ...groupB
+            .slice(5, 9)
+            .map(manager => manager.id)
+
+    ];
+
+
+    const fifthA =
+        groupA[4];
+
+    const fifthB =
+        groupB[4];
+
+
+    if (
+        fifthA.qualification.points >
+        fifthB.qualification.points
+    ) {
+
+        championsLeague.push(
+            fifthA.id
+        );
+
+        kreisliga.push(
+            fifthB.id
+        );
+
+    }
+
+    else if (
+        fifthB.qualification.points >
+        fifthA.qualification.points
+    ) {
+
+        championsLeague.push(
+            fifthB.id
+        );
+
+        kreisliga.push(
+            fifthA.id
+        );
+
+    }
+
+
+    leagueData.leagues.championsLeague =
+        championsLeague;
+
+
+    leagueData.leagues.kreisliga =
+        kreisliga;
+
+}
 /*
 =========================================
 HAUPTRUNDENPLÄTZE
