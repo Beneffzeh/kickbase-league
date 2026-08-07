@@ -194,6 +194,64 @@ const leagueData = {
 
 },
 
+/*
+=========================================
+QUALIFIKATION – SPIELTAGSPUNKTE
+=========================================
+
+WÖCHENTLICHE PFLEGE:
+
+Pro Manager einfach den neuen Spieltag
+hinten ergänzen.
+
+Beispiel Ben:
+
+ben: [
+    1542,
+    1678,
+    1433
+]
+
+= Spieltag 1, 2 und 3
+
+=========================================
+*/
+
+qualificationScores: {
+
+    A: {
+
+    tim: [],
+    tobsen: [],
+    enrico: [],
+    bruno: [],
+    nils: [],
+    sauer: [],
+    marcel: [],
+    reichi: [],
+    messe: []
+
+},
+
+    B: {
+
+        schwartzer: [],
+        janis: [],
+        heiko: [],
+        marco: [],
+        malik: [],
+        nikolaj: [],
+
+        ben: [
+            1542
+        ],
+
+        philipp: [],
+        fabio: []
+
+    }
+
+},
 
     /*
     =====================================
