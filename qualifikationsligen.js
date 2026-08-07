@@ -156,17 +156,20 @@ function renderQualificationGroup(
 
                             <td>
 
-                                <div class="qualification-manager-cell">
+                                <a
+    class="qualification-manager-cell qualification-manager-link"
+    href="/kickbase-league/manager-profil.html?id=${manager.id}"
+>
 
-                                    <span class="qualification-manager-avatar">
-                                        ${getManagerInitials(manager.name)}
-                                    </span>
+    <span class="qualification-manager-avatar">
+        ${getManagerInitials(manager.name)}
+    </span>
 
-                                    <strong>
-                                        ${escapeQualificationHTML(manager.name)}
-                                    </strong>
+    <strong>
+        ${escapeQualificationHTML(manager.name)}
+    </strong>
 
-                                </div>
+</a>
 
                             </td>
 
