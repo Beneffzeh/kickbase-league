@@ -323,146 +323,150 @@ mainRoundMatchdays: [
 
     cup: {
 
-        preliminaryRound: [
+    preliminaryRound: [
 
-            {
-                id: "VR1",
+        {
+            id: "VR1",
+            home: "ben",
+            away: "enrico",
+            matchday: null
+        },
 
-                home:
-                    "ben",
+        {
+            id: "VR2",
+            home: "tim",
+            away: "philipp",
+            matchday: null
+        }
 
-                away:
-                    "enrico",
-
-                matchday:
-                    null
-            },
-
-            {
-                id: "VR2",
-
-                home:
-                    "tim",
-
-                away:
-                    "philipp",
-
-                matchday:
-                    null
-            }
-
-        ],
+    ],
 
 
-        roundOf16: [
+    roundOf16: [
 
-            {
-                id: "AF1",
+        {
+            id: "AF1",
+            home: "winner-VR1",
+            away: "nils",
+            matchday: null
+        },
 
-                home:
-                    "winner-VR1",
+        {
+            id: "AF2",
+            home: "reichi",
+            away: "messe",
+            matchday: null
+        },
 
-                away:
-                    "nils",
+        {
+            id: "AF3",
+            home: "marcel",
+            away: "fabio",
+            matchday: null
+        },
 
-                matchday:
-                    null
-            },
+        {
+            id: "AF4",
+            home: "sauer",
+            away: "marco",
+            matchday: null
+        },
 
-            {
-                id: "AF2",
+        {
+            id: "AF5",
+            home: "malik",
+            away: "janis",
+            matchday: null
+        },
 
-                home:
-                    "reichi",
+        {
+            id: "AF6",
+            home: "heiko",
+            away: "schwartzer",
+            matchday: null
+        },
 
-                away:
-                    "messe",
+        {
+            id: "AF7",
+            home: "tobsen",
+            away: "nikolaj",
+            matchday: null
+        },
 
-                matchday:
-                    null
-            },
+        {
+            id: "AF8",
+            home: "bruno",
+            away: "winner-VR2",
+            matchday: null
+        }
 
-            {
-                id: "AF3",
+    ],
 
-                home:
-                    "marcel",
 
-                away:
-                    "fabio",
+    quarterFinals: [
 
-                matchday:
-                    null
-            },
+        {
+            id: "VF1",
+            home: "winner-AF1",
+            away: "winner-AF2",
+            matchday: null
+        },
 
-            {
-                id: "AF4",
+        {
+            id: "VF2",
+            home: "winner-AF3",
+            away: "winner-AF4",
+            matchday: null
+        },
 
-                home:
-                    "sauer",
+        {
+            id: "VF3",
+            home: "winner-AF5",
+            away: "winner-AF6",
+            matchday: null
+        },
 
-                away:
-                    "marco",
+        {
+            id: "VF4",
+            home: "winner-AF7",
+            away: "winner-AF8",
+            matchday: null
+        }
 
-                matchday:
-                    null
-            },
+    ],
 
-            {
-                id: "AF5",
 
-                home:
-                    "malik",
+    semiFinals: [
 
-                away:
-                    "janis",
+        {
+            id: "HF1",
+            home: "winner-VF1",
+            away: "winner-VF2",
+            matchday: null
+        },
 
-                matchday:
-                    null
-            },
+        {
+            id: "HF2",
+            home: "winner-VF3",
+            away: "winner-VF4",
+            matchday: null
+        }
 
-            {
-                id: "AF6",
+    ],
 
-                home:
-                    "heiko",
 
-                away:
-                    "schwartzer",
+    final: [
 
-                matchday:
-                    null
-            },
+        {
+            id: "F1",
+            home: "winner-HF1",
+            away: "winner-HF2",
+            matchday: null
+        }
 
-            {
-                id: "AF7",
+    ]
 
-                home:
-                    "tobsen",
-
-                away:
-                    "nikolaj",
-
-                matchday:
-                    null
-            },
-
-            {
-                id: "AF8",
-
-                home:
-                    "bruno",
-
-                away:
-                    "winner-VR2",
-
-                matchday:
-                    null
-            }
-
-        ]
-
-    },
+},
 
 
     /*
