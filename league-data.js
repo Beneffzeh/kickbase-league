@@ -285,7 +285,29 @@ Block mit den Punkten ergänzt.
 =========================================
 */
 
-mainRoundMatchdays: [],
+mainRoundMatchdays: [
+
+    /*
+    Beispiel nach Start der Hauptphase:
+
+    {
+        matchday: 1,
+
+        scores: {
+
+            // Champions League
+            managerId: 0,
+
+            // Kreisliga
+            managerId: 0
+
+        }
+
+    }
+
+    */
+
+],
 
     /*
     =====================================
