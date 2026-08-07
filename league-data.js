@@ -220,32 +220,33 @@ ben: [
 qualificationMatchdays: [
 
     {
-    matchday: 1,
+        matchday: 1,
 
-    scores: {
+        scores: {
 
-        tim: 1800,
-        tobsen: 1620,
-        enrico: 1510,
-        bruno: 1430,
-        nils: 1350,
-        sauer: 1240,
-        marcel: 1110,
-        reichi: 970,
-        messe: 820,
+            tim: 0,
+            tobsen: 0,
+            enrico: 0,
+            bruno: 0,
+            nils: 0,
+            sauer: 0,
+            marcel: 0,
+            reichi: 0,
+            messe: 0,
 
-        schwartzer: 1580,
-        janis: 1490,
-        heiko: 1410,
-        marco: 1320,
-        malik: 1210,
-        nikolaj: 1100,
-        ben: 1750,
-        philipp: 960,
-        fabio: 850
+            schwartzer: 0,
+            janis: 0,
+            heiko: 0,
+            marco: 0,
+            malik: 0,
+            nikolaj: 0,
+            ben: 0,
+            philipp: 0,
+            fabio: 0
+
+        }
 
     }
-}
 
 ],
 
