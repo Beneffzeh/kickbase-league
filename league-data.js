@@ -217,41 +217,38 @@ ben: [
 =========================================
 */
 
-qualificationScores: {
+qualificationMatchdays: [
 
-    A: {
+    {
+        matchday: 1,
 
-    tim: [],
-    tobsen: [],
-    enrico: [],
-    bruno: [],
-    nils: [],
-    sauer: [],
-    marcel: [],
-    reichi: [],
-    messe: []
+        scores: {
 
-},
+            tim: 0,
+            tobsen: 0,
+            enrico: 0,
+            bruno: 0,
+            nils: 0,
+            sauer: 0,
+            marcel: 0,
+            reichi: 0,
+            messe: 0,
 
-    B: {
+            schwartzer: 0,
+            janis: 0,
+            heiko: 0,
+            marco: 0,
+            malik: 0,
+            nikolaj: 0,
+            ben: 1542,
+            philipp: 0,
+            fabio: 0
 
-        schwartzer: [],
-        janis: [],
-        heiko: [],
-        marco: [],
-        malik: [],
-        nikolaj: [],
-
-        ben: [
-            1542
-        ],
-
-        philipp: [],
-        fabio: []
+        }
 
     }
 
-},
+],
 
     /*
     =====================================
@@ -618,36 +615,58 @@ QUALIFIKATIONSPUNKTE ZUWEISEN
 
 function assignQualificationScores() {
 
-    if (!leagueData.qualificationScores) {
+    leagueData.managers.forEach(
+        manager => {
+
+            manager.qualification.scores = [];
+
+        }
+    );
+
+
+    if (
+        !Array.isArray(
+            leagueData.qualificationMatchdays
+        )
+    ) {
         return;
     }
 
-    Object.entries(
-        leagueData.qualificationScores
-    ).forEach(
-        ([groupName, managerScores]) => {
 
-            Object.entries(
-                managerScores
-            ).forEach(
-                ([managerId, scores]) => {
+    leagueData.qualificationMatchdays.forEach(
+        matchday => {
 
-                    const manager =
-                        getManagerById(
-                            managerId
-                        );
+            if (
+                !matchday ||
+                !matchday.scores
+            ) {
+                return;
+            }
 
-                    if (!manager) {
+
+            leagueData.managers.forEach(
+                manager => {
+
+                    const score =
+                        matchday.scores[
+                            manager.id
+                        ];
+
+
+                    if (
+                        score === undefined ||
+                        score === null
+                    ) {
                         return;
                     }
 
-                    manager.qualification.group =
-                        groupName;
 
-                    manager.qualification.scores =
-                        Array.isArray(scores)
-                            ? [...scores]
-                            : [];
+                    manager
+                        .qualification
+                        .scores
+                        .push(
+                            Number(score)
+                        );
 
                 }
             );
@@ -656,7 +675,6 @@ function assignQualificationScores() {
     );
 
 }
-
 
 /*
 =========================================
