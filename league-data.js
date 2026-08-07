@@ -240,11 +240,12 @@ qualificationMatchdays: [
             marco: 0,
             malik: 0,
             nikolaj: 0,
-            ben: 1542,
+            ben: 0,
             philipp: 0,
             fabio: 0
 
         }
+       
 
     }
 
