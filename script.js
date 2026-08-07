@@ -102,3 +102,184 @@ if ("serviceWorker" in navigator) {
     });
 
 }
+/* =========================================================
+   LEGENDEN-SEITE ZUR NAVIGATION HINZUFÜGEN
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const legendsUrl =
+        "/kickbase-league/legenden.html";
+
+
+    /*
+    =====================================================
+    DESKTOP-NAVIGATION
+    =====================================================
+    */
+
+    document
+        .querySelectorAll(".desktop-navigation")
+        .forEach(navigation => {
+
+            /*
+            Nicht doppelt hinzufügen.
+            */
+
+            if (
+                navigation.querySelector(
+                    'a[href="/kickbase-league/legenden.html"]'
+                )
+            ) {
+                return;
+            }
+
+
+            const hallOfFameLink =
+                navigation.querySelector(
+                    'a[href="/kickbase-league/hall-of-fame.html"]'
+                );
+
+
+            if (!hallOfFameLink) {
+                return;
+            }
+
+
+            const legendsLink =
+                document.createElement("a");
+
+
+            legendsLink.href =
+                legendsUrl;
+
+            legendsLink.textContent =
+                "Legenden";
+
+
+            /*
+            Auf der Legenden-Seite aktiv markieren.
+            */
+
+            if (
+                window.location.pathname.endsWith(
+                    "/legenden.html"
+                )
+            ) {
+
+                legendsLink.classList.add(
+                    "active-navigation-link"
+                );
+
+            }
+
+
+            hallOfFameLink.insertAdjacentElement(
+                "afterend",
+                legendsLink
+            );
+
+        });
+
+
+    /*
+    =====================================================
+    MOBILE NAVIGATION
+    =====================================================
+    */
+
+    document
+        .querySelectorAll(".mobile-side-menu-content")
+        .forEach(navigation => {
+
+            if (
+                navigation.querySelector(
+                    'a[href="/kickbase-league/legenden.html"]'
+                )
+            ) {
+                return;
+            }
+
+
+            const hallOfFameLink =
+                navigation.querySelector(
+                    'a[href="/kickbase-league/hall-of-fame.html"]'
+                );
+
+
+            if (!hallOfFameLink) {
+                return;
+            }
+
+
+            const legendsLink =
+                document.createElement("a");
+
+
+            legendsLink.href =
+                legendsUrl;
+
+            legendsLink.className =
+                "mobile-menu-link";
+
+
+            legendsLink.innerHTML = `
+
+                <span class="mobile-menu-icon">
+
+                    <i data-lucide="star"></i>
+
+                </span>
+
+                <div>
+
+                    <strong>Legenden</strong>
+
+                    <small>Die ewige Rangliste</small>
+
+                </div>
+
+                <i data-lucide="chevron-right"></i>
+
+            `;
+
+
+            /*
+            Auf der Legenden-Seite aktiv markieren.
+            */
+
+            if (
+                window.location.pathname.endsWith(
+                    "/legenden.html"
+                )
+            ) {
+
+                legendsLink.classList.add(
+                    "active-mobile-menu-link"
+                );
+
+            }
+
+
+            hallOfFameLink.insertAdjacentElement(
+                "afterend",
+                legendsLink
+            );
+
+        });
+
+
+    /*
+    Neue Lucide-Icons laden.
+    */
+
+    if (
+        typeof lucide !==
+        "undefined"
+    ) {
+
+        lucide.createIcons();
+
+    }
+
+});
