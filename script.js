@@ -225,23 +225,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
             legendsLink.innerHTML = `
 
-                <span class="mobile-menu-icon">
+    <span class="mobile-menu-icon">
+        <i data-lucide="sparkles"></i>
+    </span>
 
-                    <i data-lucide="star"></i>
+    <div>
 
-                </span>
+        <strong>Legenden</strong>
 
-                <div>
+        <small>Karriere-Rangliste</small>
 
-                    <strong>Legenden</strong>
+    </div>
 
-                    <small>Die ewige Rangliste</small>
+    <i data-lucide="chevron-right"></i>
 
-                </div>
-
-                <i data-lucide="chevron-right"></i>
-
-            `;
+`;
 
 
             /*
