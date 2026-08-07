@@ -607,9 +607,14 @@ function recalculateLeagueData() {
     calculateQualificationMatchdayWins();
 
     calculateQualificationPositions();
+
     updateMainRoundLeaguesFromQualification();
 
     assignMainRoundLeagues();
+
+    assignMainRoundScores();
+
+    calculateManagerTotals();
 
     calculateMainRoundMatchdayWins();
 
@@ -785,7 +790,87 @@ function assignMainRoundLeagues() {
 
 }
 
+/*
+=========================================
+HAUPTPHASENPUNKTE ZUWEISEN
+=========================================
+*/
 
+function assignMainRoundScores() {
+
+    leagueData.managers.forEach(
+        manager => {
+
+            manager.mainRound.scores = [];
+
+        }
+    );
+
+
+    if (
+        !Array.isArray(
+            leagueData.mainRoundMatchdays
+        )
+    ) {
+        return;
+    }
+
+
+    leagueData.mainRoundMatchdays.forEach(
+        matchday => {
+
+            if (
+                !matchday ||
+                !matchday.scores
+            ) {
+                return;
+            }
+
+
+            leagueData.managers.forEach(
+                manager => {
+
+                    /*
+                    Nur Manager berücksichtigen,
+                    die tatsächlich einer Liga
+                    der Hauptphase angehören.
+                    */
+
+                    if (
+                        !manager.mainRound.league
+                    ) {
+                        return;
+                    }
+
+
+                    const score =
+                        matchday.scores[
+                            manager.id
+                        ];
+
+
+                    if (
+                        score === undefined ||
+                        score === null
+                    ) {
+                        return;
+                    }
+
+
+                    manager
+                        .mainRound
+                        .scores
+                        .push(
+                            Number(score)
+                        );
+
+                }
+            );
+
+        }
+    );
+
+}
 /*
 =========================================
 GESAMTPUNKTE
