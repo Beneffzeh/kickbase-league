@@ -175,9 +175,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             hallOfFameLink.insertAdjacentElement(
-                "afterend",
-                legendsLink
-            );
+    "beforebegin",
+    legendsLink
+);
 
         });
 
@@ -260,9 +260,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             hallOfFameLink.insertAdjacentElement(
-                "afterend",
-                legendsLink
-            );
+    "beforebegin",
+    legendsLink
+);
 
         });
 
