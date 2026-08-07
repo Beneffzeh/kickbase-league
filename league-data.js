@@ -589,18 +589,71 @@ DATEN NEU BERECHNEN
 function recalculateLeagueData() {
 
     assignQualificationGroups();
+    
+    /*
+=========================================
+QUALIFIKATIONSPUNKTE ZUWEISEN
+=========================================
+*/
+
+function assignQualificationScores() {
+
+    if (!leagueData.qualificationScores) {
+        return;
+    }
+
+
+    Object.entries(
+        leagueData.qualificationScores
+    ).forEach(
+        ([groupName, managerScores]) => {
+
+            Object.entries(
+                managerScores
+            ).forEach(
+                ([managerId, scores]) => {
+
+                    const manager =
+                        getManagerById(
+                            managerId
+                        );
+
+
+                    if (!manager) {
+                        return;
+                    }
+
+
+                    manager.qualification.group =
+                        groupName;
+
+
+                    manager.qualification.scores =
+                        Array.isArray(scores)
+                            ? [...scores]
+                            : [];
+
+                }
+            );
+
+        }
+    );
+
+}
+
+    assignQualificationScores();
 
     assignMainRoundLeagues();
 
     calculateManagerTotals();
 
-    calculateQualificationPositions();
-
-    calculateMainRoundPositions();
-
     calculateQualificationMatchdayWins();
 
     calculateMainRoundMatchdayWins();
+
+    calculateQualificationPositions();
+
+    calculateMainRoundPositions();
 
     calculateAutomaticRecords();
 
