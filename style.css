@@ -16421,3 +16421,74 @@ hr {
     }
 
 }
+
+/* =========================================
+   LIGA-ZENTRALE – ANKLICKBARE KARTEN
+========================================= */
+
+.league-live-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.league-live-card-link:visited {
+    color: inherit;
+}
+
+.league-live-arrow {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    display: grid;
+    width: 34px;
+    height: 34px;
+
+    place-items: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.045);
+    color: #7f8997;
+
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.league-live-arrow svg {
+    width: 17px;
+    height: 17px;
+}
+
+.league-live-card-link:hover .league-live-arrow {
+    transform: translate(2px, -2px);
+
+    color: #18c55b;
+    background: rgba(24, 197, 91, 0.1);
+    border-color: rgba(24, 197, 91, 0.22);
+}
+
+.league-live-card-link:active {
+    transform: scale(0.985);
+}
+
+
+/* SMARTPHONE */
+
+@media (max-width: 640px) {
+
+    .league-live-arrow {
+        top: 17px;
+        right: 17px;
+
+        width: 32px;
+        height: 32px;
+    }
+
+}
