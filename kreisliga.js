@@ -2,6 +2,7 @@
 =========================================
 KICKBASE LEAGUE – KREISLIGA
 AUTOMATISCHE TABELLE
+MIT FORMKURVE
 =========================================
 */
 
@@ -233,26 +234,26 @@ function renderKreisligaTable() {
                             <td>
 
                                 <a
-    class="kreisliga-manager-cell kreisliga-manager-link"
-    href="/kickbase-league/manager-profil.html?id=${manager.id}"
->
+                                    class="kreisliga-manager-cell kreisliga-manager-link"
+                                    href="/kickbase-league/manager-profil.html?id=${manager.id}"
+                                >
 
-    <span class="kreisliga-manager-avatar">
+                                    <span class="kreisliga-manager-avatar">
 
-        <i
-            data-lucide="user"
-            aria-hidden="true"
-        ></i>
+                                        <i
+                                            data-lucide="user"
+                                            aria-hidden="true"
+                                        ></i>
 
-    </span>
+                                    </span>
 
-    <strong>
-        ${escapeKreisligaHTML(
-            manager.name
-        )}
-    </strong>
+                                    <strong>
+                                        ${escapeKreisligaHTML(
+                                            manager.name
+                                        )}
+                                    </strong>
 
-</a>
+                                </a>
 
                             </td>
 
@@ -266,6 +267,15 @@ function renderKreisligaTable() {
                                             .points
                                     )}
                                 </strong>
+
+                            </td>
+
+
+                            <td class="kreisliga-form-column">
+
+                                ${createKreisligaFormHTML(
+                                    manager
+                                )}
 
                             </td>
 
@@ -377,6 +387,13 @@ function createEmptyKreisligaRows() {
                 </td>
 
 
+                <td class="kreisliga-form-column">
+
+                    ${createEmptyKreisligaForm()}
+
+                </td>
+
+
                 <td class="kreisliga-status-column">
 
                     <span class="
@@ -408,6 +425,267 @@ function createEmptyKreisligaRows() {
 
 
     return rows;
+
+}
+
+
+/*
+=========================================
+FORM DER LETZTEN 5 SPIELTAGE
+=========================================
+*/
+
+function createKreisligaFormHTML(
+    manager
+) {
+
+    const form =
+        getKreisligaForm(
+            manager
+        );
+
+
+    const slots = [
+
+        ...Array(
+            Math.max(
+                0,
+                5 - form.length
+            )
+        ).fill(null),
+
+        ...form
+
+    ];
+
+
+    return `
+        <div class="kreisliga-form">
+
+            ${
+                slots
+                    .map(
+                        position => {
+
+                            if (
+                                position === null
+                            ) {
+
+                                return `
+                                    <span class="
+                                        kreisliga-form-badge
+                                        kreisliga-form-empty
+                                    ">
+                                        –
+                                    </span>
+                                `;
+
+                            }
+
+
+                            let formClass =
+                                "kreisliga-form-mid";
+
+
+                            if (
+                                position <= 3
+                            ) {
+
+                                formClass =
+                                    "kreisliga-form-good";
+
+                            }
+
+                            else if (
+                                position >= 7
+                            ) {
+
+                                formClass =
+                                    "kreisliga-form-bad";
+
+                            }
+
+
+                            return `
+                                <span
+                                    class="
+                                        kreisliga-form-badge
+                                        ${formClass}
+                                    "
+                                    title="Spieltagsplatz ${position}"
+                                >
+                                    ${position}
+                                </span>
+                            `;
+
+                        }
+                    )
+                    .join("")
+            }
+
+        </div>
+    `;
+
+}
+
+
+/*
+=========================================
+LEERE FORM
+=========================================
+*/
+
+function createEmptyKreisligaForm() {
+
+    return `
+        <div class="kreisliga-form">
+
+            <span class="kreisliga-form-badge kreisliga-form-empty">–</span>
+            <span class="kreisliga-form-badge kreisliga-form-empty">–</span>
+            <span class="kreisliga-form-badge kreisliga-form-empty">–</span>
+            <span class="kreisliga-form-badge kreisliga-form-empty">–</span>
+            <span class="kreisliga-form-badge kreisliga-form-empty">–</span>
+
+        </div>
+    `;
+
+}
+
+
+/*
+=========================================
+FORM BERECHNEN
+=========================================
+*/
+
+function getKreisligaForm(
+    manager
+) {
+
+    if (
+        !Array.isArray(
+            leagueData.mainRoundMatchdays
+        )
+    ) {
+
+        return [];
+
+    }
+
+
+    const kreisligaManagers =
+        leagueData.managers.filter(
+            item =>
+                item
+                    .mainRound
+                    .league ===
+                "kreisliga"
+        );
+
+
+    const positions = [];
+
+
+    leagueData
+        .mainRoundMatchdays
+        .forEach(
+            matchday => {
+
+                if (
+                    !matchday ||
+                    !matchday.scores
+                ) {
+
+                    return;
+
+                }
+
+
+                const results =
+                    kreisligaManagers
+                        .map(
+                            leagueManager => {
+
+                                const rawScore =
+                                    matchday.scores[
+                                        leagueManager.id
+                                    ];
+
+
+                                if (
+                                    rawScore === undefined ||
+                                    rawScore === null
+                                ) {
+
+                                    return null;
+
+                                }
+
+
+                                return {
+
+                                    id:
+                                        leagueManager.id,
+
+                                    score:
+                                        Number(rawScore)
+
+                                };
+
+                            }
+                        )
+                        .filter(Boolean)
+                        .filter(
+                            result =>
+                                !Number.isNaN(
+                                    result.score
+                                )
+                        );
+
+
+                const hasRealScores =
+                    results.some(
+                        result =>
+                            result.score > 0
+                    );
+
+
+                if (!hasRealScores) {
+                    return;
+                }
+
+
+                const managerResult =
+                    results.find(
+                        result =>
+                            result.id ===
+                            manager.id
+                    );
+
+
+                if (!managerResult) {
+                    return;
+                }
+
+
+                const position =
+                    1 +
+                    results.filter(
+                        result =>
+                            result.score >
+                            managerResult.score
+                    ).length;
+
+
+                positions.push(
+                    position
+                );
+
+            }
+        );
+
+
+    return positions.slice(-5);
 
 }
 
