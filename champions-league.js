@@ -2,6 +2,7 @@
 =========================================
 KICKBASE LEAGUE – CHAMPIONS LEAGUE
 AUTOMATISCHE TABELLE
+MIT FORMKURVE
 =========================================
 */
 
@@ -238,26 +239,26 @@ function renderChampionsLeagueTable() {
                             <td>
 
                                 <a
-    class="cl-manager-cell cl-manager-link"
-    href="/kickbase-league/manager-profil.html?id=${manager.id}"
->
+                                    class="cl-manager-cell cl-manager-link"
+                                    href="/kickbase-league/manager-profil.html?id=${manager.id}"
+                                >
 
-    <span class="cl-manager-avatar">
+                                    <span class="cl-manager-avatar">
 
-        <i
-            data-lucide="user"
-            aria-hidden="true"
-        ></i>
+                                        <i
+                                            data-lucide="user"
+                                            aria-hidden="true"
+                                        ></i>
 
-    </span>
+                                    </span>
 
-    <strong>
-        ${escapeChampionsLeagueHTML(
-            manager.name
-        )}
-    </strong>
+                                    <strong>
+                                        ${escapeChampionsLeagueHTML(
+                                            manager.name
+                                        )}
+                                    </strong>
 
-</a>
+                                </a>
 
                             </td>
 
@@ -271,6 +272,15 @@ function renderChampionsLeagueTable() {
                                             .points
                                     )}
                                 </strong>
+
+                            </td>
+
+
+                            <td class="cl-form-column">
+
+                                ${createChampionsLeagueFormHTML(
+                                    manager
+                                )}
 
                             </td>
 
@@ -382,6 +392,13 @@ function createEmptyChampionsLeagueRows() {
                 </td>
 
 
+                <td class="cl-form-column">
+
+                    ${createEmptyChampionsLeagueForm()}
+
+                </td>
+
+
                 <td class="cl-status-column">
 
                     <span class="
@@ -413,6 +430,280 @@ function createEmptyChampionsLeagueRows() {
 
 
     return rows;
+
+}
+
+
+/*
+=========================================
+FORM DER LETZTEN 5 SPIELTAGE
+=========================================
+*/
+
+function createChampionsLeagueFormHTML(
+    manager
+) {
+
+    const form =
+        getChampionsLeagueForm(
+            manager
+        );
+
+
+    const slots = [
+
+        ...Array(
+            Math.max(
+                0,
+                5 - form.length
+            )
+        ).fill(null),
+
+        ...form
+
+    ];
+
+
+    return `
+        <div class="cl-form">
+
+            ${
+                slots
+                    .map(
+                        position => {
+
+                            if (
+                                position === null
+                            ) {
+
+                                return `
+                                    <span class="
+                                        cl-form-badge
+                                        cl-form-empty
+                                    ">
+                                        –
+                                    </span>
+                                `;
+
+                            }
+
+
+                            let formClass =
+                                "cl-form-mid";
+
+
+                            if (
+                                position <= 3
+                            ) {
+
+                                formClass =
+                                    "cl-form-good";
+
+                            }
+
+                            else if (
+                                position >= 7
+                            ) {
+
+                                formClass =
+                                    "cl-form-bad";
+
+                            }
+
+
+                            return `
+                                <span
+                                    class="
+                                        cl-form-badge
+                                        ${formClass}
+                                    "
+                                    title="Spieltagsplatz ${position}"
+                                >
+                                    ${position}
+                                </span>
+                            `;
+
+                        }
+                    )
+                    .join("")
+            }
+
+        </div>
+    `;
+
+}
+
+
+/*
+=========================================
+LEERE FORM
+=========================================
+*/
+
+function createEmptyChampionsLeagueForm() {
+
+    return `
+        <div class="cl-form">
+
+            <span class="cl-form-badge cl-form-empty">–</span>
+            <span class="cl-form-badge cl-form-empty">–</span>
+            <span class="cl-form-badge cl-form-empty">–</span>
+            <span class="cl-form-badge cl-form-empty">–</span>
+            <span class="cl-form-badge cl-form-empty">–</span>
+
+        </div>
+    `;
+
+}
+
+
+/*
+=========================================
+FORM BERECHNEN
+=========================================
+*/
+
+function getChampionsLeagueForm(
+    manager
+) {
+
+    if (
+        !Array.isArray(
+            leagueData.mainRoundMatchdays
+        )
+    ) {
+
+        return [];
+
+    }
+
+
+    const championsManagers =
+        leagueData.managers.filter(
+            item =>
+                item
+                    .mainRound
+                    .league ===
+                "champions-league"
+        );
+
+
+    const positions = [];
+
+
+    leagueData
+        .mainRoundMatchdays
+        .forEach(
+            matchday => {
+
+                if (
+                    !matchday ||
+                    !matchday.scores
+                ) {
+
+                    return;
+
+                }
+
+
+                const results =
+                    championsManagers
+                        .map(
+                            leagueManager => {
+
+                                const rawScore =
+                                    matchday.scores[
+                                        leagueManager.id
+                                    ];
+
+
+                                if (
+                                    rawScore === undefined ||
+                                    rawScore === null
+                                ) {
+
+                                    return null;
+
+                                }
+
+
+                                return {
+
+                                    id:
+                                        leagueManager.id,
+
+                                    score:
+                                        Number(rawScore)
+
+                                };
+
+                            }
+                        )
+                        .filter(Boolean)
+                        .filter(
+                            result =>
+                                !Number.isNaN(
+                                    result.score
+                                )
+                        );
+
+
+                /*
+                Noch nicht gespielte
+                0-Punkte-Spieltage ignorieren.
+                */
+
+                const hasRealScores =
+                    results.some(
+                        result =>
+                            result.score > 0
+                    );
+
+
+                if (!hasRealScores) {
+                    return;
+                }
+
+
+                const managerResult =
+                    results.find(
+                        result =>
+                            result.id ===
+                            manager.id
+                    );
+
+
+                if (!managerResult) {
+                    return;
+                }
+
+
+                /*
+                Platz = Anzahl der Manager
+                mit besserer Punktzahl + 1.
+
+                Punktgleiche Manager erhalten
+                denselben Spieltagsplatz.
+                */
+
+                const position =
+                    1 +
+                    results.filter(
+                        result =>
+                            result.score >
+                            managerResult.score
+                    ).length;
+
+
+                positions.push(
+                    position
+                );
+
+            }
+        );
+
+
+    return positions.slice(-5);
 
 }
 
@@ -603,10 +894,6 @@ function renderChampionsLeagueStatus() {
     const managers =
         getChampionsLeagueManagers();
 
-
-    /*
-    Qualifikation noch nicht beendet.
-    */
 
     if (
         managers.length === 0
