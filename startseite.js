@@ -123,7 +123,9 @@ function renderQualificationDashboard(
                     leaderA.qualification.points
                 )} Punkte`
                 : "Tabellenführer",
-            "trophy"
+            "trophy",
+            false,
+            "/kickbase-league/qualifikationsligen.html"
         )}
 
 
@@ -137,7 +139,9 @@ function renderQualificationDashboard(
                     leaderB.qualification.points
                 )} Punkte`
                 : "Tabellenführer",
-            "trophy"
+            "trophy",
+            false,
+            "/kickbase-league/qualifikationsligen.html"
         )}
 
 
@@ -152,7 +156,8 @@ function renderQualificationDashboard(
                 )} Punkte`
                 : "Bester Manager",
             "flame",
-            true
+            true,
+            "/kickbase-league/qualifikationsligen.html"
         )}
 
 
@@ -170,7 +175,9 @@ function renderQualificationDashboard(
                     highestRecord.value
                 )} Punkte`
                 : "Höchste Spieltagswertung",
-            "zap"
+            "zap",
+            false,
+            "/kickbase-league/statistiken.html"
         )}
 
     `;
@@ -224,7 +231,9 @@ function renderMainRoundDashboard(
                     championsLeader.mainRound.points
                 )} Punkte`
                 : "Tabellenführer",
-            "crown"
+            "crown",
+            false,
+            "/kickbase-league/champions-league.html"
         )}
 
 
@@ -238,7 +247,9 @@ function renderMainRoundDashboard(
                     kreisligaLeader.mainRound.points
                 )} Punkte`
                 : "Tabellenführer",
-            "shield"
+            "shield",
+            false,
+            "/kickbase-league/kreisliga.html"
         )}
 
 
@@ -271,7 +282,9 @@ function renderMainRoundDashboard(
                     highestRecord.value
                 )} Punkte`
                 : "Höchste Spieltagswertung",
-            "zap"
+            "zap",
+            false,
+            "/kickbase-league/statistiken.html"
         )}
 
     `;
@@ -298,7 +311,8 @@ function getQualificationLeader(
                 manager =>
                     manager
                         .qualification
-                        .group === groupName
+                        .group ===
+                    groupName
             )
             .sort(
                 (
@@ -343,7 +357,8 @@ function getMainRoundLeader(
                 manager =>
                     manager
                         .mainRound
-                        .league === leagueName
+                        .league ===
+                    leagueName
             )
             .sort(
                 (
@@ -533,19 +548,40 @@ function createDashboardCard(
     name,
     detail,
     icon,
-    highlight = false
+    highlight = false,
+    link = null
 ) {
+
+    const tag =
+        link
+            ? "a"
+            : "article";
+
+
+    const linkAttribute =
+        link
+            ? `href="${link}"`
+            : "";
+
 
     return `
 
-        <article class="
-            league-live-card
-            ${
-                highlight
-                    ? "league-live-card-highlight"
-                    : ""
-            }
-        ">
+        <${tag}
+            ${linkAttribute}
+            class="
+                league-live-card
+                ${
+                    highlight
+                        ? "league-live-card-highlight"
+                        : ""
+                }
+                ${
+                    link
+                        ? "league-live-card-link"
+                        : ""
+                }
+            "
+        >
 
             <span class="league-live-icon">
 
@@ -574,7 +610,22 @@ function createDashboardCard(
 
             </div>
 
-        </article>
+
+            ${
+                link
+                    ? `
+                        <span class="league-live-arrow">
+
+                            <i
+                                data-lucide="arrow-up-right"
+                            ></i>
+
+                        </span>
+                    `
+                    : ""
+            }
+
+        </${tag}>
 
     `;
 
@@ -594,7 +645,8 @@ function getDashboardManagerName(
     const manager =
         leagueData.managers.find(
             item =>
-                item.id === managerId
+                item.id ===
+                managerId
         );
 
 
