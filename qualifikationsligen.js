@@ -2,6 +2,7 @@
 =========================================
 KICKBASE LEAGUE – QUALIFIKATIONSLIGEN
 AUTOMATISCHE TABELLEN
+MIT FORMKURVE
 =========================================
 */
 
@@ -157,19 +158,21 @@ function renderQualificationGroup(
                             <td>
 
                                 <a
-    class="qualification-manager-cell qualification-manager-link"
-    href="/kickbase-league/manager-profil.html?id=${manager.id}"
->
+                                    class="qualification-manager-cell qualification-manager-link"
+                                    href="/kickbase-league/manager-profil.html?id=${manager.id}"
+                                >
 
-    <span class="qualification-manager-avatar">
-        ${getManagerInitials(manager.name)}
-    </span>
+                                    <span class="qualification-manager-avatar">
+                                        ${getManagerInitials(manager.name)}
+                                    </span>
 
-    <strong>
-        ${escapeQualificationHTML(manager.name)}
-    </strong>
+                                    <strong>
+                                        ${escapeQualificationHTML(
+                                            manager.name
+                                        )}
+                                    </strong>
 
-</a>
+                                </a>
 
                             </td>
 
@@ -196,6 +199,16 @@ function renderQualificationGroup(
                                             .matchdayWins || 0
                                     }
                                 </strong>
+
+                            </td>
+
+
+                            <td class="qualification-form-column">
+
+                                ${createQualificationFormHTML(
+                                    manager,
+                                    groupName
+                                )}
 
                             </td>
 
@@ -389,6 +402,222 @@ function getQualificationStatus(
             "qualification-status-kreisliga"
 
     };
+
+}
+
+
+/*
+=========================================
+FORM DER LETZTEN 5 SPIELTAGE
+=========================================
+*/
+
+function createQualificationFormHTML(
+    manager,
+    groupName
+) {
+
+    const form =
+        getQualificationForm(
+            manager,
+            groupName
+        );
+
+
+    const slots = [
+        ...Array(
+            Math.max(
+                0,
+                5 - form.length
+            )
+        ).fill(null),
+
+        ...form
+    ];
+
+
+    return `
+        <div class="qualification-form">
+
+            ${
+                slots
+                    .map(
+                        position => {
+
+                            if (
+                                position === null
+                            ) {
+
+                                return `
+                                    <span class="
+                                        qualification-form-badge
+                                        qualification-form-empty
+                                    ">
+                                        –
+                                    </span>
+                                `;
+
+                            }
+
+
+                            let formClass =
+                                "qualification-form-mid";
+
+
+                            if (
+                                position <= 3
+                            ) {
+
+                                formClass =
+                                    "qualification-form-good";
+
+                            }
+
+                            else if (
+                                position >= 7
+                            ) {
+
+                                formClass =
+                                    "qualification-form-bad";
+
+                            }
+
+
+                            return `
+                                <span
+                                    class="
+                                        qualification-form-badge
+                                        ${formClass}
+                                    "
+                                    title="Spieltagsplatz ${position}"
+                                >
+                                    ${position}
+                                </span>
+                            `;
+
+                        }
+                    )
+                    .join("")
+            }
+
+        </div>
+    `;
+
+}
+
+
+/*
+=========================================
+FORM BERECHNEN
+=========================================
+*/
+
+function getQualificationForm(
+    manager,
+    groupName
+) {
+
+    if (
+        !Array.isArray(
+            leagueData.qualificationMatchdays
+        )
+    ) {
+
+        return [];
+
+    }
+
+
+    const groupManagers =
+        leagueData.managers.filter(
+            item =>
+                item
+                    .qualification
+                    .group ===
+                groupName
+        );
+
+
+    const positions = [];
+
+
+    leagueData
+        .qualificationMatchdays
+        .forEach(
+            matchday => {
+
+                if (
+                    !matchday ||
+                    !matchday.scores
+                ) {
+
+                    return;
+
+                }
+
+
+                const scores =
+                    groupManagers
+                        .map(
+                            groupManager => ({
+
+                                id:
+                                    groupManager.id,
+
+                                score:
+                                    Number(
+                                        matchday.scores[
+                                            groupManager.id
+                                        ]
+                                    ) || 0
+
+                            })
+                        );
+
+
+                const hasRealScores =
+                    scores.some(
+                        result =>
+                            result.score > 0
+                    );
+
+
+                if (!hasRealScores) {
+                    return;
+                }
+
+
+                const managerResult =
+                    scores.find(
+                        result =>
+                            result.id ===
+                            manager.id
+                    );
+
+
+                if (!managerResult) {
+                    return;
+                }
+
+
+                const position =
+                    1 +
+                    scores.filter(
+                        result =>
+                            result.score >
+                            managerResult.score
+                    ).length;
+
+
+                positions.push(
+                    position
+                );
+
+            }
+        );
+
+
+    return positions.slice(-5);
 
 }
 
