@@ -16190,3 +16190,234 @@ hr {
     }
 
 }
+
+/* =========================================
+   STARTSEITE – LIGA-ZENTRALE
+========================================= */
+
+.league-live-section {
+    margin-top: 72px;
+}
+
+.league-live-intro {
+    max-width: 720px;
+    margin: -8px 0 28px;
+    color: #8e98a7;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.league-live-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.league-live-card {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 170px;
+    padding: 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(24, 197, 91, 0.08),
+            transparent 42%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.05),
+            rgba(255, 255, 255, 0.015)
+        );
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.league-live-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #18c55b,
+            rgba(24, 197, 91, 0)
+        );
+
+    opacity: 0.75;
+}
+
+.league-live-card:hover {
+    transform: translateY(-4px);
+
+    border-color:
+        rgba(24, 197, 91, 0.28);
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(24, 197, 91, 0.13),
+            transparent 45%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.065),
+            rgba(255, 255, 255, 0.018)
+        );
+}
+
+.league-live-icon {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 24px;
+
+    place-items: center;
+
+    border: 1px solid rgba(24, 197, 91, 0.24);
+    border-radius: 14px;
+
+    background:
+        rgba(24, 197, 91, 0.08);
+
+    color: #18c55b;
+}
+
+.league-live-icon svg {
+    width: 21px;
+    height: 21px;
+}
+
+.league-live-card small {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #737e8d;
+
+    font-size: 0.72rem;
+    font-weight: 900;
+
+    letter-spacing: 0.12em;
+}
+
+.league-live-card strong {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 1.45rem;
+    font-weight: 950;
+
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+}
+
+.league-live-card p {
+    margin: 8px 0 0;
+
+    color: #8e98a7;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+
+/* BESTER MANAGER DES LETZTEN SPIELTAGS */
+
+.league-live-card-highlight {
+    border-color:
+        rgba(255, 212, 92, 0.18);
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(255, 212, 92, 0.12),
+            transparent 45%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.015)
+        );
+}
+
+.league-live-card-highlight::before {
+    background:
+        linear-gradient(
+            90deg,
+            #ffd45c,
+            rgba(255, 212, 92, 0)
+        );
+}
+
+.league-live-card-highlight
+.league-live-icon {
+    color: #ffd45c;
+
+    border-color:
+        rgba(255, 212, 92, 0.25);
+
+    background:
+        rgba(255, 212, 92, 0.08);
+}
+
+
+/* TABLET */
+
+@media (max-width: 980px) {
+
+    .league-live-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* SMARTPHONE */
+
+@media (max-width: 640px) {
+
+    .league-live-section {
+        margin-top: 52px;
+    }
+
+    .league-live-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .league-live-card {
+        min-height: auto;
+        padding: 19px;
+    }
+
+    .league-live-icon {
+        width: 42px;
+        height: 42px;
+        margin-bottom: 18px;
+    }
+
+    .league-live-card strong {
+        font-size: 1.25rem;
+    }
+
+}
