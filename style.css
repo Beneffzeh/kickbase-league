@@ -16492,3 +16492,88 @@ hr {
     }
 
 }
+/* =========================================
+   QUALIFIKATION – FORM LETZTE 5 SPIELTAGE
+========================================= */
+
+.qualification-form-column {
+    white-space: nowrap;
+}
+
+.qualification-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.qualification-form-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 27px;
+    height: 27px;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1;
+
+    border: 1px solid transparent;
+}
+
+/* Platz 1–3 */
+
+.qualification-form-good {
+    color: #5ee58b;
+    background: rgba(24, 197, 91, 0.12);
+    border-color: rgba(24, 197, 91, 0.25);
+}
+
+/* Platz 4–6 */
+
+.qualification-form-mid {
+    color: #c7ced8;
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.09);
+}
+
+/* Platz 7–9 */
+
+.qualification-form-bad {
+    color: #ff7373;
+    background: rgba(255, 75, 75, 0.10);
+    border-color: rgba(255, 75, 75, 0.22);
+}
+
+/* Noch kein Spieltag */
+
+.qualification-form-empty {
+    color: #5f6875;
+    background: rgba(255, 255, 255, 0.025);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+
+/* =========================================
+   FORM – MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .qualification-form {
+        gap: 3px;
+    }
+
+    .qualification-form-badge {
+        width: 23px;
+        height: 23px;
+
+        border-radius: 7px;
+
+        font-size: 10px;
+    }
+
+}
