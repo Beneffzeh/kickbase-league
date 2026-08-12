@@ -22845,16 +22845,26 @@ hr {
 }
 
 /* =========================================================
-   QUALIFIKATION – ABSTAND TABELLENÜBERSCHRIFT
+   QUALIFIKATION – TABELLENÜBERSCHRIFT SAUBERER ABSTAND
 ========================================================= */
 
-.qualification-tables-section .qualification-section-label {
-    display: block;
-    margin: 0 0 10px 0 !important;
-    padding-top: 8px;
-    line-height: 1.2;
+.qualification-tables-section .qualification-section-heading {
+    padding-top: 22px !important;
+    margin-top: 0 !important;
 }
 
-.qualification-tables-section .qualification-section-heading {
-    padding-top: 8px;
+.qualification-tables-section .qualification-section-label {
+    display: block !important;
+
+    margin: 0 0 12px 0 !important;
+    padding: 0 !important;
+
+    line-height: 1.25 !important;
+
+    position: relative;
+    z-index: 2;
+}
+
+.qualification-tables-section .qualification-section-heading h2 {
+    margin-top: 0 !important;
 }
