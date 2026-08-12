@@ -24169,138 +24169,284 @@ hr {
    RUNDEN
 ========================================================= */
 
+/* =========================================================
+   POKALMODUS – SAUBERE RUNDENBOXEN
+========================================================= */
+
 .pokal-mode-compact {
     display: grid;
 
     grid-template-columns:
-        1fr auto
-        1fr auto
-        1fr auto
-        1fr auto
-        1fr;
+        minmax(92px, 1fr)
+        18px
+        minmax(92px, 1fr)
+        18px
+        minmax(92px, 1fr)
+        18px
+        minmax(92px, 1fr)
+        18px
+        minmax(92px, 1fr);
 
     align-items: center;
 
-    gap: 7px;
+    gap: 6px;
 
     margin-top: 22px;
 }
 
 
+/* einzelne Runde */
+
 .pokal-mode-compact-step {
     display: flex;
 
-    align-items: center;
+    flex-direction: column;
 
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
 
     min-width: 0;
+    min-height: 88px;
 
-    padding:
-        11px
-        12px;
+    padding: 12px 8px;
+
+    text-align: center;
 
     border:
         1px solid
-        rgba(195, 229, 138, 0.12);
+        rgba(195, 229, 138, 0.18);
 
-    border-radius:
-        12px;
+    border-radius: 14px;
 
     background:
-        rgba(255, 255, 255, 0.025);
+        linear-gradient(
+            180deg,
+            rgba(159, 207, 99, 0.07),
+            rgba(255, 255, 255, 0.02)
+        );
 }
 
+
+/* Rundennummer */
 
 .pokal-mode-compact-step > span {
     display: grid;
 
-    flex: 0 0 28px;
+    width: 29px;
+    height: 29px;
 
-    width: 28px;
-    height: 28px;
+    flex: 0 0 29px;
 
     place-items: center;
 
     border-radius: 50%;
 
-    background:
-        rgba(159, 207, 99, 0.08);
-
     border:
         1px solid
-        rgba(159, 207, 99, 0.22);
+        rgba(159, 207, 99, 0.32);
+
+    background:
+        rgba(159, 207, 99, 0.09);
 
     color:
         #c3e58a;
 
-    font-size: 0.63rem;
+    font-size: 0.62rem;
 
     font-weight: 900;
 }
 
 
+/* Textbereich */
+
+.pokal-mode-compact-step > div {
+    width: 100%;
+
+    min-width: 0;
+}
+
+
+/* Rundenname */
+
 .pokal-mode-compact-step strong {
     display: block;
 
-    color:
-        #f5f1e6;
+    width: 100%;
 
-    font-size:
-        0.77rem;
+    color: #f5f1e6;
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    white-space: normal;
+
+    word-break: normal;
+
+    overflow-wrap: normal;
 }
 
+
+/* Spieltag */
 
 .pokal-mode-compact-step small {
     display: block;
 
-    margin-top: 3px;
+    margin-top: 5px;
 
-    color:
-        #8fa58f;
+    color: #a7b99f;
 
-    font-size:
-        0.62rem;
+    font-size: 0.60rem;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
 }
 
 
+/* Pfeile */
+
 .pokal-mode-compact > svg {
+    display: block;
+
     width: 16px;
     height: 16px;
 
-    color:
-        #65775f;
+    justify-self: center;
+
+    color: #9fcf63;
 }
 
 
-/* Finale */
+/* =========================================================
+   FINALE
+========================================================= */
 
 .pokal-mode-compact-final {
     border-color:
-        rgba(212, 175, 55, 0.30);
+        rgba(212, 175, 55, 0.42);
 
     background:
-        rgba(212, 175, 55, 0.05);
+        linear-gradient(
+            180deg,
+            rgba(212, 175, 55, 0.10),
+            rgba(212, 175, 55, 0.025)
+        );
+
+    box-shadow:
+        0 0 20px
+        rgba(212, 175, 55, 0.06);
 }
 
 
 .pokal-mode-compact-final > span {
-    color:
-        #f0d77a;
+    color: #f0d77a;
 
     border-color:
-        rgba(212, 175, 55, 0.30);
+        rgba(212, 175, 55, 0.40);
 
     background:
-        rgba(212, 175, 55, 0.08);
+        rgba(212, 175, 55, 0.10);
 }
 
 
-.pokal-mode-compact-final svg {
+.pokal-mode-compact-final > span svg {
     width: 14px;
     height: 14px;
 }
 
+
+/* =========================================================
+   MITTLERE DESKTOPBREITEN
+========================================================= */
+
+@media (min-width: 701px) and (max-width: 1200px) {
+
+    .pokal-mode-compact {
+        grid-template-columns:
+            repeat(5, minmax(0, 1fr));
+
+        gap: 8px;
+    }
+
+
+    .pokal-mode-compact > svg {
+        display: none;
+    }
+
+
+    .pokal-mode-compact-step {
+        min-height: 94px;
+
+        padding:
+            12px
+            5px;
+    }
+
+
+    .pokal-mode-compact-step strong {
+        font-size: 0.67rem;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .pokal-mode-compact {
+        grid-template-columns: 1fr;
+
+        gap: 7px;
+    }
+
+
+    .pokal-mode-compact-step {
+        flex-direction: row;
+
+        justify-content: flex-start;
+
+        min-height: 0;
+
+        padding:
+            12px
+            14px;
+
+        text-align: left;
+    }
+
+
+    .pokal-mode-compact-step > div {
+        width: auto;
+    }
+
+
+    .pokal-mode-compact-step strong {
+        font-size: 0.78rem;
+    }
+
+
+    .pokal-mode-compact-step small {
+        font-size: 0.65rem;
+    }
+
+
+    .pokal-mode-compact > svg {
+        display: block;
+
+        justify-self: center;
+
+        transform: rotate(90deg);
+    }
+
+}
 
 /* =========================================================
    NOTE
