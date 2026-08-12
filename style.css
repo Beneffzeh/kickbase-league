@@ -22868,3 +22868,411 @@ hr {
 .qualification-tables-section .qualification-section-heading h2 {
     margin-top: 0 !important;
 }
+/* =========================================================
+   QUALIFIKATION – DUELL DER FÜNFTPLATZIERTEN
+========================================================= */
+
+.qualification-comparison-section {
+    position: relative;
+
+    display: grid !important;
+    grid-template-columns: 150px 1fr !important;
+
+    align-items: center;
+
+    gap: 30px;
+
+    overflow: hidden;
+
+    margin-top: 28px !important;
+
+    padding: 30px !important;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10) !important;
+
+    border-top:
+        3px solid
+        #e30613 !important;
+
+    border-radius:
+        20px !important;
+
+    background:
+        radial-gradient(
+            circle at 100% 50%,
+            rgba(227, 6, 19, 0.10),
+            transparent 38%
+        ),
+        linear-gradient(
+            135deg,
+            #14171c,
+            #090c10
+        ) !important;
+
+    box-shadow:
+        0 22px 55px
+        rgba(0, 0, 0, 0.30) !important;
+}
+
+
+/* =========================================================
+   GROSSES DUELL-ICON LINKS
+========================================================= */
+
+.qualification-comparison-icon {
+    display: grid !important;
+
+    place-items: center !important;
+
+    width: 125px !important;
+    height: 125px !important;
+
+    margin: 0 auto !important;
+
+    border:
+        1px solid
+        rgba(232, 189, 50, 0.28) !important;
+
+    border-radius:
+        50% !important;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(232, 189, 50, 0.13),
+            rgba(232, 189, 50, 0.025) 60%,
+            transparent 61%
+        ) !important;
+
+    color:
+        #efd15d !important;
+
+    box-shadow:
+        0 0 35px
+        rgba(232, 189, 50, 0.08);
+}
+
+
+.qualification-comparison-icon svg {
+    width: 42px !important;
+    height: 42px !important;
+}
+
+
+/* =========================================================
+   TEXTBEREICH
+========================================================= */
+
+.qualification-comparison-content {
+    position: relative;
+    z-index: 2;
+}
+
+
+.qualification-comparison-content h2 {
+    margin:
+        5px
+        0
+        10px !important;
+
+    color:
+        #ffffff !important;
+
+    font-size:
+        clamp(
+            1.7rem,
+            3vw,
+            2.35rem
+        ) !important;
+
+    line-height:
+        1.05 !important;
+
+    letter-spacing:
+        -0.04em;
+}
+
+
+.qualification-comparison-content > p:not(.qualification-section-label):not(.qualification-comparison-note) {
+    max-width: 720px;
+
+    margin-bottom:
+        22px !important;
+
+    color:
+        #aeb4bd !important;
+
+    line-height:
+        1.6 !important;
+}
+
+
+/* =========================================================
+   GRUPPE A VS GRUPPE B
+========================================================= */
+
+.qualification-comparison-result {
+    display: grid !important;
+
+    grid-template-columns:
+        1fr 60px 1fr !important;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin:
+        20px
+        0
+        15px !important;
+}
+
+
+/* beide Seiten */
+
+.qualification-comparison-result > div {
+    position: relative;
+
+    padding:
+        17px
+        20px !important;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.09) !important;
+
+    border-radius:
+        14px !important;
+
+    background:
+        rgba(255, 255, 255, 0.035) !important;
+}
+
+
+/* Gruppe A */
+
+.qualification-comparison-result > div:first-child {
+    border-left:
+        3px solid
+        #e30613 !important;
+}
+
+
+/* Gruppe B */
+
+.qualification-comparison-result > div:last-child {
+    border-right:
+        3px solid
+        #e30613 !important;
+
+    text-align: right;
+}
+
+
+/* GRUPPE A / GRUPPE B */
+
+.qualification-comparison-result span:not(.qualification-comparison-versus) {
+    display: block;
+
+    margin-bottom:
+        5px;
+
+    color:
+        #e30613 !important;
+
+    font-size:
+        0.63rem !important;
+
+    font-weight:
+        900 !important;
+
+    letter-spacing:
+        0.13em !important;
+}
+
+
+/* Manager + Punkte */
+
+.qualification-comparison-result strong {
+    color:
+        #ffffff !important;
+
+    font-size:
+        1rem !important;
+
+    font-weight:
+        900 !important;
+}
+
+
+/* =========================================================
+   VS
+========================================================= */
+
+.qualification-comparison-versus {
+    display: grid !important;
+
+    place-items: center !important;
+
+    width: 52px;
+    height: 52px;
+
+    margin: auto;
+
+    border:
+        1px solid
+        rgba(232, 189, 50, 0.32);
+
+    border-radius:
+        50%;
+
+    background:
+        #171a1f;
+
+    color:
+        #efd15d !important;
+
+    font-size:
+        0.72rem !important;
+
+    font-weight:
+        900 !important;
+
+    letter-spacing:
+        0.08em;
+
+    box-shadow:
+        0 0 25px
+        rgba(232, 189, 50, 0.08);
+}
+
+
+/* =========================================================
+   INFO UNTEN
+========================================================= */
+
+.qualification-comparison-note {
+    display: flex !important;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin:
+        14px
+        0
+        0 !important;
+
+    padding:
+        10px
+        13px !important;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color:
+        #8f969f !important;
+
+    font-size:
+        0.72rem !important;
+}
+
+
+.qualification-comparison-note svg {
+    flex:
+        0 0 16px;
+
+    width:
+        16px;
+
+    height:
+        16px;
+
+    color:
+        #e8bd32;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .qualification-comparison-section {
+        grid-template-columns:
+            1fr !important;
+
+        gap:
+            18px !important;
+
+        padding:
+            22px 17px !important;
+
+        border-radius:
+            18px !important;
+    }
+
+
+    .qualification-comparison-icon {
+        width:
+            78px !important;
+
+        height:
+            78px !important;
+
+        margin:
+            0 !important;
+    }
+
+
+    .qualification-comparison-icon svg {
+        width:
+            28px !important;
+
+        height:
+            28px !important;
+    }
+
+
+    .qualification-comparison-result {
+        grid-template-columns:
+            1fr !important;
+
+        gap:
+            9px !important;
+    }
+
+
+    .qualification-comparison-versus {
+        width:
+            42px;
+
+        height:
+            42px;
+    }
+
+
+    .qualification-comparison-result > div:last-child {
+        border-right:
+            1px solid
+            rgba(255, 255, 255, 0.09) !important;
+
+        border-left:
+            3px solid
+            #e30613 !important;
+
+        text-align:
+            left;
+    }
+
+}
