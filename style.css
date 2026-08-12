@@ -18691,3 +18691,47 @@ hr {
     }
 
 }
+/* =========================================================
+   CHAMPIONS LEAGUE – FACT CARDS REPARATUR
+========================================================= */
+
+.cl-fact-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+
+    min-height: 0 !important;
+    height: auto !important;
+}
+
+.cl-fact-content {
+    display: block !important;
+
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+
+    flex: 1 1 auto !important;
+}
+
+.cl-fact-content > span,
+.cl-fact-content > strong,
+.cl-fact-content > p {
+    width: 100% !important;
+    max-width: none !important;
+
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+}
+
+.cl-fact-content > strong {
+    font-size: 1.18rem !important;
+}
+
+.cl-fact-content > p {
+    line-height: 1.55 !important;
+}
