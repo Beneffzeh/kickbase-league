@@ -21757,7 +21757,7 @@ hr {
                 rgba(4, 5, 7, 0.56) 55%,
                 rgba(4, 5, 7, 0.92) 100%
             ),
-            url("/kickbase-league/qualification-header-bg.JPG?v=2")
+            url("/kickbase-league/qualification-header-bg.webp")
             center center / cover
             no-repeat !important;
     }
