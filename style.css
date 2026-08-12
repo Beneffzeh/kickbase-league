@@ -21773,19 +21773,15 @@ hr {
         width: 100% !important;
         max-width: 100% !important;
 
-        font-size: clamp(
-            2.35rem,
-            10.3vw,
-            3.25rem
-        ) !important;
-
+        font-size: 9vw !important;
         line-height: 0.95 !important;
 
-        letter-spacing: -0.055em !important;
+        letter-spacing: -0.06em !important;
 
-        white-space: normal !important;
-        overflow-wrap: normal !important;
-        word-break: normal !important;
+        white-space: nowrap !important;
+
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
 }
