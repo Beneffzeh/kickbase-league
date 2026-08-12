@@ -20545,3 +20545,42 @@ hr {
     }
 
 }
+/* =========================================================
+   CL HEADER – DESKTOP FULL WIDTH HARD OVERRIDE
+========================================================= */
+
+@media (min-width: 1000px) {
+
+    .cl-header {
+        width: 100% !important;
+        max-width: none !important;
+
+        min-height: 650px !important;
+
+        overflow: hidden !important;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(1, 7, 29, 0.92) 0%,
+                rgba(1, 7, 29, 0.72) 32%,
+                rgba(1, 7, 29, 0.28) 52%,
+                rgba(1, 7, 29, 0.04) 70%,
+                transparent 100%
+            ),
+            url("/kickbase-league/cl-header-bg.jpeg.JPG?v=8")
+            center center / cover
+            no-repeat !important;
+    }
+
+
+    .cl-header::before {
+        display: none !important;
+    }
+
+
+    .cl-header::after {
+        display: none !important;
+    }
+
+}
