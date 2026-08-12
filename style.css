@@ -23528,60 +23528,43 @@ hr {
 
 }
 /* =========================================================
-   KICKBASE-POKAL 2026/27
-   DFB-POKAL-INSPIRIERTER HEADER
+   KICKBASE-POKAL – HEADER FINAL
 ========================================================= */
 
 .pokal-header {
     position: relative;
-
     min-height: 690px;
 
     display: flex;
     align-items: center;
+    justify-content: center;
 
     overflow: hidden;
 
-    background-image:
-
+    background:
         linear-gradient(
-            90deg,
-            rgba(4, 18, 11, 0.96) 0%,
-            rgba(6, 27, 16, 0.88) 30%,
-            rgba(7, 29, 17, 0.58) 58%,
-            rgba(4, 15, 9, 0.25) 100%
+            180deg,
+            rgba(5, 18, 11, 0.20) 0%,
+            rgba(5, 18, 11, 0.28) 45%,
+            rgba(5, 18, 11, 0.56) 100%
         ),
-
-        linear-gradient(
-            0deg,
-            rgba(4, 13, 8, 0.94) 0%,
-            rgba(4, 15, 9, 0.08) 48%,
-            rgba(3, 12, 7, 0.40) 100%
-        ),
-
         url("/kickbase-league/pokal-header-bg.webp");
 
     background-size: cover;
-
     background-position: center center;
-
     background-repeat: no-repeat;
 
     border-bottom:
-        1px solid
-        rgba(212, 175, 55, 0.28);
+        1px solid rgba(212, 175, 55, 0.28);
 }
 
 
-/* =========================================================
-   LICHT / ATMOSPHÄRE
-========================================================= */
+/* KEINE STARKE LINKE ABDUNKLUNG MEHR */
 
 .pokal-header::before {
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     z-index: 1;
@@ -23589,46 +23572,38 @@ hr {
     pointer-events: none;
 
     background:
-
         radial-gradient(
-            circle at 24% 48%,
-            rgba(159, 207, 99, 0.17),
-            transparent 36%
-        ),
-
-        radial-gradient(
-            circle at 78% 38%,
-            rgba(212, 175, 55, 0.10),
-            transparent 32%
+            circle at 50% 45%,
+            rgba(7, 30, 18, 0.10),
+            rgba(4, 15, 9, 0.24) 55%,
+            rgba(4, 15, 9, 0.36) 100%
         );
 }
 
 
 /* =========================================================
-   HEADER-INHALT
+   HEADER-INHALT MITTIG
 ========================================================= */
 
 .pokal-header-content {
     position: relative;
-
     z-index: 2;
 
-    width:
-        min(
-            1180px,
-            calc(100% - 48px)
-        );
+    width: min(100%, 980px);
 
-    margin:
-        0 auto;
+    margin: 0 auto;
 
     padding:
-        82px 0 72px;
+        70px
+        24px
+        64px;
+
+    text-align: center;
 }
 
 
 /* =========================================================
-   SAISON-BADGE
+   SAISON
 ========================================================= */
 
 .pokal-season-badge {
@@ -23638,19 +23613,21 @@ hr {
 
     gap: 9px;
 
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 
     padding:
-        10px 15px;
+        10px
+        15px;
 
     border:
         1px solid
         rgba(195, 229, 138, 0.34);
 
-    border-radius: 999px;
+    border-radius:
+        999px;
 
     background:
-        rgba(5, 25, 14, 0.70);
+        rgba(5, 25, 14, 0.72);
 
     color:
         #f0d77a;
@@ -23675,53 +23652,44 @@ hr {
 }
 
 
-.pokal-season-badge svg {
-    width: 17px;
-
-    height: 17px;
-
-    color:
-        #c3e58a;
-}
-
-
 /* =========================================================
-   POKAL-LOGO
+   LOGO MITTIG
 ========================================================= */
 
 .pokal-logo {
     display: block;
 
-    width: 130px;
-
-    height: 130px;
+    width: 145px;
+    height: 145px;
 
     object-fit: contain;
 
     margin:
-        0 0 24px;
+        0
+        auto
+        22px;
 
     filter:
-
         drop-shadow(
-            0 8px 22px
+            0 8px 24px
             rgba(0, 0, 0, 0.40)
         )
-
         drop-shadow(
-            0 0 18px
-            rgba(212, 175, 55, 0.16)
+            0 0 20px
+            rgba(212, 175, 55, 0.18)
         );
 }
 
 
 /* =========================================================
-   EYEBROW
+   TEXT MITTIG
 ========================================================= */
 
 .pokal-eyebrow {
     margin:
-        0 0 10px;
+        0
+        0
+        10px;
 
     color:
         #c3e58a;
@@ -23737,17 +23705,18 @@ hr {
 
     text-transform:
         uppercase;
+
+    text-align: center;
 }
 
 
-/* =========================================================
-   HAUPTÜBERSCHRIFT
-========================================================= */
-
 .pokal-title {
-    max-width: 760px;
+    max-width:
+        820px;
 
-    margin: 0;
+    margin:
+        0
+        auto;
 
     color:
         #f5f1e6;
@@ -23768,28 +23737,30 @@ hr {
     letter-spacing:
         -0.055em;
 
+    text-align:
+        center;
+
     text-shadow:
-        0 4px 30px
+        0 5px 28px
         rgba(0, 0, 0, 0.55);
 }
 
 
-/* =========================================================
-   BESCHREIBUNG
-========================================================= */
-
 .pokal-header-description {
-    max-width: 650px;
+    max-width:
+        650px;
 
     margin:
-        22px 0 0;
+        20px
+        auto
+        0;
 
     color:
         rgba(
             245,
             241,
             230,
-            0.82
+            0.86
         );
 
     font-size:
@@ -23800,11 +23771,14 @@ hr {
 
     font-weight:
         500;
+
+    text-align:
+        center;
 }
 
 
 /* =========================================================
-   HEADER-HIGHLIGHTS
+   HIGHLIGHTS MITTIG
 ========================================================= */
 
 .pokal-header-highlights {
@@ -23812,10 +23786,12 @@ hr {
 
     flex-wrap: wrap;
 
+    justify-content: center;
+
     gap: 12px;
 
     margin-top:
-        30px;
+        28px;
 }
 
 
@@ -23830,7 +23806,8 @@ hr {
         48px;
 
     padding:
-        0 17px;
+        0
+        17px;
 
     border:
         1px solid
@@ -23840,7 +23817,7 @@ hr {
         14px;
 
     background:
-        rgba(7, 29, 17, 0.66);
+        rgba(7, 29, 17, 0.68);
 
     color:
         #f5f1e6;
@@ -23856,20 +23833,6 @@ hr {
 
     -webkit-backdrop-filter:
         blur(10px);
-
-    box-shadow:
-        inset 0 1px 0
-        rgba(255, 255, 255, 0.05);
-}
-
-
-.pokal-header-highlights svg {
-    width: 18px;
-
-    height: 18px;
-
-    color:
-        #c3e58a;
 }
 
 
@@ -23881,22 +23844,16 @@ hr {
 
     .pokal-header {
         min-height:
-            730px;
+            720px;
 
-        align-items:
-            flex-end;
-
-        background-image:
-
+        background:
             linear-gradient(
                 180deg,
-                rgba(3, 13, 8, 0.20) 0%,
-                rgba(4, 17, 10, 0.30) 30%,
-                rgba(4, 18, 11, 0.72) 65%,
-                rgba(3, 12, 7, 0.97) 100%
+                rgba(4, 15, 9, 0.14) 0%,
+                rgba(4, 15, 9, 0.24) 40%,
+                rgba(4, 15, 9, 0.66) 100%
             ),
-
-            url("/kickbase-league/pokal-header-bg.png");
+            url("/kickbase-league/pokal-header-bg.webp");
 
         background-size:
             cover;
@@ -23911,68 +23868,40 @@ hr {
 
     .pokal-header-content {
         width:
-            calc(100% - 36px);
+            100%;
 
         padding:
-            70px 0 54px;
-    }
+            58px
+            18px
+            50px;
 
-
-    .pokal-season-badge {
-        margin-bottom:
-            22px;
-
-        font-size:
-            11px;
+        text-align:
+            center;
     }
 
 
     .pokal-logo {
         width:
-            105px;
+            112px;
 
         height:
-            105px;
-
-        margin-bottom:
-            20px;
-    }
-
-
-    .pokal-eyebrow {
-        font-size:
-            11px;
-
-        letter-spacing:
-            0.18em;
+            112px;
     }
 
 
     .pokal-title {
         font-size:
             clamp(
-                43px,
-                13vw,
-                62px
+                42px,
+                12vw,
+                58px
             );
-
-        line-height:
-            0.98;
-
-        letter-spacing:
-            -0.05em;
     }
 
 
     .pokal-header-description {
-        margin-top:
-            18px;
-
         font-size:
-            16px;
-
-        line-height:
-            1.55;
+            15px;
     }
 
 
@@ -23983,10 +23912,7 @@ hr {
             1fr 1fr;
 
         gap:
-            10px;
-
-        margin-top:
-            25px;
+            9px;
     }
 
 
