@@ -361,77 +361,935 @@ section{
 
 }
 
-/* ================================= */
-/* Champions League Design */
-/* ================================= */
+/* =========================================
+   CHAMPIONS LEAGUE – KÖNIGSKLASSEN-DESIGN
+========================================= */
+
+.champions-league-page {
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(72, 86, 255, 0.18),
+            transparent 36%
+        ),
+        radial-gradient(
+            circle at 85% 18%,
+            rgba(128, 55, 255, 0.16),
+            transparent 34%
+        ),
+        linear-gradient(
+            180deg,
+            #040823 0%,
+            #071238 28%,
+            #06102c 58%,
+            #050a1e 100%
+        );
+
+    color: #f5f7ff;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
 
 .cl-header {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 620px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        70px
+        24px
+        80px;
 
     background:
-    linear-gradient(
-        rgba(0,0,30,0.75),
-        rgba(0,0,0,0.75)
-    ),
-    linear-gradient(
-        135deg,
-        #020024,
-        #001f5c,
-        #18c55b
-    );
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(104, 99, 255, 0.28),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 15% 30%,
+            rgba(40, 118, 255, 0.22),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 35%,
+            rgba(123, 59, 255, 0.20),
+            transparent 30%
+        ),
+        linear-gradient(
+            160deg,
+            #02051d 0%,
+            #071440 48%,
+            #0a0d2d 100%
+        );
+}
 
+
+/* großer abstrakter Starball */
+
+.cl-header::before {
+    content: "";
+
+    position: absolute;
+
+    width: 760px;
+    height: 760px;
+
+    top: -180px;
+    right: -190px;
+
+    opacity: 0.15;
+
+    background:
+        linear-gradient(
+            30deg,
+            transparent 42%,
+            rgba(255,255,255,0.65) 43%,
+            rgba(255,255,255,0.65) 44%,
+            transparent 45%
+        ),
+        linear-gradient(
+            90deg,
+            transparent 42%,
+            rgba(255,255,255,0.42) 43%,
+            rgba(255,255,255,0.42) 44%,
+            transparent 45%
+        ),
+        linear-gradient(
+            150deg,
+            transparent 42%,
+            rgba(255,255,255,0.50) 43%,
+            rgba(255,255,255,0.50) 44%,
+            transparent 45%
+        );
+
+    border-radius: 50%;
+
+    transform:
+        rotate(-12deg);
+
+    pointer-events: none;
+}
+
+
+/* zweiter geometrischer Hintergrund */
+
+.cl-header::after {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    left: -170px;
+    bottom: -240px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 80px rgba(255,255,255,0.018),
+        0 0 0 160px rgba(255,255,255,0.012);
+
+    pointer-events: none;
+}
+
+
+.cl-header-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(100%, 900px);
+
+    text-align: center;
+}
+
+
+/* =========================================
+   SAISON-BADGE
+========================================= */
+
+.cl-season-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding:
+        8px
+        13px;
+
+    margin-bottom: 24px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.16);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    backdrop-filter:
+        blur(14px);
+
+    color: #d9e1ff;
+
+    font-size: 0.76rem;
+    font-weight: 800;
+
+    letter-spacing: 0.06em;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.cl-logo {
+    display: block;
+
+    width: 190px;
+    max-width: 62%;
+    height: auto;
+
+    margin:
+        0
+        auto
+        22px;
+
+    border-radius: 50%;
+
+    filter:
+        drop-shadow(
+            0 18px 38px
+            rgba(0,0,0,0.35)
+        );
+
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,0.08),
+        0 0 30px rgba(97, 112, 255, 0.28),
+        0 0 70px rgba(88, 57, 255, 0.18);
+}
+
+
+/* =========================================
+   EYEBROW + TITEL
+========================================= */
+
+.cl-eyebrow {
+    margin:
+        0
+        0
+        10px;
+
+    color: #aeb9ff;
+
+    font-size: 0.78rem;
+    font-weight: 900;
+
+    letter-spacing: 0.18em;
 }
 
 
 .cl-title {
+    margin:
+        0;
 
-    color:#f5c542;
-    text-shadow:0 0 15px rgba(245,197,66,0.5);
+    color: #ffffff;
 
+    font-size:
+        clamp(
+            2.6rem,
+            7vw,
+            5.4rem
+        );
+
+    line-height: 0.98;
+
+    font-weight: 900;
+
+    letter-spacing: -0.045em;
+
+    text-shadow:
+        0 0 22px rgba(84, 110, 255, 0.22);
 }
 
 
-.cl-box {
+.cl-header-description {
+    max-width: 680px;
 
-    border-left:5px solid #f5c542;
+    margin:
+        20px
+        auto
+        0;
 
+    color: #c7cfee;
+
+    font-size: 1.05rem;
+    line-height: 1.65;
+}
+
+
+/* =========================================
+   HEADER-HIGHLIGHTS
+========================================= */
+
+.cl-header-highlights {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: 28px;
+}
+
+
+.cl-header-highlights span {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 8px;
+
+    padding:
+        9px
+        13px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.11);
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,0.055);
+
+    color: #eef1ff;
+
+    font-size: 0.78rem;
+    font-weight: 800;
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+/* =========================================
+   HAUPTBEREICH
+========================================= */
+
+.cl-main {
+    position: relative;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(4,8,35,0) 0%,
+            rgba(5,10,32,0.94) 5%,
+            #050a1e 100%
+        );
+}
+
+
+/* =========================================
+   SECTION LABELS
+========================================= */
+
+.cl-section-label {
+    color: #8fa2ff;
+
+    font-weight: 900;
+
+    letter-spacing: 0.12em;
+}
+
+
+/* =========================================
+   INTRODUCTION
+========================================= */
+
+.cl-introduction {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(19, 32, 83, 0.84),
+            rgba(9, 16, 52, 0.88)
+        );
+
+    border:
+        1px solid
+        rgba(137, 154, 255, 0.15);
+
+    box-shadow:
+        0 24px 70px rgba(0,0,0,0.26),
+        inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+
+.cl-introduction-trophy {
+    color: #9eacff;
+
+    background:
+        rgba(113, 126, 255, 0.08);
+
+    border:
+        1px solid
+        rgba(145, 160, 255, 0.18);
+
+    box-shadow:
+        0 0 35px rgba(80, 94, 255, 0.14);
+}
+
+
+/* =========================================
+   FAKTEN-KARTEN
+========================================= */
+
+.cl-fact-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18, 29, 73, 0.88),
+            rgba(8, 15, 46, 0.92)
+        );
+
+    border:
+        1px solid
+        rgba(123, 142, 255, 0.13);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,0.20),
+        inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+
+.cl-fact-card:hover {
+    border-color:
+        rgba(137, 154, 255, 0.28);
+
+    transform:
+        translateY(-3px);
+}
+
+
+.cl-fact-icon {
+    color: #9aa8ff;
+
+    background:
+        rgba(104, 117, 255, 0.08);
+
+    border:
+        1px solid
+        rgba(130, 145, 255, 0.16);
+}
+
+
+/* Meisterschaft */
+
+.cl-fact-card-gold {
+    border-color:
+        rgba(255, 213, 105, 0.22);
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(255, 213, 105, 0.12),
+            transparent 42%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(21, 31, 72, 0.9),
+            rgba(9, 15, 44, 0.94)
+        );
+}
+
+
+.cl-fact-card-gold
+.cl-fact-icon {
+    color: #ffd66b;
+
+    border-color:
+        rgba(255, 214, 107, 0.22);
+
+    background:
+        rgba(255, 214, 107, 0.08);
+}
+
+
+/* Abstieg */
+
+.cl-fact-card-danger {
+    border-color:
+        rgba(255, 92, 114, 0.18);
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(255, 74, 100, 0.10),
+            transparent 42%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(29, 25, 64, 0.9),
+            rgba(12, 14, 40, 0.94)
+        );
+}
+
+
+/* =========================================
+   TABELLENBEREICH
+========================================= */
+
+.cl-table-section {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 25, 66, 0.96),
+            rgba(7, 13, 40, 0.98)
+        );
+
+    border:
+        1px solid
+        rgba(120, 138, 255, 0.14);
+
+    box-shadow:
+        0 28px 80px rgba(0,0,0,0.30),
+        inset 0 1px 0 rgba(255,255,255,0.035);
+}
+
+
+.cl-table-wrapper {
+    border:
+        1px solid
+        rgba(255,255,255,0.06);
+
+    background:
+        rgba(1, 5, 24, 0.36);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.02);
 }
 
 
 .cl-table th {
+    background:
+        linear-gradient(
+            180deg,
+            #101e55,
+            #0c1743
+        );
 
-    background:#001f5c;
-    color:#f5c542;
+    color: #cbd4ff;
 
+    border-bottom:
+        1px solid
+        rgba(137, 153, 255, 0.15);
+
+    font-size: 0.72rem;
+
+    letter-spacing: 0.08em;
 }
 
 
-.cl-table .meister {
-
-    background:#4d3b00 !important;
-
+.cl-table td {
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.055);
 }
 
 
-.cl-table .abstieg {
-
-    background:#5c1f1f !important;
-
+.cl-table tbody tr {
+    transition:
+        background 0.18s ease,
+        transform 0.18s ease;
 }
 
-/* Champions-League-Logo */
 
-.cl-logo {
-    display: block;
-    width: 180px;
-    max-width: 60%;
-    height: auto;
-    margin: 0 auto 20px;
-    border-radius: 50%;
+.cl-table tbody tr:hover {
+    background:
+        rgba(97, 116, 255, 0.055);
+}
+
+
+/* =========================================
+   TABELLENPLÄTZE
+========================================= */
+
+.cl-position {
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    background:
+        rgba(255,255,255,0.045);
+
+    color: #dfe5ff;
+}
+
+
+.cl-position-first {
+    color: #221700;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe295,
+            #d7aa38
+        );
+
+    border-color:
+        rgba(255, 225, 147, 0.65);
+
     box-shadow:
-        0 0 18px rgba(255, 215, 80, 0.45),
-        0 0 35px rgba(20, 90, 190, 0.45);
+        0 0 18px rgba(255, 205, 83, 0.18);
 }
 
+
+.cl-position-second {
+    color: #161b27;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2fa,
+            #aab4c7
+        );
+}
+
+
+.cl-position-third {
+    color: #2b1407;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d9a278,
+            #9f6340
+        );
+}
+
+
+/* =========================================
+   CHAMPION-ZEILE
+========================================= */
+
+.cl-champion-row {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 207, 77, 0.09),
+            rgba(255, 207, 77, 0.015)
+        );
+}
+
+
+/* =========================================
+   ABSTIEGSZONE
+========================================= */
+
+.cl-relegation-row {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 66, 95, 0.06),
+            transparent 45%
+        );
+}
+
+
+/* =========================================
+   STATUS-BADGES
+========================================= */
+
+.cl-status {
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    background:
+        rgba(255,255,255,0.045);
+}
+
+
+.cl-status-champion {
+    color: #ffe19a;
+
+    background:
+        rgba(255, 208, 91, 0.09);
+
+    border-color:
+        rgba(255, 211, 106, 0.20);
+}
+
+
+.cl-status-silver {
+    color: #d8deea;
+
+    background:
+        rgba(220, 226, 239, 0.07);
+}
+
+
+.cl-status-bronze {
+    color: #dbad8a;
+
+    background:
+        rgba(191, 124, 77, 0.08);
+}
+
+
+.cl-status-safe {
+    color: #b9c7ff;
+
+    background:
+        rgba(95, 115, 255, 0.08);
+
+    border-color:
+        rgba(121, 138, 255, 0.14);
+}
+
+
+.cl-status-relegation {
+    color: #ff8b9d;
+
+    background:
+        rgba(255, 69, 96, 0.08);
+
+    border-color:
+        rgba(255, 88, 112, 0.15);
+}
+
+
+/* =========================================
+   MANAGER
+========================================= */
+
+.cl-manager-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.cl-manager-link:hover strong {
+    color: #aebcff;
+}
+
+
+.cl-manager-avatar {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(114, 130, 255, 0.18),
+            rgba(57, 70, 180, 0.12)
+        );
+
+    border:
+        1px solid
+        rgba(130, 146, 255, 0.15);
+
+    color: #cbd3ff;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.cl-form-good {
+    color: #7ff0ad;
+
+    background:
+        rgba(43, 213, 121, 0.09);
+
+    border-color:
+        rgba(78, 230, 143, 0.16);
+}
+
+
+.cl-form-mid {
+    color: #d5dcf3;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    border-color:
+        rgba(255,255,255,0.08);
+}
+
+
+.cl-form-bad {
+    color: #ff8e9f;
+
+    background:
+        rgba(255, 73, 101, 0.08);
+
+    border-color:
+        rgba(255, 87, 112, 0.14);
+}
+
+
+/* =========================================
+   TITELBEREICH
+========================================= */
+
+.cl-title-section {
+    background:
+        radial-gradient(
+            circle at 15% 50%,
+            rgba(255, 210, 93, 0.08),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(20, 29, 68, 0.94),
+            rgba(8, 14, 42, 0.97)
+        );
+
+    border:
+        1px solid
+        rgba(255, 214, 105, 0.15);
+
+    box-shadow:
+        0 26px 70px rgba(0,0,0,0.25);
+}
+
+
+.cl-trophy-circle {
+    color: #ffd66c;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 215, 104, 0.13),
+            rgba(255, 215, 104, 0.04)
+        );
+
+    border:
+        1px solid
+        rgba(255, 215, 104, 0.22);
+
+    box-shadow:
+        0 0 35px rgba(255, 201, 82, 0.11);
+}
+
+
+.cl-prize-box {
+    background:
+        rgba(255,255,255,0.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+}
+
+
+/* =========================================
+   TABELLEN-LEGENDE
+========================================= */
+
+.cl-legend-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17, 27, 67, 0.87),
+            rgba(8, 14, 42, 0.92)
+        );
+
+    border:
+        1px solid
+        rgba(120, 138, 255, 0.12);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.025);
+}
+
+
+.cl-legend-icon {
+    background:
+        rgba(110, 126, 255, 0.08);
+
+    border:
+        1px solid
+        rgba(132, 147, 255, 0.14);
+
+    color: #a6b4ff;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .cl-header {
+        min-height: 540px;
+
+        padding:
+            54px
+            18px
+            60px;
+    }
+
+
+    .cl-header::before {
+        width: 520px;
+        height: 520px;
+
+        right: -250px;
+        top: -120px;
+    }
+
+
+    .cl-logo {
+        width: 150px;
+    }
+
+
+    .cl-title {
+        font-size:
+            clamp(
+                2.5rem,
+                13vw,
+                4rem
+            );
+    }
+
+
+    .cl-header-description {
+        font-size: 0.95rem;
+    }
+
+
+    .cl-header-highlights {
+        gap: 7px;
+    }
+
+
+    .cl-header-highlights span {
+        padding:
+            8px
+            10px;
+
+        font-size: 0.71rem;
+    }
+
+}
 /* ================================= */
 /* Kreisliga Design */
 /* ================================= */
