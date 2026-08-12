@@ -75,13 +75,177 @@
 
     <div class="cl-hero-background"></div>
 
-    <div class="cl-hero-starball">
-        <span class="cl-star-line cl-star-line-1"></span>
-        <span class="cl-star-line cl-star-line-2"></span>
-        <span class="cl-star-line cl-star-line-3"></span>
-        <span class="cl-star-line cl-star-line-4"></span>
-        <span class="cl-star-line cl-star-line-5"></span>
-    </div>
+    <div class="cl-hero-starball" aria-hidden="true">
+
+    <svg
+        viewBox="0 0 900 700"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+
+        <defs>
+
+            <linearGradient
+                id="cl-star-gradient"
+                x1="0"
+                y1="0"
+                x2="1"
+                y2="1"
+            >
+
+                <stop
+                    offset="0%"
+                    stop-color="#28a7ff"
+                />
+
+                <stop
+                    offset="55%"
+                    stop-color="#526dff"
+                />
+
+                <stop
+                    offset="100%"
+                    stop-color="#a855f7"
+                />
+
+            </linearGradient>
+
+            <filter id="cl-star-glow">
+
+                <feGaussianBlur
+                    stdDeviation="4"
+                    result="blur"
+                />
+
+                <feMerge>
+
+                    <feMergeNode in="blur" />
+
+                    <feMergeNode in="SourceGraphic" />
+
+                </feMerge>
+
+            </filter>
+
+        </defs>
+
+
+        <g
+            fill="none"
+            stroke="url(#cl-star-gradient)"
+            stroke-width="2"
+            opacity="0.78"
+            filter="url(#cl-star-glow)"
+        >
+
+            <path
+                d="
+                    M155 120
+                    L355 58
+                    L520 165
+                    L690 105
+                    L820 245
+                    L735 415
+                    L550 455
+                    L430 610
+                    L255 525
+                    L95 385
+                    Z
+                "
+            />
+
+            <path
+                d="
+                    M355 58
+                    L385 245
+                    L520 165
+                    L610 310
+                    L735 415
+                "
+            />
+
+            <path
+                d="
+                    M155 120
+                    L275 275
+                    L95 385
+                "
+            />
+
+            <path
+                d="
+                    M275 275
+                    L385 245
+                    L430 385
+                    L255 525
+                "
+            />
+
+            <path
+                d="
+                    M385 245
+                    L610 310
+                    L550 455
+                    L430 385
+                    Z
+                "
+            />
+
+            <path
+                d="
+                    M520 165
+                    L690 105
+                    L610 310
+                "
+            />
+
+            <path
+                d="
+                    M610 310
+                    L820 245
+                    L735 415
+                "
+            />
+
+            <path
+                d="
+                    M430 385
+                    L550 455
+                    L430 610
+                "
+            />
+
+        </g>
+
+
+        <g
+            fill="rgba(50,110,255,0.035)"
+            stroke="rgba(108,160,255,0.22)"
+            stroke-width="1"
+        >
+
+            <polygon
+                points="
+                    385,245
+                    520,165
+                    610,310
+                    430,385
+                "
+            />
+
+            <polygon
+                points="
+                    610,310
+                    735,415
+                    550,455
+                    430,385
+                "
+            />
+
+        </g>
+
+    </svg>
+
+</div>
 
     <div class="cl-stadium-lights"></div>
 

@@ -19576,3 +19576,489 @@ hr {
     }
 
 }
+/* =========================================================
+   CL FIX 01 – STARBALL / HERO DESIGN
+========================================================= */
+
+.cl-hero-starball {
+    position: absolute !important;
+
+    width: 820px !important;
+    height: 650px !important;
+
+    right: -80px !important;
+    top: -70px !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    background: none !important;
+
+    box-shadow: none !important;
+
+    transform: rotate(-5deg) !important;
+
+    opacity: 0.82 !important;
+
+    pointer-events: none;
+}
+
+
+.cl-hero-starball svg {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+}
+
+
+/* alte Kuchenlinien endgültig deaktivieren */
+
+.cl-star-line {
+    display: none !important;
+}
+
+
+@media (max-width: 700px) {
+
+    .cl-hero-starball {
+        width: 600px !important;
+        height: 480px !important;
+
+        right: -320px !important;
+        top: -40px !important;
+
+        opacity: 0.55 !important;
+    }
+
+}
+/* =========================================================
+   CL FIX 02 – INTRODUCTION KOMPLETT BLAU
+========================================================= */
+
+.cl-introduction {
+    position: relative !important;
+
+    overflow: hidden !important;
+
+    border:
+        1px solid
+        rgba(71, 143, 255, 0.32) !important;
+
+    border-radius:
+        26px !important;
+
+    background:
+        radial-gradient(
+            circle at 100% 50%,
+            rgba(54, 117, 255, 0.17),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(6, 39, 102, 0.97),
+            rgba(3, 22, 65, 0.98)
+        ) !important;
+
+    box-shadow:
+        0 24px 65px
+        rgba(0, 0, 0, 0.28),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.05) !important;
+}
+
+
+.cl-introduction::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2f9cff,
+            #596dff,
+            transparent
+        );
+
+    opacity: 0.85;
+}
+
+
+.cl-introduction-content {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.cl-introduction-content h2 {
+    color: #ffffff !important;
+}
+
+
+.cl-introduction-content > p:last-child {
+    color: #b8cae8 !important;
+}
+
+
+.cl-introduction-trophy {
+    position: relative;
+
+    z-index: 2;
+
+    color: #93bbff !important;
+
+    border:
+        1px solid
+        rgba(81, 151, 255, 0.32) !important;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(49, 112, 255, 0.18),
+            rgba(17, 54, 130, 0.12)
+        ) !important;
+
+    box-shadow:
+        0 0 35px
+        rgba(44, 111, 255, 0.18) !important;
+}
+/* =========================================================
+   CL FIX 03 – TABELLENFORMATIERUNG
+========================================================= */
+
+.cl-table {
+    width: 100% !important;
+
+    table-layout: fixed !important;
+
+    border-collapse: collapse;
+}
+
+
+/* Platz */
+
+.cl-table th:nth-child(1),
+.cl-table td:nth-child(1) {
+    width: 9% !important;
+}
+
+
+/* Manager */
+
+.cl-table th:nth-child(2),
+.cl-table td:nth-child(2) {
+    width: 34% !important;
+}
+
+
+/* Punkte */
+
+.cl-table th:nth-child(3),
+.cl-table td:nth-child(3) {
+    width: 13% !important;
+
+    text-align: center !important;
+}
+
+
+/* Form */
+
+.cl-table th:nth-child(4),
+.cl-table td:nth-child(4) {
+    width: 24% !important;
+
+    text-align: center !important;
+}
+
+
+/* Status */
+
+.cl-table th:nth-child(5),
+.cl-table td:nth-child(5) {
+    width: 20% !important;
+
+    text-align: right !important;
+}
+
+
+.cl-form {
+    justify-content: center !important;
+}
+
+
+.cl-status-column {
+    padding-right: 18px !important;
+}
+
+
+.cl-status {
+    display: inline-flex !important;
+
+    justify-content: center;
+
+    white-space: nowrap;
+}
+
+
+/* Manager sauber auf einer Linie */
+
+.cl-manager-cell,
+.cl-manager-link {
+    min-width: 0;
+
+    align-items: center;
+}
+
+
+.cl-manager-link strong {
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+/* =========================================================
+   CL FIX 04 – TABELLEN-LEGENDE PREMIUM
+========================================================= */
+
+.cl-legend-section {
+    position: relative !important;
+
+    overflow: hidden !important;
+
+    margin-top: 34px !important;
+
+    padding: 34px !important;
+
+    border:
+        1px solid
+        rgba(74, 143, 255, 0.30) !important;
+
+    border-radius:
+        28px !important;
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(81, 73, 255, 0.13),
+            transparent 34%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(5, 33, 88, 0.97),
+            rgba(3, 18, 53, 0.99)
+        ) !important;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0, 0, 0, 0.30),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.05) !important;
+}
+
+
+.cl-legend-section::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 8%;
+    right: 8%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #3d9cff,
+            #6967ff,
+            transparent
+        );
+
+    opacity: 0.9;
+}
+
+
+/* Überschrift */
+
+.cl-legend-section
+.cl-section-heading {
+    margin-bottom: 23px;
+}
+
+
+.cl-legend-section
+.cl-section-heading h2 {
+    color: #ffffff !important;
+}
+
+
+/* 4 Legendenkarten */
+
+.cl-legend-grid {
+    display: grid !important;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        ) !important;
+
+    gap: 12px !important;
+}
+
+
+.cl-legend-card {
+    position: relative;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    min-height: 105px;
+
+    padding: 18px !important;
+
+    border:
+        1px solid
+        rgba(70, 135, 244, 0.20) !important;
+
+    border-radius:
+        16px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7, 35, 86, 0.80),
+            rgba(4, 22, 60, 0.88)
+        ) !important;
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.035) !important;
+}
+
+
+.cl-legend-card:hover {
+    border-color:
+        rgba(87, 153, 255, 0.36) !important;
+}
+
+
+/* Icons */
+
+.cl-legend-icon {
+    flex:
+        0 0 48px;
+
+    width: 48px !important;
+    height: 48px !important;
+
+    display: grid !important;
+
+    place-items: center;
+
+    margin-right: 15px;
+
+    border-radius:
+        14px !important;
+
+    color:
+        #9fc2ff !important;
+
+    border:
+        1px solid
+        rgba(91, 153, 255, 0.26) !important;
+
+    background:
+        rgba(37, 99, 235, 0.10) !important;
+}
+
+
+/* Champion Gold */
+
+.cl-legend-champion
+.cl-legend-icon {
+    color:
+        #ffd65e !important;
+
+    border-color:
+        rgba(250, 204, 21, 0.30) !important;
+
+    background:
+        rgba(250, 204, 21, 0.08) !important;
+}
+
+
+/* Abstieg Rot */
+
+.cl-legend-relegation
+.cl-legend-icon {
+    color:
+        #ff758c !important;
+
+    border-color:
+        rgba(244, 63, 94, 0.30) !important;
+
+    background:
+        rgba(244, 63, 94, 0.08) !important;
+}
+
+
+.cl-legend-card strong {
+    display: block;
+
+    color: #ffffff !important;
+
+    margin-bottom: 5px;
+}
+
+
+.cl-legend-card p {
+    margin: 0;
+
+    color: #aebfdd !important;
+
+    line-height: 1.5;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .cl-legend-section {
+        padding:
+            25px
+            18px !important;
+
+        border-radius:
+            21px !important;
+    }
+
+
+    .cl-legend-grid {
+        grid-template-columns:
+            1fr !important;
+    }
+
+
+    .cl-legend-card {
+        min-height: 92px;
+    }
+
+}
