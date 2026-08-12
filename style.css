@@ -20062,3 +20062,239 @@ hr {
     }
 
 }
+/* =========================================================
+   CHAMPIONS LEAGUE – ECHTER HERO-HINTERGRUND
+========================================================= */
+
+.cl-header {
+    position: relative !important;
+    overflow: hidden !important;
+
+    min-height: 650px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 60px 24px 80px !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(1, 6, 28, 0.76) 0%,
+            rgba(1, 7, 30, 0.58) 34%,
+            rgba(1, 7, 30, 0.18) 65%,
+            rgba(1, 7, 30, 0.04) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.10),
+            rgba(2, 8, 28, 0.32)
+        ),
+        url("/kickbase-league/cl-header-bg.jpeg")
+        center center / cover
+        no-repeat !important;
+
+    border-bottom:
+        1px solid
+        rgba(72, 142, 255, 0.32) !important;
+
+    box-shadow:
+        inset 0 -100px 120px
+        rgba(2, 9, 31, 0.36) !important;
+}
+
+
+/* alte künstliche Grafik sicher ausschalten */
+
+.cl-header::before,
+.cl-header::after,
+.cl-hero-starball,
+.cl-hero-background,
+.cl-stadium-lights,
+.cl-star-line {
+    display: none !important;
+}
+
+
+/* =========================================================
+   HEADER-INHALT AUF DEM BILD
+========================================================= */
+
+.cl-header-content {
+    position: relative !important;
+    z-index: 5 !important;
+
+    width: min(100%, 1180px) !important;
+
+    margin: 0 auto !important;
+
+    text-align: left !important;
+}
+
+
+/* Saisonbadge links */
+
+.cl-season-badge {
+    margin:
+        0
+        0
+        28px !important;
+
+    background:
+        rgba(3, 16, 53, 0.65) !important;
+
+    border:
+        1px solid
+        rgba(78, 148, 255, 0.42) !important;
+
+    backdrop-filter:
+        blur(14px);
+}
+
+
+/* eigenes Logo kleiner halten,
+   damit es nicht mit dem Hintergrund konkurriert */
+
+.cl-logo {
+    width: 125px !important;
+    max-width: 125px !important;
+
+    margin:
+        0
+        0
+        20px !important;
+
+    box-shadow:
+        none !important;
+
+    filter:
+        drop-shadow(
+            0 10px 25px
+            rgba(0, 0, 0, 0.40)
+        ) !important;
+}
+
+
+.cl-eyebrow {
+    color:
+        #bdd0ff !important;
+
+    text-align:
+        left !important;
+}
+
+
+.cl-title {
+    max-width:
+        720px;
+
+    color:
+        #ffffff !important;
+
+    text-align:
+        left !important;
+
+    text-shadow:
+        0 5px 30px
+        rgba(0, 0, 0, 0.55) !important;
+}
+
+
+.cl-header-description {
+    margin:
+        18px
+        0
+        0 !important;
+
+    color:
+        #e2e9fb !important;
+
+    text-align:
+        left !important;
+}
+
+
+/* =========================================================
+   STATISTIKEN UNTEN LINKS
+========================================================= */
+
+.cl-header-highlights {
+    justify-content:
+        flex-start !important;
+
+    margin-top:
+        32px !important;
+}
+
+
+/* etwas dunkler für Lesbarkeit */
+
+.cl-hero-stat-icon {
+    background:
+        rgba(3, 19, 59, 0.70) !important;
+
+    border-color:
+        rgba(85, 154, 255, 0.40) !important;
+}
+
+
+.cl-hero-stat strong {
+    text-shadow:
+        0 3px 15px
+        rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .cl-header {
+        min-height:
+            610px !important;
+
+        padding:
+            46px
+            19px
+            58px !important;
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(1, 6, 28, 0.80) 0%,
+                rgba(1, 7, 30, 0.56) 60%,
+                rgba(1, 7, 30, 0.18) 100%
+            ),
+            linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.06),
+                rgba(2, 8, 28, 0.34)
+            ),
+            url("/kickbase-league/cl-header-bg.jpeg")
+            65% center / cover
+            no-repeat !important;
+    }
+
+
+    .cl-logo {
+        width:
+            105px !important;
+
+        max-width:
+            105px !important;
+    }
+
+
+    .cl-title {
+        font-size:
+            clamp(
+                2.5rem,
+                12vw,
+                4rem
+            ) !important;
+    }
+
+}
