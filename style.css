@@ -20532,3 +20532,16 @@ hr {
     }
 
 }
+
+/* =========================================================
+   CL HEADER – DESKTOP VOLLE BREITE
+========================================================= */
+
+@media (min-width: 1000px) {
+
+    .cl-header::before {
+        background-size: cover !important;
+        background-position: center center !important;
+    }
+
+}
