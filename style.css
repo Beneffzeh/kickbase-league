@@ -19030,3 +19030,549 @@ hr {
     }
 
 }
+/* =========================================================
+   CHAMPIONS LEAGUE – CHAMPION STAGE
+========================================================= */
+
+.cl-champion-stage {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+
+    align-items: center;
+
+    min-height: 430px;
+
+    margin-top: 34px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(79, 145, 255, 0.32);
+
+    border-radius: 28px;
+
+    background:
+        radial-gradient(
+            circle at 15% 50%,
+            rgba(31, 108, 255, 0.22),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(105, 66, 255, 0.15),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(4, 29, 82, 0.98),
+            rgba(2, 14, 46, 0.99)
+        );
+
+    box-shadow:
+        0 30px 80px
+        rgba(0, 0, 0, 0.34),
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.05);
+}
+
+
+/* obere Lichtkante */
+
+.cl-champion-stage::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 8%;
+    right: 8%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(89, 162, 255, 0.9),
+            rgba(132, 104, 255, 0.75),
+            transparent
+        );
+}
+
+
+/* Hintergrundlicht */
+
+.cl-champion-stage-glow {
+    position: absolute;
+
+    width: 380px;
+    height: 380px;
+
+    left: -90px;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(32, 106, 255, 0.12);
+
+    filter:
+        blur(55px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   TROPHÄEN-SEITE
+========================================================= */
+
+.cl-champion-visual {
+    position: relative;
+
+    min-height: 430px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    border-right:
+        1px solid
+        rgba(84, 145, 255, 0.18);
+}
+
+
+/* Strahlen hinter Pokal */
+
+.cl-champion-rays {
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background:
+        repeating-conic-gradient(
+            from 0deg,
+            rgba(67, 137, 255, 0.08) 0deg 5deg,
+            transparent 5deg 16deg
+        );
+
+    mask-image:
+        radial-gradient(
+            circle,
+            black 0%,
+            transparent 70%
+        );
+
+    -webkit-mask-image:
+        radial-gradient(
+            circle,
+            black 0%,
+            transparent 70%
+        );
+
+    animation:
+        clChampionRotate
+        35s
+        linear
+        infinite;
+}
+
+
+@keyframes clChampionRotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* äußerer Ring */
+
+.cl-champion-trophy-ring {
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    width: 190px;
+    height: 190px;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(105, 165, 255, 0.48);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(35, 91, 190, 0.28),
+            rgba(5, 25, 71, 0.78)
+        );
+
+    box-shadow:
+        0 0 35px
+        rgba(44, 115, 255, 0.24),
+        0 0 90px
+        rgba(44, 115, 255, 0.14),
+        inset 0 0 35px
+        rgba(71, 139, 255, 0.12);
+}
+
+
+/* innerer Kreis */
+
+.cl-champion-trophy-inner {
+    display: grid;
+
+    width: 130px;
+    height: 130px;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255, 214, 92, 0.50);
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(255, 219, 102, 0.18),
+            rgba(9, 32, 79, 0.85)
+        );
+
+    box-shadow:
+        0 0 30px
+        rgba(255, 206, 69, 0.12);
+}
+
+
+.cl-champion-trophy-inner svg {
+    width: 65px;
+    height: 65px;
+
+    color:
+        #ffd65c;
+
+    stroke-width:
+        1.5;
+
+    filter:
+        drop-shadow(
+            0 0 13px
+            rgba(255, 207, 74, 0.40)
+        );
+}
+
+
+/* Champions-League-Text unter Pokal */
+
+.cl-champion-visual-label {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 24px;
+
+    color:
+        #91b8ff;
+
+    font-size:
+        0.68rem;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        0.22em;
+}
+
+
+/* =========================================================
+   TEXT-SEITE
+========================================================= */
+
+.cl-champion-content {
+    position: relative;
+
+    z-index: 2;
+
+    padding:
+        55px
+        55px;
+}
+
+
+.cl-champion-content h2 {
+    margin:
+        7px
+        0
+        16px;
+
+    color:
+        #ffffff;
+
+    font-size:
+        clamp(
+            2rem,
+            4vw,
+            3.2rem
+        );
+
+    line-height:
+        1.05;
+
+    letter-spacing:
+        -0.04em;
+
+    text-shadow:
+        0 8px 30px
+        rgba(36, 91, 201, 0.24);
+}
+
+
+.cl-champion-description {
+    max-width:
+        560px;
+
+    margin:
+        0;
+
+    color:
+        #b7c8e7;
+
+    font-size:
+        0.96rem;
+
+    line-height:
+        1.7;
+}
+
+
+/* =========================================================
+   PREISGELD + POKAL
+========================================================= */
+
+.cl-champion-rewards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        13px;
+
+    margin-top:
+        28px;
+}
+
+
+.cl-champion-reward {
+    display: flex;
+
+    align-items: center;
+
+    gap:
+        14px;
+
+    min-width: 0;
+
+    padding:
+        17px;
+
+    border:
+        1px solid
+        rgba(74, 143, 255, 0.24);
+
+    border-radius:
+        16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 54, 122, 0.62),
+            rgba(7, 28, 74, 0.72)
+        );
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.04);
+}
+
+
+.cl-champion-reward-icon {
+    display: grid;
+
+    flex:
+        0 0 45px;
+
+    width:
+        45px;
+
+    height:
+        45px;
+
+    place-items:
+        center;
+
+    border-radius:
+        13px;
+
+    background:
+        rgba(255, 207, 74, 0.08);
+
+    border:
+        1px solid
+        rgba(255, 207, 74, 0.25);
+
+    color:
+        #ffd45d;
+}
+
+
+.cl-champion-reward-icon svg {
+    width:
+        20px;
+
+    height:
+        20px;
+}
+
+
+.cl-champion-reward div {
+    min-width:
+        0;
+}
+
+
+.cl-champion-reward small {
+    display:
+        block;
+
+    margin-bottom:
+        4px;
+
+    color:
+        #829ed0;
+
+    font-size:
+        0.61rem;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        0.12em;
+}
+
+
+.cl-champion-reward strong {
+    display:
+        block;
+
+    color:
+        #ffffff;
+
+    font-size:
+        1.05rem;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .cl-champion-stage {
+        grid-template-columns:
+            1fr;
+
+        border-radius:
+            21px;
+    }
+
+
+    .cl-champion-visual {
+        min-height:
+            310px;
+
+        border-right:
+            0;
+
+        border-bottom:
+            1px solid
+            rgba(84, 145, 255, 0.18);
+    }
+
+
+    .cl-champion-trophy-ring {
+        width:
+            155px;
+
+        height:
+            155px;
+    }
+
+
+    .cl-champion-trophy-inner {
+        width:
+            105px;
+
+        height:
+            105px;
+    }
+
+
+    .cl-champion-trophy-inner svg {
+        width:
+            52px;
+
+        height:
+            52px;
+    }
+
+
+    .cl-champion-rays {
+        width:
+            250px;
+
+        height:
+            250px;
+    }
+
+
+    .cl-champion-content {
+        padding:
+            32px
+            22px;
+    }
+
+
+    .cl-champion-rewards {
+        grid-template-columns:
+            1fr;
+    }
+
+}
