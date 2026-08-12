@@ -1750,58 +1750,1133 @@ section{
     text-shadow:
     0 0 15px rgba(245,212,107,.45);
 
-}/* ================================= */
-/* Qualifikationsligen Design */
-/* ================================= */
+}/* 
+/* =========================================================
+   QUALIFIKATIONSLIGEN – BUNDESLIGA DESIGN
+========================================================= */
 
-.quali-header {
+
+/* =========================================================
+   GESAMTE SEITE
+========================================================= */
+
+.qualification-page {
+    min-height: 100vh;
+
     background:
-        linear-gradient(
-            rgba(80, 0, 0, 0.74),
-            rgba(0, 0, 0, 0.86)
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(185, 0, 0, 0.10),
+            transparent 30%
         ),
         linear-gradient(
+            180deg,
+            #090b0e 0%,
+            #0b0d10 45%,
+            #07090b 100%
+        );
+
+    color: #f5f7fa;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.qualification-header {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 610px;
+
+    display: flex;
+    align-items: center;
+
+    padding:
+        65px
+        42px
+        78px;
+
+    isolation: isolate;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4, 5, 7, 0.94) 0%,
+            rgba(4, 5, 7, 0.80) 34%,
+            rgba(4, 5, 7, 0.36) 60%,
+            rgba(4, 5, 7, 0.08) 100%
+        ),
+        url("/kickbase-league/qualification-header-bg.JPG")
+        center center / cover
+        no-repeat;
+
+    border-bottom:
+        1px solid
+        rgba(230, 0, 22, 0.45);
+
+    box-shadow:
+        inset 0 -100px 130px
+        rgba(0, 0, 0, 0.48);
+}
+
+
+/* rote Bundesliga-Grafik rechts */
+
+.qualification-header::before {
+    content: "";
+
+    position: absolute;
+
+    width: 430px;
+    height: 820px;
+
+    right: -150px;
+    top: -90px;
+
+    z-index: -1;
+
+    transform:
+        rotate(38deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(220, 0, 20, 0.04),
+            rgba(220, 0, 20, 0.82),
+            rgba(125, 0, 10, 0.62)
+        );
+
+    box-shadow:
+        -55px 0 90px
+        rgba(175, 0, 14, 0.14);
+
+    pointer-events: none;
+}
+
+
+.qualification-header::after {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 850px;
+
+    right: 70px;
+    top: -120px;
+
+    z-index: -1;
+
+    transform:
+        rotate(38deg);
+
+    background:
+        rgba(255, 25, 42, 0.12);
+
+    border-left:
+        1px solid
+        rgba(255, 75, 86, 0.24);
+
+    pointer-events: none;
+}
+
+
+/* alte Orbit-Grafiken abschalten */
+
+.qualification-header-orbit,
+.qualification-header-background-icon {
+    display: none !important;
+}
+
+
+/* =========================================================
+   HEADER CONTENT
+========================================================= */
+
+.qualification-header-content {
+    position: relative;
+
+    z-index: 3;
+
+    width: min(100%, 1180px);
+
+    margin: 0 auto;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   SAISON
+========================================================= */
+
+.qualification-season-badge {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 9px;
+
+    padding:
+        9px
+        14px;
+
+    margin-bottom:
+        22px;
+
+    border:
+        1px solid
+        rgba(235, 20, 35, 0.48);
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(130, 0, 10, 0.36);
+
+    color:
+        #ffffff;
+
+    backdrop-filter:
+        blur(12px);
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.05);
+
+    font-size:
+        0.76rem;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        0.05em;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.qualification-logo {
+    display: block;
+
+    width:
+        118px;
+
+    max-width:
+        118px;
+
+    height:
+        auto;
+
+    margin:
+        0
+        0
+        20px;
+
+    border-radius:
+        16px;
+
+    filter:
+        drop-shadow(
+            0 10px 24px
+            rgba(0, 0, 0, 0.45)
+        );
+
+    box-shadow:
+        none;
+}
+
+
+/* =========================================================
+   EYEBROW + TITEL
+========================================================= */
+
+.qualification-eyebrow {
+    margin:
+        0
+        0
+        9px;
+
+    color:
+        #ff3646;
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        0.17em;
+}
+
+
+.qualification-title {
+    max-width:
+        850px;
+
+    margin:
+        0;
+
+    color:
+        #ffffff;
+
+    font-size:
+        clamp(
+            2.8rem,
+            6.5vw,
+            5.1rem
+        );
+
+    line-height:
+        0.98;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        -0.05em;
+
+    text-transform:
+        uppercase;
+
+    text-shadow:
+        0 5px 30px
+        rgba(0, 0, 0, 0.60);
+}
+
+
+.qualification-header-description {
+    max-width:
+        660px;
+
+    margin:
+        22px
+        0
+        0;
+
+    color:
+        #d4d7dc;
+
+    font-size:
+        1.03rem;
+
+    line-height:
+        1.65;
+}
+
+
+/* =========================================================
+   HEADER INFOS
+========================================================= */
+
+.qualification-header-highlights {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap:
+        12px;
+
+    margin-top:
+        30px;
+}
+
+
+.qualification-header-highlights span {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap:
+        9px;
+
+    min-height:
+        46px;
+
+    padding:
+        10px
+        15px;
+
+    border:
+        1px solid
+        rgba(230, 0, 22, 0.34);
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(9, 11, 14, 0.62);
+
+    color:
+        #ffffff;
+
+    backdrop-filter:
+        blur(12px);
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        800;
+}
+
+
+.qualification-header-highlights svg {
+    color:
+        #ff2738;
+}
+
+
+/* =========================================================
+   NAVIGATION AUF DER QUALI-SEITE
+========================================================= */
+
+.qualification-page
+.main-navigation {
+    background:
+        rgba(7, 9, 12, 0.97);
+
+    border-bottom:
+        1px solid
+        rgba(220, 0, 20, 0.20);
+}
+
+
+.qualification-page
+.desktop-navigation
+.active-navigation-link {
+    color:
+        #ffffff;
+
+    background:
+        linear-gradient(
             135deg,
-            #b30000,
-            #5c0000,
-            #111111
+            rgba(215, 0, 20, 0.85),
+            rgba(130, 0, 10, 0.80)
+        );
+
+    border:
+        1px solid
+        rgba(255, 48, 60, 0.42);
+
+    box-shadow:
+        0 0 20px
+        rgba(195, 0, 16, 0.15);
+}
+
+
+/* =========================================================
+   HAUPTBEREICH
+========================================================= */
+
+.qualification-main {
+    position: relative;
+
+    background:
+        linear-gradient(
+            180deg,
+            #090b0e,
+            #080a0d
         );
 }
 
-.quali-title {
-    color: #ffffff;
-    text-shadow:
-        0 0 12px rgba(255, 255, 255, 0.28),
-        0 0 22px rgba(220, 0, 0, 0.38);
+
+/* =========================================================
+   ALLGEMEINE LABELS
+========================================================= */
+
+.qualification-section-label {
+    color:
+        #ff3040 !important;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        0.13em;
 }
 
-.quali-logo {
-    display: block;
-    width: 180px;
-    max-width: 60%;
-    height: auto;
-    margin: 0 auto 20px;
-    border-radius: 50%;
+
+/* =========================================================
+   EINLEITUNG
+========================================================= */
+
+.qualification-introduction {
+    position: relative;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.11) !important;
+
+    border-radius:
+        20px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17, 20, 24, 0.97),
+            rgba(9, 11, 14, 0.99)
+        ) !important;
+
     box-shadow:
-        0 0 18px rgba(255, 255, 255, 0.25),
-        0 0 34px rgba(210, 0, 0, 0.42);
+        0 20px 55px
+        rgba(0, 0, 0, 0.27),
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.035) !important;
 }
 
-.quali-box {
-    border-left: 5px solid #d71920;
+
+.qualification-introduction::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width:
+        100%;
+
+    height:
+        3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ed0018,
+            #ff3042,
+            transparent
+        );
 }
 
-.quali-table th {
-    background: #b30000;
-    color: #ffffff;
+
+.qualification-introduction-icon {
+    color:
+        #ff3546 !important;
+
+    background:
+        rgba(220, 0, 20, 0.10) !important;
+
+    border:
+        1px solid
+        rgba(235, 30, 45, 0.28) !important;
 }
 
-.quali-table tr:nth-child(even) {
-    background: #241616;
+
+/* =========================================================
+   FACT CARDS
+========================================================= */
+
+.qualification-fact-card {
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10) !important;
+
+    border-radius:
+        18px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(19, 22, 27, 0.96),
+            rgba(10, 12, 15, 0.99)
+        ) !important;
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.03);
 }
 
-.quali-table tr:hover {
-    background: #3a1d1d;
+
+.qualification-fact-icon {
+    color:
+        #ff3444 !important;
+
+    border:
+        1px solid
+        rgba(235, 30, 45, 0.26) !important;
+
+    background:
+        rgba(220, 0, 20, 0.09) !important;
+}
+
+
+.qualification-fact-card-highlight {
+    border-color:
+        rgba(230, 0, 22, 0.34) !important;
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(220, 0, 20, 0.10),
+            transparent 40%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(19, 22, 27, 0.97),
+            rgba(10, 12, 15, 0.99)
+        ) !important;
+}
+
+
+/* =========================================================
+   REGELN
+========================================================= */
+
+.qualification-rules-section {
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    border-radius:
+        22px;
+
+    background:
+        #0c0f13;
+}
+
+
+.qualification-rule-card {
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08) !important;
+
+    border-radius:
+        15px !important;
+
+    background:
+        #111419 !important;
+}
+
+
+.qualification-rule-number {
+    color:
+        #ff3444 !important;
+}
+
+
+.qualification-rule-card-green {
+    border-left:
+        3px solid
+        #18c55b !important;
+}
+
+
+.qualification-rule-card-yellow {
+    border-left:
+        3px solid
+        #f1c232 !important;
+}
+
+
+.qualification-rule-card-red {
+    border-left:
+        3px solid
+        #e31b36 !important;
+}
+
+
+/* =========================================================
+   TABELLEN-BEREICH
+========================================================= */
+
+.qualification-tables-section {
+    position: relative;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    border-radius:
+        23px;
+
+    background:
+        #090c10;
+
+    box-shadow:
+        0 28px 75px
+        rgba(0, 0, 0, 0.27);
+}
+
+
+.qualification-tables-section::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width:
+        100%;
+
+    height:
+        3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #d90016,
+            #ff3243,
+            transparent
+        );
+}
+
+
+/* =========================================================
+   GRUPPEN
+========================================================= */
+
+.qualification-group {
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10) !important;
+
+    border-radius:
+        18px !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #111419,
+            #090c10
+        ) !important;
+
+    box-shadow:
+        0 18px 45px
+        rgba(0, 0, 0, 0.22);
+}
+
+
+.qualification-group-header {
+    border-bottom:
+        1px solid
+        rgba(230, 0, 22, 0.26) !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(198, 0, 17, 0.14),
+            transparent 60%
+        ) !important;
+}
+
+
+.qualification-group-symbol {
+    color:
+        #ff3646 !important;
+
+    background:
+        rgba(210, 0, 18, 0.12) !important;
+
+    border:
+        1px solid
+        rgba(230, 30, 45, 0.28) !important;
+}
+
+
+.qualification-group-identity p {
+    color:
+        #ff3545 !important;
+}
+
+
+/* =========================================================
+   TABELLE
+========================================================= */
+
+.qualification-table-wrapper {
+    width:
+        100%;
+
+    overflow-x:
+        auto !important;
+
+    -webkit-overflow-scrolling:
+        touch;
+}
+
+
+.qualification-table {
+    width:
+        100%;
+
+    border-collapse:
+        collapse;
+}
+
+
+.qualification-table thead th {
+    background:
+        #15191f !important;
+
+    color:
+        #ff4452 !important;
+
+    border-bottom:
+        1px solid
+        rgba(230, 0, 22, 0.30) !important;
+
+    font-size:
+        0.70rem;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        0.07em;
+
+    text-transform:
+        uppercase;
+}
+
+
+.qualification-table tbody tr {
+    background:
+        rgba(12, 15, 19, 0.95);
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.055);
+}
+
+
+.qualification-table tbody tr:nth-child(even) {
+    background:
+        rgba(17, 20, 25, 0.96);
+}
+
+
+.qualification-table tbody tr:hover {
+    background:
+        rgba(45, 19, 23, 0.88);
+}
+
+
+/* =========================================================
+   STATUSZONEN
+========================================================= */
+
+.qualification-table
+.champions-place {
+    box-shadow:
+        inset 3px 0 0
+        #18c55b;
+}
+
+
+.qualification-table
+.comparison-place {
+    box-shadow:
+        inset 3px 0 0
+        #e5b928;
+}
+
+
+.qualification-table
+.kreisliga-place {
+    box-shadow:
+        inset 3px 0 0
+        rgba(255, 255, 255, 0.14);
+}
+
+
+/* =========================================================
+   PLATZIERUNG
+========================================================= */
+
+.qualification-position {
+    color:
+        #ffffff;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+}
+
+
+.champions-place
+.qualification-position {
+    color:
+        #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1f9d50,
+            #126d38
+        );
+
+    border-color:
+        rgba(50, 210, 108, 0.35);
+}
+
+
+.comparison-place
+.qualification-position {
+    color:
+        #211800;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f3d34f,
+            #c89d15
+        );
+}
+
+
+/* =========================================================
+   STATUS BADGES
+========================================================= */
+
+.qualification-status {
+    border-radius:
+        999px !important;
+
+    font-weight:
+        800;
+}
+
+
+.qualification-status-champions {
+    color:
+        #71e29a !important;
+
+    background:
+        rgba(24, 197, 91, 0.10) !important;
+
+    border-color:
+        rgba(24, 197, 91, 0.26) !important;
+}
+
+
+.qualification-status-comparison {
+    color:
+        #f0cf53 !important;
+
+    background:
+        rgba(229, 185, 40, 0.09) !important;
+
+    border-color:
+        rgba(229, 185, 40, 0.25) !important;
+}
+
+
+.qualification-status-kreisliga {
+    color:
+        #c4c9d1 !important;
+
+    background:
+        rgba(255, 255, 255, 0.055) !important;
+
+    border-color:
+        rgba(255, 255, 255, 0.10) !important;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.qualification-form-good {
+    color:
+        #63dd91 !important;
+
+    background:
+        rgba(24, 197, 91, 0.09) !important;
+}
+
+
+.qualification-form-mid {
+    color:
+        #c5cad2 !important;
+
+    background:
+        rgba(255, 255, 255, 0.05) !important;
+}
+
+
+.qualification-form-bad {
+    color:
+        #ff7180 !important;
+
+    background:
+        rgba(220, 0, 25, 0.09) !important;
+}
+
+
+/* =========================================================
+   VERGLEICH 5. PLATZ
+========================================================= */
+
+.qualification-comparison-section {
+    border:
+        1px solid
+        rgba(230, 0, 22, 0.26) !important;
+
+    border-radius:
+        22px !important;
+
+    background:
+        radial-gradient(
+            circle at 0% 50%,
+            rgba(215, 0, 18, 0.10),
+            transparent 34%
+        ),
+        linear-gradient(
+            145deg,
+            #111419,
+            #090c10
+        ) !important;
+
+    box-shadow:
+        0 22px 55px
+        rgba(0, 0, 0, 0.24);
+}
+
+
+.qualification-comparison-icon {
+    color:
+        #ff3545 !important;
+
+    border-color:
+        rgba(230, 25, 40, 0.30) !important;
+
+    background:
+        rgba(210, 0, 18, 0.09) !important;
+}
+
+
+/* =========================================================
+   LEGENDE
+========================================================= */
+
+.qualification-legend-section {
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    border-radius:
+        22px;
+
+    background:
+        #0c0f13;
+}
+
+
+.qualification-legend-card {
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08) !important;
+
+    border-radius:
+        15px !important;
+
+    background:
+        #111419 !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .qualification-header {
+        min-height:
+            575px;
+
+        padding:
+            44px
+            18px
+            58px;
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(4, 5, 7, 0.24),
+                rgba(4, 5, 7, 0.88)
+            ),
+            url("/kickbase-league/qualification-header-bg.JPG")
+            center center / cover
+            no-repeat;
+    }
+
+
+    .qualification-header::before,
+    .qualification-header::after {
+        opacity:
+            0.55;
+    }
+
+
+    .qualification-logo {
+        width:
+            92px;
+
+        max-width:
+            92px;
+    }
+
+
+    .qualification-title {
+        font-size:
+            clamp(
+                2.4rem,
+                11vw,
+                3.7rem
+            );
+    }
+
+
+    .qualification-header-description {
+        font-size:
+            0.93rem;
+    }
+
+
+    .qualification-header-highlights {
+        gap:
+            7px;
+    }
+
+
+    .qualification-header-highlights span {
+        padding:
+            8px
+            10px;
+
+        font-size:
+            0.68rem;
+    }
+
+
+    .qualification-table {
+        width:
+            840px;
+
+        min-width:
+            840px;
+    }
+
 }
 /* ================================= */
 /* Startseite als Liga-Portal */
