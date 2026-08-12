@@ -17908,3 +17908,786 @@ hr {
     }
 
 }
+/* =========================================================
+   CHAMPIONS LEAGUE – HERO V2
+========================================================= */
+
+.champions-league-page {
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(20, 84, 220, 0.22),
+            transparent 33%
+        ),
+        linear-gradient(
+            180deg,
+            #020a24 0%,
+            #03163c 45%,
+            #020b27 100%
+        ) !important;
+}
+
+
+/* HERO */
+
+.cl-header {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 58px 24px 78px;
+
+    isolation: isolate;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(2, 8, 35, 0.12),
+            rgba(2, 8, 35, 0.20)
+        ),
+        radial-gradient(
+            circle at 70% 35%,
+            rgba(75, 65, 255, 0.30),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(0, 114, 255, 0.26),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #020b2e 0%,
+            #031c5d 50%,
+            #080a32 100%
+        ) !important;
+
+    border-bottom:
+        1px solid rgba(86, 157, 255, 0.28);
+}
+
+
+/* GLOW BACKGROUND */
+
+.cl-hero-background {
+    position: absolute;
+    inset: 0;
+
+    z-index: -4;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(43, 128, 255, 0.20),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(112, 59, 255, 0.24),
+            transparent 30%
+        );
+
+    pointer-events: none;
+}
+
+
+/* STARBALL */
+
+.cl-hero-starball {
+    position: absolute;
+
+    width: 730px;
+    height: 730px;
+
+    right: -150px;
+    top: -230px;
+
+    z-index: -2;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(70, 158, 255, 0.40);
+
+    box-shadow:
+        0 0 90px
+        rgba(33, 105, 255, 0.16);
+
+    transform: rotate(-12deg);
+
+    opacity: 0.85;
+}
+
+
+.cl-star-line {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 720px;
+    height: 2px;
+
+    transform-origin: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #28a4ff,
+            rgba(115, 82, 255, 0.90),
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(42, 147, 255, 0.35);
+}
+
+
+.cl-star-line-1 {
+    transform:
+        translate(-50%, -50%)
+        rotate(0deg);
+}
+
+.cl-star-line-2 {
+    transform:
+        translate(-50%, -50%)
+        rotate(36deg);
+}
+
+.cl-star-line-3 {
+    transform:
+        translate(-50%, -50%)
+        rotate(72deg);
+}
+
+.cl-star-line-4 {
+    transform:
+        translate(-50%, -50%)
+        rotate(108deg);
+}
+
+.cl-star-line-5 {
+    transform:
+        translate(-50%, -50%)
+        rotate(144deg);
+}
+
+
+/* STADION-ATMOSPHÄRE */
+
+.cl-stadium-lights {
+    position: absolute;
+
+    left: -5%;
+    right: -5%;
+    bottom: -55px;
+
+    height: 230px;
+
+    z-index: -3;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 100%,
+            rgba(30, 111, 255, 0.42),
+            transparent 56%
+        ),
+        repeating-linear-gradient(
+            88deg,
+            transparent 0 75px,
+            rgba(171, 213, 255, 0.11) 76px 77px
+        );
+
+    filter:
+        blur(0.3px);
+
+    transform:
+        perspective(500px)
+        rotateX(64deg);
+}
+
+
+/* HEADER CONTENT */
+
+.cl-header-content {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(100%, 900px);
+
+    text-align: center;
+}
+
+
+/* SEASON */
+
+.cl-season-badge {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 9px;
+
+    padding: 9px 15px;
+
+    margin-bottom: 20px;
+
+    border:
+        1px solid
+        rgba(88, 153, 255, 0.42);
+
+    border-radius: 14px;
+
+    background:
+        rgba(5, 29, 83, 0.70);
+
+    color: #edf3ff;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.22),
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.06);
+
+    backdrop-filter: blur(15px);
+}
+
+
+/* LOGO */
+
+.cl-logo {
+    width: 158px !important;
+
+    margin:
+        0
+        auto
+        18px !important;
+
+    box-shadow:
+        none !important;
+
+    filter:
+        drop-shadow(
+            0 14px 28px
+            rgba(0, 0, 0, 0.34)
+        )
+        drop-shadow(
+            0 0 24px
+            rgba(55, 118, 255, 0.20)
+        );
+}
+
+
+/* TEXT */
+
+.cl-eyebrow {
+    color:
+        #a7c3ff !important;
+
+    letter-spacing:
+        0.24em !important;
+}
+
+
+.cl-title {
+    color:
+        #ffffff !important;
+
+    font-size:
+        clamp(
+            2.8rem,
+            7vw,
+            5.1rem
+        ) !important;
+
+    letter-spacing:
+        -0.045em;
+
+    text-shadow:
+        0 8px 35px
+        rgba(14, 55, 160, 0.45) !important;
+}
+
+
+.cl-header-description {
+    color:
+        #d5e0f8 !important;
+
+    margin-top:
+        18px !important;
+
+    font-size:
+        1.04rem;
+}
+
+
+/* HERO-STATS */
+
+.cl-header-highlights {
+    display: flex !important;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-top: 32px !important;
+
+    gap: 20px !important;
+}
+
+
+.cl-hero-stat {
+    display: flex;
+
+    align-items: center;
+    gap: 12px;
+
+    padding: 0 10px;
+}
+
+
+.cl-hero-stat-icon {
+    display: grid;
+
+    width: 48px;
+    height: 48px;
+
+    place-items: center;
+
+    border:
+        1px solid
+        rgba(83, 154, 255, 0.38);
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(5, 37, 104, 0.62);
+
+    color:
+        #a9cbff;
+
+    box-shadow:
+        0 0 24px
+        rgba(30, 105, 255, 0.12);
+}
+
+
+.cl-hero-stat-icon svg {
+    width: 21px;
+    height: 21px;
+}
+
+
+.cl-hero-stat div {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+
+.cl-hero-stat strong {
+    color:
+        #ffffff;
+
+    font-size:
+        1.55rem;
+
+    line-height:
+        1;
+}
+
+
+.cl-hero-stat small {
+    margin-top:
+        5px;
+
+    color:
+        #9bb3df;
+
+    font-size:
+        0.65rem;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        0.10em;
+}
+
+
+.cl-hero-stat-divider {
+    width: 1px;
+    height: 42px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(83, 145, 255, 0.50),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   FACT CARDS V2
+========================================================= */
+
+.cl-facts-grid {
+    gap:
+        16px !important;
+}
+
+
+.cl-fact-card {
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 205px;
+
+    padding:
+        26px !important;
+
+    border:
+        1px solid
+        rgba(63, 134, 255, 0.34) !important;
+
+    border-radius:
+        20px !important;
+
+    background:
+        radial-gradient(
+            circle at 0 0,
+            rgba(36, 104, 255, 0.13),
+            transparent 45%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(5, 35, 91, 0.96),
+            rgba(3, 19, 57, 0.97)
+        ) !important;
+
+    box-shadow:
+        0 18px 42px
+        rgba(0, 0, 0, 0.24),
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.05) !important;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.cl-fact-card:hover {
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(87, 159, 255, 0.58) !important;
+}
+
+
+/* LICHT IM KARTENHINTERGRUND */
+
+.cl-fact-glow {
+    position: absolute;
+
+    width: 145px;
+    height: 145px;
+
+    top: -75px;
+    right: -60px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(36, 111, 255, 0.13);
+
+    filter:
+        blur(18px);
+
+    pointer-events: none;
+}
+
+
+/* ICON */
+
+.cl-fact-icon {
+    display: grid;
+
+    width: 50px !important;
+    height: 50px !important;
+
+    margin-bottom:
+        23px;
+
+    place-items: center;
+
+    border:
+        1px solid
+        rgba(79, 151, 255, 0.32) !important;
+
+    border-radius:
+        15px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(37, 99, 235, 0.22),
+            rgba(30, 64, 175, 0.08)
+        ) !important;
+
+    color:
+        #92baff !important;
+}
+
+
+.cl-fact-icon svg {
+    width: 23px;
+    height: 23px;
+}
+
+
+/* TEXT */
+
+.cl-fact-content > span {
+    display:
+        block;
+
+    margin-bottom:
+        7px;
+
+    color:
+        #829fd2;
+
+    font-size:
+        0.68rem;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        0.13em;
+}
+
+
+.cl-fact-content > strong {
+    display:
+        block;
+
+    color:
+        #ffffff;
+
+    font-size:
+        1.18rem;
+
+    line-height:
+        1.25;
+}
+
+
+.cl-fact-content > p {
+    margin:
+        10px
+        0
+        0;
+
+    color:
+        #b4c4e2;
+
+    font-size:
+        0.86rem;
+
+    line-height:
+        1.55;
+}
+
+
+/* GOLD NUR CHAMPION */
+
+.cl-fact-card-gold {
+    border-color:
+        rgba(247, 200, 71, 0.46) !important;
+
+    background:
+        radial-gradient(
+            circle at 100% 0,
+            rgba(247, 200, 71, 0.11),
+            transparent 43%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(6, 35, 88, 0.97),
+            rgba(3, 18, 54, 0.98)
+        ) !important;
+}
+
+
+.cl-fact-card-gold
+.cl-fact-glow {
+    background:
+        rgba(247, 200, 71, 0.13);
+}
+
+
+.cl-fact-card-gold
+.cl-fact-icon {
+    color:
+        #ffd45b !important;
+
+    border-color:
+        rgba(247, 200, 71, 0.40) !important;
+
+    background:
+        rgba(247, 200, 71, 0.08) !important;
+}
+
+
+/* ROT NUR ABSTIEG */
+
+.cl-fact-card-danger {
+    border-color:
+        rgba(244, 63, 94, 0.44) !important;
+
+    background:
+        radial-gradient(
+            circle at 100% 0,
+            rgba(244, 63, 94, 0.11),
+            transparent 43%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(6, 35, 88, 0.97),
+            rgba(3, 18, 54, 0.98)
+        ) !important;
+}
+
+
+.cl-fact-card-danger
+.cl-fact-glow {
+    background:
+        rgba(244, 63, 94, 0.15);
+}
+
+
+.cl-fact-card-danger
+.cl-fact-icon {
+    color:
+        #ff718a !important;
+
+    border-color:
+        rgba(244, 63, 94, 0.38) !important;
+
+    background:
+        rgba(244, 63, 94, 0.09) !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .cl-header {
+        min-height:
+            600px;
+
+        padding:
+            48px
+            18px
+            64px;
+    }
+
+
+    .cl-hero-starball {
+        width:
+            500px;
+
+        height:
+            500px;
+
+        top:
+            -140px;
+
+        right:
+            -330px;
+
+        opacity:
+            0.60;
+    }
+
+
+    .cl-header-highlights {
+        gap:
+            8px !important;
+    }
+
+
+    .cl-hero-stat {
+        gap:
+            7px;
+
+        padding:
+            0 3px;
+    }
+
+
+    .cl-hero-stat-icon {
+        width:
+            38px;
+
+        height:
+            38px;
+    }
+
+
+    .cl-hero-stat-icon svg {
+        width:
+            17px;
+
+        height:
+            17px;
+    }
+
+
+    .cl-hero-stat strong {
+        font-size:
+            1.15rem;
+    }
+
+
+    .cl-hero-stat small {
+        font-size:
+            0.55rem;
+    }
+
+
+    .cl-hero-stat-divider {
+        height:
+            34px;
+    }
+
+
+    .cl-fact-card {
+        min-height:
+            180px;
+
+        border-radius:
+            18px !important;
+    }
+
+}

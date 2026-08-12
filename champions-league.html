@@ -73,20 +73,23 @@
 
 <header class="cl-header">
 
-    <div class="cl-header-background-icon">
+    <div class="cl-hero-background"></div>
 
-        <i data-lucide="trophy"></i>
-
+    <div class="cl-hero-starball">
+        <span class="cl-star-line cl-star-line-1"></span>
+        <span class="cl-star-line cl-star-line-2"></span>
+        <span class="cl-star-line cl-star-line-3"></span>
+        <span class="cl-star-line cl-star-line-4"></span>
+        <span class="cl-star-line cl-star-line-5"></span>
     </div>
+
+    <div class="cl-stadium-lights"></div>
 
     <div class="cl-header-content">
 
         <div class="cl-season-badge">
-
             <i data-lucide="star"></i>
-
             <span>Saison 2026/27</span>
-
         </div>
 
         <img
@@ -109,29 +112,48 @@
 
         <div class="cl-header-highlights">
 
-            <span>
+            <div class="cl-hero-stat">
 
-                <i data-lucide="users"></i>
+                <span class="cl-hero-stat-icon">
+                    <i data-lucide="users"></i>
+                </span>
 
-                9 Manager
+                <div>
+                    <strong>9</strong>
+                    <small>MANAGER</small>
+                </div>
 
-            </span>
+            </div>
 
-            <span>
+            <div class="cl-hero-stat-divider"></div>
 
-                <i data-lucide="calendar-days"></i>
+            <div class="cl-hero-stat">
 
-                20 Spieltage
+                <span class="cl-hero-stat-icon">
+                    <i data-lucide="calendar-days"></i>
+                </span>
 
-            </span>
+                <div>
+                    <strong>20</strong>
+                    <small>SPIELTAGE</small>
+                </div>
 
-            <span>
+            </div>
 
-                <i data-lucide="trophy"></i>
+            <div class="cl-hero-stat-divider"></div>
 
-                1 Champion
+            <div class="cl-hero-stat">
 
-            </span>
+                <span class="cl-hero-stat-icon">
+                    <i data-lucide="trophy"></i>
+                </span>
+
+                <div>
+                    <strong>1</strong>
+                    <small>CHAMPION</small>
+                </div>
+
+            </div>
 
         </div>
 
@@ -540,100 +562,102 @@
 
     <section class="cl-facts-grid">
 
-        <article class="cl-fact-card">
+    <article class="cl-fact-card">
 
-            <div class="cl-fact-icon">
+        <span class="cl-fact-glow"></span>
 
-                <i data-lucide="users"></i>
+        <div class="cl-fact-icon">
+            <i data-lucide="users"></i>
+        </div>
 
-            </div>
+        <div class="cl-fact-content">
 
-            <div>
+            <span>TEILNEHMER</span>
 
-                <span>TEILNEHMER</span>
+            <strong>9 Manager</strong>
 
-                <strong>9 Manager</strong>
+            <p>
+                Die besten Manager der Liga treten in der
+                höchsten Spielklasse an.
+            </p>
 
-                <p>
-                    Die besten Manager der Liga treten in der höchsten
-                    Spielklasse an.
-                </p>
+        </div>
 
-            </div>
-
-        </article>
-
-
-        <article class="cl-fact-card">
-
-            <div class="cl-fact-icon">
-
-                <i data-lucide="calendar-days"></i>
-
-            </div>
-
-            <div>
-
-                <span>SAISON</span>
-
-                <strong>20 Spieltage</strong>
-
-                <p>
-                    Von Januar bis Mai entscheidet sich der Kampf um den Titel.
-                </p>
-
-            </div>
-
-        </article>
+    </article>
 
 
-        <article class="cl-fact-card cl-fact-card-gold">
+    <article class="cl-fact-card">
 
-            <div class="cl-fact-icon">
+        <span class="cl-fact-glow"></span>
 
-                <i data-lucide="crown"></i>
+        <div class="cl-fact-icon">
+            <i data-lucide="calendar-days"></i>
+        </div>
 
-            </div>
+        <div class="cl-fact-content">
 
-            <div>
+            <span>SAISON</span>
 
-                <span>MEISTERSCHAFT</span>
+            <strong>20 Spieltage</strong>
 
-                <strong>Kickbase Champion</strong>
+            <p>
+                Von Januar bis Mai entscheidet sich der
+                Kampf um den Titel.
+            </p>
 
-                <p>
-                    Der Tabellenführer nach dem letzten Spieltag gewinnt den
-                    Titel.
-                </p>
+        </div>
 
-            </div>
-
-        </article>
+    </article>
 
 
-        <article class="cl-fact-card cl-fact-card-danger">
+    <article class="cl-fact-card cl-fact-card-gold">
 
-            <div class="cl-fact-icon">
+        <span class="cl-fact-glow"></span>
 
-                <i data-lucide="arrow-down"></i>
+        <div class="cl-fact-icon">
+            <i data-lucide="crown"></i>
+        </div>
 
-            </div>
+        <div class="cl-fact-content">
 
-            <div>
+            <span>MEISTERSCHAFT</span>
 
-                <span>ABSTIEG</span>
+            <strong>Kickbase Champion</strong>
 
-                <strong>Plätze 7 bis 9</strong>
+            <p>
+                Der Tabellenführer nach dem letzten Spieltag
+                gewinnt den Titel und den großen Pokal.
+            </p>
 
-                <p>
-                    Die letzten drei Manager steigen in die Kreisliga ab.
-                </p>
+        </div>
 
-            </div>
+    </article>
 
-        </article>
 
-    </section>
+    <article class="cl-fact-card cl-fact-card-danger">
+
+        <span class="cl-fact-glow"></span>
+
+        <div class="cl-fact-icon">
+            <i data-lucide="arrow-down"></i>
+        </div>
+
+        <div class="cl-fact-content">
+
+            <span>ABSTIEG</span>
+
+            <strong>Plätze 7 bis 9</strong>
+
+            <p>
+                Die letzten drei Manager steigen zur nächsten
+                Saison in die Kreisliga ab.
+            </p>
+
+        </div>
+
+    </article>
+
+</section>
 
 
     <section class="cl-table-section">
