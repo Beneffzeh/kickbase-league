@@ -20389,3 +20389,146 @@ hr {
     }
 
 }
+/* =========================================================
+   CL HEADER – STADION ALS EIGENE HINTERGRUND-EBENE
+========================================================= */
+
+.cl-header {
+    position: relative !important;
+    isolation: isolate !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #020b2e,
+            #071a4d
+        ) !important;
+}
+
+
+/* DAS ECHTE STADIONBILD */
+
+.cl-header::before {
+    content: "" !important;
+
+    display: block !important;
+
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    z-index: -2 !important;
+
+    background-image:
+        url("/kickbase-league/cl-header-bg.jpeg?v=3") !important;
+
+    background-repeat:
+        no-repeat !important;
+
+    background-position:
+        right center !important;
+
+    /*
+    Wichtig:
+    Nicht "cover".
+    Wir orientieren das Bild an der Höhe,
+    damit der rechte Stadionbereich vollständig sichtbar bleibt.
+    */
+
+    background-size:
+        auto 100% !important;
+
+    opacity: 1 !important;
+
+    transform: none !important;
+
+    border: 0 !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+
+    pointer-events: none !important;
+}
+
+
+/* DUNKLER VERLAUF NUR ÜBER DER LINKEN TEXTSEITE */
+
+.cl-header::after {
+    content: "" !important;
+
+    display: block !important;
+
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    z-index: -1 !important;
+
+    background:
+        linear-gradient(
+            90deg,
+
+            rgba(1, 7, 29, 0.96) 0%,
+
+            rgba(1, 8, 31, 0.91) 24%,
+
+            rgba(1, 8, 31, 0.72) 40%,
+
+            rgba(1, 8, 31, 0.32) 55%,
+
+            rgba(1, 8, 31, 0.05) 72%,
+
+            transparent 100%
+        ) !important;
+
+    transform: none !important;
+
+    border: 0 !important;
+
+    box-shadow: none !important;
+
+    pointer-events: none !important;
+}
+
+
+/* Header-Inhalt sicher über dem Bild */
+
+.cl-header-content {
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 1000px) {
+
+    .cl-header::before {
+        background-position:
+            right center !important;
+
+        background-size:
+            auto 100% !important;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .cl-header::before {
+        background-size:
+            auto 100% !important;
+
+        background-position:
+            70% center !important;
+    }
+
+}
