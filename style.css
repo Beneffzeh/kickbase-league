@@ -20584,3 +20584,22 @@ hr {
     }
 
 }
+
+/* =========================================================
+   CL TABELLE – SAISON-LABEL NICHT ABSCHNEIDEN
+========================================================= */
+
+.cl-table-section .cl-section-heading {
+    padding-top: 18px !important;
+}
+
+.cl-table-section .cl-section-label {
+    display: block !important;
+
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+
+    line-height: 1.2 !important;
+
+    overflow: visible !important;
+}
