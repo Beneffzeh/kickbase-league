@@ -22843,3 +22843,18 @@ hr {
     }
 
 }
+
+/* =========================================================
+   QUALIFIKATION – ABSTAND TABELLENÜBERSCHRIFT
+========================================================= */
+
+.qualification-tables-section .qualification-section-label {
+    display: block;
+    margin: 0 0 10px 0 !important;
+    padding-top: 8px;
+    line-height: 1.2;
+}
+
+.qualification-tables-section .qualification-section-heading {
+    padding-top: 8px;
+}
