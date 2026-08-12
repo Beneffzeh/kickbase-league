@@ -22283,3 +22283,563 @@ hr {
     }
 
 }
+/* =========================================================
+   QUALIFIKATION – BUNDESLIGA TABELLEN
+========================================================= */
+
+.qualification-groups-grid {
+    gap: 22px !important;
+}
+
+
+/* =========================================================
+   GRUPPEN-CONTAINER
+========================================================= */
+
+.qualification-group {
+    position: relative;
+
+    overflow: hidden !important;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10) !important;
+
+    border-radius:
+        18px !important;
+
+    background:
+        #0d1014 !important;
+
+    box-shadow:
+        0 22px 55px
+        rgba(0, 0, 0, 0.30) !important;
+}
+
+
+/* =========================================================
+   ROTER BUNDESLIGA-KOPF
+========================================================= */
+
+.qualification-group-header {
+    position: relative;
+
+    min-height: 92px;
+
+    padding:
+        18px
+        20px !important;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.09) !important;
+
+    background:
+        linear-gradient(
+            110deg,
+            #d90016 0%,
+            #b40012 45%,
+            #70000b 100%
+        ) !important;
+}
+
+
+/* dezente diagonale Bundesliga-Fläche */
+
+.qualification-group-header::after {
+    content: "";
+
+    position: absolute;
+
+    right: -50px;
+    top: -80px;
+
+    width: 180px;
+    height: 240px;
+
+    transform: rotate(28deg);
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   A / B SYMBOL
+========================================================= */
+
+.qualification-group-symbol {
+    position: relative;
+
+    z-index: 2;
+
+    display: grid !important;
+
+    place-items: center !important;
+
+    width: 48px !important;
+    height: 48px !important;
+
+    flex:
+        0 0 48px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.30) !important;
+
+    border-radius:
+        12px !important;
+
+    background:
+        rgba(0, 0, 0, 0.18) !important;
+
+    color:
+        #ffffff !important;
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.10);
+}
+
+
+.qualification-group-symbol svg {
+    width: 25px;
+    height: 25px;
+}
+
+
+/* =========================================================
+   GRUPPENTITEL
+========================================================= */
+
+.qualification-group-identity {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.qualification-group-identity p {
+    margin-bottom: 3px !important;
+
+    color:
+        rgba(255, 255, 255, 0.70) !important;
+
+    font-size:
+        0.67rem !important;
+
+    font-weight:
+        900 !important;
+
+    letter-spacing:
+        0.14em !important;
+}
+
+
+.qualification-group-identity h3 {
+    color:
+        #ffffff !important;
+
+    font-size:
+        1.12rem !important;
+
+    font-weight:
+        900 !important;
+
+    letter-spacing:
+        -0.025em;
+}
+
+
+/* =========================================================
+   9 MANAGER
+========================================================= */
+
+.qualification-group-count {
+    position: relative;
+
+    z-index: 2;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.20) !important;
+
+    border-radius:
+        999px !important;
+
+    background:
+        rgba(0, 0, 0, 0.18) !important;
+
+    color:
+        #ffffff !important;
+
+    backdrop-filter:
+        blur(8px);
+}
+
+
+/* =========================================================
+   TABELLENKOPF
+========================================================= */
+
+.qualification-table thead th {
+    height: 48px;
+
+    padding:
+        0
+        13px !important;
+
+    background:
+        #171a1f !important;
+
+    color:
+        #9299a4 !important;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.10) !important;
+
+    font-size:
+        0.65rem !important;
+
+    font-weight:
+        900 !important;
+
+    letter-spacing:
+        0.08em !important;
+
+    text-transform:
+        uppercase;
+}
+
+
+/* rote Linie unter Tabellenkopf */
+
+.qualification-table thead {
+    box-shadow:
+        inset 0 -2px 0
+        rgba(218, 0, 22, 0.70);
+}
+
+
+/* =========================================================
+   TABELLENZEILEN
+========================================================= */
+
+.qualification-table tbody tr {
+    height: 62px;
+
+    background:
+        #101318 !important;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.055) !important;
+
+    transition:
+        background 0.18s ease;
+}
+
+
+.qualification-table tbody tr:nth-child(even) {
+    background:
+        #13161b !important;
+}
+
+
+.qualification-table tbody tr:hover {
+    background:
+        #1a1e24 !important;
+}
+
+
+.qualification-table tbody td {
+    padding:
+        10px
+        13px !important;
+}
+
+
+/* =========================================================
+   QUALIFIKATIONSZONEN
+========================================================= */
+
+/* Champions League */
+
+.qualification-table tbody tr.champions-place {
+    box-shadow:
+        inset 4px 0 0
+        #18c55b !important;
+}
+
+
+/* fünfter Platz */
+
+.qualification-table tbody tr.comparison-place {
+    box-shadow:
+        inset 4px 0 0
+        #e8bd32 !important;
+}
+
+
+/* Kreisliga */
+
+.qualification-table tbody tr.kreisliga-place {
+    box-shadow:
+        inset 4px 0 0
+        #3c424b !important;
+}
+
+
+/* =========================================================
+   PLATZ
+========================================================= */
+
+.qualification-position {
+    display: grid !important;
+
+    place-items: center !important;
+
+    width: 30px !important;
+    height: 30px !important;
+
+    border-radius:
+        8px !important;
+
+    font-size:
+        0.78rem !important;
+
+    font-weight:
+        900 !important;
+}
+
+
+.champions-place
+.qualification-position {
+    color:
+        #72e59b !important;
+
+    border:
+        1px solid
+        rgba(24, 197, 91, 0.24) !important;
+
+    background:
+        rgba(24, 197, 91, 0.09) !important;
+}
+
+
+.comparison-place
+.qualification-position {
+    color:
+        #efd15d !important;
+
+    border:
+        1px solid
+        rgba(232, 189, 50, 0.25) !important;
+
+    background:
+        rgba(232, 189, 50, 0.08) !important;
+}
+
+
+.kreisliga-place
+.qualification-position {
+    color:
+        #aeb4bd !important;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.09) !important;
+
+    background:
+        rgba(255, 255, 255, 0.035) !important;
+}
+
+
+/* =========================================================
+   MANAGER
+========================================================= */
+
+.qualification-manager-link {
+    color:
+        #ffffff !important;
+
+    text-decoration:
+        none !important;
+}
+
+
+.qualification-manager-link strong {
+    color:
+        #ffffff !important;
+
+    font-weight:
+        800 !important;
+}
+
+
+/* Avatar neutraler */
+
+.qualification-manager-avatar {
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12) !important;
+
+    background:
+        #1b1f25 !important;
+
+    color:
+        #ffffff !important;
+}
+
+
+/* =========================================================
+   PUNKTE
+========================================================= */
+
+.qualification-points-column strong {
+    color:
+        #ffffff !important;
+
+    font-size:
+        0.94rem;
+
+    font-weight:
+        900 !important;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.qualification-status {
+    min-height: 27px;
+
+    padding:
+        5px
+        9px !important;
+
+    font-size:
+        0.62rem !important;
+
+    letter-spacing:
+        0.015em;
+}
+
+
+/* Champions League */
+
+.qualification-status-champions {
+    color:
+        #67df91 !important;
+
+    border:
+        1px solid
+        rgba(24, 197, 91, 0.22) !important;
+
+    background:
+        rgba(24, 197, 91, 0.075) !important;
+}
+
+
+/* Gruppenvergleich */
+
+.qualification-status-comparison {
+    color:
+        #e9c84e !important;
+
+    border:
+        1px solid
+        rgba(232, 189, 50, 0.23) !important;
+
+    background:
+        rgba(232, 189, 50, 0.07) !important;
+}
+
+
+/* Kreisliga */
+
+.qualification-status-kreisliga {
+    color:
+        #aeb4bd !important;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.09) !important;
+
+    background:
+        rgba(255, 255, 255, 0.035) !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .qualification-groups-grid {
+        grid-template-columns:
+            1fr !important;
+
+        gap:
+            18px !important;
+    }
+
+
+    .qualification-group {
+        border-radius:
+            16px !important;
+    }
+
+
+    .qualification-group-header {
+        min-height:
+            84px;
+
+        padding:
+            15px !important;
+    }
+
+
+    .qualification-group-symbol {
+        width:
+            42px !important;
+
+        height:
+            42px !important;
+
+        flex:
+            0 0 42px;
+    }
+
+
+    .qualification-group-identity h3 {
+        font-size:
+            1rem !important;
+    }
+
+
+    /* Tabelle bewusst breiter als Display */
+
+    .qualification-table {
+        width:
+            840px !important;
+
+        min-width:
+            840px !important;
+    }
+
+
+    .qualification-table-wrapper {
+        overflow-x:
+            auto !important;
+
+        -webkit-overflow-scrolling:
+            touch !important;
+    }
+
+}
