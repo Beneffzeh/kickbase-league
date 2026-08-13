@@ -24592,7 +24592,7 @@ hr {
         position: relative !important;
         overflow: hidden !important;
 
-        min-height: 850px !important;
+        min-height: 760px !important;
 
         display: flex !important;
         align-items: flex-end !important;
@@ -24614,10 +24614,13 @@ hr {
             no-repeat !important;
 
         background-position:
-            center top !important;
+    center top !important;
 
-        background-size:
-            100% auto !important;
+background-size:
+    100% auto !important;
+
+background-color:
+    #07150f !important;
     }
 
 
@@ -24644,7 +24647,7 @@ hr {
             0 auto !important;
 
         padding:
-            350px 0 48px !important;
+            185px 0 48px !important;
 
         text-align:
             center !important;
