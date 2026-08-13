@@ -24985,3 +24985,239 @@ hr {
     }
 
 }
+/* =========================================================
+   POKAL HEADER – MOBILE KORREKTUR
+   Ganz unten in style.css einfügen
+========================================================= */
+
+@media (max-width: 700px) {
+
+    body.pokal-page .pokal-header {
+        position: relative !important;
+
+        display: block !important;
+
+        min-height: 0 !important;
+
+        padding: 0 !important;
+
+        overflow: hidden !important;
+
+        background-color: #07150f !important;
+
+        background-image:
+            url("/kickbase-league/pokal-header-bg.webp") !important;
+
+        background-size:
+            100% auto !important;
+
+        background-position:
+            center top !important;
+
+        background-repeat:
+            no-repeat !important;
+    }
+
+
+    body.pokal-page .pokal-header::before,
+    body.pokal-page .pokal-header::after {
+        display: none !important;
+        content: none !important;
+    }
+
+
+    body.pokal-page .pokal-header-content {
+        position: relative !important;
+
+        width:
+            calc(100% - 36px) !important;
+
+        max-width: none !important;
+
+        margin:
+            0 auto !important;
+
+        padding:
+            390px
+            0
+            48px !important;
+
+        box-sizing:
+            border-box !important;
+
+        text-align:
+            center !important;
+    }
+
+
+    body.pokal-page .pokal-season-badge {
+        width:
+            fit-content !important;
+
+        margin:
+            0
+            auto
+            28px !important;
+    }
+
+
+    body.pokal-page .pokal-logo {
+        display:
+            block !important;
+
+        width:
+            145px !important;
+
+        height:
+            145px !important;
+
+        margin:
+            0
+            auto
+            32px !important;
+
+        object-fit:
+            contain !important;
+    }
+
+
+    body.pokal-page .pokal-eyebrow {
+        margin:
+            0
+            auto
+            15px !important;
+
+        text-align:
+            center !important;
+
+        color:
+            #c3e58a !important;
+    }
+
+
+    body.pokal-page .pokal-title {
+        width:
+            100% !important;
+
+        max-width:
+            100% !important;
+
+        margin:
+            0
+            auto !important;
+
+        text-align:
+            center !important;
+
+        font-size:
+            12vw !important;
+
+        line-height:
+            0.98 !important;
+
+        color:
+            #f5f1e6 !important;
+    }
+
+
+    body.pokal-page .pokal-header-description {
+        max-width:
+            340px !important;
+
+        margin:
+            24px
+            auto
+            0 !important;
+
+        text-align:
+            center !important;
+
+        font-size:
+            1rem !important;
+
+        line-height:
+            1.55 !important;
+    }
+
+
+    /* =====================================================
+       BOXEN SAUBER ZENTRIERT
+    ===================================================== */
+
+    body.pokal-page .pokal-header-highlights {
+        display:
+            grid !important;
+
+        grid-template-columns:
+            145px
+            145px !important;
+
+        justify-content:
+            center !important;
+
+        column-gap:
+            14px !important;
+
+        row-gap:
+            14px !important;
+
+        width:
+            100% !important;
+
+        margin:
+            32px
+            auto
+            0 !important;
+    }
+
+
+    body.pokal-page .pokal-header-highlights span {
+        display:
+            flex !important;
+
+        align-items:
+            center !important;
+
+        justify-content:
+            center !important;
+
+        gap:
+            8px !important;
+
+        width:
+            145px !important;
+
+        min-height:
+            72px !important;
+
+        padding:
+            10px !important;
+
+        margin:
+            0 !important;
+
+        box-sizing:
+            border-box !important;
+
+        text-align:
+            center !important;
+
+        border-radius:
+            18px !important;
+    }
+
+
+    body.pokal-page
+    .pokal-header-highlights
+    span:last-child {
+        grid-column:
+            1 / -1 !important;
+
+        width:
+            304px !important;
+
+        justify-self:
+            center !important;
+    }
+
+}
