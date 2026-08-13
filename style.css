@@ -24744,3 +24744,260 @@ background-color:
     }
 
 }
+/* =========================================================
+   POKAL HEADER – MOBILE FINAL LAYOUT
+   Collage hinter Titelbereich
+========================================================= */
+
+@media (max-width: 700px) {
+
+    body.pokal-page .pokal-header {
+        position: relative !important;
+
+        min-height: auto !important;
+
+        display: block !important;
+
+        overflow: hidden !important;
+
+        padding: 0 !important;
+
+        background: #07150f !important;
+    }
+
+
+    /* =====================================================
+       Hintergrundbild exakt hinter dem Hauptbereich
+    ===================================================== */
+
+    body.pokal-page .pokal-header::before {
+        content: "" !important;
+
+        display: block !important;
+
+        position: absolute !important;
+
+        left: 0 !important;
+        right: 0 !important;
+
+        top: 310px !important;
+
+        height: 720px !important;
+
+        z-index: 0 !important;
+
+        background-image:
+            linear-gradient(
+                180deg,
+                rgba(4, 18, 11, 0.22) 0%,
+                rgba(4, 18, 11, 0.38) 38%,
+                rgba(4, 18, 11, 0.76) 72%,
+                #07150f 100%
+            ),
+            url("/kickbase-league/pokal-header-bg.webp") !important;
+
+        background-repeat:
+            no-repeat !important;
+
+        background-size:
+            cover !important;
+
+        background-position:
+            center center !important;
+
+        opacity: 1 !important;
+
+        pointer-events: none !important;
+    }
+
+
+    body.pokal-page .pokal-header::after {
+        display: none !important;
+        content: none !important;
+    }
+
+
+    /* =====================================================
+       Inhalt
+    ===================================================== */
+
+    body.pokal-page .pokal-header-content {
+        position: relative !important;
+
+        z-index: 2 !important;
+
+        width: calc(100% - 36px) !important;
+
+        margin: 0 auto !important;
+
+        padding:
+            54px
+            0
+            48px !important;
+
+        text-align: center !important;
+    }
+
+
+    /* Saison oben */
+
+    body.pokal-page .pokal-season-badge {
+        margin:
+            0 auto
+            34px !important;
+    }
+
+
+    /* =====================================================
+       eigenes Logo ÜBER der Collage
+    ===================================================== */
+
+    body.pokal-page .pokal-logo {
+        position: relative !important;
+
+        z-index: 3 !important;
+
+        display: block !important;
+
+        width: 145px !important;
+        height: 145px !important;
+
+        margin:
+            0 auto
+            40px !important;
+
+        filter:
+            drop-shadow(
+                0 0 26px
+                rgba(159, 207, 99, 0.26)
+            )
+            drop-shadow(
+                0 12px 24px
+                rgba(0, 0, 0, 0.45)
+            ) !important;
+    }
+
+
+    /* =====================================================
+       Titelbereich
+    ===================================================== */
+
+    body.pokal-page .pokal-eyebrow {
+        margin:
+            0 auto
+            16px !important;
+
+        text-align: center !important;
+
+        color: #c3e58a !important;
+    }
+
+
+    body.pokal-page .pokal-title {
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        margin: 0 auto !important;
+
+        text-align: center !important;
+
+        font-size: 13vw !important;
+
+        line-height: 0.98 !important;
+
+        color: #f5f1e6 !important;
+
+        text-shadow:
+            0 5px 25px
+            rgba(0, 0, 0, 0.65) !important;
+    }
+
+
+    body.pokal-page .pokal-header-description {
+        max-width: 340px !important;
+
+        margin:
+            28px auto
+            0 !important;
+
+        text-align: center !important;
+
+        color:
+            rgba(
+                245,
+                241,
+                230,
+                0.84
+            ) !important;
+    }
+
+
+    /* =====================================================
+       18 MANAGER + K.O.-SYSTEM
+       sauber zentriert
+    ===================================================== */
+
+    body.pokal-page .pokal-header-highlights {
+        width: 100% !important;
+
+        max-width: 540px !important;
+
+        margin:
+            34px auto
+            0 !important;
+
+        display: grid !important;
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            ) !important;
+
+        justify-content: center !important;
+
+        align-items: center !important;
+
+        gap: 12px !important;
+    }
+
+
+    body.pokal-page
+    .pokal-header-highlights
+    span {
+        width: 100% !important;
+
+        min-height: 68px !important;
+
+        display: flex !important;
+
+        justify-content: center !important;
+
+        align-items: center !important;
+
+        text-align: center !important;
+
+        padding:
+            12px
+            14px !important;
+
+        border-radius:
+            18px !important;
+    }
+
+
+    /* Pokalsieger über ganze Breite */
+
+    body.pokal-page
+    .pokal-header-highlights
+    span:last-child {
+        grid-column:
+            1 / -1 !important;
+
+        max-width: none !important;
+
+        justify-self: stretch !important;
+    }
+
+}
