@@ -27101,3 +27101,59 @@ body.kreisliga-page .kreisliga-header-highlights svg {
     }
 
 }
+/* =========================================================
+   KREISLIGA HEADER – MOBILE FEINSCHLIFF
+========================================================= */
+
+@media (max-width: 700px) {
+
+    body.kreisliga-page .kreisliga-header {
+        min-height: 0 !important;
+
+        padding:
+            42px
+            18px
+            32px !important;
+    }
+
+
+    body.kreisliga-page .kreisliga-logo {
+        width: 105px !important;
+        height: 105px !important;
+
+        margin-bottom: 21px !important;
+    }
+
+
+    body.kreisliga-page .kreisliga-header-highlights {
+        max-width: 390px !important;
+
+        grid-template-columns:
+            repeat(2, 1fr) !important;
+
+        gap: 10px !important;
+
+        margin-top: 25px !important;
+    }
+
+
+    body.kreisliga-page .kreisliga-header-highlights span {
+        width: 100% !important;
+
+        min-height: 62px !important;
+
+        padding:
+            10px
+            12px !important;
+    }
+
+
+    body.kreisliga-page
+    .kreisliga-header-highlights
+    span:last-child {
+        grid-column: 1 / -1 !important;
+
+        min-height: 58px !important;
+    }
+
+}
