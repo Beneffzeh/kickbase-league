@@ -25221,3 +25221,12 @@ hr {
     }
 
 }
+/* Pokal Header – Abstand Mobile korrigieren */
+
+@media (max-width: 700px) {
+
+    body.pokal-page .pokal-header-content {
+        padding-top: 300px !important;
+    }
+
+}
