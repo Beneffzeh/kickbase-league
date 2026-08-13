@@ -24546,279 +24546,43 @@ hr {
 
 }
 /* =========================================================
-   POKAL HEADER – MOBILE FIX
-   Collage auf dem Handy besser sichtbar
+   POKAL HEADER – MOBILE
+   Finale saubere Version
 ========================================================= */
 
 @media (max-width: 700px) {
 
-    .pokal-header {
-        position: relative !important;
-        overflow: hidden !important;
-
-        background-image:
-            linear-gradient(
-                180deg,
-                rgba(3, 12, 8, 0.05) 0%,
-                rgba(3, 12, 8, 0.12) 45%,
-                rgba(3, 12, 8, 0.82) 78%,
-                rgba(3, 12, 8, 0.98) 100%
-            ),
-            url("/kickbase-league/pokal-header-bg.webp") !important;
-
-        background-size:
-            100% auto !important;
-
-        background-repeat:
-            no-repeat !important;
-
-        background-position:
-            center top !important;
-
-        background-color:
-            #07150f !important;
-    }
-
-}
-
-/* =========================================================
-   POKAL HEADER – MOBILE FINAL FIX
-   komplette Collage sichtbar
-========================================================= */
-
-@media (max-width: 700px) {
-
-    body.pokal-page .pokal-header {
-        position: relative !important;
-        overflow: hidden !important;
-
-        min-height: 760px !important;
-
-        display: flex !important;
-        align-items: flex-end !important;
-
-        background-color: #07150f !important;
-
-        background-image:
-            linear-gradient(
-                180deg,
-                rgba(3, 12, 8, 0.02) 0%,
-                rgba(3, 12, 8, 0.08) 35%,
-                rgba(3, 12, 8, 0.45) 56%,
-                rgba(3, 12, 8, 0.92) 75%,
-                #07150f 100%
-            ),
-            url("/kickbase-league/pokal-header-bg.webp") !important;
-
-        background-repeat:
-            no-repeat !important;
-
-        background-position:
-    center top !important;
-
-background-size:
-    100% auto !important;
-
-background-color:
-    #07150f !important;
-    }
-
-
-    /* Alte Zusatzgrafiken sicher ausschalten */
-
-    body.pokal-page .pokal-header::before,
-    body.pokal-page .pokal-header::after {
-        display: none !important;
-        content: none !important;
-    }
-
-
-    /* Inhalt sauber über dem Bild */
-
-    body.pokal-page .pokal-header-content {
-        position: relative !important;
-
-        z-index: 5 !important;
-
-        width:
-            calc(100% - 36px) !important;
-
-        margin:
-            0 auto !important;
-
-        padding:
-            185px 0 48px !important;
-
-        text-align:
-            center !important;
-    }
-
-
-    body.pokal-page .pokal-season-badge {
-        margin:
-            0 auto 20px !important;
-    }
-
-
-    body.pokal-page .pokal-logo {
-        display: block !important;
-
-        width:
-            110px !important;
-
-        height:
-            110px !important;
-
-        margin:
-            0 auto 20px !important;
-    }
-
-
-    body.pokal-page .pokal-eyebrow {
-        text-align:
-            center !important;
-    }
-
-
-    body.pokal-page .pokal-title {
-        width:
-            100% !important;
-
-        max-width:
-            100% !important;
-
-        margin:
-            0 auto !important;
-
-        text-align:
-            center !important;
-
-        font-size:
-            13vw !important;
-
-        line-height:
-            0.98 !important;
-    }
-
-
-    body.pokal-page .pokal-header-description {
-        max-width:
-            340px !important;
-
-        margin:
-            18px auto 0 !important;
-
-        text-align:
-            center !important;
-    }
-
-
-    body.pokal-page .pokal-header-highlights {
-        display:
-            grid !important;
-
-        grid-template-columns:
-            1fr 1fr !important;
-
-        gap:
-            10px !important;
-
-        margin-top:
-            25px !important;
-    }
-
-
-    body.pokal-page
-    .pokal-header-highlights
-    span {
-        justify-content:
-            center !important;
-    }
-
-
-    body.pokal-page
-    .pokal-header-highlights
-    span:last-child {
-        grid-column:
-            1 / -1 !important;
-    }
-
-}
-/* =========================================================
-   POKAL HEADER – MOBILE FINAL LAYOUT
-   Collage hinter Titelbereich
-========================================================= */
-
-@media (max-width: 700px) {
+    /* =====================================================
+       HEADER GRUNDLAGE
+    ===================================================== */
 
     body.pokal-page .pokal-header {
         position: relative !important;
 
-        min-height: auto !important;
-
         display: block !important;
 
-        overflow: hidden !important;
+        min-height: 0 !important;
 
         padding: 0 !important;
+
+        overflow: hidden !important;
 
         background: #07150f !important;
     }
 
 
-    /* =====================================================
-       Hintergrundbild exakt hinter dem Hauptbereich
-    ===================================================== */
+    /* Alte Header-Hintergründe ausschalten */
 
-    body.pokal-page .pokal-header::before {
-        content: "" !important;
-
-        display: block !important;
-
-        position: absolute !important;
-
-        left: 0 !important;
-        right: 0 !important;
-
-        top: 310px !important;
-
-        height: 720px !important;
-
-        z-index: 0 !important;
-
-        background-image:
-            linear-gradient(
-                180deg,
-                rgba(4, 18, 11, 0.22) 0%,
-                rgba(4, 18, 11, 0.38) 38%,
-                rgba(4, 18, 11, 0.76) 72%,
-                #07150f 100%
-            ),
-            url("/kickbase-league/pokal-header-bg.webp") !important;
-
-        background-repeat:
-            no-repeat !important;
-
-        background-size:
-            cover !important;
-
-        background-position:
-            center center !important;
-
-        opacity: 1 !important;
-
-        pointer-events: none !important;
-    }
-
-
+    body.pokal-page .pokal-header::before,
     body.pokal-page .pokal-header::after {
         display: none !important;
+
         content: none !important;
     }
 
 
     /* =====================================================
-       Inhalt
+       HEADER-INHALT
     ===================================================== */
 
     body.pokal-page .pokal-header-content {
@@ -24826,30 +24590,45 @@ background-color:
 
         z-index: 2 !important;
 
-        width: calc(100% - 36px) !important;
+        display: block !important;
 
-        margin: 0 auto !important;
+        width: 100% !important;
+
+        max-width: none !important;
+
+        margin: 0 !important;
 
         padding:
-            54px
+            42px
             0
-            48px !important;
+            0 !important;
+
+        box-sizing: border-box !important;
 
         text-align: center !important;
     }
 
 
-    /* Saison oben */
+    /* =====================================================
+       SAISON-BADGE
+    ===================================================== */
 
     body.pokal-page .pokal-season-badge {
+        position: relative !important;
+
+        z-index: 3 !important;
+
+        width: fit-content !important;
+
         margin:
-            0 auto
-            34px !important;
+            0
+            auto
+            30px !important;
     }
 
 
     /* =====================================================
-       eigenes Logo ÜBER der Collage
+       KICKBASE-POKAL-LOGO
     ===================================================== */
 
     body.pokal-page .pokal-logo {
@@ -24859,17 +24638,22 @@ background-color:
 
         display: block !important;
 
-        width: 145px !important;
-        height: 145px !important;
+        width: 150px !important;
+        height: 150px !important;
+
+        max-width: none !important;
 
         margin:
-            0 auto
-            40px !important;
+            0
+            auto
+            34px !important;
+
+        object-fit: contain !important;
 
         filter:
             drop-shadow(
                 0 0 26px
-                rgba(159, 207, 99, 0.26)
+                rgba(159, 207, 99, 0.28)
             )
             drop-shadow(
                 0 12px 24px
@@ -24879,213 +24663,55 @@ background-color:
 
 
     /* =====================================================
-       Titelbereich
-    ===================================================== */
-
-    body.pokal-page .pokal-eyebrow {
-        margin:
-            0 auto
-            16px !important;
-
-        text-align: center !important;
-
-        color: #c3e58a !important;
-    }
-
-
-    body.pokal-page .pokal-title {
-        width: 100% !important;
-
-        max-width: 100% !important;
-
-        margin: 0 auto !important;
-
-        text-align: center !important;
-
-        font-size: 13vw !important;
-
-        line-height: 0.98 !important;
-
-        color: #f5f1e6 !important;
-
-        text-shadow:
-            0 5px 25px
-            rgba(0, 0, 0, 0.65) !important;
-    }
-
-
-    body.pokal-page .pokal-header-description {
-        max-width: 340px !important;
-
-        margin:
-            28px auto
-            0 !important;
-
-        text-align: center !important;
-
-        color:
-            rgba(
-                245,
-                241,
-                230,
-                0.84
-            ) !important;
-    }
-
-
-    /* =====================================================
-       18 MANAGER + K.O.-SYSTEM
-       sauber zentriert
-    ===================================================== */
-
-    body.pokal-page .pokal-header-highlights {
-        width: 100% !important;
-
-        max-width: 540px !important;
-
-        margin:
-            34px auto
-            0 !important;
-
-        display: grid !important;
-
-        grid-template-columns:
-            repeat(
-                2,
-                minmax(0, 1fr)
-            ) !important;
-
-        justify-content: center !important;
-
-        align-items: center !important;
-
-        gap: 12px !important;
-    }
-
-
-    body.pokal-page
-    .pokal-header-highlights
-    span {
-        width: 100% !important;
-
-        min-height: 68px !important;
-
-        display: flex !important;
-
-        justify-content: center !important;
-
-        align-items: center !important;
-
-        text-align: center !important;
-
-        padding:
-            12px
-            14px !important;
-
-        border-radius:
-            18px !important;
-    }
-
-
-    /* Pokalsieger über ganze Breite */
-
-    body.pokal-page
-    .pokal-header-highlights
-    span:last-child {
-        grid-column:
-            1 / -1 !important;
-
-        max-width: none !important;
-
-        justify-self: stretch !important;
-    }
-
-}
-/* =========================================================
-   POKAL HEADER – MOBILE FINALER AUFBAU
-========================================================= */
-
-@media (max-width: 700px) {
-
-    body.pokal-page .pokal-header {
-        min-height: 0 !important;
-
-        display: block !important;
-
-        background: #07150f !important;
-
-        overflow: hidden !important;
-    }
-
-
-    body.pokal-page .pokal-header::before,
-    body.pokal-page .pokal-header::after {
-        display: none !important;
-        content: none !important;
-    }
-
-
-    body.pokal-page .pokal-header-content {
-        width: 100% !important;
-
-        margin: 0 !important;
-        padding: 42px 0 0 !important;
-
-        text-align: center !important;
-    }
-
-
-    /* Saison oberhalb */
-
-    body.pokal-page .pokal-season-badge {
-        margin: 0 auto 24px !important;
-    }
-
-
-    /* Eigenes Logo oberhalb */
-
-    body.pokal-page .pokal-logo {
-        display: block !important;
-
-        width: 150px !important;
-        height: 150px !important;
-
-        margin: 0 auto 34px !important;
-
-        position: relative !important;
-        z-index: 5 !important;
-    }
-
-
-    /* =====================================================
-       DAS IST DEIN GRAU EINGEZEICHNETER BEREICH
+       COLLAGE-BEREICH
+
+       Hier liegen:
+       - DER K.-O.-WETTBEWERB
+       - Kickbase-Pokal
+       - Beschreibung
+       - 18 Manager
+       - K.-o.-System
+       - 1 Pokalsieger
     ===================================================== */
 
     body.pokal-page .pokal-mobile-background-panel {
         position: relative !important;
 
+        z-index: 1 !important;
+
+        display: block !important;
+
         width: 100% !important;
 
+        margin: 0 !important;
+
         padding:
-            44px
+            42px
             34px
-            40px !important;
+            46px !important;
+
+        box-sizing: border-box !important;
 
         overflow: hidden !important;
 
         background-image:
+
             linear-gradient(
                 180deg,
-                rgba(3, 15, 9, 0.42) 0%,
-                rgba(3, 15, 9, 0.55) 45%,
-                rgba(3, 15, 9, 0.82) 100%
+                rgba(3, 15, 9, 0.35) 0%,
+                rgba(3, 15, 9, 0.46) 40%,
+                rgba(3, 15, 9, 0.68) 75%,
+                rgba(3, 15, 9, 0.84) 100%
             ),
+
             url("/kickbase-league/pokal-header-bg.webp") !important;
 
+
         /*
-        WICHTIG:
-        komplettes Bild wird auf die Fläche gezogen.
-        Dadurch wird NICHTS links/rechts abgeschnitten.
+           WICHTIG:
+           Das komplette Bild wird angezeigt.
+           Kein "cover", weil dadurch links und rechts
+           wieder Teile der Collage verschwinden würden.
         */
 
         background-size:
@@ -25099,39 +24725,90 @@ background-color:
 
         border-top:
             1px solid
-            rgba(212, 175, 55, 0.18);
+            rgba(212, 175, 55, 0.18) !important;
 
         border-bottom:
             1px solid
-            rgba(212, 175, 55, 0.20);
+            rgba(212, 175, 55, 0.20) !important;
     }
 
 
+    /* =====================================================
+       DER K.-O.-WETTBEWERB
+    ===================================================== */
+
     body.pokal-page .pokal-eyebrow {
+        position: relative !important;
+
+        z-index: 2 !important;
+
+        display: block !important;
+
         margin:
             0
             auto
             16px !important;
 
-        text-align:
-            center !important;
+        text-align: center !important;
+
+        color: #c3e58a !important;
+
+        text-shadow:
+            0 3px 15px
+            rgba(0, 0, 0, 0.75) !important;
     }
 
 
+    /* =====================================================
+       KICKBASE-POKAL
+    ===================================================== */
+
     body.pokal-page .pokal-title {
+        position: relative !important;
+
+        z-index: 2 !important;
+
+        display: block !important;
+
         width: 100% !important;
 
-        margin: 0 auto !important;
+        max-width: 100% !important;
+
+        margin:
+            0
+            auto !important;
 
         text-align: center !important;
 
-        font-size: 13vw !important;
+        font-size:
+            13vw !important;
 
-        line-height: 0.98 !important;
+        line-height:
+            0.98 !important;
+
+        letter-spacing:
+            -0.05em !important;
+
+        color:
+            #f5f1e6 !important;
+
+        text-shadow:
+            0 5px 25px
+            rgba(0, 0, 0, 0.70) !important;
     }
 
 
+    /* =====================================================
+       BESCHREIBUNG
+    ===================================================== */
+
     body.pokal-page .pokal-header-description {
+        position: relative !important;
+
+        z-index: 2 !important;
+
+        display: block !important;
+
         max-width: 340px !important;
 
         margin:
@@ -25139,8 +24816,25 @@ background-color:
             auto
             0 !important;
 
-        text-align:
-            center !important;
+        text-align: center !important;
+
+        font-size:
+            1rem !important;
+
+        line-height:
+            1.55 !important;
+
+        color:
+            rgba(
+                245,
+                241,
+                230,
+                0.86
+            ) !important;
+
+        text-shadow:
+            0 3px 12px
+            rgba(0, 0, 0, 0.80) !important;
     }
 
 
@@ -25149,37 +24843,127 @@ background-color:
     ===================================================== */
 
     body.pokal-page .pokal-header-highlights {
+        position: relative !important;
+
+        z-index: 2 !important;
+
         display: grid !important;
 
+        /*
+           Zwei gleich große Boxen.
+           Zusammen mittig auf dem Bildschirm.
+        */
+
         grid-template-columns:
-            repeat(2, minmax(0, 1fr)) !important;
+            145px
+            145px !important;
 
-        justify-content: center !important;
+        justify-content:
+            center !important;
 
-        gap: 12px !important;
+        align-items:
+            stretch !important;
 
-        width: 100% !important;
+        column-gap:
+            14px !important;
+
+        row-gap:
+            14px !important;
+
+        width:
+            100% !important;
+
+        max-width:
+            100% !important;
 
         margin:
-            32px
+            34px
             auto
             0 !important;
+
+        padding:
+            0 !important;
+
+        box-sizing:
+            border-box !important;
     }
 
 
-    body.pokal-page .pokal-header-highlights span {
+    /* Einzelne Box */
+
+    body.pokal-page
+    .pokal-header-highlights
+    span {
         display: flex !important;
 
-        align-items: center !important;
-        justify-content: center !important;
+        width:
+            145px !important;
 
-        min-height: 78px !important;
+        min-width:
+            0 !important;
 
-        text-align: center !important;
+        min-height:
+            72px !important;
 
-        margin: 0 !important;
+        margin:
+            0 !important;
+
+        padding:
+            12px
+            10px !important;
+
+        box-sizing:
+            border-box !important;
+
+        align-items:
+            center !important;
+
+        justify-content:
+            center !important;
+
+        gap:
+            8px !important;
+
+        text-align:
+            center !important;
+
+        border:
+            1px solid
+            rgba(195, 229, 138, 0.20) !important;
+
+        border-radius:
+            18px !important;
+
+        background:
+            rgba(5, 35, 20, 0.88) !important;
+
+        box-shadow:
+            0 12px 30px
+            rgba(0, 0, 0, 0.22) !important;
     }
 
+
+    /* Icons in den Boxen */
+
+    body.pokal-page
+    .pokal-header-highlights
+    span svg {
+        flex:
+            0 0 auto !important;
+
+        width:
+            20px !important;
+
+        height:
+            20px !important;
+    }
+
+
+    /* =====================================================
+       1 POKALSIEGER
+
+       Genau mittig unter den beiden oberen Boxen
+    ===================================================== */
 
     body.pokal-page
     .pokal-header-highlights
@@ -25187,7 +24971,17 @@ background-color:
         grid-column:
             1 / -1 !important;
 
-        width: 100% !important;
+        width:
+            304px !important;
+
+        max-width:
+            100% !important;
+
+        justify-self:
+            center !important;
+
+        min-height:
+            72px !important;
     }
 
 }
