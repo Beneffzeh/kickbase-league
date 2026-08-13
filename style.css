@@ -25790,3 +25790,343 @@ hr {
     }
 
 }
+/* =========================================================
+   POKAL – TURNIERSTATUS
+========================================================= */
+
+.pokal-status-section {
+    position: relative;
+
+    margin-top: 30px;
+
+    padding: 28px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(195, 229, 138, 0.12);
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(9, 31, 19, 0.97),
+            rgba(5, 20, 13, 0.99)
+        );
+
+    box-shadow:
+        0 22px 55px
+        rgba(0, 0, 0, 0.26);
+}
+
+
+/* obere Akzentlinie */
+
+.pokal-status-section::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #9fcf63,
+            #d4af37,
+            transparent
+        );
+}
+
+
+/* =========================================================
+   TABELLE
+========================================================= */
+
+.pokal-status-wrapper {
+    overflow: hidden;
+
+    margin-top: 20px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.02);
+}
+
+
+.pokal-status-table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+
+/* Kopf */
+
+.pokal-status-table thead th {
+    padding:
+        13px
+        16px;
+
+    background:
+        rgba(159, 207, 99, 0.07);
+
+    border-bottom:
+        1px solid
+        rgba(195, 229, 138, 0.14);
+
+    color:
+        #c3e58a;
+
+    font-size:
+        0.68rem;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        0.08em;
+
+    text-transform:
+        uppercase;
+
+    text-align: left;
+}
+
+
+/* Zeilen */
+
+.pokal-status-table tbody tr {
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.055);
+}
+
+
+.pokal-status-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+
+.pokal-status-table tbody tr:nth-child(even) {
+    background:
+        rgba(255, 255, 255, 0.018);
+}
+
+
+.pokal-status-table tbody td {
+    padding:
+        14px
+        16px;
+
+    color:
+        #d9dfd4;
+
+    font-size:
+        0.82rem;
+}
+
+
+.pokal-status-table tbody td strong {
+    color:
+        #f5f1e6;
+
+    font-weight:
+        800;
+}
+
+
+/* =========================================================
+   STATUS-BADGES
+========================================================= */
+
+.pokal-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    min-height: 30px;
+
+    padding:
+        6px
+        10px;
+
+    border-radius:
+        999px;
+
+    font-size:
+        0.66rem;
+
+    font-weight:
+        800;
+
+    white-space:
+        nowrap;
+}
+
+
+.pokal-status svg {
+    width: 14px;
+    height: 14px;
+}
+
+
+/* ausgelost */
+
+.pokal-status-pending {
+    color:
+        #f0d77a;
+
+    border:
+        1px solid
+        rgba(212, 175, 55, 0.28);
+
+    background:
+        rgba(212, 175, 55, 0.07);
+}
+
+
+/* noch gesperrt */
+
+.pokal-status-locked {
+    color:
+        #9ba79a;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+}
+
+
+/* falls später abgeschlossen */
+
+.pokal-status-complete {
+    color:
+        #74df93;
+
+    border:
+        1px solid
+        rgba(24, 197, 91, 0.22);
+
+    background:
+        rgba(24, 197, 91, 0.07);
+}
+
+
+/* =========================================================
+   LEGENDE UNTEN
+========================================================= */
+
+.pokal-status-legend {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 16px;
+}
+
+
+.pokal-status-legend span {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding:
+        7px
+        10px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(255, 255, 255, 0.02);
+
+    color:
+        #8f9b8c;
+
+    font-size:
+        0.66rem;
+}
+
+
+.pokal-status-legend svg {
+    width: 14px;
+    height: 14px;
+
+    color:
+        #b9df77;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .pokal-status-section {
+        padding:
+            22px
+            17px;
+
+        border-radius:
+            18px;
+    }
+
+
+    .pokal-status-wrapper {
+        overflow-x:
+            auto;
+
+        -webkit-overflow-scrolling:
+            touch;
+    }
+
+
+    .pokal-status-table {
+        min-width:
+            560px;
+    }
+
+
+    .pokal-status-table thead th,
+    .pokal-status-table tbody td {
+        padding:
+            12px
+            13px;
+    }
+
+
+    .pokal-status-legend {
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+
+}
