@@ -26709,3 +26709,395 @@ hr {
     }
 
 }
+
+/* =========================================================
+   KREISLIGA – NEUER HEADER 2026/27
+========================================================= */
+
+body.kreisliga-page .kreisliga-header {
+    position: relative;
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    padding: 65px 24px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4, 14, 9, 0.90) 0%,
+            rgba(4, 14, 9, 0.68) 38%,
+            rgba(4, 14, 9, 0.38) 68%,
+            rgba(4, 14, 9, 0.60) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(4, 14, 9, 0.92) 0%,
+            transparent 48%,
+            rgba(4, 14, 9, 0.25) 100%
+        ),
+        url("/kickbase-league/kreisliga-header-bg.webp");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    border-bottom:
+        1px solid rgba(140, 200, 90, 0.22);
+}
+
+
+/* leichter grüner Lichtschein */
+
+body.kreisliga-page .kreisliga-header::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 55%,
+            rgba(116, 190, 67, 0.10),
+            transparent 45%
+        );
+}
+
+
+/* =========================================================
+   HEADER INHALT
+========================================================= */
+
+body.kreisliga-page .kreisliga-header-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1150px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* Saison */
+
+body.kreisliga-page .kreisliga-season-badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    margin-bottom: 24px;
+
+    padding: 10px 17px;
+
+    border:
+        1px solid rgba(181, 226, 117, 0.30);
+
+    border-radius: 999px;
+
+    background:
+        rgba(6, 28, 16, 0.72);
+
+    backdrop-filter: blur(8px);
+
+    color: #d8ef9c;
+
+    font-size: 0.72rem;
+    font-weight: 900;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+
+body.kreisliga-page .kreisliga-season-badge svg {
+    width: 17px;
+    height: 17px;
+}
+
+
+/* =========================================================
+   KREISLIGA LOGO
+========================================================= */
+
+body.kreisliga-page .kreisliga-logo {
+    display: block;
+
+    width: 130px;
+    height: 130px;
+
+    object-fit: contain;
+
+    margin:
+        0 auto
+        22px;
+
+    filter:
+        drop-shadow(
+            0 12px 24px
+            rgba(0, 0, 0, 0.50)
+        );
+}
+
+
+/* =========================================================
+   TITEL
+========================================================= */
+
+body.kreisliga-page .kreisliga-eyebrow {
+    margin:
+        0
+        0
+        8px;
+
+    color: #b9df77;
+
+    font-size: 0.75rem;
+    font-weight: 900;
+
+    letter-spacing: 0.22em;
+}
+
+
+body.kreisliga-page .kreisliga-title {
+    margin: 0;
+
+    color: #f5f1e6;
+
+    font-size:
+        clamp(
+            4rem,
+            8vw,
+            7.5rem
+        );
+
+    font-weight: 900;
+
+    line-height: 0.92;
+
+    letter-spacing: -0.06em;
+
+    text-shadow:
+        0 7px 30px
+        rgba(0, 0, 0, 0.65);
+}
+
+
+body.kreisliga-page .kreisliga-header-description {
+    max-width: 520px;
+
+    margin:
+        22px auto
+        0;
+
+    color:
+        rgba(245, 241, 230, 0.84);
+
+    font-size: 1rem;
+
+    line-height: 1.55;
+
+    text-shadow:
+        0 3px 15px
+        rgba(0, 0, 0, 0.70);
+}
+
+
+/* =========================================================
+   HEADER BOXEN
+========================================================= */
+
+body.kreisliga-page .kreisliga-header-highlights {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 27px;
+}
+
+
+body.kreisliga-page .kreisliga-header-highlights span {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-width: 145px;
+
+    padding:
+        11px
+        15px;
+
+    border:
+        1px solid rgba(181, 226, 117, 0.24);
+
+    border-radius: 12px;
+
+    background:
+        rgba(5, 28, 16, 0.76);
+
+    backdrop-filter: blur(8px);
+
+    color: #f3f6ef;
+
+    font-size: 0.76rem;
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.18);
+}
+
+
+body.kreisliga-page .kreisliga-header-highlights svg {
+    width: 17px;
+    height: 17px;
+
+    color: #b9df77;
+}
+
+
+/* =========================================================
+   KREISLIGA HEADER – MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    body.kreisliga-page .kreisliga-header {
+        min-height: 620px;
+
+        padding:
+            46px
+            18px
+            42px;
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(3, 14, 8, 0.30) 0%,
+                rgba(3, 14, 8, 0.48) 42%,
+                rgba(3, 14, 8, 0.90) 100%
+            ),
+            url("/kickbase-league/kreisliga-header-bg.webp");
+
+        background-size: cover;
+
+        /*
+           Hier können wir anschließend exakt einstellen,
+           welcher Teil des Sportplatzes auf dem iPhone
+           sichtbar sein soll.
+        */
+
+        background-position: center center;
+    }
+
+
+    body.kreisliga-page .kreisliga-header-content {
+        max-width: 100%;
+    }
+
+
+    body.kreisliga-page .kreisliga-season-badge {
+        margin-bottom: 24px;
+
+        padding:
+            9px
+            14px;
+    }
+
+
+    body.kreisliga-page .kreisliga-logo {
+        width: 112px;
+        height: 112px;
+
+        margin-bottom: 23px;
+    }
+
+
+    body.kreisliga-page .kreisliga-eyebrow {
+        font-size: 0.68rem;
+
+        letter-spacing: 0.17em;
+    }
+
+
+    body.kreisliga-page .kreisliga-title {
+        font-size:
+            clamp(
+                3.6rem,
+                18vw,
+                5.2rem
+            );
+
+        line-height: 0.95;
+    }
+
+
+    body.kreisliga-page .kreisliga-header-description {
+        max-width: 310px;
+
+        margin-top: 18px;
+
+        font-size: 0.88rem;
+    }
+
+
+    body.kreisliga-page .kreisliga-header-highlights {
+        display: grid;
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+
+        width: 100%;
+        max-width: 360px;
+
+        margin:
+            26px auto
+            0;
+
+        gap: 9px;
+    }
+
+
+    body.kreisliga-page .kreisliga-header-highlights span {
+        min-width: 0;
+
+        min-height: 58px;
+
+        padding:
+            10px
+            8px;
+    }
+
+
+    /* 3 Aufsteiger mittig über komplette Breite */
+
+    body.kreisliga-page
+    .kreisliga-header-highlights
+    span:last-child {
+        grid-column:
+            1 / -1;
+    }
+
+}
