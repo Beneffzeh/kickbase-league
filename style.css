@@ -28911,3 +28911,332 @@ body.kreisliga-page .kreisliga-prize-box strong {
     }
 
 }
+/* =========================================================
+   KREISLIGA – KOMPAKTE TABELLEN-LEGENDE
+========================================================= */
+
+body.kreisliga-page .kreisliga-legend-compact {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-top: 18px;
+
+    padding:
+        15px
+        18px;
+
+    border:
+        1px solid
+        rgba(185, 223, 119, 0.12);
+
+    border-radius:
+        15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(12, 35, 22, 0.94),
+            rgba(6, 21, 14, 0.97)
+        );
+}
+
+
+/* =========================================================
+   ÜBERSCHRIFT
+========================================================= */
+
+body.kreisliga-page
+.kreisliga-legend-compact-heading {
+    display: flex;
+
+    flex-shrink: 0;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color:
+        #899a84;
+
+    font-size:
+        0.68rem;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        0.06em;
+
+    text-transform:
+        uppercase;
+}
+
+
+body.kreisliga-page
+.kreisliga-legend-compact-heading
+svg {
+    width:
+        15px;
+
+    height:
+        15px;
+
+    color:
+        #9dce69;
+}
+
+
+/* =========================================================
+   EINTRÄGE
+========================================================= */
+
+body.kreisliga-page
+.kreisliga-legend-compact-items {
+    display: flex;
+
+    flex: 1;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 20px;
+}
+
+
+body.kreisliga-page
+.kreisliga-legend-compact-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+}
+
+
+body.kreisliga-page
+.kreisliga-legend-symbol {
+    display: grid;
+
+    flex:
+        0 0 31px;
+
+    width:
+        31px;
+
+    height:
+        31px;
+
+    place-items:
+        center;
+
+    border-radius:
+        9px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+}
+
+
+body.kreisliga-page
+.kreisliga-legend-symbol
+svg {
+    width:
+        15px;
+
+    height:
+        15px;
+}
+
+
+body.kreisliga-page
+.kreisliga-legend-compact-item
+strong {
+    display: block;
+
+    color:
+        #e9eee5;
+
+    font-size:
+        0.71rem;
+
+    font-weight:
+        900;
+}
+
+
+body.kreisliga-page
+.kreisliga-legend-compact-item
+small {
+    display: block;
+
+    margin-top:
+        2px;
+
+    color:
+        #7f8d7c;
+
+    font-size:
+        0.60rem;
+}
+
+
+/* =========================================================
+   TRENNLINIEN
+========================================================= */
+
+body.kreisliga-page
+.kreisliga-legend-divider {
+    width:
+        1px;
+
+    height:
+        31px;
+
+    background:
+        rgba(255, 255, 255, 0.07);
+}
+
+
+/* =========================================================
+   MEISTER
+========================================================= */
+
+body.kreisliga-page
+.kreisliga-legend-compact-champion
+.kreisliga-legend-symbol {
+    color:
+        #efd16c;
+
+    border-color:
+        rgba(212, 175, 55, 0.25);
+
+    background:
+        rgba(212, 175, 55, 0.07);
+}
+
+
+/* =========================================================
+   AUFSTIEG
+========================================================= */
+
+body.kreisliga-page
+.kreisliga-legend-compact-promotion
+.kreisliga-legend-symbol {
+    color:
+        #7ee497;
+
+    border-color:
+        rgba(24, 197, 91, 0.20);
+
+    background:
+        rgba(24, 197, 91, 0.06);
+}
+
+
+/* =========================================================
+   LIGAVERBLEIB
+========================================================= */
+
+body.kreisliga-page
+.kreisliga-legend-compact-stay
+.kreisliga-legend-symbol {
+    color:
+        #9ba899;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    body.kreisliga-page
+    .kreisliga-legend-compact {
+        display: block;
+
+        padding:
+            15px
+            16px;
+    }
+
+
+    body.kreisliga-page
+    .kreisliga-legend-compact-heading {
+        padding-bottom:
+            12px;
+
+        margin-bottom:
+            12px;
+
+        border-bottom:
+            1px solid
+            rgba(255, 255, 255, 0.06);
+    }
+
+
+    body.kreisliga-page
+    .kreisliga-legend-compact-items {
+        display: grid;
+
+        grid-template-columns:
+            repeat(
+                3,
+                minmax(0, 1fr)
+            );
+
+        gap:
+            8px;
+    }
+
+
+    body.kreisliga-page
+    .kreisliga-legend-divider {
+        display:
+            none;
+    }
+
+
+    body.kreisliga-page
+    .kreisliga-legend-compact-item {
+        flex-direction:
+            column;
+
+        justify-content:
+            center;
+
+        gap:
+            7px;
+
+        min-width:
+            0;
+
+        text-align:
+            center;
+    }
+
+
+    body.kreisliga-page
+    .kreisliga-legend-compact-item
+    strong {
+        font-size:
+            0.66rem;
+    }
+
+
+    body.kreisliga-page
+    .kreisliga-legend-compact-item
+    small {
+        font-size:
+            0.56rem;
+    }
+
+}
