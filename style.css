@@ -27679,3 +27679,800 @@ body.kreisliga-page .kreisliga-header-highlights svg {
     }
 
 }
+/* =========================================================
+   KREISLIGA – TABELLE REDESIGN
+========================================================= */
+
+body.kreisliga-page .kreisliga-table-section {
+    position: relative;
+
+    margin-top: 30px;
+
+    padding: 28px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(171, 219, 106, 0.14);
+
+    border-radius:
+        22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10, 36, 22, 0.98),
+            rgba(5, 20, 13, 0.99)
+        );
+
+    box-shadow:
+        0 24px 65px
+        rgba(0, 0, 0, 0.30);
+}
+
+
+/* grüne Linie oben */
+
+body.kreisliga-page .kreisliga-table-section::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #72b448,
+            #b9df77,
+            transparent
+        );
+}
+
+
+/* =========================================================
+   ÜBERSCHRIFT
+========================================================= */
+
+body.kreisliga-page .kreisliga-section-heading {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+
+body.kreisliga-page .kreisliga-section-label {
+    color:
+        #9dce69 !important;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        0.13em;
+}
+
+
+body.kreisliga-page .kreisliga-section-heading h2 {
+    margin:
+        6px
+        0
+        0;
+
+    color:
+        #f5f1e6;
+
+    font-size:
+        clamp(
+            1.8rem,
+            3vw,
+            2.45rem
+        );
+
+    line-height:
+        1;
+
+    letter-spacing:
+        -0.04em;
+}
+
+
+/* Status rechts oben */
+
+body.kreisliga-page .kreisliga-table-update {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        9px
+        12px;
+
+    border:
+        1px solid
+        rgba(185, 223, 119, 0.14);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color:
+        #9eaf98;
+
+    font-size:
+        0.68rem;
+
+    font-weight:
+        800;
+}
+
+
+body.kreisliga-page .kreisliga-table-update svg {
+    width: 15px;
+    height: 15px;
+
+    color:
+        #9dce69;
+}
+
+
+/* =========================================================
+   TABELLEN-WRAPPER
+========================================================= */
+
+body.kreisliga-page .kreisliga-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    border-radius:
+        16px;
+
+    background:
+        rgba(5, 17, 11, 0.72);
+
+    -webkit-overflow-scrolling:
+        touch;
+}
+
+
+body.kreisliga-page .kreisliga-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    table-layout: fixed;
+}
+
+
+/* =========================================================
+   TABELLENKOPF
+========================================================= */
+
+body.kreisliga-page .kreisliga-table thead th {
+    height: 50px;
+
+    padding:
+        0
+        14px;
+
+    background:
+        rgba(159, 207, 99, 0.07);
+
+    border-bottom:
+        1px solid
+        rgba(185, 223, 119, 0.14);
+
+    color:
+        #aab8a4;
+
+    font-size:
+        0.66rem;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        0.08em;
+
+    text-transform:
+        uppercase;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   SPALTENBREITEN
+========================================================= */
+
+body.kreisliga-page
+.kreisliga-table
+th:nth-child(1),
+body.kreisliga-page
+.kreisliga-table
+td:nth-child(1) {
+    width: 9%;
+}
+
+
+body.kreisliga-page
+.kreisliga-table
+th:nth-child(2),
+body.kreisliga-page
+.kreisliga-table
+td:nth-child(2) {
+    width: 33%;
+}
+
+
+body.kreisliga-page
+.kreisliga-table
+th:nth-child(3),
+body.kreisliga-page
+.kreisliga-table
+td:nth-child(3) {
+    width: 14%;
+
+    text-align: center;
+}
+
+
+body.kreisliga-page
+.kreisliga-table
+th:nth-child(4),
+body.kreisliga-page
+.kreisliga-table
+td:nth-child(4) {
+    width: 24%;
+
+    text-align: center;
+}
+
+
+body.kreisliga-page
+.kreisliga-table
+th:nth-child(5),
+body.kreisliga-page
+.kreisliga-table
+td:nth-child(5) {
+    width: 20%;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   ZEILEN
+========================================================= */
+
+body.kreisliga-page .kreisliga-table tbody tr {
+    height: 64px;
+
+    background:
+        rgba(11, 31, 20, 0.92);
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.05);
+
+    transition:
+        background 0.18s ease;
+}
+
+
+body.kreisliga-page
+.kreisliga-table
+tbody
+tr:nth-child(even) {
+    background:
+        rgba(15, 37, 24, 0.94);
+}
+
+
+body.kreisliga-page
+.kreisliga-table
+tbody
+tr:hover {
+    background:
+        rgba(23, 53, 34, 0.95);
+}
+
+
+body.kreisliga-page .kreisliga-table tbody td {
+    padding:
+        10px
+        14px;
+}
+
+
+/* =========================================================
+   AUFSTIEGSZONE
+========================================================= */
+
+body.kreisliga-page
+.kreisliga-table
+tbody
+tr.kreisliga-promotion-row {
+    box-shadow:
+        inset 4px 0 0
+        #79c34d;
+}
+
+
+/* Meister */
+
+body.kreisliga-page
+.kreisliga-table
+tbody
+tr:first-child {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(212, 175, 55, 0.08),
+            rgba(11, 31, 20, 0.94) 35%
+        );
+}
+
+
+/* =========================================================
+   PLATZ
+========================================================= */
+
+body.kreisliga-page .kreisliga-position {
+    display: grid;
+
+    width: 31px;
+    height: 31px;
+
+    place-items: center;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+    border-radius:
+        9px;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    color:
+        #c3cbc0;
+
+    font-size:
+        0.77rem;
+
+    font-weight:
+        900;
+}
+
+
+/* Platz 1 */
+
+body.kreisliga-page
+.kreisliga-position-first {
+    color:
+        #f0d77a;
+
+    border-color:
+        rgba(212, 175, 55, 0.32);
+
+    background:
+        rgba(212, 175, 55, 0.09);
+}
+
+
+/* Platz 2 */
+
+body.kreisliga-page
+.kreisliga-position-second {
+    color:
+        #cfe8aa;
+
+    border-color:
+        rgba(157, 206, 105, 0.28);
+
+    background:
+        rgba(157, 206, 105, 0.07);
+}
+
+
+/* Platz 3 */
+
+body.kreisliga-page
+.kreisliga-position-third {
+    color:
+        #b6dc84;
+
+    border-color:
+        rgba(128, 199, 73, 0.25);
+
+    background:
+        rgba(128, 199, 73, 0.06);
+}
+
+
+/* =========================================================
+   MANAGER
+========================================================= */
+
+body.kreisliga-page .kreisliga-manager-cell {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    min-width: 0;
+}
+
+
+body.kreisliga-page .kreisliga-manager-link {
+    color:
+        #f5f1e6;
+
+    text-decoration:
+        none;
+}
+
+
+body.kreisliga-page .kreisliga-manager-link strong,
+body.kreisliga-page .kreisliga-manager-cell strong {
+    color:
+        #f5f1e6;
+
+    font-weight:
+        800;
+
+    white-space:
+        nowrap;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+}
+
+
+/* Avatar */
+
+body.kreisliga-page .kreisliga-manager-avatar {
+    display: grid;
+
+    flex:
+        0 0 34px;
+
+    width:
+        34px;
+
+    height:
+        34px;
+
+    place-items:
+        center;
+
+    border:
+        1px solid
+        rgba(185, 223, 119, 0.14);
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(159, 207, 99, 0.055);
+
+    color:
+        #b9df77;
+}
+
+
+body.kreisliga-page
+.kreisliga-manager-avatar
+svg {
+    width:
+        17px;
+
+    height:
+        17px;
+}
+
+
+/* =========================================================
+   PUNKTE
+========================================================= */
+
+body.kreisliga-page
+.kreisliga-points-column
+strong {
+    color:
+        #ffffff;
+
+    font-size:
+        0.95rem;
+
+    font-weight:
+        900;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+body.kreisliga-page .kreisliga-form {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+}
+
+
+body.kreisliga-page .kreisliga-form-badge {
+    display: grid;
+
+    width:
+        25px;
+
+    height:
+        25px;
+
+    place-items:
+        center;
+
+    border-radius:
+        7px;
+
+    font-size:
+        0.63rem;
+
+    font-weight:
+        900;
+}
+
+
+/* gute Form 1–3 */
+
+body.kreisliga-page .kreisliga-form-good {
+    color:
+        #7fe69b;
+
+    border:
+        1px solid
+        rgba(24, 197, 91, 0.22);
+
+    background:
+        rgba(24, 197, 91, 0.08);
+}
+
+
+/* mittlere Form */
+
+body.kreisliga-page .kreisliga-form-mid {
+    color:
+        #c3cbc0;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+}
+
+
+/* schlechte Form 7–9 */
+
+body.kreisliga-page .kreisliga-form-bad {
+    color:
+        #e99b82;
+
+    border:
+        1px solid
+        rgba(218, 102, 70, 0.18);
+
+    background:
+        rgba(218, 102, 70, 0.06);
+}
+
+
+/* noch kein Spieltag */
+
+body.kreisliga-page .kreisliga-form-empty {
+    color:
+        #687168;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.055);
+
+    background:
+        rgba(255, 255, 255, 0.018);
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+body.kreisliga-page .kreisliga-status {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    min-height: 29px;
+
+    padding:
+        5px
+        10px;
+
+    border-radius:
+        999px;
+
+    font-size:
+        0.64rem;
+
+    font-weight:
+        900;
+
+    white-space:
+        nowrap;
+}
+
+
+body.kreisliga-page
+.kreisliga-status
+svg {
+    width:
+        14px;
+
+    height:
+        14px;
+}
+
+
+/* Meister */
+
+body.kreisliga-page
+.kreisliga-status-champion {
+    color:
+        #f0d77a;
+
+    border:
+        1px solid
+        rgba(212, 175, 55, 0.28);
+
+    background:
+        rgba(212, 175, 55, 0.07);
+}
+
+
+/* Aufstieg */
+
+body.kreisliga-page
+.kreisliga-status-promotion {
+    color:
+        #7ee497;
+
+    border:
+        1px solid
+        rgba(24, 197, 91, 0.22);
+
+    background:
+        rgba(24, 197, 91, 0.07);
+}
+
+
+/* Ligaverbleib */
+
+body.kreisliga-page
+.kreisliga-status-stay {
+    color:
+        #a9b3a6;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.075);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    body.kreisliga-page .kreisliga-table-section {
+        padding:
+            22px
+            15px;
+
+        border-radius:
+            18px;
+    }
+
+
+    body.kreisliga-page .kreisliga-section-heading {
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+        gap:
+            12px;
+    }
+
+
+    body.kreisliga-page .kreisliga-table {
+        width:
+            790px;
+
+        min-width:
+            790px;
+
+        table-layout:
+            fixed;
+    }
+
+
+    body.kreisliga-page .kreisliga-table-wrapper {
+        overflow-x:
+            auto;
+
+        -webkit-overflow-scrolling:
+            touch;
+    }
+
+
+    body.kreisliga-page .kreisliga-table thead th,
+    body.kreisliga-page .kreisliga-table tbody td {
+        padding:
+            10px
+            12px;
+    }
+
+
+    body.kreisliga-page .kreisliga-form {
+        gap:
+            4px;
+    }
+
+
+    body.kreisliga-page .kreisliga-form-badge {
+        width:
+            24px;
+
+        height:
+            24px;
+    }
+
+}
