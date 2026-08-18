@@ -30130,3 +30130,222 @@ body.qualification-page
     }
 
 }
+/* =========================================================
+   QUALIFIKATION – SAISONPROGNOSE
+   AN DAS QUALI-DESIGN ANGEPASST
+========================================================= */
+
+body.qualification-page .qualification-prediction-section {
+    border:
+        1px solid
+        rgba(255, 77, 94, 0.16) !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(35, 12, 18, 0.98),
+            rgba(15, 9, 13, 0.99)
+        ) !important;
+}
+
+
+/* obere Linie */
+
+body.qualification-page
+.qualification-prediction-section::before {
+    background:
+        linear-gradient(
+            90deg,
+            #ff4d5e,
+            #ff7a55,
+            transparent
+        ) !important;
+}
+
+
+/* =========================================================
+   LIVE-BADGE
+========================================================= */
+
+body.qualification-page
+.qualification-prediction-live {
+    border:
+        1px solid
+        rgba(255, 77, 94, 0.20) !important;
+
+    background:
+        rgba(255, 77, 94, 0.06) !important;
+
+    color:
+        #ff9aa4 !important;
+}
+
+
+body.qualification-page
+.qualification-prediction-live-dot {
+    background:
+        #ff4d5e !important;
+
+    box-shadow:
+        0 0 12px
+        rgba(255, 77, 94, 0.55) !important;
+}
+
+
+/* =========================================================
+   GRUPPEN-KARTEN
+========================================================= */
+
+body.qualification-page
+.qualification-prediction-group {
+    border:
+        1px solid
+        rgba(255, 77, 94, 0.10) !important;
+
+    background:
+        rgba(18, 9, 13, 0.76) !important;
+}
+
+
+body.qualification-page
+.qualification-prediction-group-heading {
+    border-bottom:
+        1px solid
+        rgba(255, 77, 94, 0.10) !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 77, 94, 0.08),
+            rgba(255, 122, 85, 0.025)
+        ) !important;
+}
+
+
+body.qualification-page
+.qualification-prediction-group-heading
+span {
+    color:
+        #ff6b79 !important;
+}
+
+
+body.qualification-page
+.qualification-prediction-group-heading
+svg {
+    color:
+        #ff6473 !important;
+}
+
+
+/* =========================================================
+   MANAGER-KARTEN
+========================================================= */
+
+body.qualification-page
+.qualification-prediction-manager {
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.065) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 77, 94, 0.035),
+            rgba(255, 255, 255, 0.012)
+        ) !important;
+}
+
+
+/* Ranking */
+
+body.qualification-page
+.qualification-prediction-rank {
+    border:
+        1px solid
+        rgba(255, 77, 94, 0.18) !important;
+
+    background:
+        rgba(255, 77, 94, 0.055) !important;
+
+    color:
+        #ff98a2 !important;
+}
+
+
+/* Managername */
+
+body.qualification-page
+.qualification-prediction-manager-name:hover {
+    color:
+        #ff7180 !important;
+}
+
+
+/* =========================================================
+   CL-WAHRSCHEINLICHKEITSBALKEN
+========================================================= */
+
+body.qualification-page
+.qualification-prediction-bar
+span {
+    background:
+        linear-gradient(
+            90deg,
+            #ff3f55,
+            #ff6b5e,
+            #ffad58
+        ) !important;
+
+    box-shadow:
+        0 0 12px
+        rgba(255, 77, 94, 0.20) !important;
+}
+
+
+/* =========================================================
+   DETAILBOXEN
+========================================================= */
+
+body.qualification-page
+.qualification-prediction-details
+span {
+    border:
+        1px solid
+        rgba(255, 77, 94, 0.055) !important;
+
+    background:
+        rgba(255, 77, 94, 0.018) !important;
+}
+
+
+body.qualification-page
+.qualification-prediction-details
+strong {
+    color:
+        #f4e6e7 !important;
+}
+
+
+/* =========================================================
+   ERKLÄRUNGSBOXEN
+========================================================= */
+
+body.qualification-page
+.qualification-prediction-footer
+> div {
+    border:
+        1px solid
+        rgba(255, 77, 94, 0.065) !important;
+
+    background:
+        rgba(255, 77, 94, 0.018) !important;
+}
+
+
+body.qualification-page
+.qualification-prediction-footer
+svg {
+    color:
+        #ff6b79 !important;
+}
