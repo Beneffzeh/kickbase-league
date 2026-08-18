@@ -1,0 +1,70 @@
+name: Kickbase API Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-kickbase:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Kickbase Login testen
+        env:
+          KICKBASE_EMAIL: ${{ secrets.KICKBASE_EMAIL }}
+          KICKBASE_PASSWORD: ${{ secrets.KICKBASE_PASSWORD }}
+        run: |
+
+          echo "Starte Kickbase Login..."
+
+          RESPONSE=$(curl -sS \
+            -X POST \
+            "https://api.kickbase.com/v4/user/login" \
+            -H "Content-Type: application/json" \
+            -H "Accept: application/json" \
+            --data "$(jq -n \
+              --arg email "$KICKBASE_EMAIL" \
+              --arg password "$KICKBASE_PASSWORD" \
+              '{
+                em: $email,
+                pass: $password,
+                loy: false,
+                rep: {}
+              }'
+            )"
+          )
+
+          TOKEN=$(echo "$RESPONSE" | jq -r '.tkn // empty')
+
+          if [ -z "$TOKEN" ]; then
+
+            echo "❌ Kickbase Login fehlgeschlagen."
+
+            echo "Antwort der API:"
+            echo "$RESPONSE" | jq 'del(.tkn)'
+
+            exit 1
+
+          fi
+
+          echo "✅ Kickbase Login erfolgreich."
+          echo "✅ Zugriffstoken wurde empfangen."
+
+          echo "KICKBASE_TOKEN=$TOKEN" >> "$GITHUB_ENV"
+
+
+      - name: Token testen
+        env:
+          KICKBASE_TOKEN: ${{ env.KICKBASE_TOKEN }}
+        run: |
+
+          if [ -z "$KICKBASE_TOKEN" ]; then
+
+            echo "❌ Kein Token verfügbar."
+
+            exit 1
+
+          fi
+
+          echo "✅ Token ist für weitere API-Anfragen verfügbar."
+          echo "Token selbst wird aus Sicherheitsgründen NICHT angezeigt."
