@@ -1882,3 +1882,613 @@ window.predictionAdjustments =
 
 window.predictionConfig =
     predictionConfig;
+    
+    /*
+=========================================
+PROGNOSE AUF DER WEBSITE ANZEIGEN
+=========================================
+*/
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        renderQualificationPrediction();
+
+    }
+);
+
+
+/*
+=========================================
+BEIDE GRUPPEN RENDERN
+=========================================
+*/
+
+
+function renderQualificationPrediction() {
+
+    const groupAElement =
+        document.getElementById(
+            "qualification-prediction-a"
+        );
+
+
+    const groupBElement =
+        document.getElementById(
+            "qualification-prediction-b"
+        );
+
+
+    /*
+    Wenn wir uns nicht auf der
+    Qualifikationsseite befinden,
+    passiert nichts.
+    */
+
+    if (
+        !groupAElement ||
+        !groupBElement
+    ) {
+
+        return;
+
+    }
+
+
+    /*
+    WICHTIG:
+
+    Die Simulation wird nur EINMAL
+    ausgeführt.
+
+    Danach verwenden beide Gruppen
+    dasselbe Ergebnis.
+    */
+
+    const prediction =
+        calculateQualificationPrediction();
+
+
+    if (!prediction) {
+
+        groupAElement.innerHTML =
+            createPredictionError();
+
+
+        groupBElement.innerHTML =
+            createPredictionError();
+
+
+        return;
+
+    }
+
+
+    const groupA =
+        getPredictionRankingFromResults(
+            prediction,
+            "A"
+        );
+
+
+    const groupB =
+        getPredictionRankingFromResults(
+            prediction,
+            "B"
+        );
+
+
+    groupAElement.innerHTML =
+        createPredictionGroupHTML(
+            groupA
+        );
+
+
+    groupBElement.innerHTML =
+        createPredictionGroupHTML(
+            groupB
+        );
+
+
+    /*
+    Lucide-Icons neu erzeugen.
+    */
+
+    if (
+        window.lucide &&
+        typeof window.lucide.createIcons ===
+            "function"
+    ) {
+
+        window.lucide.createIcons();
+
+    }
+
+}
+
+
+/*
+=========================================
+ERGEBNIS SORTIEREN
+=========================================
+*/
+
+
+function getPredictionRankingFromResults(
+    prediction,
+    groupName
+) {
+
+    return Object.values(
+        prediction
+    )
+        .filter(
+            result =>
+                result.group ===
+                groupName
+        )
+        .sort(
+            (
+                managerA,
+                managerB
+            ) => {
+
+                /*
+                Höhere CL-Chance zuerst.
+                */
+
+                if (
+                    managerB
+                        .championsLeagueProbability
+                    !==
+                    managerA
+                        .championsLeagueProbability
+                ) {
+
+                    return (
+                        managerB
+                            .championsLeagueProbability
+                        -
+                        managerA
+                            .championsLeagueProbability
+                    );
+
+                }
+
+
+                /*
+                Bei gleicher CL-Chance:
+                besserer erwarteter
+                Endplatz zuerst.
+                */
+
+                return (
+                    managerA
+                        .averageFinalPosition
+                    -
+                    managerB
+                        .averageFinalPosition
+                );
+
+            }
+        );
+
+}
+
+
+/*
+=========================================
+GRUPPE ALS HTML ERZEUGEN
+=========================================
+*/
+
+
+function createPredictionGroupHTML(
+    managers
+) {
+
+    if (
+        !Array.isArray(managers) ||
+        managers.length === 0
+    ) {
+
+        return createPredictionError();
+
+    }
+
+
+    return managers
+        .map(
+            (
+                manager,
+                index
+            ) => {
+
+                return createPredictionManagerHTML(
+                    manager,
+                    index + 1
+                );
+
+            }
+        )
+        .join("");
+
+}
+
+
+/*
+=========================================
+EINEN MANAGER DARSTELLEN
+=========================================
+*/
+
+
+function createPredictionManagerHTML(
+    manager,
+    rankingPosition
+) {
+
+    const probability =
+        Number(
+            manager
+                .championsLeagueProbability
+        ) || 0;
+
+
+    const directProbability =
+        Number(
+            manager
+                .directQualificationProbability
+        ) || 0;
+
+
+    const fifthProbability =
+        Number(
+            manager
+                .fifthPlaceQualificationProbability
+        ) || 0;
+
+
+    const kreisligaProbability =
+        Number(
+            manager
+                .kreisligaProbability
+        ) || 0;
+
+
+    const averagePosition =
+        Number(
+            manager
+                .averageFinalPosition
+        ) || 0;
+
+
+    const expectedScore =
+        Math.round(
+            Number(
+                manager.expectedScore
+            ) || 0
+        );
+
+
+    const adjustment =
+        Number(
+            manager.adjustment
+        ) || 0;
+
+
+    const adjustmentReason =
+        manager.adjustmentReason || "";
+
+
+    /*
+    Balken niemals kleiner als 0
+    oder größer als 100.
+    */
+
+    const barWidth =
+        Math.min(
+            100,
+            Math.max(
+                0,
+                probability
+            )
+        );
+
+
+    return `
+        <article class="qualification-prediction-manager">
+
+            <div class="qualification-prediction-manager-top">
+
+                <div class="qualification-prediction-manager-identity">
+
+                    <span class="qualification-prediction-rank">
+                        ${rankingPosition}
+                    </span>
+
+
+                    <div>
+
+                        <a
+                            href="/kickbase-league/manager-profil.html?id=${encodeURIComponent(
+                                manager.managerId
+                            )}"
+                            class="qualification-prediction-manager-name"
+                        >
+                            ${escapePredictionHTML(
+                                manager.name
+                            )}
+                        </a>
+
+                        <span class="qualification-prediction-average">
+
+                            Ø Platz
+                            ${formatPredictionDecimal(
+                                averagePosition
+                            )}
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="qualification-prediction-probability">
+
+                    <strong>
+                        ${formatPredictionPercentage(
+                            probability
+                        )}
+                    </strong>
+
+                    <span>
+                        CL-Chance
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="qualification-prediction-bar">
+
+                <span
+                    style="width: ${barWidth}%"
+                ></span>
+
+            </div>
+
+
+            <div class="qualification-prediction-details">
+
+                <span>
+
+                    <strong>
+                        ${formatPredictionPercentage(
+                            directProbability
+                        )}
+                    </strong>
+
+                    direkt
+
+                </span>
+
+
+                <span>
+
+                    <strong>
+                        ${formatPredictionPercentage(
+                            fifthProbability
+                        )}
+                    </strong>
+
+                    über Platz 5
+
+                </span>
+
+
+                <span>
+
+                    <strong>
+                        ${formatPredictionPercentage(
+                            kreisligaProbability
+                        )}
+                    </strong>
+
+                    Kreisliga
+
+                </span>
+
+
+                <span>
+
+                    <strong>
+                        ${formatPredictionNumber(
+                            expectedScore
+                        )}
+                    </strong>
+
+                    Pkt./ST
+
+                </span>
+
+            </div>
+
+
+            ${
+                adjustment !== 0
+                    ? `
+                        <div class="qualification-prediction-adjustment">
+
+                            <i data-lucide="triangle-alert"></i>
+
+                            <span>
+
+                                Kaderfaktor:
+
+                                <strong>
+                                    ${
+                                        adjustment > 0
+                                            ? "+"
+                                            : ""
+                                    }${formatPredictionNumber(
+                                        adjustment
+                                    )}
+                                    Pkt./ST
+                                </strong>
+
+                                ${
+                                    adjustmentReason
+                                        ? ` · ${escapePredictionHTML(
+                                            adjustmentReason
+                                        )}`
+                                        : ""
+                                }
+
+                            </span>
+
+                        </div>
+                    `
+                    : ""
+            }
+
+        </article>
+    `;
+
+}
+
+
+/*
+=========================================
+FEHLERMELDUNG
+=========================================
+*/
+
+
+function createPredictionError() {
+
+    return `
+        <div class="qualification-prediction-loading">
+
+            Prognose konnte nicht
+            berechnet werden.
+
+        </div>
+    `;
+
+}
+
+
+/*
+=========================================
+PROZENT FORMATIEREN
+=========================================
+*/
+
+
+function formatPredictionPercentage(
+    value
+) {
+
+    return (
+        Number(value)
+            .toLocaleString(
+                "de-DE",
+                {
+                    minimumFractionDigits: 1,
+                    maximumFractionDigits: 1
+                }
+            )
+        +
+        " %"
+    );
+
+}
+
+
+/*
+=========================================
+DEZIMALZAHL FORMATIEREN
+=========================================
+*/
+
+
+function formatPredictionDecimal(
+    value
+) {
+
+    return Number(value)
+        .toLocaleString(
+            "de-DE",
+            {
+                minimumFractionDigits: 1,
+                maximumFractionDigits: 2
+            }
+        );
+
+}
+
+
+/*
+=========================================
+GANZE ZAHL FORMATIEREN
+=========================================
+*/
+
+
+function formatPredictionNumber(
+    value
+) {
+
+    return new Intl.NumberFormat(
+        "de-DE"
+    ).format(
+        Number(value) || 0
+    );
+
+}
+
+
+/*
+=========================================
+HTML ABSICHERN
+=========================================
+*/
+
+
+function escapePredictionHTML(
+    value
+) {
+
+    return String(value)
+
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
+
+}
