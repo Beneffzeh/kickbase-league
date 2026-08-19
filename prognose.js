@@ -1860,7 +1860,1687 @@ function getQualificationPredictionRanking(
 
 }
 
+/*
+=========================================
+POWER RATING
+=========================================
 
+Das Power Rating misst die aktuelle
+sportliche Stärke eines Managers.
+
+GEWICHTUNG:
+
+40 % Saisonleistung
+25 % aktuelle Form
+20 % Ultimate OVR / Karriere
+10 % relative Tabellenleistung
+ 5 % Konstanz + Spieltagssiege
+
+Das Power Rating liegt zwischen 0 und 100.
+
+WICHTIG:
+
+Die absoluten Kickbase-Punkte aus der
+Qualifikation werden NICHT einfach auf
+die Hauptphase übertragen.
+
+Die Berechnung bewertet insbesondere
+die RELATIVE Leistung zum jeweiligen
+Konkurrenzfeld.
+
+Dadurch ist es kein Problem, wenn ein
+fertiger Quali-Kader deutlich mehr Punkte
+erzielt als ein frisch gedrafteter
+Champions-League-Kader.
+
+=========================================
+*/
+
+
+const powerRatingConfig = {
+
+    seasonPerformanceWeight: 0.40,
+
+    formWeight: 0.25,
+
+    ultimateWeight: 0.20,
+
+    tableWeight: 0.10,
+
+    consistencyWeight: 0.05,
+
+
+    /*
+    Ein Power Rating von ungefähr 50
+    entspricht einer neutralen /
+    durchschnittlichen Ausgangslage.
+    */
+
+    neutralRating: 50,
+
+
+    /*
+    Gruppenstärke wirkt nur sehr leicht.
+
+    Sie soll niemals wichtiger werden
+    als die Leistung des Managers selbst.
+    */
+
+    maximumGroupStrengthModifier: 4
+
+};
+
+
+/*
+=========================================
+POWER RATING BERECHNEN
+=========================================
+*/
+
+
+function calculateManagerPowerRating(
+    manager,
+    competitionKey = null
+) {
+
+    if (!manager) {
+
+        return null;
+
+    }
+
+
+    /*
+    Automatisch entscheiden, welche
+    Phase gerade bewertet werden soll.
+    */
+
+    if (!competitionKey) {
+
+        competitionKey =
+            manager.mainRound &&
+            manager.mainRound.league
+                ? "mainRound"
+                : "qualification";
+
+    }
+
+
+    /*
+    =====================================
+    1. SAISONLEISTUNG – 40 %
+    =====================================
+    */
+
+    const seasonPerformance =
+        getPowerSeasonPerformance(
+            manager,
+            competitionKey
+        );
+
+
+    /*
+    =====================================
+    2. FORM – 25 %
+    =====================================
+    */
+
+    const form =
+        getPowerFormScore(
+            manager,
+            competitionKey
+        );
+
+
+    /*
+    =====================================
+    3. ULTIMATE OVR – 20 %
+    =====================================
+    */
+
+    const ultimate =
+        getPowerUltimateScore(
+            manager
+        );
+
+
+    /*
+    =====================================
+    4. TABELLENLEISTUNG – 10 %
+    =====================================
+    */
+
+    const table =
+        getPowerTableScore(
+            manager,
+            competitionKey
+        );
+
+
+    /*
+    =====================================
+    5. KONSTANZ + TAGESSIEGE – 5 %
+    =====================================
+    */
+
+    const consistency =
+        getPowerConsistencyScore(
+            manager,
+            competitionKey
+        );
+
+
+    /*
+    =====================================
+    POWER RATING
+    =====================================
+    */
+
+
+    let powerRating =
+        (
+            seasonPerformance *
+            powerRatingConfig
+                .seasonPerformanceWeight
+        )
+        +
+        (
+            form *
+            powerRatingConfig
+                .formWeight
+        )
+        +
+        (
+            ultimate *
+            powerRatingConfig
+                .ultimateWeight
+        )
+        +
+        (
+            table *
+            powerRatingConfig
+                .tableWeight
+        )
+        +
+        (
+            consistency *
+            powerRatingConfig
+                .consistencyWeight
+        );
+
+
+    powerRating =
+        clampPowerRating(
+            powerRating
+        );
+
+
+    return {
+
+        rating:
+            Number(
+                powerRating.toFixed(1)
+            ),
+
+
+        factors: {
+
+            seasonPerformance:
+                Number(
+                    seasonPerformance
+                        .toFixed(1)
+                ),
+
+            form:
+                Number(
+                    form.toFixed(1)
+                ),
+
+            ultimate:
+                Number(
+                    ultimate.toFixed(1)
+                ),
+
+            table:
+                Number(
+                    table.toFixed(1)
+                ),
+
+            consistency:
+                Number(
+                    consistency.toFixed(1)
+                )
+
+        },
+
+
+        qualificationGroupStrength:
+            Number(
+                getQualificationGroupStrengthIndex(
+                    manager
+                ).toFixed(1)
+            )
+
+    };
+
+}
+
+
+/*
+=========================================
+1. SAISONLEISTUNG
+=========================================
+
+Wir vergleichen einen Manager
+mit seinem jeweiligen Konkurrenzfeld.
+
+Beispiel:
+
+Manager Ø = 1.200
+Liga Ø    = 1.000
+
+→ deutlich überdurchschnittlich.
+
+Dadurch spielt es keine Rolle, ob
+die komplette Liga im Laufe der Saison
+mehr Punkte erzielt.
+
+=========================================
+*/
+
+
+function getPowerSeasonPerformance(
+    manager,
+    competitionKey
+) {
+
+    /*
+    =====================================
+    QUALIFIKATION
+    =====================================
+    */
+
+    if (
+        competitionKey ===
+        "qualification"
+    ) {
+
+        const relativeScore =
+            getRelativePerformanceScore(
+                manager,
+                "qualification"
+            );
+
+
+        /*
+        Kleine Korrektur anhand der
+        Stärke der Qualifikationsgruppe.
+        */
+
+        const groupModifier =
+            getQualificationGroupStrengthModifier(
+                manager
+            );
+
+
+        return clampPowerRating(
+            relativeScore +
+            groupModifier
+        );
+
+    }
+
+
+    /*
+    =====================================
+    HAUPTRUNDE
+    =====================================
+
+    Die Qualifikation bleibt als
+    Leistungsnachweis erhalten.
+
+    Sie verliert aber zunehmend an Gewicht,
+    sobald echte CL-/Kreisliga-Daten
+    vorhanden sind.
+    */
+
+
+    const qualificationScore =
+        getRelativePerformanceScore(
+            manager,
+            "qualification"
+        )
+        +
+        getQualificationGroupStrengthModifier(
+            manager
+        );
+
+
+    const mainRoundScores =
+        getPredictionRealScores(
+            manager,
+            "mainRound"
+        );
+
+
+    /*
+    Noch kein CL-/Kreisliga-Spieltag.
+
+    Die Qualifikation ist unsere einzige
+    sportliche Datenbasis.
+
+    WICHTIG:
+    Wir übernehmen NICHT den Punkteschnitt,
+    sondern nur die relative Managerstärke.
+    */
+
+    if (
+        mainRoundScores.length === 0
+    ) {
+
+        return clampPowerRating(
+            qualificationScore
+        );
+
+    }
+
+
+    const mainRoundScore =
+        getRelativePerformanceScore(
+            manager,
+            "mainRound"
+        );
+
+
+    /*
+    Qualifikation verliert mit jedem
+    Hauptphasen-Spieltag an Bedeutung.
+
+    0 ST  -> 100 % Quali
+    1 ST  -> 85 %
+    3 ST  -> 60 %
+    5 ST  -> 40 %
+    8 ST  -> 20 %
+    10+   -> 10 %
+
+    Zwischenwerte werden automatisch
+    interpoliert.
+    */
+
+
+    const qualificationWeight =
+        getQualificationHistoryWeight(
+            mainRoundScores.length
+        );
+
+
+    const mainRoundWeight =
+        1 -
+        qualificationWeight;
+
+
+    return clampPowerRating(
+
+        (
+            qualificationScore *
+            qualificationWeight
+        )
+        +
+        (
+            mainRoundScore *
+            mainRoundWeight
+        )
+
+    );
+
+}
+
+
+/*
+=========================================
+QUALI-HISTORIE GEWICHTEN
+=========================================
+*/
+
+
+function getQualificationHistoryWeight(
+    playedMainRoundMatchdays
+) {
+
+    const weightTable = [
+
+        {
+            matchday: 0,
+            weight: 1.00
+        },
+
+        {
+            matchday: 1,
+            weight: 0.85
+        },
+
+        {
+            matchday: 3,
+            weight: 0.60
+        },
+
+        {
+            matchday: 5,
+            weight: 0.40
+        },
+
+        {
+            matchday: 8,
+            weight: 0.20
+        },
+
+        {
+            matchday: 10,
+            weight: 0.10
+        }
+
+    ];
+
+
+    if (
+        playedMainRoundMatchdays <= 0
+    ) {
+
+        return 1;
+
+    }
+
+
+    if (
+        playedMainRoundMatchdays >= 10
+    ) {
+
+        return 0.10;
+
+    }
+
+
+    for (
+        let index = 0;
+        index <
+            weightTable.length - 1;
+        index++
+    ) {
+
+        const current =
+            weightTable[index];
+
+
+        const next =
+            weightTable[
+                index + 1
+            ];
+
+
+        if (
+            playedMainRoundMatchdays >=
+                current.matchday
+            &&
+            playedMainRoundMatchdays <=
+                next.matchday
+        ) {
+
+            const distance =
+                next.matchday -
+                current.matchday;
+
+
+            const progress =
+                (
+                    playedMainRoundMatchdays -
+                    current.matchday
+                )
+                /
+                distance;
+
+
+            return (
+                current.weight
+                +
+                (
+                    next.weight -
+                    current.weight
+                )
+                *
+                progress
+            );
+
+        }
+
+    }
+
+
+    return 0.10;
+
+}
+
+
+/*
+=========================================
+RELATIVE SAISONLEISTUNG
+=========================================
+
+Durchschnitt der Managerleistung
+im Verhältnis zum Konkurrenzfeld.
+
+Ligadurchschnitt = Power 50.
+
++50 % besser als Liga = Power 100.
+
+-50 % schlechter = Power 0.
+
+=========================================
+*/
+
+
+function getRelativePerformanceScore(
+    manager,
+    competitionKey
+) {
+
+    const scores =
+        getPredictionRealScores(
+            manager,
+            competitionKey
+        );
+
+
+    /*
+    Keine Daten = neutral.
+    */
+
+    if (
+        scores.length === 0
+    ) {
+
+        return powerRatingConfig
+            .neutralRating;
+
+    }
+
+
+    const managerAverage =
+        predictionAverage(
+            scores
+        );
+
+
+    const competitors =
+        getPowerCompetitors(
+            manager,
+            competitionKey
+        );
+
+
+    const competitorScores =
+        [];
+
+
+    competitors.forEach(
+        competitor => {
+
+            competitorScores.push(
+                ...getPredictionRealScores(
+                    competitor,
+                    competitionKey
+                )
+            );
+
+        }
+    );
+
+
+    if (
+        competitorScores.length === 0
+    ) {
+
+        return powerRatingConfig
+            .neutralRating;
+
+    }
+
+
+    const competitionAverage =
+        predictionAverage(
+            competitorScores
+        );
+
+
+    if (
+        competitionAverage <= 0
+    ) {
+
+        return powerRatingConfig
+            .neutralRating;
+
+    }
+
+
+    const relativeDifference =
+        (
+            managerAverage /
+            competitionAverage
+        )
+        -
+        1;
+
+
+    /*
+    Beispiele:
+
+    Liga Ø 1.000
+    Manager 1.000
+    → 50
+
+    Manager 1.200
+    → 70
+
+    Manager 1.500
+    → 100
+
+    Manager 800
+    → 30
+    */
+
+
+    const score =
+        50 +
+        (
+            relativeDifference *
+            100
+        );
+
+
+    return clampPowerRating(
+        score
+    );
+
+}
+
+
+/*
+=========================================
+2. AKTUELLE FORM
+=========================================
+
+Maximal die letzten 5 Spieltage.
+
+Neuere Spieltage zählen stärker.
+
+Die Form wird ebenfalls relativ
+zum Konkurrenzfeld bewertet.
+
+=========================================
+*/
+
+
+function getPowerFormScore(
+    manager,
+    competitionKey
+) {
+
+    let key =
+        competitionKey;
+
+
+    /*
+    Hauptphase hat noch nicht begonnen:
+
+    Dann verwenden wir die letzten
+    Quali-Spieltage als aktuelle Form.
+    */
+
+    if (
+        competitionKey ===
+            "mainRound"
+        &&
+        getPredictionRealScores(
+            manager,
+            "mainRound"
+        ).length === 0
+    ) {
+
+        key =
+            "qualification";
+
+    }
+
+
+    const scores =
+        getPredictionRealScores(
+            manager,
+            key
+        );
+
+
+    if (
+        scores.length === 0
+    ) {
+
+        return powerRatingConfig
+            .neutralRating;
+
+    }
+
+
+    const recentScores =
+        scores.slice(
+            -5
+        );
+
+
+    const managerFormAverage =
+        getWeightedFormAverage(
+            recentScores
+        );
+
+
+    const competitors =
+        getPowerCompetitors(
+            manager,
+            key
+        );
+
+
+    const competitorFormValues =
+        [];
+
+
+    competitors.forEach(
+        competitor => {
+
+            const competitorScores =
+                getPredictionRealScores(
+                    competitor,
+                    key
+                )
+                .slice(
+                    -5
+                );
+
+
+            if (
+                competitorScores.length
+            ) {
+
+                competitorFormValues.push(
+                    getWeightedFormAverage(
+                        competitorScores
+                    )
+                );
+
+            }
+
+        }
+    );
+
+
+    if (
+        competitorFormValues.length === 0
+    ) {
+
+        return powerRatingConfig
+            .neutralRating;
+
+    }
+
+
+    const competitionFormAverage =
+        predictionAverage(
+            competitorFormValues
+        );
+
+
+    if (
+        competitionFormAverage <= 0
+    ) {
+
+        return powerRatingConfig
+            .neutralRating;
+
+    }
+
+
+    const relativeDifference =
+        (
+            managerFormAverage /
+            competitionFormAverage
+        )
+        -
+        1;
+
+
+    return clampPowerRating(
+
+        50 +
+        (
+            relativeDifference *
+            100
+        )
+
+    );
+
+}
+
+
+/*
+=========================================
+3. ULTIMATE OVR / KARRIERE
+=========================================
+
+WICHTIG:
+
+Das OVR wird NICHT in Kickbase-Punkte
+umgerechnet.
+
+Außerdem starten die OVR-Werte zunächst
+eng beieinander.
+
+Deshalb vergleichen wir nur, wie stark
+das OVR eines Managers vom Durchschnitt
+aller Manager abweicht.
+
+Kleine OVR-Unterschiede erzeugen dadurch
+auch nur kleine Power-Unterschiede.
+
+=========================================
+*/
+
+
+function getPowerUltimateScore(
+    manager
+) {
+
+    const allRatings =
+        leagueData.managers.map(
+            item =>
+                getPredictionUltimateRating(
+                    item
+                )
+        );
+
+
+    const managerRating =
+        getPredictionUltimateRating(
+            manager
+        );
+
+
+    const averageRating =
+        predictionAverage(
+            allRatings
+        );
+
+
+    /*
+    OVR 1 Punkt über Liga-Ø
+    = +4 Punkte in diesem Teilwert.
+
+    Der Karrierewert wird bewusst
+    auf 30–70 begrenzt.
+    */
+
+
+    const score =
+        50 +
+        (
+            managerRating -
+            averageRating
+        )
+        *
+        4;
+
+
+    return Math.min(
+        70,
+        Math.max(
+            30,
+            score
+        )
+    );
+
+}
+
+
+/*
+=========================================
+ULTIMATE OVR HOLEN
+=========================================
+
+Entspricht der Logik aus
+manager-profil.js.
+
+Falls legenden.js auf einer Seite
+nicht geladen ist, wird neutral 60
+verwendet.
+
+=========================================
+*/
+
+
+function getPredictionUltimateRating(
+    manager
+) {
+
+    if (
+        typeof calculateLegendPoints !==
+            "function"
+        ||
+        typeof createLegendRanking !==
+            "function"
+    ) {
+
+        return 60;
+
+    }
+
+
+    const legendPoints =
+        calculateLegendPoints(
+            manager
+        );
+
+
+    const ranking =
+        createLegendRanking();
+
+
+    const rankingPosition =
+        ranking.findIndex(
+            item =>
+                item.id === manager.id
+        )
+        +
+        1;
+
+
+    let rating =
+        60 +
+        Math.floor(
+            legendPoints /
+            12
+        );
+
+
+    if (
+        rankingPosition === 1
+    ) {
+
+        rating += 3;
+
+    }
+
+    else if (
+        rankingPosition <= 3
+    ) {
+
+        rating += 2;
+
+    }
+
+    else if (
+        rankingPosition <= 6
+    ) {
+
+        rating += 1;
+
+    }
+
+
+    return Math.min(
+        99,
+        Math.max(
+            60,
+            rating
+        )
+    );
+
+}
+
+
+/*
+=========================================
+4. TABELLENLEISTUNG
+=========================================
+
+Platz 1 = 100
+Platz 5 = 50
+Platz 9 = 0
+
+=========================================
+*/
+
+
+function getPowerTableScore(
+    manager,
+    competitionKey
+) {
+
+    let position =
+        null;
+
+
+    if (
+        competitionKey ===
+        "mainRound"
+    ) {
+
+        position =
+            manager
+                .mainRound
+                .currentPosition;
+
+
+        /*
+        Hauptphase noch nicht begonnen:
+        Quali-Platz verwenden.
+        */
+
+        if (!position) {
+
+            position =
+                manager
+                    .qualification
+                    .currentPosition;
+
+        }
+
+    }
+
+    else {
+
+        position =
+            manager
+                .qualification
+                .currentPosition;
+
+    }
+
+
+    if (!position) {
+
+        return powerRatingConfig
+            .neutralRating;
+
+    }
+
+
+    return clampPowerRating(
+
+        100 -
+        (
+            (
+                position -
+                1
+            )
+            *
+            12.5
+        )
+
+    );
+
+}
+
+
+/*
+=========================================
+5. KONSTANZ + SPIELTAGSSIEGE
+=========================================
+
+70 % Konstanz
+30 % Spieltagssiege
+
+=========================================
+*/
+
+
+function getPowerConsistencyScore(
+    manager,
+    competitionKey
+) {
+
+    let key =
+        competitionKey;
+
+
+    if (
+        competitionKey ===
+            "mainRound"
+        &&
+        getPredictionRealScores(
+            manager,
+            "mainRound"
+        ).length === 0
+    ) {
+
+        key =
+            "qualification";
+
+    }
+
+
+    const scores =
+        getPredictionRealScores(
+            manager,
+            key
+        );
+
+
+    /*
+    Noch keine Daten.
+    */
+
+    if (
+        scores.length < 2
+    ) {
+
+        return powerRatingConfig
+            .neutralRating;
+
+    }
+
+
+    const average =
+        predictionAverage(
+            scores
+        );
+
+
+    const variance =
+        scores.reduce(
+            (
+                total,
+                score
+            ) => {
+
+                return (
+                    total +
+                    Math.pow(
+                        score -
+                        average,
+                        2
+                    )
+                );
+
+            },
+            0
+        )
+        /
+        scores.length;
+
+
+    const deviation =
+        Math.sqrt(
+            variance
+        );
+
+
+    /*
+    Variationskoeffizient.
+
+    Beispiel:
+
+    Ø 1.000
+    Schwankung 200
+    = 20 %
+    */
+
+
+    const coefficientOfVariation =
+        average > 0
+            ?
+            deviation /
+            average
+            :
+            0;
+
+
+    /*
+    10 % Schwankung -> 80
+    25 % Schwankung -> 50
+    40 % Schwankung -> 20
+    */
+
+
+    const consistencyScore =
+        clampPowerRating(
+
+            100 -
+            (
+                coefficientOfVariation *
+                200
+            )
+
+        );
+
+
+    /*
+    =====================================
+    TAGESSIEGE
+    =====================================
+    */
+
+
+    const competitors =
+        getPowerCompetitors(
+            manager,
+            key
+        );
+
+
+    const managerWins =
+        key === "mainRound"
+            ?
+            (
+                manager
+                    .mainRound
+                    .matchdayWins ||
+                0
+            )
+            :
+            (
+                manager
+                    .qualification
+                    .matchdayWins ||
+                0
+            );
+
+
+    const competitorWins =
+        competitors.map(
+            competitor =>
+                key === "mainRound"
+                    ?
+                    (
+                        competitor
+                            .mainRound
+                            .matchdayWins ||
+                        0
+                    )
+                    :
+                    (
+                        competitor
+                            .qualification
+                            .matchdayWins ||
+                        0
+                    )
+        );
+
+
+    const maximumWins =
+        Math.max(
+            0,
+            ...competitorWins
+        );
+
+
+    /*
+    Noch niemand hat einen Tagessieg:
+    neutral.
+    */
+
+
+    const winScore =
+        maximumWins > 0
+            ?
+            (
+                managerWins /
+                maximumWins
+            )
+            *
+            100
+            :
+            50;
+
+
+    return clampPowerRating(
+
+        (
+            consistencyScore *
+            0.70
+        )
+        +
+        (
+            winScore *
+            0.30
+        )
+
+    );
+
+}
+
+
+/*
+=========================================
+KONKURRENTEN HOLEN
+=========================================
+*/
+
+
+function getPowerCompetitors(
+    manager,
+    competitionKey
+) {
+
+    if (
+        competitionKey ===
+        "qualification"
+    ) {
+
+        return leagueData.managers.filter(
+            item =>
+                item
+                    .qualification
+                    .group ===
+                manager
+                    .qualification
+                    .group
+        );
+
+    }
+
+
+    if (
+        manager.mainRound &&
+        manager.mainRound.league
+    ) {
+
+        return leagueData.managers.filter(
+            item =>
+                item
+                    .mainRound
+                    .league ===
+                manager
+                    .mainRound
+                    .league
+        );
+
+    }
+
+
+    /*
+    Hauptphase noch nicht zugewiesen:
+    Qualigruppe als Fallback.
+    */
+
+    return leagueData.managers.filter(
+        item =>
+            item
+                .qualification
+                .group ===
+            manager
+                .qualification
+                .group
+    );
+
+}
+
+
+/*
+=========================================
+QUALIFIKATIONSGRUPPEN-STÄRKE
+=========================================
+
+Die Stärke wird NICHT anhand der
+Kickbase-Punkte bestimmt.
+
+Stattdessen nutzen wir ausschließlich
+die Karriere-/Ultimate-Einschätzung
+der enthaltenen Manager.
+
+Damit kann später z. B. eine Gruppe
+mit vielen historisch starken Managern
+leicht aufgewertet werden.
+
+Der Effekt bleibt bewusst klein.
+
+=========================================
+*/
+
+
+function getQualificationGroupStrengthIndex(
+    manager
+) {
+
+    const group =
+        manager &&
+        manager.qualification
+            ?
+            manager
+                .qualification
+                .group
+            :
+            null;
+
+
+    if (!group) {
+
+        return 50;
+
+    }
+
+
+    const groupManagers =
+        leagueData.managers.filter(
+            item =>
+                item
+                    .qualification
+                    .group ===
+                group
+        );
+
+
+    if (
+        groupManagers.length === 0
+    ) {
+
+        return 50;
+
+    }
+
+
+    const allUltimateScores =
+        leagueData.managers.map(
+            item =>
+                getPowerUltimateScore(
+                    item
+                )
+        );
+
+
+    const groupUltimateScores =
+        groupManagers.map(
+            item =>
+                getPowerUltimateScore(
+                    item
+                )
+        );
+
+
+    const overallAverage =
+        predictionAverage(
+            allUltimateScores
+        );
+
+
+    const groupAverage =
+        predictionAverage(
+            groupUltimateScores
+        );
+
+
+    /*
+    50 = durchschnittlich starke Gruppe.
+    */
+
+
+    return clampPowerRating(
+
+        50 +
+        (
+            groupAverage -
+            overallAverage
+        )
+
+    );
+
+}
+
+
+/*
+=========================================
+GRUPPENSTÄRKE ALS KLEINER BONUS
+=========================================
+*/
+
+
+function getQualificationGroupStrengthModifier(
+    manager
+) {
+
+    const groupStrength =
+        getQualificationGroupStrengthIndex(
+            manager
+        );
+
+
+    /*
+    Gruppenindex 50 = kein Effekt.
+
+    Der Einfluss wird halbiert und
+    anschließend auf maximal +/-4
+    Power-Punkte begrenzt.
+    */
+
+
+    const modifier =
+        (
+            groupStrength -
+            50
+        )
+        *
+        0.5;
+
+
+    return Math.max(
+
+        -powerRatingConfig
+            .maximumGroupStrengthModifier,
+
+        Math.min(
+
+            powerRatingConfig
+                .maximumGroupStrengthModifier,
+
+            modifier
+
+        )
+
+    );
+
+}
+
+
+/*
+=========================================
+POWER RATING BEGRENZEN
+=========================================
+*/
+
+
+function clampPowerRating(
+    value
+) {
+
+    return Math.min(
+        100,
+        Math.max(
+            0,
+            Number(value) || 0
+        )
+    );
+
+}
+
+
+/*
+=========================================
+POWER RANKING
+=========================================
+*/
+
+
+function createPowerRanking(
+    competitionKey = null
+) {
+
+    return leagueData.managers
+        .map(
+            manager => {
+
+                const power =
+                    calculateManagerPowerRating(
+                        manager,
+                        competitionKey
+                    );
+
+
+                return {
+
+                    id:
+                        manager.id,
+
+                    name:
+                        manager.name,
+
+                    rating:
+                        power
+                            ? power.rating
+                            : 50,
+
+                    factors:
+                        power
+                            ? power.factors
+                            : null
+
+                };
+
+            }
+        )
+        .sort(
+            (
+                managerA,
+                managerB
+            ) =>
+                managerB.rating -
+                managerA.rating
+        );
+
+}
+
+
+/*
+=========================================
+GLOBAL BEREITSTELLEN
+=========================================
+*/
+
+
+window.calculateManagerPowerRating =
+    calculateManagerPowerRating;
+
+
+window.createPowerRanking =
+    createPowerRanking;
+
+
+window.powerRatingConfig =
+    powerRatingConfig;
 /*
 =========================================
 FUNKTIONEN GLOBAL BEREITSTELLEN
