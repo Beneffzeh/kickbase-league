@@ -4172,3 +4172,1300 @@ function escapePredictionHTML(
         );
 
 }
+
+/*
+=========================================
+HAUPTRUNDEN-PROGNOSE
+CHAMPIONS LEAGUE + KREISLIGA
+=========================================
+
+Grundlage:
+
+- Power Rating
+- Qualifikationshistorie
+- tatsächliche Hauptphasenpunkte
+- aktuelle Hauptphasenform
+- individuelle Schwankung
+- 10.000 Simulationen
+
+WICHTIG:
+
+Die fertigen Kader der Qualifikation
+werden NICHT übernommen.
+
+Zum Start der Hauptphase wird das
+allgemeine Punktniveau wieder auf ein
+frisches Kickbase-Niveau zurückgesetzt.
+
+Neutraler Schnitt:
+ca. 1.000 Punkte / Spieltag.
+
+Das Power Rating bestimmt die relative
+Stärke innerhalb der neuen Liga.
+
+=========================================
+*/
+
+
+const mainRoundSimulationConfig = {
+
+    simulations: 10000,
+
+    matchdays: 20,
+
+
+    /*
+    Erwartetes Niveau eines frisch
+    gestarteten Kickbase-Kaders.
+    */
+
+    freshDraftAverage: 1000,
+
+
+    /*
+    Wie stark ein Power-Rating-Punkt
+    relativ zum Ligaschnitt wirkt.
+
+    Beispiel:
+
+    Power 80
+    Ligadurchschnitt Power 70
+
+    Differenz +10
+    -> ungefähr +100 erwartete Punkte.
+    */
+
+    powerPointValue: 10,
+
+
+    /*
+    Erwartete Startleistung begrenzen.
+
+    Damit entstehen zu Beginn keine
+    unrealistischen Werte.
+    */
+
+    minimumExpectedScore: 650,
+
+    maximumExpectedScore: 1500,
+
+
+    /*
+    Wie schnell echte Ergebnisse der
+    Hauptphase unsere Startprognose
+    ersetzen.
+
+    Nach 8 Spieltagen vertrauen wir
+    überwiegend der aktuellen Liga.
+    */
+
+    fullMainRoundConfidenceAfter: 8,
+
+
+    /*
+    Aktuelle Hauptphasenleistung:
+
+    70 % gesamter Hauptphasen-Schnitt
+    30 % Form letzte 5 Spieltage
+    */
+
+    mainRoundSeasonWeight: 0.70,
+
+    mainRoundFormWeight: 0.30,
+
+
+    /*
+    Mindestschwankung pro Spieltag.
+    */
+
+    minimumDeviation: 170
+
+};
+
+
+/*
+=========================================
+HAUPTRUNDEN-PROGNOSE
+=========================================
+*/
+
+
+function calculatePowerBasedMainRoundPrediction(
+    leagueName
+) {
+
+    if (
+        typeof leagueData === "undefined"
+    ) {
+
+        console.error(
+            "league-data.js wurde nicht geladen."
+        );
+
+        return null;
+
+    }
+
+
+    if (
+        leagueName !== "champions-league" &&
+        leagueName !== "kreisliga"
+    ) {
+
+        console.error(
+            "Unbekannte Liga:",
+            leagueName
+        );
+
+        return null;
+
+    }
+
+
+    if (
+        typeof recalculateLeagueData ===
+        "function"
+    ) {
+
+        recalculateLeagueData();
+
+    }
+
+
+    const managers =
+        leagueData.managers.filter(
+            manager =>
+                manager.mainRound.league ===
+                leagueName
+        );
+
+
+    /*
+    Prognose erst möglich,
+    wenn die 9 Teilnehmer feststehen.
+    */
+
+    if (
+        managers.length !== 9
+    ) {
+
+        return null;
+
+    }
+
+
+    /*
+    Power Ratings aller Manager
+    dieser Liga berechnen.
+    */
+
+    const powerRatings =
+        managers.map(
+            manager => {
+
+                const power =
+                    calculateManagerPowerRating(
+                        manager,
+                        "mainRound"
+                    );
+
+
+                return {
+
+                    manager:
+                        manager,
+
+                    rating:
+                        power
+                            ? power.rating
+                            : 50,
+
+                    factors:
+                        power
+                            ? power.factors
+                            : null
+
+                };
+
+            }
+        );
+
+
+    const leaguePowerAverage =
+        predictionAverage(
+            powerRatings.map(
+                item =>
+                    item.rating
+            )
+        );
+
+
+    /*
+    Ergebnisobjekt vorbereiten.
+    */
+
+    const results = {};
+
+
+    powerRatings.forEach(
+        item => {
+
+            const manager =
+                item.manager;
+
+
+            results[
+                manager.id
+            ] = {
+
+                managerId:
+                    manager.id,
+
+                name:
+                    manager.name,
+
+                league:
+                    leagueName,
+
+                powerRating:
+                    item.rating,
+
+                powerFactors:
+                    item.factors,
+
+                expectedScore:
+                    getPowerBasedMainRoundExpectedScore(
+                        manager,
+                        item.rating,
+                        leaguePowerAverage
+                    ),
+
+                champion:
+                    0,
+
+                topThree:
+                    0,
+
+                relegation:
+                    0,
+
+                promotion:
+                    0,
+
+                leagueStay:
+                    0,
+
+                positionCounts: {
+
+                    1: 0,
+                    2: 0,
+                    3: 0,
+                    4: 0,
+                    5: 0,
+                    6: 0,
+                    7: 0,
+                    8: 0,
+                    9: 0
+
+                },
+
+                totalFinalPosition:
+                    0
+
+            };
+
+        }
+    );
+
+
+    /*
+    =====================================
+    10.000 SIMULATIONEN
+    =====================================
+    */
+
+
+    for (
+        let simulation = 0;
+        simulation <
+            mainRoundSimulationConfig
+                .simulations;
+        simulation++
+    ) {
+
+        const simulatedTable =
+            simulatePowerBasedMainRound(
+                managers,
+                leaguePowerAverage
+            );
+
+
+        simulatedTable.forEach(
+            (
+                entry,
+                index
+            ) => {
+
+                const position =
+                    index + 1;
+
+
+                const result =
+                    results[
+                        entry.manager.id
+                    ];
+
+
+                result
+                    .positionCounts[
+                        position
+                    ]++;
+
+
+                result
+                    .totalFinalPosition +=
+                    position;
+
+
+                /*
+                Meisterchance
+                */
+
+                if (
+                    position === 1
+                ) {
+
+                    result.champion++;
+
+                }
+
+
+                /*
+                Top 3
+                */
+
+                if (
+                    position <= 3
+                ) {
+
+                    result.topThree++;
+
+                }
+
+
+                /*
+                Champions League:
+                Plätze 7–9 steigen ab.
+                */
+
+                if (
+                    leagueName ===
+                        "champions-league"
+                    &&
+                    position >= 7
+                ) {
+
+                    result.relegation++;
+
+                }
+
+
+                /*
+                Kreisliga:
+                Plätze 1–3 steigen auf.
+                */
+
+                if (
+                    leagueName ===
+                        "kreisliga"
+                    &&
+                    position <= 3
+                ) {
+
+                    result.promotion++;
+
+                }
+
+
+                /*
+                Kreisliga:
+                Plätze 4–9 bleiben.
+                */
+
+                if (
+                    leagueName ===
+                        "kreisliga"
+                    &&
+                    position >= 4
+                ) {
+
+                    result.leagueStay++;
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /*
+    =====================================
+    PROZENTWERTE
+    =====================================
+    */
+
+
+    Object.values(
+        results
+    ).forEach(
+        result => {
+
+            result.championProbability =
+                convertMainRoundSimulationPercentage(
+                    result.champion
+                );
+
+
+            result.topThreeProbability =
+                convertMainRoundSimulationPercentage(
+                    result.topThree
+                );
+
+
+            result.relegationProbability =
+                convertMainRoundSimulationPercentage(
+                    result.relegation
+                );
+
+
+            result.promotionProbability =
+                convertMainRoundSimulationPercentage(
+                    result.promotion
+                );
+
+
+            /*
+            Für Kreisliga gilt exakt:
+
+            Aufstieg + Ligaverbleib = 100 %
+            */
+
+            if (
+                leagueName ===
+                "kreisliga"
+            ) {
+
+                result.leagueStayProbability =
+                    Number(
+                        (
+                            100 -
+                            result
+                                .promotionProbability
+                        )
+                        .toFixed(1)
+                    );
+
+            }
+
+            else {
+
+                result.leagueStayProbability =
+                    0;
+
+            }
+
+
+            result.averageFinalPosition =
+                Number(
+                    (
+                        result
+                            .totalFinalPosition
+                        /
+                        mainRoundSimulationConfig
+                            .simulations
+                    )
+                    .toFixed(2)
+                );
+
+
+            result.positionProbabilities =
+                {};
+
+
+            Object.entries(
+                result.positionCounts
+            ).forEach(
+                (
+                    [
+                        position,
+                        count
+                    ]
+                ) => {
+
+                    result
+                        .positionProbabilities[
+                            position
+                        ] =
+                        convertMainRoundSimulationPercentage(
+                            count
+                        );
+
+                }
+            );
+
+        }
+    );
+
+
+    return results;
+
+}
+
+
+/*
+=========================================
+EINE HAUPTRUNDE SIMULIEREN
+=========================================
+*/
+
+
+function simulatePowerBasedMainRound(
+    managers,
+    leaguePowerAverage
+) {
+
+    const simulated =
+        managers.map(
+            manager => {
+
+                /*
+                Bereits erzielte Punkte
+                der Hauptphase bleiben
+                vollständig erhalten.
+                */
+
+                let points =
+                    Number(
+                        manager
+                            .mainRound
+                            .points
+                    ) || 0;
+
+
+                const playedScores =
+                    getPredictionRealScores(
+                        manager,
+                        "mainRound"
+                    );
+
+
+                const played =
+                    playedScores.length;
+
+
+                const remaining =
+                    Math.max(
+                        0,
+                        mainRoundSimulationConfig
+                            .matchdays
+                        -
+                        played
+                    );
+
+
+                const power =
+                    calculateManagerPowerRating(
+                        manager,
+                        "mainRound"
+                    );
+
+
+                const rating =
+                    power
+                        ? power.rating
+                        : 50;
+
+
+                const expectedScore =
+                    getPowerBasedMainRoundExpectedScore(
+                        manager,
+                        rating,
+                        leaguePowerAverage
+                    );
+
+
+                const deviation =
+                    getPowerBasedMainRoundDeviation(
+                        manager,
+                        expectedScore
+                    );
+
+
+                /*
+                Alle verbleibenden
+                Spieltage simulieren.
+                */
+
+                for (
+                    let matchday = 0;
+                    matchday < remaining;
+                    matchday++
+                ) {
+
+                    const simulatedScore =
+                        randomNormal(
+                            expectedScore,
+                            deviation
+                        );
+
+
+                    points +=
+                        Math.max(
+                            0,
+                            Math.round(
+                                simulatedScore
+                            )
+                        );
+
+                }
+
+
+                return {
+
+                    manager:
+                        manager,
+
+                    points:
+                        points
+
+                };
+
+            }
+        );
+
+
+    /*
+    Abschlusstabelle.
+    */
+
+    simulated.sort(
+        (
+            managerA,
+            managerB
+        ) => {
+
+            if (
+                managerB.points !==
+                managerA.points
+            ) {
+
+                return (
+                    managerB.points -
+                    managerA.points
+                );
+
+            }
+
+
+            /*
+            Exakter Gleichstand:
+            momentan Zufallsentscheidung.
+            */
+
+            return (
+                Math.random() - 0.5
+            );
+
+        }
+    );
+
+
+    return simulated;
+
+}
+
+
+/*
+=========================================
+ERWARTETE PUNKTE / SPIELTAG
+=========================================
+
+Hier steckt der wichtige Übergang:
+
+QUALIFIKATION
+-> fertiger, monatelang entwickelter Kader
+
+HAUPTRUNDE
+-> kompletter Neustart
+
+Deshalb übernehmen wir NICHT den
+Quali-Punkteschnitt.
+
+Wir starten stattdessen ungefähr bei
+1.000 Punkten.
+
+Das Power Rating bestimmt nur die
+relative Stärke innerhalb der neuen Liga.
+
+Sobald echte Hauptphasen-Spieltage
+vorliegen, übernehmen diese zunehmend
+die Prognose.
+
+=========================================
+*/
+
+
+function getPowerBasedMainRoundExpectedScore(
+    manager,
+    powerRating,
+    leaguePowerAverage
+) {
+
+    /*
+    =====================================
+    STARTWERT NACH NEUDRAFT
+    =====================================
+    */
+
+
+    const relativePower =
+        powerRating -
+        leaguePowerAverage;
+
+
+    let freshDraftExpectation =
+        mainRoundSimulationConfig
+            .freshDraftAverage
+        +
+        (
+            relativePower *
+            mainRoundSimulationConfig
+                .powerPointValue
+        );
+
+
+    freshDraftExpectation =
+        clampExpectedMainRoundScore(
+            freshDraftExpectation
+        );
+
+
+    /*
+    =====================================
+    ECHTE HAUPTRUNDENDATEN
+    =====================================
+    */
+
+
+    const mainRoundScores =
+        getPredictionRealScores(
+            manager,
+            "mainRound"
+        );
+
+
+    /*
+    Noch kein Spieltag:
+
+    Nur Power Rating + frischer Draft.
+    */
+
+    if (
+        mainRoundScores.length === 0
+    ) {
+
+        return Math.round(
+            freshDraftExpectation
+        );
+
+    }
+
+
+    /*
+    =====================================
+    HAUPTRUNDEN-SCHNITT
+    =====================================
+    */
+
+
+    const seasonAverage =
+        predictionAverage(
+            mainRoundScores
+        );
+
+
+    /*
+    =====================================
+    FORM LETZTE 5
+    =====================================
+    */
+
+
+    const recentScores =
+        mainRoundScores.slice(
+            -5
+        );
+
+
+    const formAverage =
+        getWeightedFormAverage(
+            recentScores
+        );
+
+
+    const currentPerformance =
+        (
+            seasonAverage *
+            mainRoundSimulationConfig
+                .mainRoundSeasonWeight
+        )
+        +
+        (
+            formAverage *
+            mainRoundSimulationConfig
+                .mainRoundFormWeight
+        );
+
+
+    /*
+    =====================================
+    VERTRAUEN IN HAUPTRUNDENDATEN
+    =====================================
+
+    1 Spieltag:
+    aktuelle Liga zählt noch wenig.
+
+    4 Spieltage:
+    ungefähr halb/halb.
+
+    8+ Spieltage:
+    aktuelle Liga dominiert.
+    */
+
+
+    const confidence =
+        Math.min(
+            1,
+            mainRoundScores.length /
+            mainRoundSimulationConfig
+                .fullMainRoundConfidenceAfter
+        );
+
+
+    /*
+    Power-/Quali-Vorgeschichte verliert
+    mit jedem Spieltag an Bedeutung.
+    */
+
+
+    const expectedScore =
+        (
+            freshDraftExpectation *
+            (
+                1 -
+                confidence
+            )
+        )
+        +
+        (
+            currentPerformance *
+            confidence
+        );
+
+
+    return Math.round(
+        clampExpectedMainRoundScore(
+            expectedScore
+        )
+    );
+
+}
+
+
+/*
+=========================================
+ERWARTETE PUNKTE BEGRENZEN
+=========================================
+*/
+
+
+function clampExpectedMainRoundScore(
+    value
+) {
+
+    return Math.min(
+
+        mainRoundSimulationConfig
+            .maximumExpectedScore,
+
+        Math.max(
+
+            mainRoundSimulationConfig
+                .minimumExpectedScore,
+
+            Number(value) ||
+            mainRoundSimulationConfig
+                .freshDraftAverage
+
+        )
+
+    );
+
+}
+
+
+/*
+=========================================
+SCHWANKUNG
+=========================================
+*/
+
+
+function getPowerBasedMainRoundDeviation(
+    manager,
+    expectedScore
+) {
+
+    /*
+    Bevor Hauptphasendaten vorhanden sind,
+    nutzen wir die relative Schwankung
+    aus der Qualifikation.
+
+    Später werden Hauptphasendaten
+    automatisch ergänzt.
+    */
+
+
+    const allScores = [
+
+        ...getPredictionRealScores(
+            manager,
+            "qualification"
+        ),
+
+        ...getPredictionRealScores(
+            manager,
+            "mainRound"
+        )
+
+    ];
+
+
+    if (
+        allScores.length < 2
+    ) {
+
+        return mainRoundSimulationConfig
+            .minimumDeviation;
+
+    }
+
+
+    const average =
+        predictionAverage(
+            allScores
+        );
+
+
+    if (
+        average <= 0
+    ) {
+
+        return mainRoundSimulationConfig
+            .minimumDeviation;
+
+    }
+
+
+    /*
+    Relative Schwankung aus der
+    bisherigen Managerhistorie.
+    */
+
+
+    const variance =
+        allScores.reduce(
+            (
+                total,
+                score
+            ) => {
+
+                return (
+                    total +
+                    Math.pow(
+                        Number(score) -
+                        average,
+                        2
+                    )
+                );
+
+            },
+            0
+        )
+        /
+        allScores.length;
+
+
+    const historicalDeviation =
+        Math.sqrt(
+            variance
+        );
+
+
+    const relativeDeviation =
+        historicalDeviation /
+        average;
+
+
+    /*
+    Schwankung wird auf das neue
+    Punktniveau übertragen.
+
+    Beispiel:
+
+    historisch 20 % Schwankung
+    neue Erwartung 1.000
+
+    -> ca. 200 Punkte Schwankung.
+    */
+
+
+    const adjustedDeviation =
+        expectedScore *
+        relativeDeviation;
+
+
+    return Math.max(
+        mainRoundSimulationConfig
+            .minimumDeviation,
+        adjustedDeviation
+    );
+
+}
+
+
+/*
+=========================================
+PROZENT
+=========================================
+*/
+
+
+function convertMainRoundSimulationPercentage(
+    count
+) {
+
+    return Number(
+        (
+            (
+                count /
+                mainRoundSimulationConfig
+                    .simulations
+            )
+            *
+            100
+        )
+        .toFixed(1)
+    );
+
+}
+
+
+/*
+=========================================
+SORTIERTE CHAMPIONS-LEAGUE-PROGNOSE
+=========================================
+*/
+
+
+function getChampionsLeaguePowerPrediction() {
+
+    const prediction =
+        calculatePowerBasedMainRoundPrediction(
+            "champions-league"
+        );
+
+
+    if (!prediction) {
+
+        return [];
+
+    }
+
+
+    return Object.values(
+        prediction
+    )
+        .sort(
+            (
+                managerA,
+                managerB
+            ) => {
+
+                /*
+                Meisterchance zuerst.
+                */
+
+                if (
+                    managerB
+                        .championProbability
+                    !==
+                    managerA
+                        .championProbability
+                ) {
+
+                    return (
+                        managerB
+                            .championProbability
+                        -
+                        managerA
+                            .championProbability
+                    );
+
+                }
+
+
+                return (
+                    managerA
+                        .averageFinalPosition
+                    -
+                    managerB
+                        .averageFinalPosition
+                );
+
+            }
+        );
+
+}
+
+
+/*
+=========================================
+SORTIERTE KREISLIGA-PROGNOSE
+=========================================
+*/
+
+
+function getKreisligaPowerPrediction() {
+
+    const prediction =
+        calculatePowerBasedMainRoundPrediction(
+            "kreisliga"
+        );
+
+
+    if (!prediction) {
+
+        return [];
+
+    }
+
+
+    return Object.values(
+        prediction
+    )
+        .sort(
+            (
+                managerA,
+                managerB
+            ) => {
+
+                /*
+                Aufstiegschance zuerst.
+                */
+
+                if (
+                    managerB
+                        .promotionProbability
+                    !==
+                    managerA
+                        .promotionProbability
+                ) {
+
+                    return (
+                        managerB
+                            .promotionProbability
+                        -
+                        managerA
+                            .promotionProbability
+                    );
+
+                }
+
+
+                return (
+                    managerA
+                        .averageFinalPosition
+                    -
+                    managerB
+                        .averageFinalPosition
+                );
+
+            }
+        );
+
+}
+
+
+/*
+=========================================
+POWER RATING INFO
+=========================================
+*/
+
+
+function getManagerPredictionPowerInfo(
+    managerId
+) {
+
+    const manager =
+        leagueData.managers.find(
+            item =>
+                item.id ===
+                managerId
+        );
+
+
+    if (!manager) {
+
+        return null;
+
+    }
+
+
+    return calculateManagerPowerRating(
+        manager,
+        manager.mainRound.league
+            ? "mainRound"
+            : "qualification"
+    );
+
+}
+
+
+/*
+=========================================
+GLOBAL BEREITSTELLEN
+=========================================
+*/
+
+
+window.calculatePowerBasedMainRoundPrediction =
+    calculatePowerBasedMainRoundPrediction;
+
+
+window.getChampionsLeaguePowerPrediction =
+    getChampionsLeaguePowerPrediction;
+
+
+window.getKreisligaPowerPrediction =
+    getKreisligaPowerPrediction;
+
+
+window.getManagerPredictionPowerInfo =
+    getManagerPredictionPowerInfo;
+
+
+window.mainRoundSimulationConfig =
+    mainRoundSimulationConfig;
