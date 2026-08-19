@@ -31356,3 +31356,1088 @@ svg {
     }
 
 }
+/* =========================================================
+   CHAMPIONS LEAGUE – PROGNOSE IM QUALI-STIL
+   GANZ UNTEN IN style.css EINFÜGEN
+========================================================= */
+
+
+/* =========================================================
+   GESAMTBEREICH
+========================================================= */
+
+body.champions-league-page .cl-prediction-section {
+    position: relative;
+
+    margin-top: 34px;
+
+    padding: 30px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(86, 139, 255, 0.18);
+
+    border-radius: 24px;
+
+    background:
+        radial-gradient(
+            circle at 88% 8%,
+            rgba(64, 116, 255, 0.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 5% 90%,
+            rgba(26, 77, 182, 0.12),
+            transparent 34%
+        ),
+        linear-gradient(
+            145deg,
+            #10182d 0%,
+            #0b1224 50%,
+            #080d19 100%
+        );
+
+    box-shadow:
+        0 24px 70px
+        rgba(0, 0, 0, 0.32);
+}
+
+
+/* blaue Linie oben */
+
+body.champions-league-page
+.cl-prediction-section::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #315eff,
+            #4aa2ff,
+            transparent
+        );
+}
+
+
+/* =========================================================
+   ÜBERSCHRIFT
+========================================================= */
+
+body.champions-league-page
+.cl-prediction-section
+.cl-section-heading {
+    margin-bottom: 10px;
+}
+
+
+body.champions-league-page
+.cl-prediction-section
+.cl-section-label {
+    color: #6f8fff !important;
+}
+
+
+body.champions-league-page
+.cl-prediction-section
+.heading-with-icon {
+    color: #f4f7ff;
+}
+
+
+body.champions-league-page
+.cl-prediction-section
+.heading-with-icon svg {
+    color: #6596ff;
+}
+
+
+/* Automatisch berechnet */
+
+body.champions-league-page
+.cl-prediction-live {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        9px
+        13px;
+
+    border:
+        1px solid
+        rgba(99, 150, 255, 0.18);
+
+    border-radius: 999px;
+
+    background:
+        rgba(73, 117, 255, 0.06);
+
+    color: #8eb2ff;
+
+    font-size: 0.65rem;
+
+    font-weight: 800;
+}
+
+
+body.champions-league-page
+.cl-prediction-live svg {
+    width: 15px;
+    height: 15px;
+}
+
+
+/* Beschreibung */
+
+body.champions-league-page
+.cl-prediction-description {
+    max-width: 760px;
+
+    margin:
+        6px
+        0
+        25px;
+
+    color:
+        rgba(232, 238, 255, 0.63);
+
+    font-size: 0.78rem;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   DREI HIGHLIGHT-KARTEN OBEN
+========================================================= */
+
+body.champions-league-page
+.cl-prediction-highlights {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 12px;
+
+    margin-bottom: 24px;
+}
+
+
+body.champions-league-page
+.cl-prediction-highlight {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    min-height: 86px;
+
+    padding:
+        15px
+        16px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.035),
+            rgba(255, 255, 255, 0.012)
+        );
+}
+
+
+body.champions-league-page
+.cl-prediction-highlight-icon {
+    display: grid;
+
+    flex:
+        0 0 38px;
+
+    width: 38px;
+    height: 38px;
+
+    place-items: center;
+
+    border-radius: 11px;
+
+    background:
+        rgba(76, 118, 255, 0.08);
+
+    color: #739dff;
+}
+
+
+body.champions-league-page
+.cl-prediction-highlight-icon svg {
+    width: 19px;
+    height: 19px;
+}
+
+
+body.champions-league-page
+.cl-prediction-highlight small {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #7386ac;
+
+    font-size: 0.56rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.09em;
+}
+
+
+body.champions-league-page
+.cl-prediction-highlight strong {
+    display: block;
+
+    color: #f4f7ff;
+
+    font-size: 0.90rem;
+
+    font-weight: 900;
+}
+
+
+body.champions-league-page
+.cl-prediction-highlight p {
+    margin:
+        3px
+        0
+        0;
+
+    color: #8292b1;
+
+    font-size: 0.61rem;
+}
+
+
+/* Titelfavorit */
+
+body.champions-league-page
+.cl-prediction-highlight-title {
+    border-color:
+        rgba(220, 184, 82, 0.16);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(220, 184, 82, 0.065),
+            rgba(255, 255, 255, 0.012)
+        );
+}
+
+
+body.champions-league-page
+.cl-prediction-highlight-title
+.cl-prediction-highlight-icon {
+    background:
+        rgba(220, 184, 82, 0.09);
+
+    color: #e0c06d;
+}
+
+
+/* Power */
+
+body.champions-league-page
+.cl-prediction-highlight-surprise
+.cl-prediction-highlight-icon {
+    color: #6fa0ff;
+}
+
+
+/* Gefahr */
+
+body.champions-league-page
+.cl-prediction-highlight-danger {
+    border-color:
+        rgba(255, 83, 94, 0.12);
+}
+
+
+body.champions-league-page
+.cl-prediction-highlight-danger
+.cl-prediction-highlight-icon {
+    background:
+        rgba(255, 83, 94, 0.07);
+
+    color: #ff6975;
+}
+
+
+/* =========================================================
+   PROGNOSE-TABELLE WIRD ZU 9 MANAGER-KARTEN
+========================================================= */
+
+body.champions-league-page
+.cl-prediction-table-wrapper {
+    overflow: visible;
+
+    width: 100%;
+}
+
+
+body.champions-league-page
+.cl-prediction-table {
+    display: block;
+
+    width: 100%;
+
+    border-collapse: separate;
+}
+
+
+body.champions-league-page
+.cl-prediction-table
+thead {
+    display: none;
+}
+
+
+body.champions-league-page
+.cl-prediction-table
+tbody {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 12px;
+
+    width: 100%;
+}
+
+
+/* jede Zeile = eigene Karte */
+
+body.champions-league-page
+.cl-prediction-table
+tbody
+tr {
+    display: grid;
+
+    grid-template-columns:
+        38px
+        minmax(0, 1fr)
+        auto;
+
+    gap:
+        9px
+        11px;
+
+    align-items: center;
+
+    min-width: 0;
+
+    padding:
+        15px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.035),
+            rgba(255, 255, 255, 0.012)
+        );
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.02);
+}
+
+
+body.champions-league-page
+.cl-prediction-table
+tbody
+td {
+    display: block;
+
+    padding: 0;
+
+    border: 0;
+
+    color: inherit;
+}
+
+
+/* =========================================================
+   RANG
+========================================================= */
+
+body.champions-league-page
+.cl-prediction-table
+tbody
+td:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+
+body.champions-league-page
+.cl-prediction-position {
+    display: grid;
+
+    width: 32px;
+    height: 32px;
+
+    place-items: center;
+
+    border:
+        1px solid
+        rgba(85, 132, 255, 0.18);
+
+    border-radius: 9px;
+
+    background:
+        rgba(73, 117, 255, 0.055);
+
+    color: #8fb1ff;
+
+    font-size: 0.69rem;
+
+    font-weight: 900;
+}
+
+
+/* erster */
+
+body.champions-league-page
+.cl-prediction-position-first {
+    border-color:
+        rgba(222, 185, 84, 0.25);
+
+    background:
+        rgba(222, 185, 84, 0.08);
+
+    color: #e2c46d;
+}
+
+
+/* =========================================================
+   MANAGER
+========================================================= */
+
+body.champions-league-page
+.cl-prediction-table
+tbody
+td:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+
+body.champions-league-page
+.cl-prediction-manager {
+    display: flex;
+
+    min-width: 0;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+body.champions-league-page
+.cl-prediction-manager-avatar {
+    display: none;
+}
+
+
+body.champions-league-page
+.cl-prediction-manager strong {
+    display: block;
+
+    overflow: hidden;
+
+    color: #f6f8ff;
+
+    font-size: 0.86rem;
+
+    font-weight: 900;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   POWER
+========================================================= */
+
+body.champions-league-page
+.cl-prediction-table
+tbody
+td:nth-child(3) {
+    grid-column: 3;
+    grid-row: 1;
+
+    text-align: right;
+}
+
+
+body.champions-league-page
+.cl-prediction-power {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 52px;
+
+    padding:
+        6px
+        8px;
+
+    border:
+        1px solid
+        rgba(83, 132, 255, 0.16);
+
+    border-radius: 9px;
+
+    background:
+        rgba(72, 116, 255, 0.055);
+
+    color: #8eafff;
+
+    font-size: 0.70rem;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   MEISTERCHANCE – HAUPTWERT
+========================================================= */
+
+body.champions-league-page
+.cl-prediction-table
+tbody
+td:nth-child(4) {
+    grid-column:
+        1 / -1;
+
+    grid-row: 2;
+
+    margin-top: 3px;
+}
+
+
+body.champions-league-page
+.cl-prediction-title-value {
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding-bottom: 14px;
+
+    color: #f2f5ff;
+
+    font-size: 1.25rem;
+
+    font-weight: 900;
+}
+
+
+/* Text davor */
+
+body.champions-league-page
+.cl-prediction-title-value::before {
+    content: "MEISTERCHANCE";
+
+    color: #7386aa;
+
+    font-size: 0.53rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.10em;
+}
+
+
+/* Balkenhintergrund */
+
+body.champions-league-page
+.cl-prediction-title-value::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 6px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #315dff,
+            #4d91ff,
+            #e0bd64
+        );
+
+    opacity: 0.92;
+}
+
+
+/* =========================================================
+   DETAILWERTE
+   TOP 3 / KLASSENERHALT / ABSTIEG / Ø PLATZ
+========================================================= */
+
+body.champions-league-page
+.cl-prediction-table
+tbody
+td:nth-child(5),
+
+body.champions-league-page
+.cl-prediction-table
+tbody
+td:nth-child(6),
+
+body.champions-league-page
+.cl-prediction-table
+tbody
+td:nth-child(7),
+
+body.champions-league-page
+.cl-prediction-table
+tbody
+td:nth-child(8) {
+    padding:
+        8px
+        6px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.045);
+
+    border-radius: 9px;
+
+    background:
+        rgba(255, 255, 255, 0.018);
+
+    text-align: center;
+}
+
+
+body.champions-league-page
+.cl-prediction-table
+tbody
+td:nth-child(5) {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+
+body.champions-league-page
+.cl-prediction-table
+tbody
+td:nth-child(6) {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+
+body.champions-league-page
+.cl-prediction-table
+tbody
+td:nth-child(7) {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+
+body.champions-league-page
+.cl-prediction-table
+tbody
+td:nth-child(8) {
+    grid-column:
+        1 / -1;
+
+    grid-row: 4;
+}
+
+
+/* Labels */
+
+body.champions-league-page
+.cl-prediction-top-three-value::before {
+    content: "TOP 3";
+}
+
+
+body.champions-league-page
+.cl-prediction-survival-value::before {
+    content: "KLASSENERHALT";
+}
+
+
+body.champions-league-page
+.cl-prediction-relegation-value::before {
+    content: "ABSTIEG";
+}
+
+
+body.champions-league-page
+.cl-prediction-average-position::before {
+    content: "Ø ENDPOSITION";
+}
+
+
+/* Werte */
+
+body.champions-league-page
+.cl-prediction-top-three-value,
+
+body.champions-league-page
+.cl-prediction-survival-value,
+
+body.champions-league-page
+.cl-prediction-relegation-value,
+
+body.champions-league-page
+.cl-prediction-average-position {
+    display: block;
+
+    color: #dce5fa;
+
+    font-size: 0.72rem;
+
+    font-weight: 900;
+}
+
+
+body.champions-league-page
+.cl-prediction-top-three-value::before,
+
+body.champions-league-page
+.cl-prediction-survival-value::before,
+
+body.champions-league-page
+.cl-prediction-relegation-value::before,
+
+body.champions-league-page
+.cl-prediction-average-position::before {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #6f7f9c;
+
+    font-size: 0.48rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.05em;
+}
+
+
+/* Klassenerhalt */
+
+body.champions-league-page
+.cl-prediction-survival-value {
+    color: #77d8a6;
+}
+
+
+/* Abstieg */
+
+body.champions-league-page
+.cl-prediction-relegation-value {
+    color: #ff747f;
+}
+
+
+/* Ø Platz */
+
+body.champions-league-page
+.cl-prediction-average-position {
+    color: #e0c36b;
+
+    font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   WARTETEXT
+========================================================= */
+
+body.champions-league-page
+.cl-prediction-table
+tbody
+tr:has(.cl-prediction-empty) {
+    grid-column:
+        1 / -1;
+
+    display: block;
+
+    padding: 24px;
+}
+
+
+body.champions-league-page
+.cl-prediction-empty {
+    width: 100%;
+}
+
+
+body.champions-league-page
+.cl-prediction-empty-content {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    min-height: 100px;
+
+    text-align: center;
+}
+
+
+body.champions-league-page
+.cl-prediction-empty-content svg {
+    width: 20px;
+    height: 20px;
+
+    color: #789fff;
+}
+
+
+body.champions-league-page
+.cl-prediction-empty-content strong {
+    color: #f2f5ff;
+
+    font-size: 0.77rem;
+}
+
+
+body.champions-league-page
+.cl-prediction-empty-content p {
+    max-width: 520px;
+
+    margin: 0;
+
+    color: #7889a7;
+
+    font-size: 0.65rem;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   INFO UNTEN
+========================================================= */
+
+body.champions-league-page
+.cl-prediction-info {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin-top: 18px;
+
+    padding:
+        13px
+        14px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.055);
+
+    border-radius: 12px;
+
+    background:
+        rgba(255, 255, 255, 0.018);
+}
+
+
+body.champions-league-page
+.cl-prediction-info-icon {
+    flex: 0 0 auto;
+
+    color: #6f98ff;
+}
+
+
+body.champions-league-page
+.cl-prediction-info-icon svg {
+    width: 15px;
+    height: 15px;
+}
+
+
+body.champions-league-page
+.cl-prediction-info p {
+    margin: 0;
+
+    color: #798ba9;
+
+    font-size: 0.64rem;
+
+    line-height: 1.55;
+}
+
+
+/* Tabellen-Wischhinweis bei Prognose ausblenden */
+
+body.champions-league-page
+.cl-prediction-section
+.cl-mobile-table-hint {
+    display: none !important;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+    body.champions-league-page
+    .cl-prediction-table
+    tbody {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    body.champions-league-page
+    .cl-prediction-section {
+        margin-top: 24px;
+
+        padding:
+            22px
+            14px;
+
+        border-radius: 19px;
+    }
+
+
+    body.champions-league-page
+    .cl-prediction-section
+    .cl-section-heading {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 13px;
+    }
+
+
+    body.champions-league-page
+    .cl-prediction-description {
+        margin-bottom: 18px;
+
+        font-size: 0.74rem;
+    }
+
+
+    body.champions-league-page
+    .cl-prediction-highlights {
+        grid-template-columns:
+            1fr;
+
+        gap: 8px;
+    }
+
+
+    body.champions-league-page
+    .cl-prediction-highlight {
+        min-height: 72px;
+
+        padding:
+            12px
+            13px;
+    }
+
+
+    body.champions-league-page
+    .cl-prediction-table
+    tbody {
+        grid-template-columns:
+            1fr;
+
+        gap: 9px;
+    }
+
+
+    body.champions-league-page
+    .cl-prediction-table
+    tbody
+    tr {
+        padding:
+            13px;
+
+        border-radius: 14px;
+    }
+
+}
