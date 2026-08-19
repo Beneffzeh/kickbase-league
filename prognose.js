@@ -4441,19 +4441,37 @@ function calculatePowerBasedMainRoundPrediction(
                     ),
 
                 champion:
-                    0,
+    0,
 
-                topThree:
-                    0,
+topThree:
+    0,
 
-                relegation:
-                    0,
+/*
+Champions League:
+Plätze 1–6 = Klassenerhalt
+*/
 
-                promotion:
-                    0,
+survival:
+    0,
 
-                leagueStay:
-                    0,
+/*
+Champions League:
+Plätze 7–9 = Abstieg
+*/
+
+relegation:
+    0,
+
+/*
+Kreisliga:
+Plätze 1–3 = Aufstieg
+*/
+
+promotion:
+    0,
+
+leagueStay:
+    0,
 
                 positionCounts: {
 
@@ -4552,6 +4570,21 @@ function calculatePowerBasedMainRoundPrediction(
 
                 }
 
+/*
+Champions League:
+Plätze 1–6 bedeuten Klassenerhalt.
+*/
+
+if (
+    leagueName ===
+        "champions-league"
+    &&
+    position <= 6
+) {
+
+    result.survival++;
+
+}
 
                 /*
                 Champions League:
@@ -4632,7 +4665,39 @@ function calculatePowerBasedMainRoundPrediction(
                     result.topThree
                 );
 
+/*
+Champions-League-Klassenerhalt.
 
+Wir berechnen ihn bewusst als
+Gegenstück zur Abstiegswahrscheinlichkeit,
+damit beide Werte zusammen garantiert
+100 % ergeben.
+*/
+
+if (
+    leagueName ===
+        "champions-league"
+) {
+
+    result.survivalProbability =
+        Number(
+            (
+                100 -
+                convertMainRoundSimulationPercentage(
+                    result.relegation
+                )
+            )
+            .toFixed(1)
+        );
+
+}
+
+else {
+
+    result.survivalProbability =
+        0;
+
+}
             result.relegationProbability =
                 convertMainRoundSimulationPercentage(
                     result.relegation
