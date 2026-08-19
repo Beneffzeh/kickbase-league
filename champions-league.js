@@ -2,9 +2,10 @@
 =========================================
 KICKBASE LEAGUE – CHAMPIONS LEAGUE
 AUTOMATISCHE TABELLE
-MIT FORMKURVE
+MIT FORMKURVE + SAISONPROGNOSE
 =========================================
 */
+
 
 document.addEventListener(
     "DOMContentLoaded",
@@ -22,6 +23,7 @@ SEITE STARTEN
 =========================================
 */
 
+
 function startChampionsLeaguePage() {
 
     if (
@@ -33,6 +35,7 @@ function startChampionsLeaguePage() {
         );
 
         return;
+
     }
 
 
@@ -52,6 +55,8 @@ function startChampionsLeaguePage() {
 
     renderChampionsLeagueSeason();
 
+    renderChampionsLeaguePrediction();
+
     refreshChampionsLeagueIcons();
 
 }
@@ -62,6 +67,7 @@ function startChampionsLeaguePage() {
 SAISON
 =========================================
 */
+
 
 function renderChampionsLeagueSeason() {
 
@@ -88,6 +94,7 @@ function renderChampionsLeagueSeason() {
 CHAMPIONS-LEAGUE-MANAGER HOLEN
 =========================================
 */
+
 
 function getChampionsLeagueManagers() {
 
@@ -168,9 +175,14 @@ TABELLE RENDERN
 =========================================
 */
 
+
 function renderChampionsLeagueTable() {
 
     const tbody =
+        document.getElementById(
+            "cl-table-body"
+        )
+        ||
         document.querySelector(
             ".cl-table tbody"
         );
@@ -200,6 +212,7 @@ function renderChampionsLeagueTable() {
         refreshChampionsLeagueIcons();
 
         return;
+
     }
 
 
@@ -222,6 +235,7 @@ function renderChampionsLeagueTable() {
 
 
                     return `
+
                         <tr class="${status.rowClass}">
 
                             <td>
@@ -239,7 +253,10 @@ function renderChampionsLeagueTable() {
                             <td>
 
                                 <a
-                                    class="cl-manager-cell cl-manager-link"
+                                    class="
+                                        cl-manager-cell
+                                        cl-manager-link
+                                    "
                                     href="/kickbase-league/manager-profil.html?id=${manager.id}"
                                 >
 
@@ -310,6 +327,7 @@ function renderChampionsLeagueTable() {
                             </td>
 
                         </tr>
+
                     `;
 
                 }
@@ -329,6 +347,7 @@ VOR START DER CHAMPIONS LEAGUE
 =========================================
 */
 
+
 function createEmptyChampionsLeagueRows() {
 
     let rows = "";
@@ -347,6 +366,7 @@ function createEmptyChampionsLeagueRows() {
 
 
         rows += `
+
             <tr class="${status.rowClass}">
 
                 <td>
@@ -424,6 +444,7 @@ function createEmptyChampionsLeagueRows() {
                 </td>
 
             </tr>
+
         `;
 
     }
@@ -439,6 +460,7 @@ function createEmptyChampionsLeagueRows() {
 FORM DER LETZTEN 5 SPIELTAGE
 =========================================
 */
+
 
 function createChampionsLeagueFormHTML(
     manager
@@ -465,6 +487,7 @@ function createChampionsLeagueFormHTML(
 
 
     return `
+
         <div class="cl-form">
 
             ${
@@ -477,12 +500,14 @@ function createChampionsLeagueFormHTML(
                             ) {
 
                                 return `
+
                                     <span class="
                                         cl-form-badge
                                         cl-form-empty
                                     ">
                                         –
                                     </span>
+
                                 `;
 
                             }
@@ -512,6 +537,7 @@ function createChampionsLeagueFormHTML(
 
 
                             return `
+
                                 <span
                                     class="
                                         cl-form-badge
@@ -521,6 +547,7 @@ function createChampionsLeagueFormHTML(
                                 >
                                     ${position}
                                 </span>
+
                             `;
 
                         }
@@ -529,6 +556,7 @@ function createChampionsLeagueFormHTML(
             }
 
         </div>
+
     `;
 
 }
@@ -540,9 +568,11 @@ LEERE FORM
 =========================================
 */
 
+
 function createEmptyChampionsLeagueForm() {
 
     return `
+
         <div class="cl-form">
 
             <span class="cl-form-badge cl-form-empty">–</span>
@@ -552,6 +582,7 @@ function createEmptyChampionsLeagueForm() {
             <span class="cl-form-badge cl-form-empty">–</span>
 
         </div>
+
     `;
 
 }
@@ -562,6 +593,7 @@ function createEmptyChampionsLeagueForm() {
 FORM BERECHNEN
 =========================================
 */
+
 
 function getChampionsLeagueForm(
     manager
@@ -681,9 +713,6 @@ function getChampionsLeagueForm(
                 /*
                 Platz = Anzahl der Manager
                 mit besserer Punktzahl + 1.
-
-                Punktgleiche Manager erhalten
-                denselben Spieltagsplatz.
                 */
 
                 const position =
@@ -713,6 +742,7 @@ function getChampionsLeagueForm(
 STATUS JE PLATZ
 =========================================
 */
+
 
 function getChampionsLeagueStatus(
     position
@@ -836,6 +866,7 @@ PLATZIERUNGS-KLASSE
 =========================================
 */
 
+
 function getPositionClass(
     position
 ) {
@@ -878,6 +909,7 @@ STATUS OBEN RECHTS
 =========================================
 */
 
+
 function renderChampionsLeagueStatus() {
 
     const statusElement =
@@ -903,11 +935,17 @@ function renderChampionsLeagueStatus() {
             "Noch nicht gestartet";
 
         return;
+
     }
 
 
     const matchday =
-        getCurrentMainRoundMatchday();
+        typeof getCurrentMainRoundMatchday ===
+            "function"
+            ?
+            getCurrentMainRoundMatchday()
+            :
+            0;
 
 
     if (
@@ -918,6 +956,7 @@ function renderChampionsLeagueStatus() {
             "Teilnehmer stehen fest";
 
         return;
+
     }
 
 
@@ -929,6 +968,7 @@ function renderChampionsLeagueStatus() {
             `${matchday}. Spieltag`;
 
         return;
+
     }
 
 
@@ -940,9 +980,842 @@ function renderChampionsLeagueStatus() {
 
 /*
 =========================================
+CHAMPIONS-LEAGUE-PROGNOSE
+=========================================
+*/
+
+
+function renderChampionsLeaguePrediction() {
+
+    const predictionBody =
+        document.getElementById(
+            "cl-prediction-table-body"
+        );
+
+
+    if (!predictionBody) {
+        return;
+    }
+
+
+    /*
+    Prüfen, ob die neue Prognose-Engine
+    verfügbar ist.
+    */
+
+    if (
+        typeof calculatePowerBasedMainRoundPrediction !==
+            "function"
+    ) {
+
+        renderChampionsLeaguePredictionError(
+            "Prognose konnte nicht geladen werden."
+        );
+
+        return;
+
+    }
+
+
+    const managers =
+        getChampionsLeagueManagers();
+
+
+    /*
+    Während der Qualifikation stehen
+    noch keine 9 CL-Teilnehmer fest.
+    */
+
+    if (
+        managers.length !== 9
+    ) {
+
+        renderChampionsLeaguePredictionWaiting();
+
+        return;
+
+    }
+
+
+    /*
+    WICHTIG:
+
+    Die 10.000 Simulationen werden
+    genau EINMAL durchgeführt.
+
+    Danach verwenden Tabelle und
+    Highlight-Karten dasselbe Ergebnis.
+    */
+
+    const prediction =
+        calculatePowerBasedMainRoundPrediction(
+            "champions-league"
+        );
+
+
+    if (!prediction) {
+
+        renderChampionsLeaguePredictionError(
+            "Die Saisonprognose konnte noch nicht berechnet werden."
+        );
+
+        return;
+
+    }
+
+
+    const ranking =
+        Object.values(
+            prediction
+        )
+        .sort(
+            (
+                managerA,
+                managerB
+            ) => {
+
+                /*
+                Höhere Meisterchance zuerst.
+                */
+
+                if (
+                    managerB
+                        .championProbability
+                    !==
+                    managerA
+                        .championProbability
+                ) {
+
+                    return (
+                        managerB
+                            .championProbability
+                        -
+                        managerA
+                            .championProbability
+                    );
+
+                }
+
+
+                /*
+                Danach besserer erwarteter
+                Endplatz.
+                */
+
+                return (
+                    managerA
+                        .averageFinalPosition
+                    -
+                    managerB
+                        .averageFinalPosition
+                );
+
+            }
+        );
+
+
+    renderChampionsLeaguePredictionHighlights(
+        ranking
+    );
+
+
+    predictionBody.innerHTML =
+        ranking
+            .map(
+                (
+                    manager,
+                    index
+                ) =>
+                    createChampionsLeaguePredictionRow(
+                        manager,
+                        index + 1
+                    )
+            )
+            .join("");
+
+
+    refreshChampionsLeagueIcons();
+
+}
+
+
+/*
+=========================================
+PROGNOSE-HIGHLIGHTS
+=========================================
+*/
+
+
+function renderChampionsLeaguePredictionHighlights(
+    ranking
+) {
+
+    if (
+        !Array.isArray(ranking) ||
+        ranking.length === 0
+    ) {
+
+        return;
+
+    }
+
+
+    /*
+    =====================================
+    TITELFAVORIT
+    =====================================
+    */
+
+
+    const titleFavorite =
+        [...ranking]
+            .sort(
+                (
+                    managerA,
+                    managerB
+                ) =>
+                    managerB
+                        .championProbability
+                    -
+                    managerA
+                        .championProbability
+            )[0];
+
+
+    setChampionsLeaguePredictionText(
+        "cl-prediction-favorite",
+        titleFavorite.name
+    );
+
+
+    setChampionsLeaguePredictionText(
+        "cl-prediction-favorite-value",
+        `${formatChampionsLeaguePredictionPercentage(
+            titleFavorite
+                .championProbability
+        )} Meisterchance`
+    );
+
+
+    /*
+    =====================================
+    STÄRKSTES POWER RATING
+    =====================================
+    */
+
+
+    const strongestPower =
+        [...ranking]
+            .sort(
+                (
+                    managerA,
+                    managerB
+                ) =>
+                    managerB
+                        .powerRating
+                    -
+                    managerA
+                        .powerRating
+            )[0];
+
+
+    setChampionsLeaguePredictionText(
+        "cl-prediction-power",
+        strongestPower.name
+    );
+
+
+    setChampionsLeaguePredictionText(
+        "cl-prediction-power-value",
+        `Power ${formatChampionsLeaguePower(
+            strongestPower.powerRating
+        )}`
+    );
+
+
+    /*
+    =====================================
+    HÖCHSTE ABSTIEGSGEFAHR
+    =====================================
+    */
+
+
+    const dangerManager =
+        [...ranking]
+            .sort(
+                (
+                    managerA,
+                    managerB
+                ) =>
+                    managerB
+                        .relegationProbability
+                    -
+                    managerA
+                        .relegationProbability
+            )[0];
+
+
+    setChampionsLeaguePredictionText(
+        "cl-prediction-danger",
+        dangerManager.name
+    );
+
+
+    setChampionsLeaguePredictionText(
+        "cl-prediction-danger-value",
+        `${formatChampionsLeaguePredictionPercentage(
+            dangerManager
+                .relegationProbability
+        )} Abstiegsrisiko`
+    );
+
+}
+
+
+/*
+=========================================
+EINE PROGNOSEZEILE
+=========================================
+*/
+
+
+function createChampionsLeaguePredictionRow(
+    manager,
+    predictionPosition
+) {
+
+    const championProbability =
+        Number(
+            manager
+                .championProbability
+        ) || 0;
+
+
+    const topThreeProbability =
+        Number(
+            manager
+                .topThreeProbability
+        ) || 0;
+
+
+    const survivalProbability =
+        Number(
+            manager
+                .survivalProbability
+        ) || 0;
+
+
+    const relegationProbability =
+        Number(
+            manager
+                .relegationProbability
+        ) || 0;
+
+
+    const powerRating =
+        Number(
+            manager
+                .powerRating
+        ) || 50;
+
+
+    const averagePosition =
+        Number(
+            manager
+                .averageFinalPosition
+        ) || 0;
+
+
+    return `
+
+        <tr>
+
+            <td>
+
+                <span class="
+                    cl-prediction-position
+                    ${getChampionsLeaguePredictionPositionClass(
+                        predictionPosition
+                    )}
+                ">
+                    ${predictionPosition}
+                </span>
+
+            </td>
+
+
+            <td>
+
+                <a
+                    class="cl-prediction-manager"
+                    href="/kickbase-league/manager-profil.html?id=${encodeURIComponent(
+                        manager.managerId
+                    )}"
+                >
+
+                    <span class="cl-prediction-manager-avatar">
+
+                        <i
+                            data-lucide="user"
+                            aria-hidden="true"
+                        ></i>
+
+                    </span>
+
+                    <strong>
+                        ${escapeChampionsLeagueHTML(
+                            manager.name
+                        )}
+                    </strong>
+
+                </a>
+
+            </td>
+
+
+            <td>
+
+                <span class="
+                    cl-prediction-power
+                    ${getChampionsLeaguePowerClass(
+                        powerRating
+                    )}
+                ">
+                    ${formatChampionsLeaguePower(
+                        powerRating
+                    )}
+                </span>
+
+            </td>
+
+
+            <td>
+
+                <strong class="cl-prediction-title-value">
+
+                    ${formatChampionsLeaguePredictionPercentage(
+                        championProbability
+                    )}
+
+                </strong>
+
+            </td>
+
+
+            <td>
+
+                <span class="cl-prediction-top-three-value">
+
+                    ${formatChampionsLeaguePredictionPercentage(
+                        topThreeProbability
+                    )}
+
+                </span>
+
+            </td>
+
+
+            <td>
+
+                <span class="cl-prediction-survival-value">
+
+                    ${formatChampionsLeaguePredictionPercentage(
+                        survivalProbability
+                    )}
+
+                </span>
+
+            </td>
+
+
+            <td>
+
+                <span class="cl-prediction-relegation-value">
+
+                    ${formatChampionsLeaguePredictionPercentage(
+                        relegationProbability
+                    )}
+
+                </span>
+
+            </td>
+
+
+            <td>
+
+                <strong class="cl-prediction-average-position">
+
+                    ${formatChampionsLeaguePredictionPosition(
+                        averagePosition
+                    )}
+
+                </strong>
+
+            </td>
+
+        </tr>
+
+    `;
+
+}
+
+
+/*
+=========================================
+PROGNOSEPOSITION DESIGN
+=========================================
+*/
+
+
+function getChampionsLeaguePredictionPositionClass(
+    position
+) {
+
+    if (
+        position === 1
+    ) {
+
+        return "cl-prediction-position-first";
+
+    }
+
+
+    if (
+        position === 2
+    ) {
+
+        return "cl-prediction-position-second";
+
+    }
+
+
+    if (
+        position === 3
+    ) {
+
+        return "cl-prediction-position-third";
+
+    }
+
+
+    return "";
+
+}
+
+
+/*
+=========================================
+POWER-RATING DESIGN
+=========================================
+*/
+
+
+function getChampionsLeaguePowerClass(
+    rating
+) {
+
+    if (
+        rating >= 80
+    ) {
+
+        return "cl-prediction-power-elite";
+
+    }
+
+
+    if (
+        rating >= 65
+    ) {
+
+        return "cl-prediction-power-strong";
+
+    }
+
+
+    if (
+        rating >= 50
+    ) {
+
+        return "cl-prediction-power-normal";
+
+    }
+
+
+    return "cl-prediction-power-low";
+
+}
+
+
+/*
+=========================================
+PROGNOSE WARTET AUF QUALIFIKATION
+=========================================
+*/
+
+
+function renderChampionsLeaguePredictionWaiting() {
+
+    const body =
+        document.getElementById(
+            "cl-prediction-table-body"
+        );
+
+
+    if (body) {
+
+        body.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="8"
+                    class="cl-prediction-empty"
+                >
+
+                    <div class="cl-prediction-empty-content">
+
+                        <i
+                            data-lucide="hourglass"
+                            aria-hidden="true"
+                        ></i>
+
+                        <strong>
+                            Prognose startet nach der Qualifikation
+                        </strong>
+
+                        <p>
+                            Sobald die neun Champions-League-Manager
+                            feststehen, werden die ersten
+                            10.000 Saisonverläufe automatisch simuliert.
+                        </p>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+        `;
+
+    }
+
+
+    setChampionsLeaguePredictionText(
+        "cl-prediction-favorite",
+        "Noch offen"
+    );
+
+
+    setChampionsLeaguePredictionText(
+        "cl-prediction-favorite-value",
+        "Nach Abschluss der Qualifikation"
+    );
+
+
+    setChampionsLeaguePredictionText(
+        "cl-prediction-power",
+        "Noch offen"
+    );
+
+
+    setChampionsLeaguePredictionText(
+        "cl-prediction-power-value",
+        "Power Rating folgt"
+    );
+
+
+    setChampionsLeaguePredictionText(
+        "cl-prediction-danger",
+        "Noch offen"
+    );
+
+
+    setChampionsLeaguePredictionText(
+        "cl-prediction-danger-value",
+        "Nach Abschluss der Qualifikation"
+    );
+
+
+    refreshChampionsLeagueIcons();
+
+}
+
+
+/*
+=========================================
+PROGNOSEFEHLER
+=========================================
+*/
+
+
+function renderChampionsLeaguePredictionError(
+    message
+) {
+
+    const body =
+        document.getElementById(
+            "cl-prediction-table-body"
+        );
+
+
+    if (!body) {
+        return;
+    }
+
+
+    body.innerHTML = `
+
+        <tr>
+
+            <td
+                colspan="8"
+                class="cl-prediction-empty"
+            >
+
+                <div class="cl-prediction-empty-content">
+
+                    <i
+                        data-lucide="triangle-alert"
+                        aria-hidden="true"
+                    ></i>
+
+                    <strong>
+                        Prognose nicht verfügbar
+                    </strong>
+
+                    <p>
+                        ${escapeChampionsLeagueHTML(
+                            message
+                        )}
+                    </p>
+
+                </div>
+
+            </td>
+
+        </tr>
+
+    `;
+
+
+    refreshChampionsLeagueIcons();
+
+}
+
+
+/*
+=========================================
+PROGNOSETEXT SETZEN
+=========================================
+*/
+
+
+function setChampionsLeaguePredictionText(
+    elementId,
+    text
+) {
+
+    const element =
+        document.getElementById(
+            elementId
+        );
+
+
+    if (
+        element
+    ) {
+
+        element.textContent =
+            text;
+
+    }
+
+}
+
+
+/*
+=========================================
+PROZENT FORMATIEREN
+=========================================
+*/
+
+
+function formatChampionsLeaguePredictionPercentage(
+    value
+) {
+
+    return (
+        Number(value)
+            .toLocaleString(
+                "de-DE",
+                {
+                    minimumFractionDigits: 1,
+                    maximumFractionDigits: 1
+                }
+            )
+        +
+        " %"
+    );
+
+}
+
+
+/*
+=========================================
+POWER FORMATIEREN
+=========================================
+*/
+
+
+function formatChampionsLeaguePower(
+    value
+) {
+
+    return Number(value)
+        .toLocaleString(
+            "de-DE",
+            {
+                minimumFractionDigits: 1,
+                maximumFractionDigits: 1
+            }
+        );
+
+}
+
+
+/*
+=========================================
+PROGNOSEPLATZ FORMATIEREN
+=========================================
+*/
+
+
+function formatChampionsLeaguePredictionPosition(
+    value
+) {
+
+    return (
+        Number(value)
+            .toLocaleString(
+                "de-DE",
+                {
+                    minimumFractionDigits: 1,
+                    maximumFractionDigits: 2
+                }
+            )
+        +
+        "."
+    );
+
+}
+
+
+/*
+=========================================
 ZAHL FORMATIEREN
 =========================================
 */
+
 
 function formatChampionsLeagueNumber(
     value
@@ -962,6 +1835,7 @@ function formatChampionsLeagueNumber(
 HTML ABSICHERN
 =========================================
 */
+
 
 function escapeChampionsLeagueHTML(
     value
@@ -1002,6 +1876,7 @@ function escapeChampionsLeagueHTML(
 ICONS
 =========================================
 */
+
 
 function refreshChampionsLeagueIcons() {
 
