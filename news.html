@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Kickbase League News – alle News, Managerstories, Prognosen und Highlights der Kickbase League."
+    >
+
+    <title>
+        Kickbase League News
+    </title>
+
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="/kickbase-league/style.css"
+    >
+
+
+    <link
+        rel="manifest"
+        href="/kickbase-league/manifest.json"
+    >
+
+
+    <meta
+        name="theme-color"
+        content="#ffffff"
+    >
+
+
+    <meta
+        name="apple-mobile-web-app-capable"
+        content="yes"
+    >
+
+
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="default"
+    >
+
+
+    <meta
+        name="apple-mobile-web-app-title"
+        content="Kickbase League"
+    >
+
+
+    <link
+        rel="apple-touch-icon"
+        href="/kickbase-league/app-icon-512.png"
+    >
+
+</head>
+
+
+<body class="news-page">
+
+
+<!-- =====================================================
+     NEWS-HEADER
+====================================================== -->
+
+<header class="news-header">
+
+    <div class="news-header-inner">
+
+
+        <a
+            href="/kickbase-league/news.html"
+            class="news-header-brand"
+        >
+
+            <img
+                src="/kickbase-league/kickbase-league-news-logo.png"
+                alt="Kickbase League News"
+                class="news-header-logo"
+            >
+
+        </a>
+
+
+        <div class="news-header-edition">
+
+            <span class="news-edition-label">
+                AUSGABE
+            </span>
+
+            <strong id="news-edition-number">
+                SAISONSTART
+            </strong>
+
+            <small id="news-edition-season">
+                Saison 2026/27
+            </small>
+
+        </div>
+
+
+        <div class="news-header-date">
+
+            <span id="news-phase-badge">
+                QUALIFIKATION
+            </span>
+
+            <small id="news-current-date">
+                Kickbase League News
+            </small>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     NAVIGATION
+====================================================== -->
+
+<nav class="main-navigation news-navigation">
+
+    <div class="navigation-inner">
+
+
+        <a
+            href="/kickbase-league/index.html"
+            class="navigation-brand"
+        >
+
+            <img
+                src="/kickbase-league/kickbase-league-logo.png"
+                alt="Kickbase League"
+            >
+
+            <span>
+                Kickbase League
+            </span>
+
+        </a>
+
+
+        <div class="desktop-navigation">
+
+            <a href="/kickbase-league/index.html">
+                Startseite
+            </a>
+
+
+            <a
+                href="/kickbase-league/news.html"
+                class="active-navigation-link"
+            >
+                News-Zentrale
+            </a>
+
+
+            <a href="/kickbase-league/qualifikationsligen.html">
+                Qualifikation
+            </a>
+
+
+            <a href="/kickbase-league/champions-league.html">
+                Champions League
+            </a>
+
+
+            <a href="/kickbase-league/kreisliga.html">
+                Kreisliga
+            </a>
+
+
+            <a href="/kickbase-league/kickbase-pokal.html">
+                Pokal
+            </a>
+
+
+            <a href="/kickbase-league/manager.html">
+                Manager
+            </a>
+
+
+            <a href="/kickbase-league/legenden.html">
+                Legenden
+            </a>
+
+
+            <a href="/kickbase-league/hall-of-fame.html">
+                Hall of Fame
+            </a>
+
+
+            <a href="/kickbase-league/statistiken.html">
+                Statistiken
+            </a>
+
+
+            <a href="/kickbase-league/regelwerk.html">
+                Regelwerk
+            </a>
+
+        </div>
+
+
+        <button
+            class="mobile-menu-button"
+            id="mobile-menu-button"
+            type="button"
+            aria-label="Navigation öffnen"
+            aria-expanded="false"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </div>
+
+
+    <div
+        class="mobile-menu-overlay"
+        id="mobile-menu-overlay"
+    ></div>
+
+
+    <aside
+        class="mobile-side-menu"
+        id="mobile-side-menu"
+        aria-hidden="true"
+    >
+
+        <div class="mobile-side-menu-header">
+
+            <div class="mobile-side-brand">
+
+                <img
+                    src="/kickbase-league/kickbase-league-logo.png"
+                    alt="Kickbase League"
+                >
+
+                <div>
+
+                    <strong>
+                        Kickbase League
+                    </strong>
+
+                    <p>
+                        Saison 2026/27
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="mobile-menu-close"
+                id="mobile-menu-close"
+                type="button"
+                aria-label="Navigation schließen"
+            >
+
+                <i data-lucide="x"></i>
+
+            </button>
+
+        </div>
+
+
+        <div class="mobile-side-menu-content">
+
+
+            <p class="mobile-menu-label">
+                HAUPTMENÜ
+            </p>
+
+
+            <a
+                href="/kickbase-league/index.html"
+                class="mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    <i data-lucide="house"></i>
+                </span>
+
+                <div>
+
+                    <strong>
+                        Startseite
+                    </strong>
+
+                    <small>
+                        Zur Liga-Zentrale
+                    </small>
+
+                </div>
+
+                <i data-lucide="chevron-right"></i>
+
+            </a>
+
+
+            <!-- NEWS DIREKT NACH STARTSEITE -->
+
+            <a
+                href="/kickbase-league/news.html"
+                class="mobile-menu-link active-mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    <i data-lucide="newspaper"></i>
+                </span>
+
+                <div>
+
+                    <strong>
+                        News-Zentrale
+                    </strong>
+
+                    <small>
+                        Stories & Liga-News
+                    </small>
+
+                </div>
+
+                <i data-lucide="chevron-right"></i>
+
+            </a>
+
+
+            <p class="mobile-menu-label">
+                WETTBEWERBE
+            </p>
+
+
+            <a
+                href="/kickbase-league/qualifikationsligen.html"
+                class="mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    <i data-lucide="route"></i>
+                </span>
+
+                <div>
+
+                    <strong>
+                        Qualifikationsligen
+                    </strong>
+
+                    <small>
+                        Gruppe A und Gruppe B
+                    </small>
+
+                </div>
+
+                <i data-lucide="chevron-right"></i>
+
+            </a>
+
+
+            <a
+                href="/kickbase-league/champions-league.html"
+                class="mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    <i data-lucide="trophy"></i>
+                </span>
+
+                <div>
+
+                    <strong>
+                        Champions League
+                    </strong>
+
+                    <small>
+                        Die höchste Spielklasse
+                    </small>
+
+                </div>
+
+                <i data-lucide="chevron-right"></i>
+
+            </a>
+
+
+            <a
+                href="/kickbase-league/kreisliga.html"
+                class="mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    <i data-lucide="shield"></i>
+                </span>
+
+                <div>
+
+                    <strong>
+                        Kreisliga
+                    </strong>
+
+                    <small>
+                        Der Kampf um den Aufstieg
+                    </small>
+
+                </div>
+
+                <i data-lucide="chevron-right"></i>
+
+            </a>
+
+
+            <a
+                href="/kickbase-league/kickbase-pokal.html"
+                class="mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    <i data-lucide="award"></i>
+                </span>
+
+                <div>
+
+                    <strong>
+                        Kickbase-Pokal
+                    </strong>
+
+                    <small>
+                        Der Pokalwettbewerb
+                    </small>
+
+                </div>
+
+                <i data-lucide="chevron-right"></i>
+
+            </a>
+
+
+            <p class="mobile-menu-label">
+                LIGABEREICH
+            </p>
+
+
+            <a
+                href="/kickbase-league/manager.html"
+                class="mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    <i data-lucide="users"></i>
+                </span>
+
+                <div>
+
+                    <strong>
+                        Manager
+                    </strong>
+
+                    <small>
+                        Alle 18 Teilnehmer
+                    </small>
+
+                </div>
+
+                <i data-lucide="chevron-right"></i>
+
+            </a>
+
+
+            <a
+                href="/kickbase-league/legenden.html"
+                class="mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    <i data-lucide="shield-star"></i>
+                </span>
+
+                <div>
+
+                    <strong>
+                        Legenden
+                    </strong>
+
+                    <small>
+                        Karriere-Rangliste
+                    </small>
+
+                </div>
+
+                <i data-lucide="chevron-right"></i>
+
+            </a>
+
+
+            <a
+                href="/kickbase-league/hall-of-fame.html"
+                class="mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    <i data-lucide="crown"></i>
+                </span>
+
+                <div>
+
+                    <strong>
+                        Hall of Fame
+                    </strong>
+
+                    <small>
+                        Meister und Legenden
+                    </small>
+
+                </div>
+
+                <i data-lucide="chevron-right"></i>
+
+            </a>
+
+
+            <a
+                href="/kickbase-league/statistiken.html"
+                class="mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    <i data-lucide="chart-no-axes-column"></i>
+                </span>
+
+                <div>
+
+                    <strong>
+                        Statistiken
+                    </strong>
+
+                    <small>
+                        Rekorde und Zahlen
+                    </small>
+
+                </div>
+
+                <i data-lucide="chevron-right"></i>
+
+            </a>
+
+
+            <a
+                href="/kickbase-league/regelwerk.html"
+                class="mobile-menu-link"
+            >
+
+                <span class="mobile-menu-icon">
+                    <i data-lucide="scroll-text"></i>
+                </span>
+
+                <div>
+
+                    <strong>
+                        Regelwerk
+                    </strong>
+
+                    <small>
+                        Alle Ligaregeln
+                    </small>
+
+                </div>
+
+                <i data-lucide="chevron-right"></i>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+</nav>
+
+
+<!-- =====================================================
+     HAUPTINHALT
+====================================================== -->
+
+<main class="news-main">
+
+
+<!-- =====================================================
+     TOP-STORY + IN DIESER AUSGABE
+====================================================== -->
+
+<section
+    class="news-lead-section"
+    id="top-story"
+>
+
+
+    <!-- TOP STORY -->
+
+    <article class="news-hero-story">
+
+
+        <img
+            src="/kickbase-league/news-hero.jpg"
+            alt="Kickbase League News"
+            class="news-hero-image"
+        >
+
+
+        <div class="news-hero-overlay"></div>
+
+
+        <div class="news-hero-content">
+
+
+            <span class="news-hero-kicker">
+                TOP-NEWS DER WOCHE
+            </span>
+
+
+            <h1 id="news-hero-title">
+                DIE SAISON
+                <strong>
+                    BEGINNT!
+                </strong>
+            </h1>
+
+
+            <p id="news-hero-description">
+                Die Kickbase League startet in die neue Saison.
+                18 Manager kämpfen zunächst in zwei Qualifikationsgruppen
+                um den Einzug in die Champions League.
+            </p>
+
+
+            <a
+                href="/kickbase-league/qualifikationsligen.html"
+                class="news-hero-button"
+                id="news-hero-link"
+            >
+
+                ZUM WETTBEWERB
+
+                <i data-lucide="chevron-right"></i>
+
+            </a>
+
+        </div>
+
+    </article>
+
+
+    <!-- IN DIESER AUSGABE -->
+
+    <aside class="news-issue-overview">
+
+
+        <h2>
+            In dieser Ausgabe
+        </h2>
+
+
+        <div class="news-issue-divider"></div>
+
+
+        <nav class="news-issue-links">
+
+
+            <a href="#top-story">
+
+                <i data-lucide="star"></i>
+
+                <span>
+                    Top-News der Woche
+                </span>
+
+            </a>
+
+
+            <a href="#weekly-awards">
+
+                <i data-lucide="arrow-up-down"></i>
+
+                <span>
+                    Gewinner & Verlierer
+                </span>
+
+            </a>
+
+
+            <a href="#league-news">
+
+                <i data-lucide="trophy"></i>
+
+                <span id="news-issue-leagues-label">
+                    Qualifikation A & B
+                </span>
+
+            </a>
+
+
+            <a href="#manager-news">
+
+                <i data-lucide="user-round"></i>
+
+                <span>
+                    Manager-News
+                </span>
+
+            </a>
+
+
+            <a href="#more-news">
+
+                <i data-lucide="newspaper"></i>
+
+                <span>
+                    Weitere News
+                </span>
+
+            </a>
+
+
+            <a href="#prediction-update">
+
+                <i data-lucide="chart-no-axes-column-increasing"></i>
+
+                <span>
+                    Prognose-Update
+                </span>
+
+            </a>
+
+
+            <a
+                href="#cup-news"
+                id="news-issue-cup-link"
+            >
+
+                <i data-lucide="award"></i>
+
+                <span>
+                    Pokal-News
+                </span>
+
+            </a>
+
+
+        </nav>
+
+    </aside>
+
+</section>
+
+
+<!-- =====================================================
+     MANAGER DER WOCHE
+     AUFSTEIGER
+     ABSTURZ
+====================================================== -->
+
+<section
+    class="news-weekly-awards"
+    id="weekly-awards"
+>
+
+
+    <!-- MANAGER DER WOCHE -->
+
+    <article
+        class="
+            news-award-card
+            news-award-card-manager
+        "
+    >
+
+        <span class="news-award-label">
+            MANAGER DER WOCHE
+        </span>
+
+
+        <div class="news-award-content">
+
+            <div>
+
+                <h3 id="news-manager-of-week-name">
+                    Noch offen
+                </h3>
+
+                <strong id="news-manager-of-week-value">
+                    Saisonstart
+                </strong>
+
+                <p id="news-manager-of-week-description">
+                    Nach dem ersten Spieltag wird hier
+                    der stärkste Manager ausgezeichnet.
+                </p>
+
+            </div>
+
+
+            <span class="news-award-icon">
+
+                <i data-lucide="star"></i>
+
+            </span>
+
+        </div>
+
+    </article>
+
+
+    <!-- AUFSTEIGER -->
+
+    <article
+        class="
+            news-award-card
+            news-award-card-up
+        "
+    >
+
+        <span class="news-award-label">
+            AUFSTEIGER DER WOCHE
+        </span>
+
+
+        <div class="news-award-content">
+
+            <div>
+
+                <h3 id="news-riser-name">
+                    Noch offen
+                </h3>
+
+                <strong id="news-riser-value">
+                    –
+                </strong>
+
+                <p id="news-riser-description">
+                    Die größte Verbesserung in der Tabelle
+                    erscheint automatisch nach dem Spieltag.
+                </p>
+
+            </div>
+
+
+            <span class="news-award-icon">
+
+                <i data-lucide="trending-up"></i>
+
+            </span>
+
+        </div>
+
+    </article>
+
+
+    <!-- ABSTURZ -->
+
+    <article
+        class="
+            news-award-card
+            news-award-card-down
+        "
+    >
+
+        <span class="news-award-label">
+            ABSTURZ DER WOCHE
+        </span>
+
+
+        <div class="news-award-content">
+
+            <div>
+
+                <h3 id="news-faller-name">
+                    Noch offen
+                </h3>
+
+                <strong id="news-faller-value">
+                    –
+                </strong>
+
+                <p id="news-faller-description">
+                    Der größte Tabellenverlust wird hier
+                    automatisch ausgewertet.
+                </p>
+
+            </div>
+
+
+            <span class="news-award-icon">
+
+                <i data-lucide="trending-down"></i>
+
+            </span>
+
+        </div>
+
+    </article>
+
+</section>
+
+
+<!-- =====================================================
+     LIGEN DER AKTUELLEN PHASE
+====================================================== -->
+
+<section
+    class="news-leagues-section"
+    id="league-news"
+>
+
+
+    <!-- =================================================
+         LINKER WETTBEWERB
+
+         Qualifikation:
+         Gruppe A
+
+         Hauptphase:
+         Champions League
+    ================================================== -->
+
+    <article
+        class="
+            news-league-panel
+            news-league-panel-a
+        "
+        id="news-league-panel-a"
+    >
+
+
+        <div class="news-league-panel-header">
+
+
+            <span class="news-league-panel-icon">
+
+                <i
+                    data-lucide="route"
+                    id="news-league-a-icon"
+                ></i>
+
+            </span>
+
+
+            <div>
+
+                <h2 id="news-league-a-title">
+                    Qualifikation A
+                </h2>
+
+                <p id="news-league-a-subtitle">
+                    DER WEG IN DIE CHAMPIONS LEAGUE
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="news-league-panel-body">
+
+
+            <div class="news-league-stories">
+
+                <h3>
+                    NEWS DER WOCHE
+                </h3>
+
+
+                <div
+                    class="news-league-story-list"
+                    id="news-league-a-stories"
+                >
+
+                    <p class="news-empty-text">
+                        Die ersten Meldungen erscheinen
+                        nach dem ersten Spieltag.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="news-league-table-preview">
+
+                <h3 id="news-league-a-table-heading">
+                    AKTUELLE TOP 3
+                </h3>
+
+
+                <div
+                    class="news-mini-table"
+                    id="news-league-a-table"
+                >
+
+                    <!-- automatisch -->
+
+                </div>
+
+
+                <a
+                    href="/kickbase-league/qualifikationsligen.html"
+                    class="news-league-button"
+                    id="news-league-a-link"
+                >
+
+                    ZUR TABELLE
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <!-- =================================================
+         RECHTER WETTBEWERB
+
+         Qualifikation:
+         Gruppe B
+
+         Hauptphase:
+         Kreisliga
+    ================================================== -->
+
+    <article
+        class="
+            news-league-panel
+            news-league-panel-b
+        "
+        id="news-league-panel-b"
+    >
+
+
+        <div class="news-league-panel-header">
+
+
+            <span class="news-league-panel-icon">
+
+                <i
+                    data-lucide="route"
+                    id="news-league-b-icon"
+                ></i>
+
+            </span>
+
+
+            <div>
+
+                <h2 id="news-league-b-title">
+                    Qualifikation B
+                </h2>
+
+                <p id="news-league-b-subtitle">
+                    DER WEG IN DIE CHAMPIONS LEAGUE
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="news-league-panel-body">
+
+
+            <div class="news-league-stories">
+
+                <h3>
+                    NEWS DER WOCHE
+                </h3>
+
+
+                <div
+                    class="news-league-story-list"
+                    id="news-league-b-stories"
+                >
+
+                    <p class="news-empty-text">
+                        Die ersten Meldungen erscheinen
+                        nach dem ersten Spieltag.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="news-league-table-preview">
+
+                <h3 id="news-league-b-table-heading">
+                    AKTUELLE TOP 3
+                </h3>
+
+
+                <div
+                    class="news-mini-table"
+                    id="news-league-b-table"
+                >
+
+                    <!-- automatisch -->
+
+                </div>
+
+
+                <a
+                    href="/kickbase-league/qualifikationsligen.html"
+                    class="news-league-button"
+                    id="news-league-b-link"
+                >
+
+                    ZUR TABELLE
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+
+</section>
+
+
+<!-- =====================================================
+     MANAGER NEWS
+====================================================== -->
+
+<section
+    class="news-manager-section"
+    id="manager-news"
+>
+
+
+    <div class="news-section-heading">
+
+        <div>
+
+            <span class="news-section-kicker">
+                EINZELSTORIES
+            </span>
+
+            <h2>
+                Manager-News
+            </h2>
+
+        </div>
+
+
+        <i data-lucide="users-round"></i>
+
+    </div>
+
+
+    <div
+        class="news-manager-grid"
+        id="news-manager-grid"
+    >
+
+
+        <!-- Fallback vor Saisonstart -->
+
+        <article class="news-manager-card">
+
+            <span class="news-manager-card-icon">
+
+                <i data-lucide="newspaper"></i>
+
+            </span>
+
+
+            <div>
+
+                <strong>
+                    Saisonstart
+                </strong>
+
+                <p>
+                    Sobald die ersten Punkte eingetragen sind,
+                    entstehen hier automatisch Manager-Stories.
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     UNTERER NEWS-BEREICH
+====================================================== -->
+
+<section class="news-bottom-grid">
+
+
+<!-- =====================================================
+     WEITERE NEWS
+     TRANSFERS + POKAL + MANUELLE NEWS
+====================================================== -->
+
+<section
+    class="news-more-section"
+    id="more-news"
+>
+
+
+    <div class="news-section-heading">
+
+        <div>
+
+            <span class="news-section-kicker">
+                NEWSFEED
+            </span>
+
+            <h2>
+                Weitere News
+            </h2>
+
+        </div>
+
+
+        <i data-lucide="newspaper"></i>
+
+    </div>
+
+
+    <div
+        class="news-feed"
+        id="news-feed"
+    >
+
+
+        <article class="news-feed-empty">
+
+            <span>
+
+                <i data-lucide="radio"></i>
+
+            </span>
+
+
+            <div>
+
+                <strong>
+                    Noch keine weiteren Meldungen
+                </strong>
+
+                <p>
+                    Transfers, Pokal-News und besondere
+                    Liga-Ereignisse erscheinen hier.
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PROGNOSE UPDATE
+====================================================== -->
+
+<section
+    class="news-prediction-section"
+    id="prediction-update"
+>
+
+
+    <div class="news-section-heading">
+
+        <div>
+
+            <span class="news-section-kicker">
+                SIMULATION
+            </span>
+
+            <h2>
+                Prognose-Update
+            </h2>
+
+        </div>
+
+
+        <i data-lucide="chart-no-axes-combined"></i>
+
+    </div>
+
+
+    <!-- GRÖSSTER GEWINNER -->
+
+    <article
+        class="
+            news-prediction-mover
+            news-prediction-mover-up
+        "
+    >
+
+        <span>
+            GRÖSSTER GEWINNER
+        </span>
+
+
+        <div class="news-prediction-mover-content">
+
+            <div>
+
+                <strong id="news-prediction-winner-name">
+                    Noch offen
+                </strong>
+
+                <b id="news-prediction-winner-value">
+                    –
+                </b>
+
+                <p id="news-prediction-winner-description">
+                    Nach mehreren Spieltagen werden
+                    Veränderungen der Prognose ausgewertet.
+                </p>
+
+            </div>
+
+
+            <i data-lucide="trending-up"></i>
+
+        </div>
+
+    </article>
+
+
+    <!-- GRÖSSTER VERLIERER -->
+
+    <article
+        class="
+            news-prediction-mover
+            news-prediction-mover-down
+        "
+    >
+
+        <span>
+            GRÖSSTER VERLIERER
+        </span>
+
+
+        <div class="news-prediction-mover-content">
+
+            <div>
+
+                <strong id="news-prediction-loser-name">
+                    Noch offen
+                </strong>
+
+                <b id="news-prediction-loser-value">
+                    –
+                </b>
+
+                <p id="news-prediction-loser-description">
+                    Die größte negative Veränderung
+                    erscheint automatisch.
+                </p>
+
+            </div>
+
+
+            <i data-lucide="trending-down"></i>
+
+        </div>
+
+    </article>
+
+
+    <!-- PROGNOSEFAVORITEN -->
+
+    <div class="news-prediction-favorites">
+
+
+        <!-- AKTUELL LINKER WETTBEWERB -->
+
+        <article class="news-prediction-favorite">
+
+            <span id="news-prediction-a-label">
+                CL-FAVORIT · GRUPPE A
+            </span>
+
+
+            <strong id="news-prediction-a-name">
+                Noch offen
+            </strong>
+
+
+            <b id="news-prediction-a-value">
+                –
+            </b>
+
+
+            <small id="news-prediction-a-description">
+                Champions-League-Chance
+            </small>
+
+        </article>
+
+
+        <!-- AKTUELL RECHTER WETTBEWERB -->
+
+        <article class="news-prediction-favorite">
+
+            <span id="news-prediction-b-label">
+                CL-FAVORIT · GRUPPE B
+            </span>
+
+
+            <strong id="news-prediction-b-name">
+                Noch offen
+            </strong>
+
+
+            <b id="news-prediction-b-value">
+                –
+            </b>
+
+
+            <small id="news-prediction-b-description">
+                Champions-League-Chance
+            </small>
+
+        </article>
+
+    </div>
+
+
+    <div class="news-prediction-note">
+
+        <i data-lucide="activity"></i>
+
+        <p id="news-prediction-phase-note">
+            Während der Qualifikation werden die
+            Champions-League-Chancen aus Gruppe A und B angezeigt.
+        </p>
+
+    </div>
+
+</section>
+
+</section>
+
+
+<!-- =====================================================
+     POKAL NEWS
+====================================================== -->
+
+<section
+    class="news-cup-section"
+    id="cup-news"
+>
+
+
+    <div class="news-cup-icon">
+
+        <i data-lucide="trophy"></i>
+
+    </div>
+
+
+    <div>
+
+        <span class="news-section-kicker">
+            KICKBASE-POKAL
+        </span>
+
+        <h2 id="news-cup-title">
+            Der Pokal wartet
+        </h2>
+
+        <p id="news-cup-description">
+            Sobald ein Pokalspieltag ansteht oder entschieden wurde,
+            erscheint hier automatisch die wichtigste Pokalmeldung.
+        </p>
+
+    </div>
+
+
+    <a
+        href="/kickbase-league/kickbase-pokal.html"
+        class="news-cup-link"
+    >
+
+        ZUM POKAL
+
+        <i data-lucide="chevron-right"></i>
+
+    </a>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER BRANDING
+====================================================== -->
+
+<section class="news-brand-footer">
+
+
+    <img
+        src="/kickbase-league/kickbase-league-news-logo.png"
+        alt="Kickbase League News"
+    >
+
+
+    <p>
+        Die News-Zentrale aktualisiert sich automatisch
+        anhand der aktuellen Ligadaten.
+    </p>
+
+
+    <a href="/kickbase-league/index.html">
+
+        kickbase-league
+
+    </a>
+
+</section>
+
+
+</main>
+
+
+<footer class="news-footer">
+
+    © Kickbase League
+
+</footer>
+
+
+<!-- =====================================================
+     SCRIPTE
+====================================================== -->
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+
+<script src="/kickbase-league/script.js"></script>
+
+
+<script src="/kickbase-league/animations.js"></script>
+
+
+<!-- Zentrale Ligadaten -->
+
+<script src="/kickbase-league/league-data.js"></script>
+
+
+<!-- Legenden / Managerstärke -->
+
+<script src="/kickbase-league/legenden.js"></script>
+
+
+<!-- Saisonprognosen -->
+
+<script src="/kickbase-league/prognose.js"></script>
+
+
+<!-- News-Zentrale -->
+
+<script src="/kickbase-league/news.js"></script>
+
+
+<script>
+
+    lucide.createIcons();
+
+</script>
+
+
+</body>
+
+</html>
