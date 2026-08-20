@@ -2,7 +2,7 @@
 =========================================
 KICKBASE LEAGUE – KREISLIGA
 AUTOMATISCHE TABELLE
-MIT FORMKURVE
+MIT FORMKURVE + SAISONPROGNOSE
 =========================================
 */
 
@@ -51,6 +51,8 @@ function startKreisligaPage() {
     renderKreisligaStatus();
 
     renderKreisligaSeason();
+
+    renderKreisligaPrediction();
 
     refreshKreisligaIcons();
 
@@ -171,6 +173,10 @@ TABELLE RENDERN
 function renderKreisligaTable() {
 
     const tbody =
+        document.getElementById(
+            "kreisliga-table-body"
+        )
+        ||
         document.querySelector(
             ".kreisliga-table tbody"
         );
@@ -217,6 +223,7 @@ function renderKreisligaTable() {
 
 
                     return `
+
                         <tr class="${status.rowClass}">
 
                             <td>
@@ -234,7 +241,10 @@ function renderKreisligaTable() {
                             <td>
 
                                 <a
-                                    class="kreisliga-manager-cell kreisliga-manager-link"
+                                    class="
+                                        kreisliga-manager-cell
+                                        kreisliga-manager-link
+                                    "
                                     href="/kickbase-league/manager-profil.html?id=${manager.id}"
                                 >
 
@@ -305,6 +315,7 @@ function renderKreisligaTable() {
                             </td>
 
                         </tr>
+
                     `;
 
                 }
@@ -320,7 +331,6 @@ function renderKreisligaTable() {
 /*
 =========================================
 LEERE TABELLE
-VOR START DER KREISLIGA
 =========================================
 */
 
@@ -342,6 +352,7 @@ function createEmptyKreisligaRows() {
 
 
         rows += `
+
             <tr class="${status.rowClass}">
 
                 <td>
@@ -419,6 +430,7 @@ function createEmptyKreisligaRows() {
                 </td>
 
             </tr>
+
         `;
 
     }
@@ -460,6 +472,7 @@ function createKreisligaFormHTML(
 
 
     return `
+
         <div class="kreisliga-form">
 
             ${
@@ -472,12 +485,14 @@ function createKreisligaFormHTML(
                             ) {
 
                                 return `
+
                                     <span class="
                                         kreisliga-form-badge
                                         kreisliga-form-empty
                                     ">
                                         –
                                     </span>
+
                                 `;
 
                             }
@@ -507,6 +522,7 @@ function createKreisligaFormHTML(
 
 
                             return `
+
                                 <span
                                     class="
                                         kreisliga-form-badge
@@ -516,6 +532,7 @@ function createKreisligaFormHTML(
                                 >
                                     ${position}
                                 </span>
+
                             `;
 
                         }
@@ -524,6 +541,7 @@ function createKreisligaFormHTML(
             }
 
         </div>
+
     `;
 
 }
@@ -538,6 +556,7 @@ LEERE FORM
 function createEmptyKreisligaForm() {
 
     return `
+
         <div class="kreisliga-form">
 
             <span class="kreisliga-form-badge kreisliga-form-empty">–</span>
@@ -547,6 +566,7 @@ function createEmptyKreisligaForm() {
             <span class="kreisliga-form-badge kreisliga-form-empty">–</span>
 
         </div>
+
     `;
 
 }
@@ -843,7 +863,12 @@ function renderKreisligaStatus() {
 
 
     const matchday =
-        getCurrentMainRoundMatchday();
+        typeof getCurrentMainRoundMatchday ===
+            "function"
+            ?
+            getCurrentMainRoundMatchday()
+            :
+            0;
 
 
     if (
@@ -870,6 +895,811 @@ function renderKreisligaStatus() {
 
     statusElement.textContent =
         "Saison abgeschlossen";
+
+}
+
+
+/*
+=========================================
+KREISLIGA-PROGNOSE
+=========================================
+*/
+
+function renderKreisligaPrediction() {
+
+    const predictionBody =
+        document.getElementById(
+            "kreisliga-prediction-table-body"
+        );
+
+
+    if (!predictionBody) {
+        return;
+    }
+
+
+    if (
+        typeof calculatePowerBasedMainRoundPrediction !==
+            "function"
+    ) {
+
+        renderKreisligaPredictionError(
+            "Prognose konnte nicht geladen werden."
+        );
+
+        return;
+    }
+
+
+    const managers =
+        getKreisligaManagers();
+
+
+    /*
+    Qualifikation noch nicht beendet.
+    */
+
+    if (
+        managers.length !== 9
+    ) {
+
+        renderKreisligaPredictionWaiting();
+
+        return;
+    }
+
+
+    /*
+    10.000 Simulationen nur einmal.
+    */
+
+    const prediction =
+        calculatePowerBasedMainRoundPrediction(
+            "kreisliga"
+        );
+
+
+    if (!prediction) {
+
+        renderKreisligaPredictionError(
+            "Die Saisonprognose konnte noch nicht berechnet werden."
+        );
+
+        return;
+    }
+
+
+    const ranking =
+        Object.values(
+            prediction
+        )
+        .sort(
+            (
+                managerA,
+                managerB
+            ) => {
+
+                /*
+                Zuerst Aufstiegschance.
+                */
+
+                if (
+                    managerB
+                        .promotionProbability
+                    !==
+                    managerA
+                        .promotionProbability
+                ) {
+
+                    return (
+                        managerB
+                            .promotionProbability
+                        -
+                        managerA
+                            .promotionProbability
+                    );
+
+                }
+
+
+                /*
+                Danach Meisterchance.
+                */
+
+                if (
+                    managerB
+                        .championProbability
+                    !==
+                    managerA
+                        .championProbability
+                ) {
+
+                    return (
+                        managerB
+                            .championProbability
+                        -
+                        managerA
+                            .championProbability
+                    );
+
+                }
+
+
+                /*
+                Danach besserer
+                erwarteter Endplatz.
+                */
+
+                return (
+                    managerA
+                        .averageFinalPosition
+                    -
+                    managerB
+                        .averageFinalPosition
+                );
+
+            }
+        );
+
+
+    renderKreisligaPredictionHighlights(
+        ranking
+    );
+
+
+    predictionBody.innerHTML =
+        ranking
+            .map(
+                (
+                    manager,
+                    index
+                ) =>
+                    createKreisligaPredictionRow(
+                        manager,
+                        index + 1
+                    )
+            )
+            .join("");
+
+
+    refreshKreisligaIcons();
+
+}
+
+
+/*
+=========================================
+PROGNOSE-HIGHLIGHTS
+=========================================
+*/
+
+function renderKreisligaPredictionHighlights(
+    ranking
+) {
+
+    if (
+        !Array.isArray(ranking) ||
+        ranking.length === 0
+    ) {
+
+        return;
+    }
+
+
+    /*
+    =====================================
+    MEISTERFAVORIT
+    =====================================
+    */
+
+    const titleFavorite =
+        [...ranking]
+            .sort(
+                (
+                    managerA,
+                    managerB
+                ) =>
+                    managerB
+                        .championProbability
+                    -
+                    managerA
+                        .championProbability
+            )[0];
+
+
+    setKreisligaPredictionText(
+        "kreisliga-prediction-favorite",
+        titleFavorite.name
+    );
+
+
+    setKreisligaPredictionText(
+        "kreisliga-prediction-favorite-value",
+        `${formatKreisligaPredictionPercentage(
+            titleFavorite
+                .championProbability
+        )} Meisterchance`
+    );
+
+
+    /*
+    =====================================
+    STÄRKSTES POWER RATING
+    =====================================
+    */
+
+    const strongestPower =
+        [...ranking]
+            .sort(
+                (
+                    managerA,
+                    managerB
+                ) =>
+                    managerB
+                        .powerRating
+                    -
+                    managerA
+                        .powerRating
+            )[0];
+
+
+    setKreisligaPredictionText(
+        "kreisliga-prediction-power",
+        strongestPower.name
+    );
+
+
+    setKreisligaPredictionText(
+        "kreisliga-prediction-power-value",
+        `Power ${formatKreisligaPower(
+            strongestPower.powerRating
+        )}`
+    );
+
+
+    /*
+    =====================================
+    HÖCHSTE AUFSTIEGSCHANCE
+    =====================================
+    */
+
+    const promotionFavorite =
+        [...ranking]
+            .sort(
+                (
+                    managerA,
+                    managerB
+                ) =>
+                    managerB
+                        .promotionProbability
+                    -
+                    managerA
+                        .promotionProbability
+            )[0];
+
+
+    setKreisligaPredictionText(
+        "kreisliga-prediction-promotion",
+        promotionFavorite.name
+    );
+
+
+    setKreisligaPredictionText(
+        "kreisliga-prediction-promotion-value",
+        `${formatKreisligaPredictionPercentage(
+            promotionFavorite
+                .promotionProbability
+        )} Aufstiegschance`
+    );
+
+}
+
+
+/*
+=========================================
+EINE PROGNOSEZEILE
+=========================================
+*/
+
+function createKreisligaPredictionRow(
+    manager,
+    predictionPosition
+) {
+
+    const championProbability =
+        Number(
+            manager
+                .championProbability
+        ) || 0;
+
+
+    const promotionProbability =
+        Number(
+            manager
+                .promotionProbability
+        ) || 0;
+
+
+    const leagueStayProbability =
+        Number(
+            manager
+                .leagueStayProbability
+        ) || 0;
+
+
+    const powerRating =
+        Number(
+            manager
+                .powerRating
+        ) || 50;
+
+
+    const averagePosition =
+        Number(
+            manager
+                .averageFinalPosition
+        ) || 0;
+
+
+    return `
+
+        <tr>
+
+            <td>
+
+                <span class="
+                    kreisliga-prediction-position
+                    ${getKreisligaPredictionPositionClass(
+                        predictionPosition
+                    )}
+                ">
+                    ${predictionPosition}
+                </span>
+
+            </td>
+
+
+            <td>
+
+                <a
+                    class="kreisliga-prediction-manager"
+                    href="/kickbase-league/manager-profil.html?id=${encodeURIComponent(
+                        manager.managerId
+                    )}"
+                >
+
+                    <span class="kreisliga-prediction-manager-avatar">
+
+                        <i
+                            data-lucide="user"
+                            aria-hidden="true"
+                        ></i>
+
+                    </span>
+
+                    <strong>
+                        ${escapeKreisligaHTML(
+                            manager.name
+                        )}
+                    </strong>
+
+                </a>
+
+            </td>
+
+
+            <td>
+
+                <span class="
+                    kreisliga-prediction-power
+                    ${getKreisligaPowerClass(
+                        powerRating
+                    )}
+                ">
+                    ${formatKreisligaPower(
+                        powerRating
+                    )}
+                </span>
+
+            </td>
+
+
+            <td>
+
+                <strong class="kreisliga-prediction-title-value">
+
+                    ${formatKreisligaPredictionPercentage(
+                        championProbability
+                    )}
+
+                </strong>
+
+            </td>
+
+
+            <td>
+
+                <span class="kreisliga-prediction-promotion-value">
+
+                    ${formatKreisligaPredictionPercentage(
+                        promotionProbability
+                    )}
+
+                </span>
+
+            </td>
+
+
+            <td>
+
+                <span class="kreisliga-prediction-stay-value">
+
+                    ${formatKreisligaPredictionPercentage(
+                        leagueStayProbability
+                    )}
+
+                </span>
+
+            </td>
+
+
+            <td>
+
+                <strong class="kreisliga-prediction-average-position">
+
+                    ${formatKreisligaPredictionPosition(
+                        averagePosition
+                    )}
+
+                </strong>
+
+            </td>
+
+        </tr>
+
+    `;
+
+}
+
+
+/*
+=========================================
+PROGNOSEPOSITION DESIGN
+=========================================
+*/
+
+function getKreisligaPredictionPositionClass(
+    position
+) {
+
+    if (
+        position === 1
+    ) {
+
+        return "kreisliga-prediction-position-first";
+
+    }
+
+
+    if (
+        position === 2
+    ) {
+
+        return "kreisliga-prediction-position-second";
+
+    }
+
+
+    if (
+        position === 3
+    ) {
+
+        return "kreisliga-prediction-position-third";
+
+    }
+
+
+    return "";
+
+}
+
+
+/*
+=========================================
+POWER DESIGN
+=========================================
+*/
+
+function getKreisligaPowerClass(
+    rating
+) {
+
+    if (
+        rating >= 80
+    ) {
+
+        return "kreisliga-prediction-power-elite";
+
+    }
+
+
+    if (
+        rating >= 65
+    ) {
+
+        return "kreisliga-prediction-power-strong";
+
+    }
+
+
+    if (
+        rating >= 50
+    ) {
+
+        return "kreisliga-prediction-power-normal";
+
+    }
+
+
+    return "kreisliga-prediction-power-low";
+
+}
+
+
+/*
+=========================================
+PROGNOSE WARTET
+=========================================
+*/
+
+function renderKreisligaPredictionWaiting() {
+
+    const body =
+        document.getElementById(
+            "kreisliga-prediction-table-body"
+        );
+
+
+    if (body) {
+
+        body.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="7"
+                    class="kreisliga-prediction-empty"
+                >
+
+                    <div class="kreisliga-prediction-empty-content">
+
+                        <i
+                            data-lucide="hourglass"
+                            aria-hidden="true"
+                        ></i>
+
+                        <strong>
+                            Prognose startet nach der Qualifikation
+                        </strong>
+
+                        <p>
+                            Sobald die neun Kreisliga-Manager
+                            feststehen, werden die ersten
+                            10.000 Saisonverläufe automatisch simuliert.
+                        </p>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+        `;
+
+    }
+
+
+    setKreisligaPredictionText(
+        "kreisliga-prediction-favorite",
+        "Noch offen"
+    );
+
+
+    setKreisligaPredictionText(
+        "kreisliga-prediction-favorite-value",
+        "Nach Abschluss der Qualifikation"
+    );
+
+
+    setKreisligaPredictionText(
+        "kreisliga-prediction-power",
+        "Noch offen"
+    );
+
+
+    setKreisligaPredictionText(
+        "kreisliga-prediction-power-value",
+        "Power Rating folgt"
+    );
+
+
+    setKreisligaPredictionText(
+        "kreisliga-prediction-promotion",
+        "Noch offen"
+    );
+
+
+    setKreisligaPredictionText(
+        "kreisliga-prediction-promotion-value",
+        "Nach Abschluss der Qualifikation"
+    );
+
+
+    refreshKreisligaIcons();
+
+}
+
+
+/*
+=========================================
+PROGNOSEFEHLER
+=========================================
+*/
+
+function renderKreisligaPredictionError(
+    message
+) {
+
+    const body =
+        document.getElementById(
+            "kreisliga-prediction-table-body"
+        );
+
+
+    if (!body) {
+        return;
+    }
+
+
+    body.innerHTML = `
+
+        <tr>
+
+            <td
+                colspan="7"
+                class="kreisliga-prediction-empty"
+            >
+
+                <div class="kreisliga-prediction-empty-content">
+
+                    <i
+                        data-lucide="triangle-alert"
+                        aria-hidden="true"
+                    ></i>
+
+                    <strong>
+                        Prognose nicht verfügbar
+                    </strong>
+
+                    <p>
+                        ${escapeKreisligaHTML(
+                            message
+                        )}
+                    </p>
+
+                </div>
+
+            </td>
+
+        </tr>
+
+    `;
+
+
+    refreshKreisligaIcons();
+
+}
+
+
+/*
+=========================================
+TEXT SETZEN
+=========================================
+*/
+
+function setKreisligaPredictionText(
+    elementId,
+    text
+) {
+
+    const element =
+        document.getElementById(
+            elementId
+        );
+
+
+    if (
+        element
+    ) {
+
+        element.textContent =
+            text;
+
+    }
+
+}
+
+
+/*
+=========================================
+PROZENT FORMATIEREN
+=========================================
+*/
+
+function formatKreisligaPredictionPercentage(
+    value
+) {
+
+    return (
+        Number(value)
+            .toLocaleString(
+                "de-DE",
+                {
+                    minimumFractionDigits: 1,
+                    maximumFractionDigits: 1
+                }
+            )
+        +
+        " %"
+    );
+
+}
+
+
+/*
+=========================================
+POWER FORMATIEREN
+=========================================
+*/
+
+function formatKreisligaPower(
+    value
+) {
+
+    return Number(value)
+        .toLocaleString(
+            "de-DE",
+            {
+                minimumFractionDigits: 1,
+                maximumFractionDigits: 1
+            }
+        );
+
+}
+
+
+/*
+=========================================
+PROGNOSEPLATZ FORMATIEREN
+=========================================
+*/
+
+function formatKreisligaPredictionPosition(
+    value
+) {
+
+    return (
+        Number(value)
+            .toLocaleString(
+                "de-DE",
+                {
+                    minimumFractionDigits: 1,
+                    maximumFractionDigits: 2
+                }
+            )
+        +
+        "."
+    );
 
 }
 
