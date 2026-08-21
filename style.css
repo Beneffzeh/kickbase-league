@@ -34486,3 +34486,101 @@ body.news-page {
     }
 
 }
+/* =========================================================
+   NEWS HEADER – LOGO DEUTLICH GRÖSSER
+========================================================= */
+
+/* PC */
+
+.news-header-inner {
+    width: min(1400px, calc(100% - 50px));
+    min-height: 190px;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 32px;
+}
+
+.news-header-brand {
+    width: 100%;
+}
+
+.news-header-logo {
+    content: url("/kickbase-league/news-logo.PNG");
+    width: 100%;
+    max-width: 780px;
+    height: 155px;
+    max-height: none;
+    object-fit: contain;
+    object-position: left center;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 980px) {
+
+    .news-header-inner {
+        min-height: 150px;
+    }
+
+    .news-header-logo {
+        width: 100%;
+        max-width: 620px;
+        height: 125px;
+    }
+
+}
+
+
+/* =========================================================
+   HANDY
+========================================================= */
+
+@media (max-width: 720px) {
+
+    .news-header-inner {
+        width: 100%;
+        min-height: 190px;
+        padding: 12px 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .news-header-brand {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .news-header-logo {
+        width: 100%;
+        max-width: 520px;
+        height: 155px;
+        max-height: none;
+        object-fit: contain;
+        object-position: center;
+    }
+
+}
+
+
+/* =========================================================
+   SEHR KLEINE HANDYS
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .news-header-inner {
+        min-height: 175px;
+        padding: 10px 12px;
+    }
+
+    .news-header-logo {
+        width: 100%;
+        height: 145px;
+        max-width: none;
+    }
+
+}
