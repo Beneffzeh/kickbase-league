@@ -34584,3 +34584,84 @@ body.news-page {
     }
 
 }
+/* =========================================================
+   DESKTOP-NAVIGATION KOMPAKTER
+   Damit Regelwerk vollständig sichtbar bleibt
+========================================================= */
+
+@media (min-width: 981px) {
+
+    .navigation-inner {
+        width: min(1500px, calc(100% - 28px));
+        gap: 12px;
+    }
+
+    .navigation-brand {
+        flex: 0 0 auto;
+        margin-right: 8px;
+    }
+
+    .navigation-brand img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .navigation-brand span {
+        font-size: 0.88rem;
+        white-space: nowrap;
+    }
+
+    .desktop-navigation {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 3px;
+        min-width: 0;
+    }
+
+    .desktop-navigation a {
+        flex: 0 0 auto;
+        padding: 9px 8px;
+        font-size: 0.68rem;
+        white-space: nowrap;
+    }
+
+    .desktop-navigation a i,
+    .desktop-navigation a svg {
+        width: 14px;
+        height: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   MITTLERE DESKTOP-BREITEN
+   Noch etwas kompakter
+========================================================= */
+
+@media (min-width: 981px) and (max-width: 1250px) {
+
+    .navigation-inner {
+        width: calc(100% - 18px);
+    }
+
+    .navigation-brand {
+        margin-right: 3px;
+    }
+
+    .navigation-brand span {
+        font-size: 0.76rem;
+    }
+
+    .desktop-navigation {
+        gap: 1px;
+    }
+
+    .desktop-navigation a {
+        padding: 8px 5px;
+        font-size: 0.60rem;
+    }
+
+}
