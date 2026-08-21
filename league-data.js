@@ -2271,3 +2271,65 @@ ERSTE BERECHNUNG BEIM LADEN
 */
 
 recalculateLeagueData();
+
+/*
+=========================================
+KICKBASE LEAGUE NEWS
+TRANSFERMELDUNGEN
+=========================================
+*/
+
+leagueData.newsTransfers = [
+
+    {
+        date: "2026-08-21",
+
+        managerName:
+            "Nikolaj",
+
+        player:
+            "Ismael Saibari",
+
+        price:
+            37000000,
+
+        league:
+            "Qualifikation B",
+
+        image:
+            "/kickbase-league:news-saibari.PNG",
+
+        title:
+            "Nikolaj greift tief in die Tasche: Saibari kommt für 37 Mio. €",
+
+        text:
+            "Nikolaj verstärkt seinen Kader in Qualifikation B mit Ismael Saibari. Für den Angreifer werden 37 Mio. € fällig."
+    },
+
+
+    {
+        date: "2026-08-21",
+
+        managerName:
+            "Schwartzer",
+
+        player:
+            "Nadiem Amiri",
+
+        price:
+            35800000,
+
+        league:
+            "Qualifikation B",
+
+        image:
+            "/kickbase-league:news-amiri.PNG",
+
+        title:
+            "Schwartzer schlägt zu: Amiri für 35,8 Mio. € verpflichtet",
+
+        text:
+            "Schwartzer setzt in Qualifikation B ein erstes Ausrufezeichen auf dem Transfermarkt und verpflichtet Nadiem Amiri für 35,8 Mio. €."
+    }
+
+];
