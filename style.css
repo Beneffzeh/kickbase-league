@@ -34302,3 +34302,187 @@ body.news-page {
     }
 
 }
+/* =========================================================
+   NEWS – BILDER IM NEWSFEED
+   Transfers / Pokal / besondere Meldungen
+========================================================= */
+
+.news-feed-image {
+    position: relative;
+    background:
+        linear-gradient(
+            135deg,
+            #171717,
+            #2a2a2a
+        );
+}
+
+.news-feed-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+}
+
+.news-feed-item:hover .news-feed-image img {
+    transform: scale(1.035);
+}
+
+.news-feed-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.08),
+            transparent 55%
+        );
+}
+
+.news-feed-image-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    display: grid;
+    place-items: center;
+    background:
+        linear-gradient(
+            135deg,
+            #191919,
+            #292929
+        );
+    color: #ffffff;
+}
+
+.news-feed-image-placeholder svg {
+    width: 30px;
+    height: 30px;
+    opacity: 0.9;
+}
+
+@media (max-width: 720px) {
+
+    .news-feed-image img {
+        object-position: center top;
+    }
+
+}
+
+@media (max-width: 420px) {
+
+    .news-feed-image {
+        min-height: 170px;
+    }
+
+    .news-feed-image img {
+        object-position: center 18%;
+    }
+
+}
+/* =========================================================
+   NEWS HEADER – LOGO ERZWINGEN
+   Verwendet: news-logo.PNG
+========================================================= */
+
+.news-header-logo {
+    content: url("/kickbase-league/news-logo.PNG");
+    display: block;
+    width: min(470px, 100%);
+    max-height: 84px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.news-brand-footer img {
+    content: url("/kickbase-league/news-logo.PNG");
+    width: min(390px, 90%);
+    max-height: 90px;
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   NEWSFEED – BILDER
+========================================================= */
+
+.news-feed-image {
+    position: relative;
+    min-height: 124px;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            135deg,
+            #171717,
+            #2a2a2a
+        );
+}
+
+.news-feed-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition:
+        transform 0.25s ease;
+}
+
+.news-feed-item:hover .news-feed-image img {
+    transform: scale(1.035);
+}
+
+.news-feed-image-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 124px;
+    display: grid;
+    place-items: center;
+    background:
+        linear-gradient(
+            135deg,
+            #191919,
+            #292929
+        );
+    color: #ffffff;
+}
+
+.news-feed-image-placeholder svg {
+    width: 30px;
+    height: 30px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 720px) {
+
+    .news-header-logo {
+        width: min(330px, 100%);
+        max-height: 62px;
+    }
+
+    .news-feed-image img {
+        object-position: center top;
+    }
+
+}
+
+@media (max-width: 420px) {
+
+    .news-feed-image {
+        min-height: 170px;
+    }
+
+    .news-feed-image img {
+        object-position: center 18%;
+    }
+
+}
