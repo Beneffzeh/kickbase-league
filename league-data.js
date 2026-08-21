@@ -159,314 +159,270 @@ const leagueData = {
     =====================================
     QUALIFIKATIONSGRUPPEN
     =====================================
-
-    Die tatsächliche Einteilung tragen
-    wir im nächsten Schritt ein.
-
-    Jeweils 9 Manager.
     */
 
     qualificationGroups: {
 
-    A: [
-        "tim",
-        "tobsen",
-        "enrico",
-        "bruno",
-        "nils",
-        "sauer",
-        "marcel",
-        "reichi",
-        "messe"
-    ],
+        A: [
+            "tim",
+            "tobsen",
+            "enrico",
+            "bruno",
+            "nils",
+            "sauer",
+            "marcel",
+            "reichi",
+            "messe"
+        ],
 
-    B: [
-        "schwartzer",
-        "janis",
-        "heiko",
-        "marco",
-        "malik",
-        "nikolaj",
-        "ben",
-        "philipp",
-        "fabio"
-    ]
+        B: [
+            "schwartzer",
+            "janis",
+            "heiko",
+            "marco",
+            "malik",
+            "nikolaj",
+            "ben",
+            "philipp",
+            "fabio"
+        ]
 
-},
+    },
 
-/*
-=========================================
-QUALIFIKATION – SPIELTAGSPUNKTE
-=========================================
 
-WÖCHENTLICHE PFLEGE:
+    /*
+    =====================================
+    QUALIFIKATION – SPIELTAGSPUNKTE
+    =====================================
+    */
 
-Pro Manager einfach den neuen Spieltag
-hinten ergänzen.
+    qualificationMatchdays: [
 
-Beispiel Ben:
+        {
+            matchday: 1,
 
-ben: [
-    1542,
-    1678,
-    1433
-]
+            scores: {
 
-= Spieltag 1, 2 und 3
+                tim: 0,
+                tobsen: 0,
+                enrico: 0,
+                bruno: 0,
+                nils: 0,
+                sauer: 0,
+                marcel: 0,
+                reichi: 0,
+                messe: 0,
 
-=========================================
-*/
+                schwartzer: 0,
+                janis: 0,
+                heiko: 0,
+                marco: 0,
+                malik: 0,
+                nikolaj: 0,
+                ben: 0,
+                philipp: 0,
+                fabio: 0
 
-qualificationMatchdays: [
-
-    {
-        matchday: 1,
-
-        scores: {
-
-            tim: 0,
-            tobsen: 0,
-            enrico: 0,
-            bruno: 0,
-            nils: 0,
-            sauer: 0,
-            marcel: 0,
-            reichi: 0,
-            messe: 0,
-
-            schwartzer: 0,
-            janis: 0,
-            heiko: 0,
-            marco: 0,
-            malik: 0,
-            nikolaj: 0,
-            ben: 0,
-            philipp: 0,
-            fabio: 0
+            }
 
         }
 
-    }
+    ],
 
-],
 
     /*
     =====================================
     HAUPTRUNDE
     =====================================
-
-    Wird nach der Qualifikation automatisch
-    bzw. später einmalig aus der Einteilung
-    befüllt.
-
-    9 Manager Champions League
-    9 Manager Kreisliga.
     */
 
     leagues: {
 
-    championsLeague: [],
+        championsLeague: [],
 
-    kreisliga: []
+        kreisliga: []
 
-},
+    },
 
-/*
-=========================================
-HAUPTPHASE – SPIELTAGSPUNKTE
-=========================================
-
-Wird nach Abschluss der Qualifikation
-genutzt.
-
-Pro Spieltag wird später nur EIN neuer
-Block mit den Punkten ergänzt.
-
-=========================================
-*/
-
-mainRoundMatchdays: [
 
     /*
-    Beispiel nach Start der Hauptphase:
-
-    {
-        matchday: 1,
-
-        scores: {
-
-            // Champions League
-            managerId: 0,
-
-            // Kreisliga
-            managerId: 0
-
-        }
-
-    }
-
+    =====================================
+    HAUPTPHASE – SPIELTAGSPUNKTE
+    =====================================
     */
 
-],
+    mainRoundMatchdays: [
+
+        /*
+        Beispiel nach Start der Hauptphase:
+
+        {
+            matchday: 1,
+
+            scores: {
+
+                managerId: 0
+
+            }
+
+        }
+        */
+
+    ],
+
 
     /*
     =====================================
     POKAL
     =====================================
-
-    Der Baum steht bereits fest.
-
-    Die Spieltagszuordnung ergänzen wir
-    später, damit auch Pokalergebnisse
-    automatisch aus den Punkten entstehen.
     */
 
     cup: {
 
-    preliminaryRound: [
+        preliminaryRound: [
 
-        {
-            id: "VR1",
-            home: "ben",
-            away: "enrico",
-            matchday: 4
-        },
+            {
+                id: "VR1",
+                home: "ben",
+                away: "enrico",
+                matchday: 4
+            },
 
-        {
-            id: "VR2",
-            home: "tim",
-            away: "philipp",
-            matchday: 4
-        }
+            {
+                id: "VR2",
+                home: "tim",
+                away: "philipp",
+                matchday: 4
+            }
 
-    ],
-
-
-    roundOf16: [
-
-        {
-            id: "AF1",
-            home: "winner-VR1",
-            away: "nils",
-            matchday: 8
-        },
-
-        {
-            id: "AF2",
-            home: "reichi",
-            away: "messe",
-            matchday: 8
-        },
-
-        {
-            id: "AF3",
-            home: "marcel",
-            away: "fabio",
-            matchday: 8
-        },
-
-        {
-            id: "AF4",
-            home: "sauer",
-            away: "marco",
-            matchday: 8
-        },
-
-        {
-            id: "AF5",
-            home: "malik",
-            away: "janis",
-            matchday: 8
-        },
-
-        {
-            id: "AF6",
-            home: "heiko",
-            away: "schwartzer",
-            matchday: 8
-        },
-
-        {
-            id: "AF7",
-            home: "tobsen",
-            away: "nikolaj",
-            matchday: 8
-        },
-
-        {
-            id: "AF8",
-            home: "bruno",
-            away: "winner-VR2",
-            matchday: 8
-        }
-
-    ],
+        ],
 
 
-    quarterFinals: [
+        roundOf16: [
 
-        {
-            id: "VF1",
-            home: "winner-AF1",
-            away: "winner-AF2",
-            matchday: 18
-        },
+            {
+                id: "AF1",
+                home: "winner-VR1",
+                away: "nils",
+                matchday: 8
+            },
 
-        {
-            id: "VF2",
-            home: "winner-AF3",
-            away: "winner-AF4",
-            matchday: 18
-        },
+            {
+                id: "AF2",
+                home: "reichi",
+                away: "messe",
+                matchday: 8
+            },
 
-        {
-            id: "VF3",
-            home: "winner-AF5",
-            away: "winner-AF6",
-            matchday: 18
-        },
+            {
+                id: "AF3",
+                home: "marcel",
+                away: "fabio",
+                matchday: 8
+            },
 
-        {
-            id: "VF4",
-            home: "winner-AF7",
-            away: "winner-AF8",
-            matchday: 18
-        }
+            {
+                id: "AF4",
+                home: "sauer",
+                away: "marco",
+                matchday: 8
+            },
 
-    ],
+            {
+                id: "AF5",
+                home: "malik",
+                away: "janis",
+                matchday: 8
+            },
+
+            {
+                id: "AF6",
+                home: "heiko",
+                away: "schwartzer",
+                matchday: 8
+            },
+
+            {
+                id: "AF7",
+                home: "tobsen",
+                away: "nikolaj",
+                matchday: 8
+            },
+
+            {
+                id: "AF8",
+                home: "bruno",
+                away: "winner-VR2",
+                matchday: 8
+            }
+
+        ],
 
 
-    semiFinals: [
+        quarterFinals: [
 
-        {
-            id: "HF1",
-            home: "winner-VF1",
-            away: "winner-VF2",
-            matchday: 26
-        },
+            {
+                id: "VF1",
+                home: "winner-AF1",
+                away: "winner-AF2",
+                matchday: 18
+            },
 
-        {
-            id: "HF2",
-            home: "winner-VF3",
-            away: "winner-VF4",
-            matchday: 26
-        }
+            {
+                id: "VF2",
+                home: "winner-AF3",
+                away: "winner-AF4",
+                matchday: 18
+            },
 
-    ],
+            {
+                id: "VF3",
+                home: "winner-AF5",
+                away: "winner-AF6",
+                matchday: 18
+            },
+
+            {
+                id: "VF4",
+                home: "winner-AF7",
+                away: "winner-AF8",
+                matchday: 18
+            }
+
+        ],
 
 
-    final: [
+        semiFinals: [
 
-        {
-            id: "F1",
-            home: "winner-HF1",
-            away: "winner-HF2",
-            matchday: 34
-        }
+            {
+                id: "HF1",
+                home: "winner-VF1",
+                away: "winner-VF2",
+                matchday: 26
+            },
 
-    ]
+            {
+                id: "HF2",
+                home: "winner-VF3",
+                away: "winner-VF4",
+                matchday: 26
+            }
 
-},
+        ],
+
+
+        final: [
+
+            {
+                id: "F1",
+                home: "winner-HF1",
+                away: "winner-HF2",
+                matchday: 34
+            }
+
+        ]
+
+    },
 
 
     /*
@@ -497,7 +453,86 @@ mainRoundMatchdays: [
             value: 0
         }
 
-    }
+    },
+
+
+    /*
+    =====================================
+    NEWS – TRANSFERS
+    =====================================
+
+    Neueste Meldungen werden auf der
+    News-Seite automatisch oben angezeigt.
+
+    Bilder liegen im Hauptordner.
+    */
+
+    newsTransfers: [
+
+        {
+            date: "2026-08-21",
+
+            managerId:
+                "nikolaj",
+
+            player:
+                "Ismael Saibari",
+
+            price:
+                37000000,
+
+            league:
+                "Qualifikation B",
+
+            image:
+                "/kickbase-league/news-saibari.PNG",
+
+            title:
+                "Nikolaj greift tief in die Tasche: Saibari kommt für 37 Mio. €",
+
+            text:
+                "Nikolaj verstärkt seinen Kader in Qualifikation B mit Ismael Saibari. Für den Angreifer werden 37 Mio. € fällig."
+        },
+
+
+        {
+            date: "2026-08-21",
+
+            managerId:
+                "schwartzer",
+
+            player:
+                "Nadiem Amiri",
+
+            price:
+                35800000,
+
+            league:
+                "Qualifikation B",
+
+            image:
+                "/kickbase-league/news-amiri.PNG",
+
+            title:
+                "Schwartzer schlägt zu: Amiri für 35,8 Mio. € verpflichtet",
+
+            text:
+                "Schwartzer setzt in Qualifikation B ein erstes Ausrufezeichen auf dem Transfermarkt und verpflichtet Nadiem Amiri für 35,8 Mio. €."
+        }
+
+    ],
+
+
+    /*
+    =====================================
+    NEWS – MANUELLE SONDERMELDUNGEN
+    =====================================
+
+    Hier können später besondere News
+    ergänzt werden, die kein Transfer sind.
+    */
+
+    manualNews: []
 
 };
 
@@ -579,9 +614,6 @@ function createManager(
         =================================
         POKAL
         =================================
-
-        Diese Werte werden später aus
-        dem Pokalbaum automatisch erzeugt.
         */
 
         cup: {
@@ -722,6 +754,7 @@ function assignQualificationScores() {
 
 }
 
+
 /*
 =========================================
 QUALIFIKATIONSGRUPPEN ZUWEISEN
@@ -818,6 +851,7 @@ function assignMainRoundLeagues() {
 
 }
 
+
 /*
 =========================================
 HAUPTPHASENPUNKTE ZUWEISEN
@@ -858,12 +892,6 @@ function assignMainRoundScores() {
             leagueData.managers.forEach(
                 manager => {
 
-                    /*
-                    Nur Manager berücksichtigen,
-                    die tatsächlich einer Liga
-                    der Hauptphase angehören.
-                    */
-
                     if (
                         !manager.mainRound.league
                     ) {
@@ -899,6 +927,8 @@ function assignMainRoundScores() {
     );
 
 }
+
+
 /*
 =========================================
 GESAMTPUNKTE
@@ -1006,6 +1036,7 @@ function calculateQualificationPositions() {
     );
 
 }
+
 
 /*
 =========================================
@@ -1123,6 +1154,8 @@ function updateMainRoundLeaguesFromQualification() {
         kreisliga;
 
 }
+
+
 /*
 =========================================
 HAUPTRUNDENPLÄTZE
@@ -1363,12 +1396,6 @@ function calculateMatchdayWins(
             );
 
 
-        /*
-        Bei Punktgleichheit bekommen
-        alle punktgleichen Manager
-        einen Spieltagssieg.
-        */
-
         winners.forEach(
             winner => {
 
@@ -1383,6 +1410,7 @@ function calculateMatchdayWins(
 
 }
 
+
 /*
 =========================================
 POKAL AUTOMATISCH BERECHNEN
@@ -1390,11 +1418,6 @@ POKAL AUTOMATISCH BERECHNEN
 */
 
 function calculateCupProgress() {
-
-    /*
-    Pokaldaten der Manager zunächst
-    auf den Ausgangszustand setzen.
-    */
 
     leagueData.managers.forEach(
         manager => {
@@ -1411,24 +1434,12 @@ function calculateCupProgress() {
     const winners = {};
 
 
-    /*
-    =====================================
-    VORRUNDE
-    =====================================
-    */
-
     processCupRound(
         leagueData.cup.preliminaryRound,
         winners,
         "preliminary-round"
     );
 
-
-    /*
-    =====================================
-    ACHTELFINALE
-    =====================================
-    */
 
     processCupRound(
         leagueData.cup.roundOf16,
@@ -1437,24 +1448,12 @@ function calculateCupProgress() {
     );
 
 
-    /*
-    =====================================
-    VIERTELFINALE
-    =====================================
-    */
-
     processCupRound(
         leagueData.cup.quarterFinals,
         winners,
         "quarter-final"
     );
 
-
-    /*
-    =====================================
-    HALBFINALE
-    =====================================
-    */
 
     processCupRound(
         leagueData.cup.semiFinals,
@@ -1463,22 +1462,12 @@ function calculateCupProgress() {
     );
 
 
-    /*
-    =====================================
-    FINALE
-    =====================================
-    */
-
     processCupRound(
         leagueData.cup.final,
         winners,
         "final"
     );
 
-
-    /*
-    Finalgewinner = Pokalsieger
-    */
 
     if (winners.F1) {
 
@@ -1534,11 +1523,6 @@ function processCupRound(
                 );
 
 
-            /*
-            Vorherige Runde noch nicht
-            entschieden.
-            */
-
             if (
                 !homeId ||
                 !awayId
@@ -1567,11 +1551,6 @@ function processCupRound(
             }
 
 
-            /*
-            Beide Teilnehmer haben diese
-            Runde erreicht.
-            */
-
             setReachedCupStage(
                 homeManager,
                 stage
@@ -1598,10 +1577,6 @@ function processCupRound(
                 );
 
 
-            /*
-            Spieltag noch nicht vorhanden.
-            */
-
             if (
                 homeScore === null ||
                 awayScore === null
@@ -1609,11 +1584,6 @@ function processCupRound(
                 return;
             }
 
-
-            /*
-            Punktgleichheit:
-            Keine automatische Entscheidung.
-            */
 
             if (
                 homeScore === awayScore
@@ -1638,11 +1608,6 @@ function processCupRound(
             ] =
                 winnerId;
 
-
-            /*
-            Besonderheit Vorrunde:
-            zusätzlicher LP-Bonus.
-            */
 
             if (
                 stage ===
@@ -1734,11 +1699,6 @@ function getManagerCupScore(
     }
 
 
-    /*
-    Bundesliga-Spieltage 1–14
-    = Qualifikationsphase
-    */
-
     if (
         bundesligaMatchday <= 14
     ) {
@@ -1763,14 +1723,6 @@ function getManagerCupScore(
 
     }
 
-
-    /*
-    Bundesliga-Spieltage 15–34
-    = Hauptphase
-
-    Zuerst suchen wir nach dem echten
-    Bundesliga-Spieltag.
-    */
 
     const matchdayData =
         leagueData
@@ -1801,15 +1753,6 @@ function getManagerCupScore(
 
     }
 
-
-    /*
-    Fallback:
-    Falls die Hauptphase später als
-    Spieltag 1–20 eingetragen wird.
-
-    Bundesliga-Spieltag 18
-    = Hauptphasen-Spieltag 4.
-    */
 
     const localMatchday =
         bundesligaMatchday - 14;
@@ -1897,6 +1840,8 @@ function setReachedCupStage(
     }
 
 }
+
+
 /*
 =========================================
 AUTOMATISCHE REKORDE
@@ -2150,21 +2095,6 @@ function getCurrentMainRoundMatchday() {
 =========================================
 WÖCHENTLICHE PUNKTE EINTRAGEN
 =========================================
-
-Diese Hilfsfunktion brauchen wir später
-nicht zwingend auf GitHub zu benutzen.
-
-Sie zeigt aber genau, wie unser System
-funktioniert.
-
-Beispiel:
-
-addQualificationScore(
-    "ben",
-    1542
-);
-
-=========================================
 */
 
 function addQualificationScore(
@@ -2271,65 +2201,3 @@ ERSTE BERECHNUNG BEIM LADEN
 */
 
 recalculateLeagueData();
-
-/*
-=========================================
-KICKBASE LEAGUE NEWS
-TRANSFERMELDUNGEN
-=========================================
-*/
-
-leagueData.newsTransfers = [
-
-    {
-        date: "2026-08-21",
-
-        managerName:
-            "Nikolaj",
-
-        player:
-            "Ismael Saibari",
-
-        price:
-            37000000,
-
-        league:
-            "Qualifikation B",
-
-        image:
-            "/kickbase-league:news-saibari.PNG",
-
-        title:
-            "Nikolaj greift tief in die Tasche: Saibari kommt für 37 Mio. €",
-
-        text:
-            "Nikolaj verstärkt seinen Kader in Qualifikation B mit Ismael Saibari. Für den Angreifer werden 37 Mio. € fällig."
-    },
-
-
-    {
-        date: "2026-08-21",
-
-        managerName:
-            "Schwartzer",
-
-        player:
-            "Nadiem Amiri",
-
-        price:
-            35800000,
-
-        league:
-            "Qualifikation B",
-
-        image:
-            "/kickbase-league:news-amiri.PNG",
-
-        title:
-            "Schwartzer schlägt zu: Amiri für 35,8 Mio. € verpflichtet",
-
-        text:
-            "Schwartzer setzt in Qualifikation B ein erstes Ausrufezeichen auf dem Transfermarkt und verpflichtet Nadiem Amiri für 35,8 Mio. €."
-    }
-
-];
