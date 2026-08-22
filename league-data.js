@@ -473,6 +473,31 @@ const leagueData = {
     date: "2026-08-22",
 
     managerId:
+        "schwartzer",
+
+    player:
+        "Aleix Garcia",
+
+    price:
+        41000000,
+
+    league:
+        "Qualifikation B",
+
+    image:
+        "/kickbase-league/news-garcia.JPG",
+
+    title:
+        "Nächster Coup! Schwartzer holt Aleix Garcia für 41 Mio. €",
+
+    text:
+        "Schwartzer legt auf dem Transfermarkt nach: Aleix Garcia wechselt für 41 Mio. € von Malik zu Schwartzer. Nach Amiri folgt damit bereits der nächste namhafte Neuzugang in Qualifikation B."
+},
+
+{
+    date: "2026-08-22",
+
+    managerId:
         "ben",
 
     player:
