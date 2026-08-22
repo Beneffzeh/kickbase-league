@@ -485,7 +485,7 @@ const leagueData = {
         "Qualifikation B",
 
     image:
-    "/kickbase-league/news-kimmich.PNG?v=2",
+    "/kickbase-league/news-kimmich2.PNG",
 
     title:
         "ERSTER BIG BOY VOM MARKT! Ben schnappt sich Kimmich für 65,2 Mio. €",
