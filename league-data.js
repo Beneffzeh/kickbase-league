@@ -469,6 +469,31 @@ const leagueData = {
 
     newsTransfers: [
 
+{
+    date: "2026-08-22",
+
+    managerId:
+        "ben",
+
+    player:
+        "Joshua Kimmich",
+
+    price:
+        65200000,
+
+    league:
+        "Qualifikation B",
+
+    image:
+        "/kickbase-league/news-kimmich.PNG",
+
+    title:
+        "ERSTER BIG BOY VOM MARKT! Ben schnappt sich Kimmich für 65,2 Mio. €",
+
+    text:
+        "Der erste ganz große Transfer der Saison ist perfekt: Ben sichert sich Joshua Kimmich für satte 65,2 Mio. €. Damit ist der erste Big Boy vom Markt – und in Qualifikation B setzt Ben früh ein deutliches Ausrufezeichen."
+},
+
         {
             date: "2026-08-21",
 
