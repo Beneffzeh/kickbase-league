@@ -468,6 +468,30 @@ const leagueData = {
     */
 
     newsTransfers: [
+{
+    date: "2026-08-24",
+
+    managerId:
+        "tobsen",
+
+    player:
+        "Luiz Díaz",
+
+    price:
+        61000000,
+
+    league:
+        "Qualifikation A",
+
+    image:
+        "/kickbase-league/news-diaz.PNG",
+
+    title:
+        "NÄCHSTER BIG BOY WEG! Tobsen schnappt sich Luiz Díaz für 61 Mio. €",
+
+    text:
+        "Der nächste Hochkaräter ist vom Markt: Tobsen verpflichtet Luiz Díaz für satte 61 Mio. €. Damit landet einer der teuersten Spieler der Quali A bei Tobsen."
+},
 
 {
     date: "2026-08-22",
