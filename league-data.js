@@ -510,7 +510,7 @@ newsTransfers: [
             "Qualifikation A",
 
         image:
-            "/kickbase-league/news-kane.PNG",
+            "/kickbase-league/news-kane.JPG",
 
         title:
             "NEUER TOP-TRANSFER! Enrico zahlt 77 Mio. € für Harry Kane",
@@ -562,7 +562,7 @@ newsTransfers: [
             "Qualifikation B",
 
         image:
-            "/kickbase-league/news-garcia.PNG",
+            "/kickbase-league/news-garcia.JPG",
 
         title:
             "Nächster Coup! Schwartzer holt Aleix Garcia für 41 Mio. €",
@@ -588,7 +588,7 @@ newsTransfers: [
             "Qualifikation B",
 
         image:
-            "/kickbase-league/news-kimmich.PNG",
+            "/kickbase-league/news-kimmich2.PNG",
 
         title:
             "ERSTER BIG BOY VOM MARKT! Ben schnappt sich Kimmich für 65,2 Mio. €",
@@ -670,7 +670,7 @@ manualNews: [
             "circle-alert",
 
         image:
-            "/kickbase-league/news-kane.PNG",
+            "/kickbase-league/news-kane.JPG",
 
         title:
             "KURIOSES IN QUALI B: Niemand will Harry Kane!",
