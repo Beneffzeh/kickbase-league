@@ -468,7 +468,31 @@ const leagueData = {
     */
 
     newsTransfers: [
-{
+ {
+    date: "2026-08-25",
+
+    managerId:
+        "enrico",
+
+    player:
+        "Harry Kane",
+
+    price:
+        77000000,
+
+    league:
+        "Qualifikation A",
+
+    image:
+        "/kickbase-league/news-kane.JPG",
+
+    title:
+        "NEUER TOP-TRANSFER! Enrico zahlt 77 Mio. € für Harry Kane",
+
+    text:
+        "Der bisher größte Deal der Saison ist perfekt: Enrico sichert sich Harry Kane für gewaltige 77 Mio. €. Damit löst der Kane-Transfer Kimmich als bisherigen Top-Deal ab und setzt in Qualifikation A eine neue Bestmarke."
+},
+ {
     date: "2026-08-24",
 
     managerId:
@@ -607,7 +631,27 @@ const leagueData = {
     */
 
     manualNews: []
+{
+    date: "2026-08-25",
 
+    type:
+        "TRANSFERMARKT",
+
+    icon:
+        "circle-alert",
+
+    image:
+        "/kickbase-league/news-kane.PNG",
+
+    title:
+        "KURIOSES IN QUALI B: Niemand will Harry Kane!",
+
+    text:
+        "Damit hätte wohl niemand gerechnet: Harry Kane läuft in Qualifikation B tatsächlich ohne Gebot aus und findet keinen Besitzer. Einer der größten Stars der Liga bleibt damit vorerst auf dem Transfermarkt – ein äußerst ungewöhnlicher Vorgang.",
+
+    priority:
+        95
+},
 };
 
 
