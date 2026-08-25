@@ -457,203 +457,203 @@ const leagueData = {
 
 
     /*
-    =====================================
-    NEWS – TRANSFERS
-    =====================================
-
-    Neueste Meldungen werden auf der
-    News-Seite automatisch oben angezeigt.
-
-    Bilder liegen im Hauptordner.
-    */
-
-    newsTransfers: [
- {
-    date: "2026-08-25",
-
-    managerId:
-        "enrico",
-
-    player:
-        "Harry Kane",
-
-    price:
-        77000000,
-
-    league:
-        "Qualifikation A",
-
-    image:
-        "/kickbase-league/news-kane.JPG",
-
-    title:
-        "NEUER TOP-TRANSFER! Enrico zahlt 77 Mio. € für Harry Kane",
-
-    text:
-        "Der bisher größte Deal der Saison ist perfekt: Enrico sichert sich Harry Kane für gewaltige 77 Mio. €. Damit löst der Kane-Transfer Kimmich als bisherigen Top-Deal ab und setzt in Qualifikation A eine neue Bestmarke."
-},
- {
-    date: "2026-08-24",
-
-    managerId:
-        "tobsen",
-
-    player:
-        "Luiz Díaz",
-
-    price:
-        61000000,
-
-    league:
-        "Qualifikation A",
-
-    image:
-        "/kickbase-league/news-diaz.PNG",
-
-    title:
-        "NÄCHSTER BIG BOY WEG! Tobsen schnappt sich Luiz Díaz für 61 Mio. €",
-
-    text:
-        "Der nächste Hochkaräter ist vom Markt: Tobsen verpflichtet Luiz Díaz für satte 61 Mio. €. Damit landet einer der teuersten Spieler der Quali A bei Tobsen."
-},
-
-{
-    date: "2026-08-22",
-
-    managerId:
-        "schwartzer",
-
-    player:
-        "Aleix Garcia",
-
-    price:
-        41000000,
-
-    league:
-        "Qualifikation B",
-
-    image:
-        "/kickbase-league/news-garcia.JPG",
-
-    title:
-        "Nächster Coup! Schwartzer holt Aleix Garcia für 41 Mio. €",
-
-    text:
-        "Schwartzer legt auf dem Transfermarkt nach: Aleix Garcia wechselt für 41 Mio. € von Malik zu Schwartzer. Nach Amiri folgt damit bereits der nächste namhafte Neuzugang in Qualifikation B."
-},
-
-{
-    date: "2026-08-22",
-
-    managerId:
-        "ben",
-
-    player:
-        "Joshua Kimmich",
-
-    price:
-        65200000,
-
-    league:
-        "Qualifikation B",
-
-    image:
-    "/kickbase-league/news-kimmich2.PNG",
-
-    title:
-        "ERSTER BIG BOY VOM MARKT! Ben schnappt sich Kimmich für 65,2 Mio. €",
-
-    text:
-        "Der erste ganz große Transfer der Saison ist perfekt: Ben sichert sich Joshua Kimmich für satte 65,2 Mio. €. Damit ist der erste Big Boy vom Markt – und in Qualifikation B setzt Ben früh ein deutliches Ausrufezeichen."
-},
-
-        {
-            date: "2026-08-21",
-
-            managerId:
-                "nikolaj",
-
-            player:
-                "Ismael Saibari",
-
-            price:
-                37000000,
-
-            league:
-                "Qualifikation B",
-
-            image:
-                "/kickbase-league/news-saibari.PNG",
-
-            title:
-                "Nikolaj greift tief in die Tasche: Saibari kommt für 37 Mio. €",
-
-            text:
-                "Nikolaj verstärkt seinen Kader in Qualifikation B mit Ismael Saibari. Für den Angreifer werden 37 Mio. € fällig."
-        },
-
-
-        {
-            date: "2026-08-21",
-
-            managerId:
-                "schwartzer",
-
-            player:
-                "Nadiem Amiri",
-
-            price:
-                35800000,
-
-            league:
-                "Qualifikation B",
-
-            image:
-                "/kickbase-league/news-amiri.PNG",
-
-            title:
-                "Schwartzer schlägt zu: Amiri für 35,8 Mio. € verpflichtet",
-
-            text:
-                "Schwartzer setzt in Qualifikation B ein erstes Ausrufezeichen auf dem Transfermarkt und verpflichtet Nadiem Amiri für 35,8 Mio. €."
-        }
-
-    ],
-
-
     /*
-    =====================================
-    NEWS – MANUELLE SONDERMELDUNGEN
-    =====================================
+=========================================
+NEWS – TRANSFERS
+=========================================
+*/
 
-    Hier können später besondere News
-    ergänzt werden, die kein Transfer sind.
-    */
+newsTransfers: [
 
-    manualNews: []
-{
-    date: "2026-08-25",
+    {
+        date: "2026-08-25",
 
-    type:
-        "TRANSFERMARKT",
+        managerId:
+            "enrico",
 
-    icon:
-        "circle-alert",
+        player:
+            "Harry Kane",
 
-    image:
-        "/kickbase-league/news-kane.PNG",
+        price:
+            77000000,
 
-    title:
-        "KURIOSES IN QUALI B: Niemand will Harry Kane!",
+        league:
+            "Qualifikation A",
 
-    text:
-        "Damit hätte wohl niemand gerechnet: Harry Kane läuft in Qualifikation B tatsächlich ohne Gebot aus und findet keinen Besitzer. Einer der größten Stars der Liga bleibt damit vorerst auf dem Transfermarkt – ein äußerst ungewöhnlicher Vorgang.",
+        image:
+            "/kickbase-league/news-kane.PNG",
 
-    priority:
-        95
-},
-};
+        title:
+            "NEUER TOP-TRANSFER! Enrico zahlt 77 Mio. € für Harry Kane",
 
+        text:
+            "Der bisher größte Deal der Saison ist perfekt: Enrico sichert sich Harry Kane für gewaltige 77 Mio. €. Damit löst der Kane-Transfer Kimmich als bisherigen Top-Deal ab und setzt in Qualifikation A eine neue Bestmarke."
+    },
+
+
+    {
+        date: "2026-08-24",
+
+        managerId:
+            "tobsen",
+
+        player:
+            "Luiz Díaz",
+
+        price:
+            61000000,
+
+        league:
+            "Qualifikation A",
+
+        image:
+            "/kickbase-league/news-diaz.PNG",
+
+        title:
+            "NÄCHSTER BIG BOY WEG! Tobsen schnappt sich Luiz Díaz für 61 Mio. €",
+
+        text:
+            "Der nächste Hochkaräter ist vom Markt: Tobsen verpflichtet Luiz Díaz für satte 61 Mio. €. Damit landet einer der teuersten Spieler der Liga in Qualifikation A und Tobsen setzt früh ein echtes Ausrufezeichen."
+    },
+
+
+    {
+        date: "2026-08-22",
+
+        managerId:
+            "schwartzer",
+
+        player:
+            "Aleix Garcia",
+
+        price:
+            41000000,
+
+        league:
+            "Qualifikation B",
+
+        image:
+            "/kickbase-league/news-garcia.PNG",
+
+        title:
+            "Nächster Coup! Schwartzer holt Aleix Garcia für 41 Mio. €",
+
+        text:
+            "Schwartzer legt auf dem Transfermarkt nach: Aleix Garcia wechselt für 41 Mio. € von Malik zu Schwartzer. Nach Amiri folgt damit bereits der nächste namhafte Neuzugang in Qualifikation B."
+    },
+
+
+    {
+        date: "2026-08-22",
+
+        managerId:
+            "ben",
+
+        player:
+            "Joshua Kimmich",
+
+        price:
+            65200000,
+
+        league:
+            "Qualifikation B",
+
+        image:
+            "/kickbase-league/news-kimmich.PNG",
+
+        title:
+            "ERSTER BIG BOY VOM MARKT! Ben schnappt sich Kimmich für 65,2 Mio. €",
+
+        text:
+            "Der erste ganz große Transfer der Saison ist perfekt: Ben sichert sich Joshua Kimmich für satte 65,2 Mio. €. Damit ist der erste Big Boy vom Markt – und in Qualifikation B setzt Ben früh ein deutliches Ausrufezeichen."
+    },
+
+
+    {
+        date: "2026-08-21",
+
+        managerId:
+            "nikolaj",
+
+        player:
+            "Ismael Saibari",
+
+        price:
+            37000000,
+
+        league:
+            "Qualifikation B",
+
+        image:
+            "/kickbase-league/news-saibari.PNG",
+
+        title:
+            "Nikolaj greift tief in die Tasche: Saibari kommt für 37 Mio. €",
+
+        text:
+            "Nikolaj verstärkt seinen Kader in Qualifikation B mit Ismael Saibari. Für den Angreifer werden 37 Mio. € fällig."
+    },
+
+
+    {
+        date: "2026-08-21",
+
+        managerId:
+            "schwartzer",
+
+        player:
+            "Nadiem Amiri",
+
+        price:
+            35800000,
+
+        league:
+            "Qualifikation B",
+
+        image:
+            "/kickbase-league/news-amiri.PNG",
+
+        title:
+            "Schwartzer schlägt zu: Amiri für 35,8 Mio. € verpflichtet",
+
+        text:
+            "Schwartzer setzt in Qualifikation B ein erstes Ausrufezeichen auf dem Transfermarkt und verpflichtet Nadiem Amiri für 35,8 Mio. €."
+    }
+
+],
+
+
+/*
+=========================================
+NEWS – SONDERMELDUNGEN
+=========================================
+*/
+
+manualNews: [
+
+    {
+        date: "2026-08-25",
+
+        type:
+            "TRANSFERMARKT",
+
+        icon:
+            "circle-alert",
+
+        image:
+            "/kickbase-league/news-kane.PNG",
+
+        title:
+            "KURIOSES IN QUALI B: Niemand will Harry Kane!",
+
+        text:
+            "Damit hätte wohl niemand gerechnet: Harry Kane läuft in Qualifikation B tatsächlich ohne Gebot aus und findet keinen Besitzer. Einer der größten Stars der Liga bleibt damit vorerst auf dem Transfermarkt – ein äußerst ungewöhnlicher Vorgang.",
+
+        priority:
+            95
+    }
+
+]
 
 /*
 =========================================
