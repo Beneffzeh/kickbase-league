@@ -455,9 +455,38 @@ const leagueData = {
 
     },
 
+/*
+=========================================
+REKORDE
+=========================================
+*/
 
-    /*
-    /*
+records: {
+
+    highestSeasonScore: {
+        managerId: null,
+        value: 0
+    },
+
+    highestMatchdayScore: {
+        managerId: null,
+        value: 0
+    },
+
+    highestSquadValue: {
+        managerId: null,
+        value: 0
+    },
+
+    mostMatchdayWinsInSeason: {
+        managerId: null,
+        value: 0
+    }
+
+},
+
+
+/*
 =========================================
 NEWS – TRANSFERS
 =========================================
@@ -655,6 +684,8 @@ manualNews: [
 
 ]
 
+};
+ 
 /*
 =========================================
 STANDARD-MANAGER
