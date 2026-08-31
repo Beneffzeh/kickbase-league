@@ -76,7 +76,7 @@ const predictionConfig = {
     Liga-Durchschnitt zurückgezogen.
     */
 
-    fullConfidenceAfter: 5,
+    fullConfidenceAfter: 10,
 
 
     /*
@@ -87,7 +87,7 @@ const predictionConfig = {
     nicht unrealistisch starr.
     */
 
-    minimumDeviation: 180
+    minimumDeviation: 250
 
 };
 
@@ -1130,13 +1130,20 @@ function getPredictionExpectedScore(
     */
 
 
-    const confidence =
-        Math.min(
-            1,
-            scores.length /
-            predictionConfig
-                .fullConfidenceAfter
-        );
+    const confidenceProgress =
+    Math.min(
+        1,
+        scores.length /
+        predictionConfig
+            .fullConfidenceAfter
+    );
+
+
+const confidence =
+    Math.pow(
+        confidenceProgress,
+        2
+    );
 
 
     /*
