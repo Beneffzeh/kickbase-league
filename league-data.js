@@ -198,36 +198,36 @@ const leagueData = {
 
     qualificationMatchdays: [
 
-        {
-            matchday: 1,
+    {
+        matchday: 1,
 
-            scores: {
+        scores: {
 
-                tim: 0,
-                tobsen: 0,
-                enrico: 0,
-                bruno: 0,
-                nils: 0,
-                sauer: 0,
-                marcel: 0,
-                reichi: 0,
-                messe: 0,
+            tim: 682,
+            tobsen: 1012,
+            enrico: 538,
+            bruno: 1156,
+            nils: 1222,
+            sauer: 567,
+            marcel: 1141,
+            reichi: 1038,
+            messe: 1022,
 
-                schwartzer: 0,
-                janis: 0,
-                heiko: 0,
-                marco: 0,
-                malik: 0,
-                nikolaj: 0,
-                ben: 0,
-                philipp: 0,
-                fabio: 0
-
-            }
+            schwartzer: 764,
+            janis: 1152,
+            heiko: 815,
+            marco: 694,
+            malik: 947,
+            nikolaj: 648,
+            ben: 784,
+            philipp: 844,
+            fabio: 827
 
         }
 
-    ],
+    }
+
+],
 
 
     /*
