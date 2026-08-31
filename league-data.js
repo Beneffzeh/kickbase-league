@@ -498,6 +498,31 @@ newsTransfers: [
     date: "2026-08-31",
 
     managerId:
+        "reichi",
+
+    player:
+        "Michael Olise",
+
+    price:
+        76800000,
+
+    league:
+        "Qualifikation A",
+
+    image:
+        "/kickbase-league/news-olise.JPG",
+
+    title:
+        "76,8 MIO.! Reichi schnappt sich Olise im Mega-Deal",
+
+    text:
+        "Der nächste Mega-Transfer ist perfekt: Reichi verpflichtet Michael Olise für satte 76,8 Mio. € in Qualifikation A. Damit ist Olise nur knapp hinter Harry Kane der zweitteuerste Transfer der bisherigen Saison."
+},
+
+{
+    date: "2026-08-31",
+
+    managerId:
         "janis",
 
     player:
