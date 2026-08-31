@@ -2241,9 +2241,10 @@ function createAutomaticManagerNews() {
 /*
 =========================================
 WEITERE NEWS
+NEUESTE NEWS AUTOMATISCH OBEN
+MAXIMAL 8 MELDUNGEN
 =========================================
 */
-
 
 function renderNewsFeed() {
 
@@ -2264,23 +2265,9 @@ function renderNewsFeed() {
 
     /*
     =====================================
-    MANUELLE TRANSFER-NEWS
+    TRANSFER-NEWS
     =====================================
-
-    Später können wir in league-data.js
-    zum Beispiel eintragen:
-
-    newsTransfers: [
-        {
-            managerId: "ben",
-            player: "Harry Kane",
-            price: 42000000,
-            image: "/kickbase-league/news/kane.jpg",
-            text: "Ein echter Statement-Transfer."
-        }
-    ]
     */
-
 
     if (
         Array.isArray(
@@ -2293,15 +2280,43 @@ function renderNewsFeed() {
             .forEach(
                 transfer => {
 
-                    const manager =
-                        getNewsManagerById(
-                            transfer.managerId
-                        );
+                    let manager =
+                        null;
 
 
                     if (
-                        !manager
+                        transfer.managerId
                     ) {
+
+                        manager =
+                            getNewsManagerById(
+                                transfer.managerId
+                            );
+
+                    }
+
+
+                    if (
+                        !manager &&
+                        transfer.managerName
+                    ) {
+
+                        manager =
+                            leagueData.managers.find(
+                                item =>
+                                    item.name
+                                        .toLowerCase()
+                                    ===
+                                    String(
+                                        transfer.managerName
+                                    )
+                                        .toLowerCase()
+                            );
+
+                    }
+
+
+                    if (!manager) {
                         return;
                     }
 
@@ -2310,6 +2325,11 @@ function renderNewsFeed() {
                         Number(
                             transfer.price
                         ) || 0;
+
+
+                    const leagueLabel =
+                        transfer.league ||
+                        "";
 
 
                     newsItems.push({
@@ -2323,15 +2343,20 @@ function renderNewsFeed() {
                         image:
                             transfer.image || "",
 
+                        date:
+                            transfer.date || "",
+
                         title:
                             transfer.title
                             ||
-                            `${manager.name} verpflichtet ${transfer.player || "einen neuen Spieler"}${price > 0 ? ` für ${formatNewsMillionPrice(price)}` : ""}`,
+                            `${manager.name} schlägt zu: ${transfer.player || "Neuzugang"} kommt für ${formatNewsMillionPrice(price)}`,
 
                         text:
                             transfer.text
                             ||
-                            "Ein neuer Transfer sorgt für Gesprächsstoff in der Kickbase League.",
+                            `${transfer.player || "Der Neuzugang"} wechselt für ${formatNewsMillionPrice(
+                                price
+                            )} zu ${manager.name}${leagueLabel ? ` in ${leagueLabel}` : ""}.`,
 
                         priority:
                             90
@@ -2349,7 +2374,6 @@ function renderNewsFeed() {
     MANUELLE SONDERNEWS
     =====================================
     */
-
 
     if (
         Array.isArray(
@@ -2374,6 +2398,10 @@ function renderNewsFeed() {
 
                         image:
                             item.image ||
+                            "",
+
+                        date:
+                            item.date ||
                             "",
 
                         title:
@@ -2403,7 +2431,6 @@ function renderNewsFeed() {
     =====================================
     */
 
-
     const cupStory =
         getNewsAutomaticCupStory();
 
@@ -2412,9 +2439,15 @@ function renderNewsFeed() {
         cupStory
     ) {
 
-        newsItems.push(
-            cupStory
-        );
+        newsItems.push({
+
+            ...cupStory,
+
+            date:
+                cupStory.date ||
+                ""
+
+        });
 
     }
 
@@ -2424,20 +2457,75 @@ function renderNewsFeed() {
     ) {
 
         return;
-
     }
 
 
+    /*
+    =====================================
+    SORTIERUNG
+
+    1. Neueste Meldung zuerst
+    2. Bei gleichem Datum Priorität
+    =====================================
+    */
+
+    newsItems.sort(
+        (
+            itemA,
+            itemB
+        ) => {
+
+            const dateA =
+                itemA.date
+                    ?
+                    new Date(
+                        itemA.date
+                    ).getTime()
+                    :
+                    0;
+
+
+            const dateB =
+                itemB.date
+                    ?
+                    new Date(
+                        itemB.date
+                    ).getTime()
+                    :
+                    0;
+
+
+            if (
+                dateB !== dateA
+            ) {
+
+                return dateB - dateA;
+
+            }
+
+
+            return (
+                Number(
+                    itemB.priority
+                ) || 0
+            )
+            -
+            (
+                Number(
+                    itemA.priority
+                ) || 0
+            );
+
+        }
+    );
+
+
+    /*
+    NUR DIE NEUESTEN 8 MELDUNGEN
+    */
+
     container.innerHTML =
         newsItems
-            .sort(
-                (
-                    a,
-                    b
-                ) =>
-                    b.priority -
-                    a.priority
-            )
             .slice(
                 0,
                 8
@@ -2461,7 +2549,6 @@ function renderNewsFeed() {
 NEWSFEED ITEM
 =========================================
 */
-
 
 function createNewsFeedItem(
     item
@@ -2540,7 +2627,6 @@ PROGNOSE UPDATE
 =========================================
 */
 
-
 function renderNewsPredictionUpdate() {
 
     const phase =
@@ -2569,7 +2655,6 @@ function renderNewsPredictionUpdate() {
 QUALI PROGNOSE
 =========================================
 */
-
 
 function renderNewsQualificationPrediction() {
 
@@ -2708,16 +2793,6 @@ function renderNewsQualificationPrediction() {
     );
 
 
-    /*
-    Für die Veränderung brauchen wir
-    mindestens zwei echte Spieltage.
-
-    Solange noch keine belastbare
-    Veränderung berechnet werden kann,
-    nutzen wir die Tabellenbewegung
-    als Trendindikator.
-    */
-
     renderNewsPredictionMoversFromTable();
 
 }
@@ -2728,7 +2803,6 @@ function renderNewsQualificationPrediction() {
 HAUPTRUNDEN PROGNOSE
 =========================================
 */
-
 
 function renderNewsMainRoundPrediction() {
 
@@ -2882,17 +2956,8 @@ function renderNewsMainRoundPrediction() {
 /*
 =========================================
 PROGNOSE-TREND
-
-Bis wir historische Prognosewerte
-speichern, nutzen wir die tatsächliche
-Tabellenbewegung als automatischen
-Trendindikator.
-
-Dadurch bleibt die Seite komplett
-wartungsarm.
 =========================================
 */
-
 
 function renderNewsPredictionMoversFromTable() {
 
@@ -3001,7 +3066,6 @@ POKAL NEWS
 =========================================
 */
 
-
 function renderNewsCup() {
 
     const story =
@@ -3032,7 +3096,6 @@ function renderNewsCup() {
 AUTOMATISCHE POKALSTORY
 =========================================
 */
-
 
 function getNewsAutomaticCupStory() {
 
@@ -3093,12 +3156,6 @@ function getNewsAutomaticCupStory() {
 
     ];
 
-
-    /*
-    Als erstes schauen wir,
-    welche Pokalrunde zuletzt
-    stattgefunden hat.
-    */
 
     for (
         const round of rounds
@@ -3162,10 +3219,6 @@ function getNewsAutomaticCupStory() {
 
     }
 
-
-    /*
-    Nächste Pokalrunde ankündigen.
-    */
 
     const futureRounds = [
 
@@ -3279,7 +3332,6 @@ AKTUELLER BUNDESLIGA-SPIELTAG
 =========================================
 */
 
-
 function getNewsCurrentBundesligaMatchday() {
 
     const phase =
@@ -3306,12 +3358,6 @@ function getNewsCurrentBundesligaMatchday() {
         );
 
 
-    /*
-    Wenn die Hauptphase mit
-    Spieltag 1–20 gepflegt wird:
-    +14 ergibt Bundesliga-Spieltag.
-    */
-
     if (
         latest > 0 &&
         latest <= 20
@@ -3332,7 +3378,6 @@ function getNewsCurrentBundesligaMatchday() {
 BESTE FORM
 =========================================
 */
-
 
 function getNewsBestFormManager(
     managers,
@@ -3436,7 +3481,6 @@ QUALI RANKING
 =========================================
 */
 
-
 function getNewsQualificationRanking(
     groupName
 ) {
@@ -3490,7 +3534,6 @@ function getNewsQualificationRanking(
 HAUPTRUNDEN RANKING
 =========================================
 */
-
 
 function getNewsMainRoundRanking(
     leagueName
@@ -3546,7 +3589,6 @@ MANAGER EINER COMPETITION
 =========================================
 */
 
-
 function getNewsCompetitionManagers(
     type,
     name
@@ -3585,7 +3627,6 @@ SPIELTAGE EINER COMPETITION
 =========================================
 */
 
-
 function getNewsCompetitionMatchdays(
     type
 ) {
@@ -3612,7 +3653,6 @@ function getNewsCompetitionMatchdays(
 ECHTE SPIELTAGE
 =========================================
 */
-
 
 function getNewsRealMatchdays(
     matchdays,
@@ -3661,7 +3701,6 @@ function getNewsRealMatchdays(
 TABELLE NACH X SPIELTAGEN
 =========================================
 */
-
 
 function calculateNewsStandingsAtMatchday(
     managers,
@@ -3788,7 +3827,6 @@ MANAGER SUCHEN
 =========================================
 */
 
-
 function getNewsManagerById(
     managerId
 ) {
@@ -3807,7 +3845,6 @@ function getNewsManagerById(
 PREIS FORMATIEREN
 =========================================
 */
-
 
 function formatNewsMillionPrice(
     value
@@ -3848,7 +3885,6 @@ ZAHL FORMATIEREN
 =========================================
 */
 
-
 function formatNewsNumber(
     value
 ) {
@@ -3867,7 +3903,6 @@ function formatNewsNumber(
 PROZENT FORMATIEREN
 =========================================
 */
-
 
 function formatNewsPercentage(
     value
@@ -3898,7 +3933,6 @@ TEXT SETZEN
 =========================================
 */
 
-
 function setNewsText(
     elementId,
     value
@@ -3927,7 +3961,6 @@ function setNewsText(
 ICON SETZEN
 =========================================
 */
-
 
 function setNewsLucideIcon(
     elementId,
@@ -3961,7 +3994,6 @@ function setNewsLucideIcon(
 HTML ABSICHERN
 =========================================
 */
-
 
 function escapeNewsHTML(
     value
@@ -4002,7 +4034,6 @@ function escapeNewsHTML(
 ICONS
 =========================================
 */
-
 
 function refreshNewsIcons() {
 

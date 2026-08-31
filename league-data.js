@@ -703,8 +703,6 @@ manualNews: [
         text:
             "Damit hätte wohl niemand gerechnet: Harry Kane läuft in Qualifikation B tatsächlich ohne Gebot aus und findet keinen Besitzer. Einer der größten Stars der Liga bleibt damit vorerst auf dem Transfermarkt – ein äußerst ungewöhnlicher Vorgang.",
 
-        priority:
-            95
     }
 
 ]
