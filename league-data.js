@@ -494,6 +494,31 @@ NEWS – TRANSFERS
 
 newsTransfers: [
 
+{
+    date: "2026-08-31",
+
+    managerId:
+        "janis",
+
+    player:
+        "Luiz Díaz",
+
+    price:
+        56000000,
+
+    league:
+        "Qualifikation B",
+
+    image:
+        "/kickbase-league/news-diaz.PNG",
+
+    title:
+        "NACH SPIELTAG 1: Janis schnappt sich Luiz Díaz für 56 Mio. €",
+
+    text:
+        "Nach dem 1. Spieltag schlägt Janis auf dem Transfermarkt zu: Luiz Díaz wechselt für satte 56 Mio. € zu Janis in Qualifikation B. Ein echtes Statement direkt nach dem Saisonauftakt."
+},
+
     {
         date: "2026-08-25",
 
