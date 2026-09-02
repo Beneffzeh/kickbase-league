@@ -34665,3 +34665,887 @@ body.news-page {
     }
 
 }
+
+/* =========================================================
+   LEGENDEN – LP-AUFSCHLÜSSELUNG
+========================================================= */
+
+.legend-breakdown-wrapper {
+    width: 100%;
+    margin-top: 18px;
+    border-radius: 18px;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.02)
+        );
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.03);
+}
+
+
+
+/* =========================================================
+   AUFKLAPP-BUTTON
+========================================================= */
+
+.legend-breakdown-toggle {
+    width: 100%;
+    min-height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+
+    padding: 14px 16px;
+
+    border: 0;
+    outline: none;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    transition:
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.legend-breakdown-toggle:hover {
+    background:
+        rgba(255, 255, 255, 0.05);
+}
+
+
+.legend-breakdown-toggle:focus-visible {
+    box-shadow:
+        inset 0 0 0 2px
+        rgba(24, 197, 91, 0.7);
+}
+
+
+
+/* =========================================================
+   BUTTON LINKS
+========================================================= */
+
+.legend-breakdown-toggle-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    min-width: 0;
+}
+
+
+.legend-breakdown-toggle-left > svg {
+    width: 18px;
+    height: 18px;
+
+    flex-shrink: 0;
+
+    stroke-width: 2;
+
+    color: #18c55b;
+}
+
+
+.legend-breakdown-toggle-left > span {
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+
+    color:
+        rgba(255, 255, 255, 0.9);
+}
+
+
+
+/* =========================================================
+   BUTTON RECHTS
+========================================================= */
+
+.legend-breakdown-toggle-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+
+    flex-shrink: 0;
+}
+
+
+.legend-breakdown-toggle-right strong {
+    font-size: 0.86rem;
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    color: #18c55b;
+}
+
+
+.legend-breakdown-chevron {
+    width: 17px;
+    height: 17px;
+
+    color:
+        rgba(255, 255, 255, 0.55);
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.legend-breakdown-toggle-open
+.legend-breakdown-chevron {
+    transform:
+        rotate(180deg);
+
+    color: #18c55b;
+}
+
+
+
+/* =========================================================
+   AUFGEKLAPPTER BEREICH
+========================================================= */
+
+.legend-breakdown-panel {
+    padding:
+        4px
+        14px
+        15px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.12),
+            rgba(0, 0, 0, 0.24)
+        );
+}
+
+
+.legend-breakdown-panel[hidden] {
+    display: none;
+}
+
+
+
+/* =========================================================
+   EINZELNE BEREICHE
+========================================================= */
+
+.legend-breakdown-section {
+    padding-top: 16px;
+}
+
+
+.legend-breakdown-section +
+.legend-breakdown-section {
+    margin-top: 4px;
+    padding-top: 18px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+}
+
+
+
+/* =========================================================
+   BEREICHSÜBERSCHRIFT
+========================================================= */
+
+.legend-breakdown-section-title {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+
+.legend-breakdown-section-title span {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 5px 9px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(24, 197, 91, 0.09);
+
+    border:
+        1px solid
+        rgba(24, 197, 91, 0.16);
+
+    color: #18c55b;
+
+    font-size: 0.68rem;
+    font-weight: 800;
+
+    letter-spacing: 0.075em;
+
+    text-transform: uppercase;
+}
+
+
+
+/* =========================================================
+   LISTE
+========================================================= */
+
+.legend-breakdown-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+
+/* =========================================================
+   EINZELNE LP-POSITION
+========================================================= */
+
+.legend-breakdown-item {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        36px
+        minmax(0, 1fr)
+        auto;
+
+    align-items: center;
+
+    gap: 10px;
+
+    min-height: 58px;
+
+    padding: 10px 11px;
+
+    border-radius: 13px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.055);
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.legend-breakdown-item:hover {
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    border-color:
+        rgba(255, 255, 255, 0.09);
+
+    transform:
+        translateY(-1px);
+}
+
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.legend-breakdown-item-icon {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background:
+        rgba(24, 197, 91, 0.08);
+
+    border:
+        1px solid
+        rgba(24, 197, 91, 0.13);
+}
+
+
+.legend-breakdown-item-icon svg {
+    width: 16px;
+    height: 16px;
+
+    color: #18c55b;
+
+    stroke-width: 2;
+}
+
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.legend-breakdown-item-content {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+
+.legend-breakdown-item-content strong {
+    overflow: hidden;
+
+    font-size: 0.82rem;
+    font-weight: 750;
+
+    line-height: 1.25;
+
+    color:
+        rgba(255, 255, 255, 0.94);
+
+    text-overflow: ellipsis;
+}
+
+
+.legend-breakdown-item-content span {
+    font-size: 0.72rem;
+    font-weight: 500;
+
+    line-height: 1.35;
+
+    color:
+        rgba(255, 255, 255, 0.5);
+}
+
+
+
+/* =========================================================
+   LP-ANZEIGE
+========================================================= */
+
+.legend-breakdown-points {
+    min-width: 54px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 9px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(24, 197, 91, 0.09);
+
+    border:
+        1px solid
+        rgba(24, 197, 91, 0.16);
+
+    color: #18c55b;
+
+    font-size: 0.73rem;
+    font-weight: 850;
+
+    white-space: nowrap;
+}
+
+
+
+/* =========================================================
+   BASIS-LP BEI KREISLIGA
+========================================================= */
+
+.legend-breakdown-base {
+    min-width: 52px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 8px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    color:
+        rgba(255, 255, 255, 0.45);
+
+    font-size: 0.67rem;
+    font-weight: 750;
+
+    letter-spacing: 0.035em;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+
+
+/* =========================================================
+   KREISLIGA-GESAMTWERT
+========================================================= */
+
+.legend-breakdown-item-total {
+    margin-top: 3px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(24, 197, 91, 0.075),
+            rgba(24, 197, 91, 0.025)
+        );
+
+    border-color:
+        rgba(24, 197, 91, 0.18);
+}
+
+
+.legend-breakdown-item-total
+.legend-breakdown-item-icon {
+    background:
+        rgba(24, 197, 91, 0.13);
+
+    border-color:
+        rgba(24, 197, 91, 0.2);
+}
+
+
+.legend-breakdown-points-total {
+    background:
+        rgba(24, 197, 91, 0.14);
+
+    border-color:
+        rgba(24, 197, 91, 0.25);
+}
+
+
+
+/* =========================================================
+   GESAMTSUMME
+========================================================= */
+
+.legend-breakdown-grand-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-top: 16px;
+
+    padding: 15px 14px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(24, 197, 91, 0.12),
+            rgba(24, 197, 91, 0.035)
+        );
+
+    border:
+        1px solid
+        rgba(24, 197, 91, 0.2);
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.035);
+}
+
+
+.legend-breakdown-grand-total > div {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+
+.legend-breakdown-grand-total span {
+    font-size: 0.81rem;
+    font-weight: 800;
+
+    color:
+        rgba(255, 255, 255, 0.94);
+}
+
+
+.legend-breakdown-grand-total small {
+    font-size: 0.68rem;
+    font-weight: 500;
+
+    color:
+        rgba(255, 255, 255, 0.45);
+}
+
+
+.legend-breakdown-grand-total > strong {
+    flex-shrink: 0;
+
+    font-size: 1rem;
+    font-weight: 900;
+
+    color: #18c55b;
+}
+
+
+
+/* =========================================================
+   NOCH KEINE LP
+========================================================= */
+
+.legend-breakdown-empty {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 12px;
+
+    padding: 14px;
+
+    border-radius: 13px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.055);
+}
+
+
+.legend-breakdown-empty > svg {
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+
+    color:
+        rgba(255, 255, 255, 0.35);
+}
+
+
+.legend-breakdown-empty > div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+
+.legend-breakdown-empty strong {
+    font-size: 0.8rem;
+    font-weight: 750;
+
+    color:
+        rgba(255, 255, 255, 0.82);
+}
+
+
+.legend-breakdown-empty span {
+    font-size: 0.7rem;
+    line-height: 1.35;
+
+    color:
+        rgba(255, 255, 255, 0.43);
+}
+
+
+
+/* =========================================================
+   PROFIL-LINK
+========================================================= */
+
+.legend-profile-link {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+.legend-profile-link span {
+    color:
+        rgba(255, 255, 255, 0.64);
+
+    transition:
+        color 0.2s ease;
+}
+
+
+.legend-profile-link svg {
+    width: 17px;
+    height: 17px;
+
+    color:
+        rgba(255, 255, 255, 0.4);
+
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.legend-profile-link:hover span {
+    color: #ffffff;
+}
+
+
+.legend-profile-link:hover svg {
+    color: #18c55b;
+
+    transform:
+        translateX(3px);
+}
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media
+(max-width: 600px) {
+
+    .legend-breakdown-wrapper {
+        margin-top: 15px;
+
+        border-radius: 16px;
+    }
+
+
+    .legend-breakdown-toggle {
+        min-height: 55px;
+
+        padding:
+            13px
+            13px;
+    }
+
+
+    .legend-breakdown-toggle-left {
+        gap: 8px;
+    }
+
+
+    .legend-breakdown-toggle-left > svg {
+        width: 17px;
+        height: 17px;
+    }
+
+
+    .legend-breakdown-toggle-left > span {
+        font-size: 0.8rem;
+    }
+
+
+    .legend-breakdown-toggle-right {
+        gap: 6px;
+    }
+
+
+    .legend-breakdown-toggle-right strong {
+        font-size: 0.78rem;
+    }
+
+
+    .legend-breakdown-panel {
+        padding:
+            3px
+            10px
+            12px;
+    }
+
+
+    .legend-breakdown-section {
+        padding-top: 13px;
+    }
+
+
+    .legend-breakdown-section-title {
+        margin-bottom: 8px;
+    }
+
+
+    .legend-breakdown-section-title span {
+        font-size: 0.62rem;
+
+        padding:
+            4px
+            8px;
+    }
+
+
+    .legend-breakdown-item {
+        grid-template-columns:
+            32px
+            minmax(0, 1fr)
+            auto;
+
+        gap: 8px;
+
+        min-height: 54px;
+
+        padding:
+            9px
+            9px;
+
+        border-radius: 12px;
+    }
+
+
+    .legend-breakdown-item-icon {
+        width: 31px;
+        height: 31px;
+
+        border-radius: 9px;
+    }
+
+
+    .legend-breakdown-item-icon svg {
+        width: 15px;
+        height: 15px;
+    }
+
+
+    .legend-breakdown-item-content strong {
+        font-size: 0.76rem;
+    }
+
+
+    .legend-breakdown-item-content span {
+        font-size: 0.66rem;
+    }
+
+
+    .legend-breakdown-points {
+        min-width: 49px;
+
+        padding:
+            6px
+            7px;
+
+        font-size: 0.67rem;
+    }
+
+
+    .legend-breakdown-base {
+        min-width: 46px;
+
+        padding:
+            6px
+            6px;
+
+        font-size: 0.6rem;
+    }
+
+
+    .legend-breakdown-grand-total {
+        margin-top: 13px;
+
+        padding:
+            13px
+            11px;
+    }
+
+
+    .legend-breakdown-grand-total span {
+        font-size: 0.76rem;
+    }
+
+
+    .legend-breakdown-grand-total small {
+        font-size: 0.63rem;
+    }
+
+
+    .legend-breakdown-grand-total > strong {
+        font-size: 0.9rem;
+    }
+
+}
+
+
+
+/* =========================================================
+   SEHR KLEINE HANDYS
+========================================================= */
+
+@media
+(max-width: 380px) {
+
+    .legend-breakdown-toggle-left > span {
+        font-size: 0.75rem;
+    }
+
+
+    .legend-breakdown-toggle-right strong {
+        font-size: 0.72rem;
+    }
+
+
+    .legend-breakdown-item {
+        grid-template-columns:
+            30px
+            minmax(0, 1fr);
+    }
+
+
+    .legend-breakdown-points,
+    .legend-breakdown-base {
+        grid-column: 2;
+
+        justify-self: start;
+
+        margin-top: 3px;
+    }
+
+}
