@@ -86,7 +86,7 @@ const LEGEND_RULES = {
 
     records: {
 
-        highestSeasonScore: 10,
+        highestSeasonScore: 5,
 
         highestMatchdayScore: 5,
 
@@ -455,6 +455,64 @@ function calculateRecordPoints(
             recordData
         ]) => {
 
+
+            if (
+                !recordData ||
+                !LEGEND_RULES.records[
+                    recordName
+                ]
+            ) {
+
+                return;
+
+            }
+
+
+            const managerIds =
+
+                Array.isArray(
+                    recordData.managerIds
+                )
+
+                    ? recordData.managerIds
+
+                    : recordData.managerId
+                        ? [recordData.managerId]
+                        : [];
+
+
+            if (
+                managerIds.includes(
+                    manager.id
+                )
+            ) {
+
+                points +=
+                    LEGEND_RULES.records[
+                        recordName
+                    ];
+
+            }
+
+        }
+
+    );
+
+
+    return points;
+
+}
+
+
+    Object.entries(
+        leagueData.records
+    ).forEach(
+
+        ([
+            recordName,
+            recordData
+        ]) => {
+
             if (
                 recordData &&
                 recordData.managerId ===
@@ -519,10 +577,103 @@ function getLegendPointBreakdown(
     );
 
 
-    addRecordBreakdown(
-        manager,
-        breakdown
+    function addRecordBreakdown(
+    manager,
+    breakdown
+) {
+
+    if (
+        typeof leagueData === "undefined" ||
+        !leagueData.records
+    ) {
+
+        return;
+
+    }
+
+
+    Object.entries(
+        leagueData.records
+    ).forEach(
+
+        ([
+            recordName,
+            recordData
+        ]) => {
+
+
+            const recordPoints =
+
+                LEGEND_RULES.records[
+                    recordName
+                ];
+
+
+            if (
+                !recordData ||
+                !recordPoints
+            ) {
+
+                return;
+
+            }
+
+
+            const managerIds =
+
+                Array.isArray(
+                    recordData.managerIds
+                )
+
+                    ? recordData.managerIds
+
+                    : recordData.managerId
+                        ? [recordData.managerId]
+                        : [];
+
+
+            if (
+                !managerIds.includes(
+                    manager.id
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            breakdown.push({
+
+                section:
+                    "Rekorde",
+
+                icon:
+                    "medal",
+
+                title:
+                    getRecordLabel(
+                        recordName
+                    ),
+
+                detail:
+                    managerIds.length > 1
+                        ? "Geteilter Rekordhalter"
+                        : "Aktueller Rekordhalter",
+
+                points:
+                    recordPoints,
+
+                counted:
+                    true
+
+            });
+
+        }
+
     );
+
+}
 
 
     return breakdown;

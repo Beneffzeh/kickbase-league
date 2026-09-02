@@ -1017,11 +1017,53 @@ function getPrimaryAward(
     }
 
 
+   function isRecordHolder(
+    manager
+) {
+
     if (
-        isRecordHolder(
-            manager
-        )
+        typeof leagueData ===
+            "undefined" ||
+        !leagueData.records
     ) {
+
+        return false;
+
+    }
+
+
+    return Object.values(
+        leagueData.records
+    ).some(record => {
+
+
+        if (!record) {
+
+            return false;
+
+        }
+
+
+        const managerIds =
+
+            Array.isArray(
+                record.managerIds
+            )
+
+                ? record.managerIds
+
+                : record.managerId
+                    ? [record.managerId]
+                    : [];
+
+
+        return managerIds.includes(
+            manager.id
+        );
+
+    });
+
+}
 
         return {
 

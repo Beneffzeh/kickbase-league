@@ -425,36 +425,6 @@ const leagueData = {
     },
 
 
-    /*
-    =====================================
-    REKORDE
-    =====================================
-    */
-
-    records: {
-
-        highestSeasonScore: {
-            managerId: null,
-            value: 0
-        },
-
-        highestMatchdayScore: {
-            managerId: null,
-            value: 0
-        },
-
-        highestSquadValue: {
-            managerId: null,
-            value: 0
-        },
-
-        mostMatchdayWinsInSeason: {
-            managerId: null,
-            value: 0
-        }
-
-    },
-
 /*
 =========================================
 REKORDE
@@ -464,22 +434,22 @@ REKORDE
 records: {
 
     highestSeasonScore: {
-        managerId: null,
+        managerIds: [],
         value: 0
     },
 
     highestMatchdayScore: {
-        managerId: null,
+        managerIds: [],
         value: 0
     },
 
     highestSquadValue: {
-        managerId: null,
+        managerIds: [],
         value: 0
     },
 
     mostMatchdayWinsInSeason: {
-        managerId: null,
+        managerIds: [],
         value: 0
     }
 
