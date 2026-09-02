@@ -109,93 +109,52 @@ RANGSYSTEM
 const LEGEND_RANKS = [
 
     {
-
         name: "Legende",
-
         minimumPoints: 800,
-
         className: "rank-legend",
-
         icon: "crown"
-
     },
 
-
     {
-
         name: "Champion",
-
         minimumPoints: 550,
-
         className: "rank-champion",
-
         icon: "trophy"
-
     },
 
-
     {
-
         name: "Elite",
-
         minimumPoints: 350,
-
         className: "rank-elite",
-
         icon: "gem"
-
     },
 
-
     {
-
         name: "Profi",
-
         minimumPoints: 200,
-
         className: "rank-professional",
-
         icon: "shield-check"
-
     },
 
-
     {
-
         name: "Amateur",
-
         minimumPoints: 100,
-
         className: "rank-amateur",
-
         icon: "shield"
-
     },
 
-
     {
-
         name: "Anwärter",
-
         minimumPoints: 40,
-
         className: "rank-contender",
-
         icon: "badge"
-
     },
 
-
     {
-
         name: "Rookie",
-
         minimumPoints: 0,
-
         className: "rank-rookie",
-
         icon: "circle-user-round"
-
     }
 
 ];
@@ -205,11 +164,9 @@ const LEGEND_RANKS = [
 function getLegendRank(legendPoints) {
 
     return LEGEND_RANKS.find(
-
         rank =>
             legendPoints >=
             rank.minimumPoints
-
     );
 
 }
@@ -228,9 +185,7 @@ function calculatePhasePoints(
 ) {
 
     if (!phase) {
-
         return 0;
-
     }
 
 
@@ -291,11 +246,8 @@ function calculateQualificationPoints(
 ) {
 
     return calculatePhasePoints(
-
         manager.qualification,
-
         "qualification"
-
     );
 
 }
@@ -323,11 +275,8 @@ function calculateMainRoundPerformance(
 
 
     return calculatePhasePoints(
-
         manager.mainRound,
-
         manager.mainRound.league
-
     );
 
 }
@@ -367,9 +316,7 @@ function calculateFinalPositionPoints(
 
 
     if (!leagueTable) {
-
         return 0;
-
     }
 
 
@@ -394,9 +341,7 @@ function calculateCupPoints(
 ) {
 
     if (!manager.cup) {
-
         return 0;
-
     }
 
 
@@ -425,7 +370,162 @@ function calculateCupPoints(
 
 /*
 =========================================
-REKORDE
+SPIELTAGSSIEGE EINER SAISON
+=========================================
+*/
+
+function getManagerSeasonMatchdayWins(
+    manager
+) {
+
+    const qualificationWins =
+
+        manager.qualification
+            ? Number(
+                manager.qualification.matchdayWins || 0
+            )
+            : 0;
+
+
+    const mainRoundWins =
+
+        manager.mainRound
+            ? Number(
+                manager.mainRound.matchdayWins || 0
+            )
+            : 0;
+
+
+    return (
+        qualificationWins +
+        mainRoundWins
+    );
+
+}
+
+
+
+/*
+=========================================
+REKORDHALTER ERMITTELN
+=========================================
+*/
+
+function getRecordHolderIds(
+    recordName,
+    recordData
+) {
+
+    /*
+    =====================================
+    MEISTE SPIELTAGSSIEGE
+
+    Dieser Rekord wird automatisch aus
+    allen Managern berechnet.
+
+    Dadurch können mehrere Manager bei
+    Gleichstand gleichzeitig Rekordhalter
+    sein.
+    =====================================
+    */
+
+    if (
+        recordName ===
+        "mostMatchdayWinsInSeason"
+    ) {
+
+        const managers =
+            leagueData.managers || [];
+
+
+        if (!managers.length) {
+            return [];
+        }
+
+
+        const highestWins =
+
+            Math.max(
+                ...managers.map(
+                    manager =>
+                        getManagerSeasonMatchdayWins(
+                            manager
+                        )
+                )
+            );
+
+
+        /*
+        Bei 0 Siegen gibt es noch keinen
+        Rekordhalter.
+        */
+
+        if (highestWins <= 0) {
+            return [];
+        }
+
+
+        return managers
+
+            .filter(
+                manager =>
+
+                    getManagerSeasonMatchdayWins(
+                        manager
+                    ) === highestWins
+            )
+
+            .map(
+                manager =>
+                    manager.id
+            );
+
+    }
+
+
+    /*
+    =====================================
+    ANDERE REKORDE
+
+    Unterstützt sowohl managerIds als
+    auch das frühere managerId-System.
+    =====================================
+    */
+
+    if (
+        recordData &&
+        Array.isArray(
+            recordData.managerIds
+        ) &&
+        recordData.managerIds.length
+    ) {
+
+        return recordData.managerIds;
+
+    }
+
+
+    if (
+        recordData &&
+        recordData.managerId
+    ) {
+
+        return [
+            recordData.managerId
+        ];
+
+    }
+
+
+    return [];
+
+}
+
+
+
+/*
+=========================================
+REKORDPUNKTE
 =========================================
 */
 
@@ -449,36 +549,30 @@ function calculateRecordPoints(
     Object.entries(
         leagueData.records
     ).forEach(
-
         ([
             recordName,
             recordData
         ]) => {
 
 
-            if (
-                !recordData ||
-                !LEGEND_RULES.records[
+            const recordPoints =
+
+                LEGEND_RULES.records[
                     recordName
-                ]
-            ) {
+                ];
 
+
+            if (!recordPoints) {
                 return;
-
             }
 
 
             const managerIds =
 
-                Array.isArray(
-                    recordData.managerIds
-                )
-
-                    ? recordData.managerIds
-
-                    : recordData.managerId
-                        ? [recordData.managerId]
-                        : [];
+                getRecordHolderIds(
+                    recordName,
+                    recordData
+                );
 
 
             if (
@@ -488,49 +582,11 @@ function calculateRecordPoints(
             ) {
 
                 points +=
-                    LEGEND_RULES.records[
-                        recordName
-                    ];
+                    recordPoints;
 
             }
 
         }
-
-    );
-
-
-    return points;
-
-}
-
-
-    Object.entries(
-        leagueData.records
-    ).forEach(
-
-        ([
-            recordName,
-            recordData
-        ]) => {
-
-            if (
-                recordData &&
-                recordData.managerId ===
-                    manager.id &&
-                LEGEND_RULES.records[
-                    recordName
-                ]
-            ) {
-
-                points +=
-                    LEGEND_RULES.records[
-                        recordName
-                    ];
-
-            }
-
-        }
-
     );
 
 
@@ -577,103 +633,10 @@ function getLegendPointBreakdown(
     );
 
 
-    function addRecordBreakdown(
-    manager,
-    breakdown
-) {
-
-    if (
-        typeof leagueData === "undefined" ||
-        !leagueData.records
-    ) {
-
-        return;
-
-    }
-
-
-    Object.entries(
-        leagueData.records
-    ).forEach(
-
-        ([
-            recordName,
-            recordData
-        ]) => {
-
-
-            const recordPoints =
-
-                LEGEND_RULES.records[
-                    recordName
-                ];
-
-
-            if (
-                !recordData ||
-                !recordPoints
-            ) {
-
-                return;
-
-            }
-
-
-            const managerIds =
-
-                Array.isArray(
-                    recordData.managerIds
-                )
-
-                    ? recordData.managerIds
-
-                    : recordData.managerId
-                        ? [recordData.managerId]
-                        : [];
-
-
-            if (
-                !managerIds.includes(
-                    manager.id
-                )
-            ) {
-
-                return;
-
-            }
-
-
-            breakdown.push({
-
-                section:
-                    "Rekorde",
-
-                icon:
-                    "medal",
-
-                title:
-                    getRecordLabel(
-                        recordName
-                    ),
-
-                detail:
-                    managerIds.length > 1
-                        ? "Geteilter Rekordhalter"
-                        : "Aktueller Rekordhalter",
-
-                points:
-                    recordPoints,
-
-                counted:
-                    true
-
-            });
-
-        }
-
+    addRecordBreakdown(
+        manager,
+        breakdown
     );
-
-}
 
 
     return breakdown;
@@ -698,9 +661,7 @@ function addQualificationBreakdown(
 
 
     if (!phase) {
-
         return;
-
     }
 
 
@@ -886,8 +847,6 @@ function addMainRoundBreakdown(
     /*
     =====================================
     CHAMPIONS LEAGUE
-    Faktor 1, daher können die einzelnen
-    LP direkt angezeigt werden.
     =====================================
     */
 
@@ -987,8 +946,6 @@ function addMainRoundBreakdown(
     /*
     =====================================
     KREISLIGA
-    Faktor 0,8 wird auf die gesamte
-    Saisonleistung angewendet.
     =====================================
     */
 
@@ -1161,9 +1118,7 @@ function addFinalPositionBreakdown(
 
 
     if (points <= 0) {
-
         return;
-
     }
 
 
@@ -1211,9 +1166,7 @@ function addCupBreakdown(
 
 
     if (!cup) {
-
         return;
-
     }
 
 
@@ -1309,11 +1262,11 @@ function addRecordBreakdown(
     Object.entries(
         leagueData.records
     ).forEach(
-
         ([
             recordName,
             recordData
         ]) => {
+
 
             const recordPoints =
 
@@ -1322,11 +1275,23 @@ function addRecordBreakdown(
                 ];
 
 
+            if (!recordPoints) {
+                return;
+            }
+
+
+            const managerIds =
+
+                getRecordHolderIds(
+                    recordName,
+                    recordData
+                );
+
+
             if (
-                !recordData ||
-                recordData.managerId !==
-                    manager.id ||
-                !recordPoints
+                !managerIds.includes(
+                    manager.id
+                )
             ) {
 
                 return;
@@ -1348,7 +1313,9 @@ function addRecordBreakdown(
                     ),
 
                 detail:
-                    "Aktueller Rekordhalter",
+                    managerIds.length > 1
+                        ? "Geteilter Rekordhalter"
+                        : "Aktueller Rekordhalter",
 
                 points:
                     recordPoints,
@@ -1359,7 +1326,6 @@ function addRecordBreakdown(
             });
 
         }
-
     );
 
 }
@@ -1485,7 +1451,7 @@ function createLegendRanking() {
 
 /*
 =========================================
-HILFSFUNKTIONEN FÜR DIE AUFSCHLÜSSELUNG
+HILFSFUNKTIONEN
 =========================================
 */
 

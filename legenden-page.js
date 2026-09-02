@@ -208,9 +208,7 @@ function createLegendCardHTML(
         <div class="legend-card-main">
 
             <p class="legend-card-category">
-
                 MANAGER
-
             </p>
 
 
@@ -250,16 +248,11 @@ function createLegendCardHTML(
         <div class="legend-card-score">
 
             <strong>
-
                 ${manager.legendPoints}
-
             </strong>
 
-
             <span>
-
                 Legendenpunkte
-
             </span>
 
         </div>
@@ -303,9 +296,7 @@ function createLegendCardHTML(
 
         ${
             award
-
                 ? `
-
                     <div class="
                         legend-card-award
                         ${award.className}
@@ -316,21 +307,15 @@ function createLegendCardHTML(
                             aria-hidden="true"
                         ></i>
 
-
                         <span>
-
                             ${escapeHTML(
                                 award.text
                             )}
-
                         </span>
 
                     </div>
-
                 `
-
                 : ""
-
         }
 
 
@@ -352,11 +337,8 @@ function createLegendCardHTML(
             >
 
                 <span>
-
                     Profil öffnen
-
                 </span>
-
 
                 <i
                     data-lucide="chevron-right"
@@ -384,7 +366,6 @@ function createLegendBreakdownHTML(
 ) {
 
     const breakdown =
-
         manager.legendBreakdown || [];
 
 
@@ -417,11 +398,8 @@ function createLegendBreakdownHTML(
                             aria-hidden="true"
                         ></i>
 
-
                         <span>
-
                             LP-Aufschlüsselung
-
                         </span>
 
                     </span>
@@ -430,11 +408,8 @@ function createLegendBreakdownHTML(
                     <span class="legend-breakdown-toggle-right">
 
                         <strong>
-
                             0 LP
-
                         </strong>
-
 
                         <i
                             class="legend-breakdown-chevron"
@@ -464,16 +439,11 @@ function createLegendBreakdownHTML(
                         <div>
 
                             <strong>
-
                                 Noch keine Legendenpunkte
-
                             </strong>
 
-
                             <span>
-
                                 Dieser Manager hat aktuell noch keine LP gesammelt.
-
                             </span>
 
                         </div>
@@ -501,16 +471,17 @@ function createLegendBreakdownHTML(
         groupedSections
             .map(section => {
 
+
                 const items =
 
                     section.items
-                        .map(item => {
+                        .map(
+                            item =>
 
-                            return createLegendBreakdownItemHTML(
-                                item
-                            );
-
-                        })
+                                createLegendBreakdownItemHTML(
+                                    item
+                                )
+                        )
                         .join("");
 
 
@@ -521,20 +492,16 @@ function createLegendBreakdownHTML(
                         <div class="legend-breakdown-section-title">
 
                             <span>
-
                                 ${escapeHTML(
                                     section.name
                                 )}
-
                             </span>
 
                         </div>
 
 
                         <div class="legend-breakdown-list">
-
                             ${items}
-
                         </div>
 
                     </div>
@@ -563,11 +530,8 @@ function createLegendBreakdownHTML(
                         aria-hidden="true"
                     ></i>
 
-
                     <span>
-
                         LP-Aufschlüsselung
-
                     </span>
 
                 </span>
@@ -576,11 +540,8 @@ function createLegendBreakdownHTML(
                 <span class="legend-breakdown-toggle-right">
 
                     <strong>
-
                         ${manager.legendPoints} LP
-
                     </strong>
-
 
                     <i
                         class="legend-breakdown-chevron"
@@ -607,25 +568,18 @@ function createLegendBreakdownHTML(
                     <div>
 
                         <span>
-
                             Legendenpunkte gesamt
-
                         </span>
 
-
                         <small>
-
                             Aktueller Stand
-
                         </small>
 
                     </div>
 
 
                     <strong>
-
                         ${manager.legendPoints} LP
-
                     </strong>
 
                 </div>
@@ -675,9 +629,7 @@ function createLegendBreakdownItemHTML(
             : `
 
                 <span class="legend-breakdown-base">
-
                     Basis
-
                 </span>
 
             `;
@@ -707,20 +659,15 @@ function createLegendBreakdownItemHTML(
             <div class="legend-breakdown-item-content">
 
                 <strong>
-
                     ${escapeHTML(
                         item.title
                     )}
-
                 </strong>
 
-
                 <span>
-
                     ${escapeHTML(
                         item.detail
                     )}
-
                 </span>
 
             </div>
@@ -746,9 +693,7 @@ function groupLegendBreakdown(
     breakdown
 ) {
 
-    const sections =
-        [];
-
+    const sections = [];
 
     const sectionMap =
         new Map();
@@ -824,72 +769,72 @@ function activateLegendBreakdowns() {
         );
 
 
-    buttons.forEach(button => {
+    buttons.forEach(
+        button => {
 
 
-        button.addEventListener(
-            "click",
-            () => {
+            button.addEventListener(
+                "click",
+                () => {
 
 
-                const panelId =
+                    const panelId =
 
-                    button.getAttribute(
-                        "aria-controls"
+                        button.getAttribute(
+                            "aria-controls"
+                        );
+
+
+                    const panel =
+
+                        document.getElementById(
+                            panelId
+                        );
+
+
+                    if (!panel) {
+                        return;
+                    }
+
+
+                    const currentlyOpen =
+
+                        button.getAttribute(
+                            "aria-expanded"
+                        ) === "true";
+
+
+                    button.setAttribute(
+
+                        "aria-expanded",
+
+                        currentlyOpen
+                            ? "false"
+                            : "true"
+
                     );
 
 
-                const panel =
+                    panel.hidden =
+                        currentlyOpen;
 
-                    document.getElementById(
-                        panelId
+
+                    button.classList.toggle(
+
+                        "legend-breakdown-toggle-open",
+
+                        !currentlyOpen
+
                     );
 
 
-                if (!panel) {
-
-                    return;
+                    refreshLucideIcons();
 
                 }
+            );
 
-
-                const currentlyOpen =
-
-                    button.getAttribute(
-                        "aria-expanded"
-                    ) === "true";
-
-
-                button.setAttribute(
-
-                    "aria-expanded",
-
-                    currentlyOpen
-                        ? "false"
-                        : "true"
-
-                );
-
-
-                panel.hidden =
-                    currentlyOpen;
-
-
-                button.classList.toggle(
-
-                    "legend-breakdown-toggle-open",
-
-                    !currentlyOpen
-
-                );
-
-
-                refreshLucideIcons();
-
-            }
-        );
-
-    });
+        }
+    );
 
 }
 
@@ -1017,53 +962,11 @@ function getPrimaryAward(
     }
 
 
-   function isRecordHolder(
-    manager
-) {
-
     if (
-        typeof leagueData ===
-            "undefined" ||
-        !leagueData.records
+        isRecordHolder(
+            manager
+        )
     ) {
-
-        return false;
-
-    }
-
-
-    return Object.values(
-        leagueData.records
-    ).some(record => {
-
-
-        if (!record) {
-
-            return false;
-
-        }
-
-
-        const managerIds =
-
-            Array.isArray(
-                record.managerIds
-            )
-
-                ? record.managerIds
-
-                : record.managerId
-                    ? [record.managerId]
-                    : [];
-
-
-        return managerIds.includes(
-            manager.id
-        );
-
-    });
-
-}
 
         return {
 
@@ -1108,20 +1011,39 @@ function isRecordHolder(
     }
 
 
-    return Object.values(
+    return Object.entries(
         leagueData.records
-    ).some(record => {
+    ).some(
+        ([
+            recordName,
+            recordData
+        ]) => {
 
-        return (
 
-            record &&
+            if (
+                typeof getRecordHolderIds !==
+                    "function"
+            ) {
 
-            record.managerId ===
+                return false;
+
+            }
+
+
+            const managerIds =
+
+                getRecordHolderIds(
+                    recordName,
+                    recordData
+                );
+
+
+            return managerIds.includes(
                 manager.id
+            );
 
-        );
-
-    });
+        }
+    );
 
 }
 
@@ -1138,7 +1060,6 @@ function getManagerLeagueLabel(
 ) {
 
     const mainRound =
-
         manager.mainRound || {};
 
 
@@ -1163,7 +1084,6 @@ function getManagerLeagueLabel(
 
 
     const qualification =
-
         manager.qualification || {};
 
 
@@ -1193,7 +1113,6 @@ function getManagerPositionLabel(
 ) {
 
     const mainRound =
-
         manager.mainRound || {};
 
 
@@ -1207,7 +1126,6 @@ function getManagerPositionLabel(
 
 
     const qualification =
-
         manager.qualification || {};
 
 
@@ -1237,9 +1155,7 @@ function renderLegendSummary(
 ) {
 
     if (!ranking.length) {
-
         return;
-
     }
 
 
@@ -1248,20 +1164,14 @@ function renderLegendSummary(
 
 
     setText(
-
         "summary-leader-name",
-
         leader.name
-
     );
 
 
     setText(
-
         "summary-leader-points",
-
         `${leader.legendPoints} LP`
-
     );
 
 
@@ -1273,22 +1183,16 @@ function renderLegendSummary(
 
 
     setText(
-
         "summary-highest-rank",
-
         highestRank.name
-
     );
 
 
     setText(
-
         "summary-highest-rank-count",
-
         formatManagerCount(
             highestRank.count
         )
-
     );
 
 
@@ -1297,7 +1201,6 @@ function renderLegendSummary(
         ranking.reduce(
 
             (sum, manager) =>
-
                 sum +
                 manager.legendPoints,
 
@@ -1307,13 +1210,10 @@ function renderLegendSummary(
 
 
     setText(
-
         "summary-average-points",
-
         `${Math.round(
             average
         )} LP`
-
     );
 
 }
@@ -1341,9 +1241,7 @@ function getHighestReachedRank(
 
 
                 if (!bestManager) {
-
                     return manager;
-
                 }
 
 
@@ -1353,7 +1251,6 @@ function getHighestReachedRank(
                 )
 
                     ? manager
-
                     : bestManager;
 
             },
@@ -1406,32 +1303,17 @@ function getPositionCardClass(
     position
 ) {
 
-    if (
-        position === 1
-    ) {
-
+    if (position === 1) {
         return "legend-card-first";
-
     }
 
-
-    if (
-        position === 2
-    ) {
-
+    if (position === 2) {
         return "legend-card-second";
-
     }
 
-
-    if (
-        position === 3
-    ) {
-
+    if (position === 3) {
         return "legend-card-third";
-
     }
-
 
     return "";
 
@@ -1443,32 +1325,17 @@ function getPositionBadgeClass(
     position
 ) {
 
-    if (
-        position === 1
-    ) {
-
+    if (position === 1) {
         return "gold";
-
     }
 
-
-    if (
-        position === 2
-    ) {
-
+    if (position === 2) {
         return "silver";
-
     }
 
-
-    if (
-        position === 3
-    ) {
-
+    if (position === 3) {
         return "bronze";
-
     }
-
 
     return "";
 
@@ -1522,9 +1389,7 @@ function showLegendsError() {
 
 
     if (!container) {
-
         return;
-
     }
 
 
@@ -1541,17 +1406,12 @@ function showLegendsError() {
             <div>
 
                 <h3>
-
                     Rangliste konnte nicht geladen werden
-
                 </h3>
 
-
                 <p>
-
                     Prüfe bitte, ob league-data.js und
                     legenden.js korrekt eingebunden sind.
-
                 </p>
 
             </div>
@@ -1586,10 +1446,8 @@ function setText(
 
 
     if (element) {
-
         element.textContent =
             value;
-
     }
 
 }
