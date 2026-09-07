@@ -204,31 +204,59 @@ const leagueData = {
         scores: {
 
             tim: 682,
-            tobsen: 1092,
+            tobsen: 1012,
             enrico: 538,
             bruno: 1156,
             nils: 1222,
             sauer: 567,
             marcel: 1141,
-            reichi: 1043,
+            reichi: 1038,
             messe: 1022,
 
             schwartzer: 764,
-            janis: 1172,
+            janis: 1152,
             heiko: 815,
             marco: 694,
             malik: 947,
-            nikolaj: 653,
+            nikolaj: 648,
             ben: 784,
             philipp: 844,
             fabio: 827
 
         }
 
+    },
+
+    {
+        matchday: 2,
+
+        scores: {
+
+            tim: 763,
+            tobsen: 558,
+            enrico: 922,
+            bruno: 572,
+            nils: 1849,
+            sauer: 1106,
+            marcel: 1124,
+            reichi: 380,
+            messe: 698,
+
+            schwartzer: 1026,
+            janis: 1201,
+            heiko: 779,
+            marco: 1208,
+            malik: 1076,
+            nikolaj: 362,
+            ben: 1019,
+            philipp: 1170,
+            fabio: 468
+
+        }
+
     }
 
 ],
-
 
     /*
     =====================================
