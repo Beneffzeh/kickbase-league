@@ -958,7 +958,6 @@ function renderNewsFaller() {
 
 }
 
-
 /*
 =========================================
 TOPSTORY
@@ -1008,8 +1007,158 @@ function renderNewsHero() {
 
 
     /*
-    Hauptstory = aktuell stärkster
-    Tabellenführer.
+    =====================================
+    QUALIFIKATION
+    =====================================
+    */
+
+    if (
+        phase ===
+        "qualification"
+    ) {
+
+        const managersOfWeek =
+            getNewsManagersOfWeek();
+
+
+        /*
+        Ab 1.500 Punkten wird eine
+        außergewöhnliche Leistung
+        automatisch zur Topstory.
+        */
+
+        if (
+            managersOfWeek.length === 1
+            &&
+            managersOfWeek[0].score >= 1500
+        ) {
+
+            const winner =
+                managersOfWeek[0];
+
+
+            setNewsText(
+                "news-hero-title",
+                `${winner.manager.name.toUpperCase()} ESKALIERT KOMPLETT!`
+            );
+
+
+            setNewsText(
+                "news-hero-description",
+                `${winner.manager.name} liefert mit ${formatNewsNumber(
+                    winner.score
+                )} Punkten einen überragenden Spieltag ab und setzt damit das bisherige Ausrufezeichen der Saison.`
+            );
+
+
+            setNewsHeroLink(
+                "/kickbase-league/qualifikationsligen.html",
+                "ZUR TABELLE"
+            );
+
+
+            return;
+
+        }
+
+
+        /*
+        Normaler Spieltag:
+        stärkster Tabellenführer
+        wird zur Topstory.
+        */
+
+        const leaders =
+            getNewsCurrentLeaders();
+
+
+        if (
+            leaders.length === 0
+        ) {
+
+            return;
+
+        }
+
+
+        const leader =
+            leaders
+                .sort(
+                    (
+                        a,
+                        b
+                    ) =>
+                        b.points -
+                        a.points
+                )[0];
+
+
+        /*
+        Headlines wechseln
+        automatisch nach Spieltag.
+        */
+
+        let title =
+            `${leader.manager.name.toUpperCase()} FÜHRT DAS FELD AN!`;
+
+
+        if (
+            matchday % 4 === 2
+        ) {
+
+            title =
+                `${leader.manager.name.toUpperCase()} SETZT SICH AN DIE SPITZE!`;
+
+        }
+
+        else if (
+            matchday % 4 === 3
+        ) {
+
+            title =
+                `${leader.manager.name.toUpperCase()} GIBT DEN TON AN!`;
+
+        }
+
+        else if (
+            matchday % 4 === 0
+        ) {
+
+            title =
+                `${leader.manager.name.toUpperCase()} BLEIBT DAS MASS DER DINGE!`;
+
+        }
+
+
+        setNewsText(
+            "news-hero-title",
+            title
+        );
+
+
+        setNewsText(
+            "news-hero-description",
+            `${leader.manager.name} führt aktuell die Qualifikation ${leader.competition} mit ${formatNewsNumber(
+                leader.points
+            )} Punkten an. Der Kampf um die Champions-League-Plätze nimmt weiter Fahrt auf.`
+        );
+
+
+        setNewsHeroLink(
+            "/kickbase-league/qualifikationsligen.html",
+            "ZUR TABELLE"
+        );
+
+
+        return;
+
+    }
+
+
+    /*
+    =====================================
+    HAUPTRUNDE
+    =====================================
     */
 
     const leaders =
@@ -1038,32 +1187,6 @@ function renderNewsHero() {
 
 
     if (
-        phase ===
-        "qualification"
-    ) {
-
-        setNewsText(
-            "news-hero-title",
-            `${leader.manager.name.toUpperCase()} SETZT DAS AUSRUFEZEICHEN!`
-        );
-
-
-        setNewsText(
-            "news-hero-description",
-            `${leader.manager.name} führt aktuell die Qualifikation ${leader.competition} mit ${formatNewsNumber(
-                leader.points
-            )} Punkten an. Der Kampf um die Champions-League-Plätze nimmt Fahrt auf.`
-        );
-
-
-        setNewsHeroLink(
-            "/kickbase-league/qualifikationsligen.html",
-            "ZUR TABELLE"
-        );
-
-    }
-
-    else if (
         leader.competition ===
         "Champions League"
     ) {
@@ -1113,7 +1236,6 @@ function renderNewsHero() {
     }
 
 }
-
 
 /*
 =========================================
