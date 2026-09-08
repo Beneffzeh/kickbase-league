@@ -232,23 +232,23 @@ const leagueData = {
 
         scores: {
 
-            tim: 763,
+            tim: 748,
             tobsen: 558,
             enrico: 922,
             bruno: 572,
             nils: 1849,
-            sauer: 1106,
+            sauer: 1151,
             marcel: 1124,
-            reichi: 380,
+            reichi: 440,
             messe: 698,
 
-            schwartzer: 1026,
+            schwartzer: 1071,
             janis: 1201,
             heiko: 779,
             marco: 1208,
             malik: 1076,
             nikolaj: 362,
-            ben: 1019,
+            ben: 1004,
             philipp: 1170,
             fabio: 468
 
