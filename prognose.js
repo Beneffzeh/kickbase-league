@@ -1365,6 +1365,114 @@ function getPredictionRealScores(
     competitionKey
 ) {
 
+    /*
+    =====================================
+    QUALIFIKATION
+    =====================================
+
+    Während der Qualifikation lesen wir
+    die tatsächlich eingetragenen
+    Spieltage direkt aus
+    qualificationMatchdays.
+
+    Dadurch gilt:
+
+    0 Punkte an einem bereits gespielten
+    Spieltag = echtes Ergebnis.
+
+    Ein noch nicht vorhandener Spieltag
+    wird dagegen NICHT mitgezählt.
+    */
+
+
+    if (
+        competitionKey ===
+            "qualification"
+        &&
+        typeof leagueData !==
+            "undefined"
+        &&
+        Array.isArray(
+            leagueData
+                .qualificationMatchdays
+        )
+    ) {
+
+        const scores =
+            [];
+
+
+        leagueData
+            .qualificationMatchdays
+            .forEach(
+                matchday => {
+
+                    if (
+                        !matchday ||
+                        !matchday.scores
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    /*
+                    Nur wenn für diesen
+                    Manager an diesem
+                    Spieltag tatsächlich
+                    ein Wert eingetragen ist,
+                    zählt der Spieltag.
+                    */
+
+                    if (
+                        Object.prototype
+                            .hasOwnProperty
+                            .call(
+                                matchday.scores,
+                                manager.id
+                            )
+                    ) {
+
+                        const score =
+                            Number(
+                                matchday
+                                    .scores[
+                                        manager.id
+                                    ]
+                            );
+
+
+                        if (
+                            Number.isFinite(
+                                score
+                            )
+                        ) {
+
+                            scores.push(
+                                score
+                            );
+
+                        }
+
+                    }
+
+                }
+            );
+
+
+        return scores;
+
+    }
+
+
+    /*
+    =====================================
+    ANDERE WETTBEWERBE
+    =====================================
+    */
+
+
     const competitionData =
         manager[
             competitionKey
@@ -1384,17 +1492,13 @@ function getPredictionRealScores(
 
 
     /*
-    WICHTIG:
+    Bei Champions League / Kreisliga
+    bleiben 0-Werte zunächst weiterhin
+    als "noch nicht gespielt" außen vor.
 
-    In league-data.js stehen vor dem
-    Saisonstart teilweise 0-Werte.
-
-    Diese bedeuten:
-
-    "Spieltag noch nicht gespielt"
-
-    und dürfen deshalb NICHT als echte
-    Kickbase-Leistung gewertet werden.
+    Für diese Phase können wir die Logik
+    später genauso auf echte
+    Spieltagsblöcke umstellen.
     */
 
 
@@ -1414,7 +1518,6 @@ function getPredictionRealScores(
         );
 
 }
-
 
 /*
 =========================================

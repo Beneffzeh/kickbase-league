@@ -1017,15 +1017,88 @@ function renderNewsHero() {
         "qualification"
     ) {
 
-        const managersOfWeek =
-            getNewsManagersOfWeek();
+        const leaders =
+            getNewsCurrentLeaders();
+
+
+        if (
+            leaders.length === 0
+        ) {
+
+            return;
+
+        }
+
+
+        const leaderA =
+            leaders.find(
+                leader =>
+                    leader.competition ===
+                    "A"
+            );
+
+
+        const leaderB =
+            leaders.find(
+                leader =>
+                    leader.competition ===
+                    "B"
+            );
 
 
         /*
-        Ab 1.500 Punkten wird eine
-        außergewöhnliche Leistung
-        automatisch zur Topstory.
+        =================================
+        SPIELTAG 3
+
+        Fokus auf die Gesamtlage
+        der beiden Qualifikationsgruppen.
+        =================================
         */
+
+        if (
+            matchday === 3
+            &&
+            leaderA
+            &&
+            leaderB
+        ) {
+
+            setNewsText(
+                "news-hero-title",
+                "DIE TABELLEN NEHMEN FORM AN!"
+            );
+
+
+            setNewsText(
+                "news-hero-description",
+                `Drei Spieltage sind absolviert und der Kampf um die Champions League wird konkreter. ${leaderA.manager.name} führt Quali A mit ${formatNewsNumber(
+                    leaderA.points
+                )} Punkten an, während ${leaderB.manager.name} mit ${formatNewsNumber(
+                    leaderB.points
+                )} Punkten an der Spitze von Quali B steht. Dahinter bleibt das Rennen um die Champions-League-Plätze völlig offen.`
+            );
+
+
+            setNewsHeroLink(
+                "/kickbase-league/qualifikationsligen.html",
+                "ZUR TABELLE"
+            );
+
+
+            return;
+
+        }
+
+
+        /*
+        =================================
+        BESONDERS STARKER SPIELTAG
+        =================================
+        */
+
+        const managersOfWeek =
+            getNewsManagersOfWeek();
+
 
         if (
             managersOfWeek.length === 1
@@ -1063,26 +1136,16 @@ function renderNewsHero() {
 
 
         /*
-        Normaler Spieltag:
-        stärkster Tabellenführer
+        =================================
+        NORMALER SPIELTAG
+
+        Stärkster Tabellenführer
         wird zur Topstory.
+        =================================
         */
 
-        const leaders =
-            getNewsCurrentLeaders();
-
-
-        if (
-            leaders.length === 0
-        ) {
-
-            return;
-
-        }
-
-
         const leader =
-            leaders
+            [...leaders]
                 .sort(
                     (
                         a,
@@ -1092,11 +1155,6 @@ function renderNewsHero() {
                         a.points
                 )[0];
 
-
-        /*
-        Headlines wechseln
-        automatisch nach Spieltag.
-        */
 
         let title =
             `${leader.manager.name.toUpperCase()} FÜHRT DAS FELD AN!`;
@@ -1236,7 +1294,6 @@ function renderNewsHero() {
     }
 
 }
-
 /*
 =========================================
 AKTUELLE TABELLENFÜHRER
