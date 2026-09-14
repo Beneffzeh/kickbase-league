@@ -195,8 +195,7 @@ const leagueData = {
     QUALIFIKATION – SPIELTAGSPUNKTE
     =====================================
     */
-
-    qualificationMatchdays: [
+qualificationMatchdays: [
 
     {
         matchday: 1,
@@ -232,32 +231,61 @@ const leagueData = {
 
         scores: {
 
-            tim: 748,
+            tim: 763,
             tobsen: 558,
             enrico: 922,
             bruno: 572,
             nils: 1849,
-            sauer: 1151,
+            sauer: 1106,
             marcel: 1124,
-            reichi: 440,
+            reichi: 380,
             messe: 698,
 
-            schwartzer: 1071,
+            schwartzer: 1026,
             janis: 1201,
             heiko: 779,
             marco: 1208,
             malik: 1076,
             nikolaj: 362,
-            ben: 1004,
+            ben: 1019,
             philipp: 1170,
             fabio: 468
+
+        }
+
+    },
+
+    {
+        matchday: 3,
+
+        scores: {
+
+            tim: 869,
+            tobsen: 1419,
+            enrico: 1263,
+            bruno: 0,
+            nils: 757,
+            sauer: 854,
+            marcel: 1025,
+            reichi: 1330,
+            messe: 1138,
+
+            schwartzer: 1135,
+            janis: 804,
+            heiko: 606,
+            marco: 1075,
+            malik: 1305,
+            nikolaj: 0,
+            ben: 956,
+            philipp: 1180,
+            fabio: 520
 
         }
 
     }
 
 ],
-
+    
     /*
     =====================================
     HAUPTRUNDE
