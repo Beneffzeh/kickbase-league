@@ -521,6 +521,31 @@ NEWS – TRANSFERS
 newsTransfers: [
 
 {
+    date: "2026-09-15",
+
+    managerId:
+        "schwartzer",
+
+    player:
+        "Harry Kane",
+
+    price:
+        68800000,
+
+    league:
+        "Qualifikation B",
+
+    image:
+        "/kickbase-league/news-kane.JPG",
+
+    title:
+        "JETZT DOCH! Schwartzer schnappt sich Harry Kane für 68,8 Mio. €",
+
+    text:
+        "Beim ersten Mal wollte ihn niemand – jetzt ist der Deal perfekt: Schwartzer verpflichtet Harry Kane für satte 68,8 Mio. € in Qualifikation B. Nach seinem kuriosen Auslaufen ohne Gebot hat einer der größten Stars der Liga damit endlich einen Besitzer gefunden."
+},
+
+{
     date: "2026-08-31",
 
     managerId:
