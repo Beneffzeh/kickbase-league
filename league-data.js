@@ -777,7 +777,80 @@ manualNews: [
             "KURIOSES IN QUALI B: Niemand will Harry Kane!",
 
         text:
-            "Damit hätte wohl niemand gerechnet: Harry Kane läuft in Qualifikation B tatsächlich ohne Gebot aus und findet keinen Besitzer. Einer der größten Stars der Liga bleibt damit vorerst auf dem Transfermarkt – ein äußerst ungewöhnlicher Vorgang.",
+            "Damit hätte wohl niemand gerechnet: Harry Kane läuft in Qualifikation B tatsächlich ohne Gebot aus und findet keinen Besitzer. Einer der größten Stars der Liga bleibt damit vorerst auf dem Transfermarkt – ein äußerst ungewöhnlicher Vorgang."
+    }
+
+],
+
+
+/*
+=========================================
+INTERVIEWS
+=========================================
+*/
+
+interviews: [
+
+    {
+        id:
+            "schwartzer-01",
+
+        date:
+            "2026-09-15",
+
+        managerId:
+            "schwartzer",
+
+        managerName:
+            "Schwartzer",
+
+        image:
+            "/kickbase-league/news-interview.PNG",
+
+        headline:
+            "Schwartzer: „Ich liebe den Druck – unter Druck entstehen Diamanten“",
+
+        teaser:
+            "Nach drei Spieltagen, einem turbulenten Saisonstart und dem 68,8-Millionen-Coup um Harry Kane spricht Schwartzer im ersten großen Interview der Kickbase League über seinen Kaderumbau, die Konkurrenz in Qualifikation B und seine Rolle als einer der Favoriten auf den Champions-League-Titel.",
+
+        introduction:
+            "Hallo und guten Tag an unsere wundervolle Community. Ich fühle mich sehr geehrt, den Auftakt dieser Interviewreihe machen zu dürfen. Vorab möchte ich ein großes Kompliment an den Organisator der Liga aussprechen. Durch die professionelle Gestaltung und den zusätzlichen Aufwand wird das Ganze noch einmal deutlich unterhaltsamer und macht dadurch noch mehr Spaß.",
+
+        questions: [
+
+            {
+                question:
+                    "68,8 Millionen für Harry Kane, ein echter Schnapper – hast du damit gerechnet, diesen Weltklasse-Spieler so günstig zu schießen?",
+
+                answer:
+                    "Harry Kane ist ein absoluter Glücksfall für meine Mannschaft. Wir sind schon sehr lange auf der Suche nach einem echten Torjäger, jetzt sind wir fündig geworden, und das ausgerechnet beim besten Torjäger der Liga. Wenn mir vor der Saison jemand gesagt hätte, dass ich Harry Kane für knapp 69 Millionen bekommen würde, hätte ich ihn vermutlich für verrückt erklärt. Aufgrund der Dynamik in unserer Liga und der Tatsache, dass die „Big Boys“ teilweise ohne Angebote durchlaufen, war mir allerdings klar, dass ich für Harry keinen übermäßigen Overpay hinlegen musste."
+            },
+
+            {
+                question:
+                    "Nach dem bisherigen Saisonverlauf: Wie zufrieden bist du mit deinem Team, deinen Ergebnissen und wo siehst du noch Verbesserungspotenzial?",
+
+                answer:
+                    "Zunächst einmal bin ich mit meinem Auftakt in die Saison durchaus zufrieden. Die ersten drei Spieltage haben bereits gezeigt, in welche Richtung es für meine Mannschaft gehen kann. Dabei gab es sowohl Höhen als auch Tiefen. Der negative Höhepunkt waren sicherlich die Minuspunkte von Nadiem Amiri am dritten Spieltag. Diese Frage steht allerdings auch in engem Zusammenhang mit der Tatsache, dass Harry Kane knapp 70 Millionen meines Budgets gebunden hat. Dadurch bin ich nun gezwungen, meine Mannschaft umfassend umzubauen. Wer am Freitagabend letztlich in meiner Startelf stehen wird, weiß aktuell wohl nur der liebe Gott. In dieser Woche geht es daher zunächst einmal darum, überhaupt elf konkurrenzfähige Starter auf den Platz zu bekommen. Verbesserungspotenzial sehe ich grundsätzlich in allen Mannschaftsteilen. Der klare Fokus liegt aktuell jedoch auf der Abwehr."
+            },
+
+            {
+                question:
+                    "Wenn du in Qualifikation B auf deine Konkurrenz schaust – wer überrascht dich, wer enttäuscht dich und wen siehst du als größten Rivalen?",
+
+                answer:
+                    "In unserer Qualifikationsrunde B bin ich vor allem von Malik und Philipp positiv überrascht. Beide haben ihre Kader bislang sehr smart zusammengestellt und stehen daher völlig zu Recht an der Spitze. Von den anderen Managern bin ich nicht enttäuscht, dafür ist die Saison noch viel zu jung. Wenn man überhaupt von einer kleinen Enttäuschung sprechen möchte, würde ich vielleicht Nik nennen. Er wurde von J.R. als echter Schwitzer angekündigt, konnte diesen Erwartungen bislang aber noch nicht ganz gerecht werden. Allerdings hat Nik bereits erklärt, dass ihm aktuell nur wenig Zeit zur Verfügung steht. Insofern ist das durchaus nachvollziehbar. Als meine größten Rivalen in der Liga sehe ich nach wie vor Ben und Janis. Daran haben auch die ersten drei Spieltage nichts geändert."
+            },
+
+            {
+                question:
+                    "Du gehörst laut Insidern der Liga zu einem der Favoriten auf den großen Champions-League-Titel. Spürst du diesen Druck oder gehst du ganz entspannt in die kommenden Wochen?",
+
+                answer:
+                    "Natürlich fühle ich mich geehrt, als einer der Favoriten auf den Champions-League-Titel gehandelt zu werden. Den damit verbundenen Druck spüre ich durchaus, aber ich kann damit umgehen. Das Gegenteil ist eigentlich der Fall. Ich liebe den Druck. Denn wie heißt es so schön: „Unter Druck entstehen Diamanten“. Ich sehe die Erwartungshaltung daher nicht als Belastung, sondern als zusätzliche Motivation. Letztlich müssen wir jetzt Woche für Woche liefern und zeigen, dass wir diesen Favoritenstatus auch verdient haben."
+            }
+
+        ]
 
     }
 

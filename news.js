@@ -73,7 +73,9 @@ function startNewsPage() {
 
     renderNewsHeader();
 
-    renderNewsLeaguePanels();
+renderNewsInterview();
+
+renderNewsLeaguePanels();
 
     renderNewsWeeklyAwards();
 
@@ -4225,6 +4227,487 @@ function refreshNewsIcons() {
     ) {
 
         window.lucide.createIcons();
+
+    }
+
+}
+
+/*
+=========================================
+INTERVIEW-SYSTEM
+=========================================
+*/
+
+
+function renderNewsInterview() {
+
+    const section =
+        document.getElementById(
+            "news-interview-section"
+        );
+
+
+    if (!section) {
+        return;
+    }
+
+
+    if (
+        !Array.isArray(
+            leagueData.interviews
+        )
+        ||
+        leagueData.interviews.length === 0
+    ) {
+
+        section.hidden = true;
+
+        return;
+
+    }
+
+
+    const interviews =
+        [...leagueData.interviews]
+            .sort(
+                (
+                    interviewA,
+                    interviewB
+                ) => {
+
+                    const dateA =
+                        interviewA.date
+                            ?
+                            new Date(
+                                interviewA.date
+                            ).getTime()
+                            :
+                            0;
+
+
+                    const dateB =
+                        interviewB.date
+                            ?
+                            new Date(
+                                interviewB.date
+                            ).getTime()
+                            :
+                            0;
+
+
+                    return dateB - dateA;
+
+                }
+            );
+
+
+    const interview =
+        interviews[0];
+
+
+    section.hidden = false;
+
+
+    const image =
+        interview.image ||
+        "/kickbase-league/news-interview.PNG";
+
+
+    const managerName =
+        interview.managerName ||
+        (
+            getNewsManagerById(
+                interview.managerId
+            )
+            ?
+            getNewsManagerById(
+                interview.managerId
+            ).name
+            :
+            "Kickbase League"
+        );
+
+
+    setNewsText(
+        "news-interview-manager",
+        managerName
+    );
+
+
+    setNewsText(
+        "news-interview-headline",
+        interview.headline ||
+        "Das Interview"
+    );
+
+
+    setNewsText(
+        "news-interview-teaser",
+        interview.teaser ||
+        ""
+    );
+
+
+    const featureImage =
+        document.getElementById(
+            "news-interview-image"
+        );
+
+
+    if (featureImage) {
+
+        featureImage.src =
+            image;
+
+
+        featureImage.alt =
+            interview.headline ||
+            "Kickbase League – Das Interview";
+
+    }
+
+
+    prepareNewsInterviewModal(
+        interview,
+        managerName,
+        image
+    );
+
+
+    const readButton =
+        document.getElementById(
+            "news-interview-read-button"
+        );
+
+
+    const closeButton =
+        document.getElementById(
+            "news-interview-close"
+        );
+
+
+    const backdrop =
+        document.getElementById(
+            "news-interview-modal-backdrop"
+        );
+
+
+    if (readButton) {
+
+        readButton.onclick =
+            openNewsInterview;
+
+    }
+
+
+    if (closeButton) {
+
+        closeButton.onclick =
+            closeNewsInterview;
+
+    }
+
+
+    if (backdrop) {
+
+        backdrop.onclick =
+            closeNewsInterview;
+
+    }
+
+
+    document.addEventListener(
+        "keydown",
+        handleNewsInterviewEscape
+    );
+
+
+    refreshNewsIcons();
+
+}
+
+
+/*
+=========================================
+INTERVIEW-MODAL VORBEREITEN
+=========================================
+*/
+
+
+function prepareNewsInterviewModal(
+    interview,
+    managerName,
+    image
+) {
+
+    setNewsText(
+        "news-interview-article-title",
+        interview.headline ||
+        "Das Interview"
+    );
+
+
+    setNewsText(
+        "news-interview-article-teaser",
+        interview.teaser ||
+        ""
+    );
+
+
+    setNewsText(
+        "news-interview-article-manager",
+        managerName
+    );
+
+
+    setNewsText(
+        "news-interview-introduction",
+        interview.introduction ||
+        ""
+    );
+
+
+    const formattedDate =
+        interview.date
+            ?
+            new Intl.DateTimeFormat(
+                "de-DE",
+                {
+                    day:
+                        "2-digit",
+
+                    month:
+                        "2-digit",
+
+                    year:
+                        "numeric"
+                }
+            ).format(
+                new Date(
+                    `${interview.date}T12:00:00`
+                )
+            )
+            :
+            "";
+
+
+    setNewsText(
+        "news-interview-article-date",
+        formattedDate
+    );
+
+
+    const articleImage =
+        document.getElementById(
+            "news-interview-article-image"
+        );
+
+
+    if (articleImage) {
+
+        articleImage.src =
+            image;
+
+
+        articleImage.alt =
+            interview.headline ||
+            "Kickbase League – Das Interview";
+
+    }
+
+
+    const questionsContainer =
+        document.getElementById(
+            "news-interview-questions"
+        );
+
+
+    if (!questionsContainer) {
+        return;
+    }
+
+
+    const questions =
+        Array.isArray(
+            interview.questions
+        )
+            ?
+            interview.questions
+            :
+            [];
+
+
+    questionsContainer.innerHTML =
+        questions
+            .map(
+                (
+                    item,
+                    index
+                ) => {
+
+                    return `
+
+                        <section class="news-interview-question">
+
+                            <div class="news-interview-question-number">
+                                ${String(
+                                    index + 1
+                                ).padStart(
+                                    2,
+                                    "0"
+                                )}
+                            </div>
+
+
+                            <div class="news-interview-question-content">
+
+                                <h3>
+                                    ${escapeNewsHTML(
+                                        item.question ||
+                                        ""
+                                    )}
+                                </h3>
+
+
+                                <p>
+                                    ${escapeNewsHTML(
+                                        item.answer ||
+                                        ""
+                                    )}
+                                </p>
+
+                            </div>
+
+                        </section>
+
+                    `;
+
+                }
+            )
+            .join("");
+
+}
+
+
+/*
+=========================================
+INTERVIEW ÖFFNEN
+=========================================
+*/
+
+
+function openNewsInterview() {
+
+    const modal =
+        document.getElementById(
+            "news-interview-modal"
+        );
+
+
+    if (!modal) {
+        return;
+    }
+
+
+    modal.hidden = false;
+
+
+    document.body.classList.add(
+        "news-interview-open"
+    );
+
+
+    requestAnimationFrame(
+        () => {
+
+            modal.classList.add(
+                "news-interview-modal-visible"
+            );
+
+        }
+    );
+
+
+    refreshNewsIcons();
+
+}
+
+
+/*
+=========================================
+INTERVIEW SCHLIESSEN
+=========================================
+*/
+
+
+function closeNewsInterview() {
+
+    const modal =
+        document.getElementById(
+            "news-interview-modal"
+        );
+
+
+    if (!modal) {
+        return;
+    }
+
+
+    modal.classList.remove(
+        "news-interview-modal-visible"
+    );
+
+
+    document.body.classList.remove(
+        "news-interview-open"
+    );
+
+
+    window.setTimeout(
+        () => {
+
+            modal.hidden = true;
+
+        },
+        220
+    );
+
+}
+
+
+/*
+=========================================
+ESC-TASTE
+=========================================
+*/
+
+
+function handleNewsInterviewEscape(
+    event
+) {
+
+    if (
+        event.key !==
+        "Escape"
+    ) {
+
+        return;
+
+    }
+
+
+    const modal =
+        document.getElementById(
+            "news-interview-modal"
+        );
+
+
+    if (
+        modal &&
+        !modal.hidden
+    ) {
+
+        closeNewsInterview();
 
     }
 
