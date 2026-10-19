@@ -340,7 +340,7 @@ qualificationMatchdays: [
 
     }
 
-}
+},
 
 {
     matchday: 6,
