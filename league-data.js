@@ -935,6 +935,84 @@ interviews: [
                     "Natürlich fühle ich mich geehrt, als einer der Favoriten auf den Champions-League-Titel gehandelt zu werden. Den damit verbundenen Druck spüre ich durchaus, aber ich kann damit umgehen. Das Gegenteil ist eigentlich der Fall. Ich liebe den Druck. Denn wie heißt es so schön: „Unter Druck entstehen Diamanten“. Ich sehe die Erwartungshaltung daher nicht als Belastung, sondern als zusätzliche Motivation. Letztlich müssen wir jetzt Woche für Woche liefern und zeigen, dass wir diesen Favoritenstatus auch verdient haben."
             }
 
+                ]
+
+    },
+
+
+    /*
+    =========================================
+    INTERVIEW 02 – TOBSEN
+    =========================================
+    */
+
+    {
+        id:
+            "tobsen-01",
+
+        date:
+            "2026-10-23",
+
+        managerId:
+            "tobsen",
+
+        managerName:
+            "Tobsen",
+
+        image:
+            "/kickbase-league/news-interview.PNG",
+
+        headline:
+            "Tobsen: „Managerskill ist unerlässlich für eine gute Saison“",
+
+        teaser:
+            "7.629 Punkte, drei Spieltagssiege und Platz 1 nach gerade einmal sechs Spieltagen: Tobsen dominiert bislang die Qualifikation A. Im Interview spricht der Spitzenreiter über seinen Traumstart, die Konkurrenz, seine Geheimnisse für die Champions League – und hat zum Abschluss noch eine deutliche Botschaft an Tim.",
+
+        introduction:
+            "Nach sechs Spieltagen steht Tobsen an der Spitze der Qualifikation A. 7.629 Punkte und bereits drei Spieltagssiege sprechen eine deutliche Sprache. Doch wie bewertet er seinen eigenen Saisonstart? Wer hat ihn bislang überrascht? Und was erwartet die Konkurrenz, sollte Tobsen in die Champions League einziehen? Im zweiten großen Interview der Kickbase League stellt sich der Spitzenreiter unseren Fragen.",
+
+        questions: [
+
+            {
+                question:
+                    "7.629 Punkte, 3 Spieltagssiege nach gerade einmal 6 Spieltagen. Hätte der Saisonstart überhaupt besser verlaufen können?",
+
+                answer:
+                    "Tatsächlich habe ich mir nach den ersten beiden Spieltagen fast schon Sorgen gemacht. Mit „nur“ 1.500 Punkten hatte ich gerade einmal die Hälfte vom Ersten (Nils). Dass dann in den letzten 4 Spieltagen 3 Spieltagssiege zusammenkamen und das mit wirklich guten Punkten, habe ich nicht so erwartet. Dabei hatte ich schon sehr viel Glück: Spieltag 3: 2 Tore Engelhardt und 2 Tore Nmecha nach Einwechslung! Spieltag 5: Vandevoort (335) und Schlotterbeck + Caci. Und jetzt an Spieltag 6, wo endlich bei Díaz der Knoten geplatzt ist. Hoffentlich hat der sich nicht schlimmer verletzt. Ich glaube aber, dass mein großer Vorteil war, dass ich in der diesmal langen Länderspielpause ordentlich Geld machen konnte. So konnte ich mein Team stark upgraden und sehe dieses Team aktuell als eines der stärksten, wenn nicht gar als das stärkste Team der Liga."
+            },
+
+            {
+                question:
+                    "Wie siehst du deine Liga-Konkurrenz nach den ersten Spielen? Gibt es für dich irgendwelche positiven oder negativen Überraschungen?",
+
+                answer:
+                    "Die größte positive Überraschung bisher muss Enrico sein. Dass er ein ordentlicher Manager ist, war klar. Aber wie konstant stark sein Team bisher punktet, ist wirklich top. Ein aktuell verdienter 3. Platz mit einer tollen Startelf. Von den beiden Giesselmännern habe ich nichts anderes erwartet als starke Konkurrenz. Aber damit kommen wir zu meinen negativen Überraschungen. Da sehe ich definitiv Reichi bisher. Wie wir aus den letzten Jahren wissen, eigentlich ein unglaublich guter Manager. Bis dato aber nur Platz 5. Für die CL wird es am Ende aber auch für ihn reichen, da bin ich mir sicher. Ansonsten bin ich auch noch negativ von Bruno überrascht. Aktuell Vorletzter, da habe ich nach der Vorbereitung mehr erwartet. Zwar einen Spieltag im Minus gewesen, aber selbst mit diesem wäre er nicht viel weiter oben."
+            },
+
+            {
+                question:
+                    "Die Champions-League-Quali solltest du ja quasi schon fast sicher haben, wenn es nur halb so gut weiterläuft. Worauf müssen deine Manager-Kollegen aus Quali B achten, sobald die Champions League losgeht?",
+
+                answer:
+                    "Sicher ist natürlich noch nichts, vor allem bei dieser Konkurrenz. Ich hoffe einfach, dass das Team so weiter performen kann und ich von möglichst vielen Verletzungen verschont bleibe. Zu viel für die CL will ich natürlich noch nicht ausplaudern. Jeder wird wissen, dass ich ein starker Manager bin und man mir nichts schenken darf. Meine Taktik zum Start der CL bleibt dementsprechend auch erst einmal geheim."
+            },
+
+            {
+                question:
+                    "Laut Insidern bist du sogar in mehreren Ligen am Managen. Ziehst du dort auch alle ab oder hast du aktuell einfach nur Glück in der Kickbase League?",
+
+                answer:
+                    "Das ist natürlich richtig. Ich spiele in 4 kompetitiven Ligen sehr aktiv. In 3 von 4 Ligen sieht es ähnlich gut aus wie in der Quali. Nur in einer will es wirklich nicht laufen… Glück gehört natürlich auch immer dazu, wie ich ja bereits oben erwähnt habe. Managerskill ist aber definitiv unerlässlich für eine gute Saison."
+            },
+
+            {
+                question:
+                    "Zu guter Letzt: Gibt's noch einen Gruß an den lieben Tim? 877 Punkte waren bisher sein Bestwert – das hört sich ja schlimmer an als die aktuelle Saison der Derbyverlierer vom Niederrhein.",
+
+                answer:
+                    "Wenn der liebe Tim mal so hart an seinem Team arbeiten würde wie auf seiner Arbeit oder noch viel besser: in der Heartbar, dann wäre er ganz oben dabei. Aber aktuell zeigt er hier eher seine Knowwell-Leistung – die ist bodenlos."
+            }
+
         ]
 
     }
