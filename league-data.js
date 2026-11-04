@@ -664,6 +664,31 @@ NEWS – TRANSFERS
 newsTransfers: [
 
 {
+    date: "2026-11-04",
+
+    managerId:
+        "ben",
+
+    player:
+        "Michael Olise",
+
+    price:
+        69000000
+
+    league:
+        "Qualifikation B",
+
+    image:
+        "/kickbase-league/news-olise.JPG",
+
+    title:
+        "Ben schnappt sich seinen zweiten Big Boy!",
+
+    text:
+        "Nach langer Zeit ist mal wieder ein echter Top-Transfer zu melden. Ben schnappt sich in Quali B den besten Spieler der App für 69 Mio. Damit stehen für ihn nun Kimmich und Olise gemeinsam auf dem Platz!"
+},
+
+{
     date: "2026-09-15",
 
     managerId:
