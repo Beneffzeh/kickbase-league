@@ -673,7 +673,7 @@ newsTransfers: [
         "Michael Olise",
 
     price:
-        69000000
+        69000000,
 
     league:
         "Qualifikation B",
