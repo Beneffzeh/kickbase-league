@@ -436,21 +436,21 @@ qualificationMatchdays: [
     scores: {
 
         tim: 539,
-        tobsen: 1495,
+        tobsen: 1475,
         enrico: 1447,
-        bruno: 1467,
+        bruno: 1452,
         nils: 1073,
         sauer: 863,
         marcel: 1033,
         reichi: 1865,
         messe: 841,
 
-        schwartzer: 1750,
-        janis: 1698,
+        schwartzer: 1755,
+        janis: 1673,
         heiko: 474,
         marco: 732,
         malik: 869,
-        nikolaj: 1365,
+        nikolaj: 1273,
         ben: 1683,
         philipp: 1195,
         fabio: 1012
