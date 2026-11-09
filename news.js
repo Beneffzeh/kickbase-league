@@ -1013,37 +1013,6 @@ function renderNewsHero() {
     QUALIFIKATION
     =====================================
     */
-    
-    if (
-    phase ===
-    "qualification"
-) {
-
-    if (
-        matchday === 9
-    ) {
-
-        setNewsText(
-            "news-hero-title",
-            "REICHI STELLT NEUEN PUNKTEREKORD AUF – BEN ÜBERNIMMT DIE TABELLENFÜHRUNG IN QUALI B!"
-        );
-
-        setNewsText(
-            "news-hero-description",
-            "Reichi sorgt mit 1.865 Punkten für einen neuen Spieltagsrekord und übertrifft damit Nils' bisherigen Bestwert von 1.849 Punkten. Gleichzeitig übernimmt Ben mit starken 1.683 Punkten die Tabellenführung in Quali B. Der Kampf um die Champions-League-Plätze spitzt sich weiter zu!"
-        );
-
-        setNewsHeroLink(
-            "/kickbase-league/qualifikationsligen.html",
-            "ZUR TABELLE"
-        );
-
-        return;
-
-    }
-
-    const managersOfWeek =
-        getNewsManagersOfWeek();
 
     if (
         phase ===
